@@ -128,7 +128,7 @@ class EmploymentController extends Controller
 
         $department=Department::where('DepartmentName','ترجمه')->get('id');
         $role=Role::where('RoleName','مترجم')->get('id');
-        $MenuItems=serialize(UserMenu::where('Role_id','$role')->get('MenuItem'));
+        $MenuItems=serialize(UserMenu::where('Role_id','$role')->get('id'));
 
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
