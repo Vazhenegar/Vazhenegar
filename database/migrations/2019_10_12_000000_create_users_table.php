@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('UserDocuments')->nullable();
             $table->tinyInteger('Department')->unsigned();
             $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus
-            $table->integer('Menus')->unsigned()->nullable();
+            $table->integer('Menus')->unsigned();
             $table->string('BankCard')->nullable();
             $table->string('ProfilePhoto')->nullable();
             $table->rememberToken();
