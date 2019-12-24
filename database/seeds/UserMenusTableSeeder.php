@@ -48,6 +48,12 @@ class UserMenusTableSeeder extends Seeder
                 'menu'=>'منوی مترجم 2',
                 'url'=>'',
             ],
+            [
+                'dep-id'=>'4',
+                'role-id'=>'8',
+                'menu'=>'منوی مترجم 3',
+                'url'=>'',
+            ],
         ];
         foreach ($menus as $menu) {
             DB::table('user_menus')->insert([
