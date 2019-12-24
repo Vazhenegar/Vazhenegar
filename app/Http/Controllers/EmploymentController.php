@@ -128,7 +128,7 @@ class EmploymentController extends Controller
 
         $department=Department::where('DepartmentName','ترجمه')->get('id');
         $role=Role::where('RoleName','مترجم')->get('id');
-        $MenuItems=UserMenu::where('Role_id','$role')->get('MenuItem');
+        $MenuItems=serialize(UserMenu::where('Role_id','$role')->get('MenuItem'));
 
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
@@ -149,6 +149,10 @@ class EmploymentController extends Controller
         $translator->UserSelectedLangs = $TranslatorSelectedLangs;
         $translator->TranslationFields = $TranslationFields;
         $translator->UserDocuments = $filename;
+        $translator->Department = $department;
+        $translator->Role = $role;
+        $translator->Menus = $MenuItems;
+
         $translator->saveOrFail();
         $t_id=$translator->id;
         dd($t_id);
