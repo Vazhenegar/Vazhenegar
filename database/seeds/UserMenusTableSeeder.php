@@ -33,7 +33,7 @@ class UserMenusTableSeeder extends Seeder
             [
                 'dep-id'=>'1',
                 'role-id'=>'1',
-                'menu'=>'منوی مدیریت 3',
+                'menu'=>'منوی مدیریت 4',
                 'url'=>'',
             ],
           [
