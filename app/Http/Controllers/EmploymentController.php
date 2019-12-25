@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\employment;
 use App\User;
-use App\UserMenu;
 use Illuminate\Http\Request;
 use App\State;
 use App\Language;
@@ -157,8 +156,8 @@ class EmploymentController extends Controller
         $translator->Menus = $MenuItems;
 
         $translator->saveOrFail();
-        $t_id=$translator->id;
-        dd($t_id);
+        return redirect()->route('quiz', [$translator]);
+
 
 //run command (php artisan storage:link) in terminal to link storage\app folder to public\storage to use in whole website
 
@@ -209,5 +208,10 @@ class EmploymentController extends Controller
     public function destroy(employment $employment)
     {
         //
+    }
+
+    public function quiz(User $user)
+    {
+        return view('vazhenegar/translator-quiz', compact('user'));
     }
 }

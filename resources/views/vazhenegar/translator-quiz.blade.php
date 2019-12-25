@@ -1,1 +1,1 @@
-<p>this is quiz page for translator with id {{$t_id}}</p>
+<p>this is quiz page for translator with id of {{$user->id}}</p>
