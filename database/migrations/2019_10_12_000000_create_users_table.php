@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration
             $table->string('Menus');
             $table->string('BankCard')->nullable();
             $table->string('ProfilePhoto')->nullable();
-            $table->char('Status')->default('P');//to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive
+            $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
             $table->rememberToken();
             $table->timestamps();
 
@@ -49,6 +49,10 @@ class CreateUsersTable extends Migration
 
             $table->foreign('Role')
                 ->references('id')->on('roles')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('Status')
+                ->references('id')->on('user_statuses')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }
