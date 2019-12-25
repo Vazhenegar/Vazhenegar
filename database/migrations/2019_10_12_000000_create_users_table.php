@@ -33,9 +33,9 @@ class CreateUsersTable extends Migration
             $table->longText('UserSelectedLangs')->nullable(); //for translators
             $table->longText('TranslationFields')->nullable(); //for translators
             $table->string('UserDocuments')->nullable();
-            $table->tinyInteger('Department')->unsigned();
-            $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus
-            $table->integer('Menus')->unsigned();
+            $table->tinyInteger('Department')->unsigned();//foreign key for determine user department.
+            $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus.
+            $table->string('Menus');
             $table->string('BankCard')->nullable();
             $table->string('ProfilePhoto')->nullable();
             $table->rememberToken();
@@ -48,10 +48,6 @@ class CreateUsersTable extends Migration
 
             $table->foreign('Role')
                 ->references('id')->on('roles')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('Menus')
-                ->references('id')->on('user_menus')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }

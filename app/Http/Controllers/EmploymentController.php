@@ -45,8 +45,6 @@ class EmploymentController extends Controller
      */
     public function index()
     {
-        $items=UserMenu::where('Role_id','8')->get('MenuItem');
-
         $states = State::all();
         $languages = Language::all();
         $translation_fields = TranslationField::all();
@@ -57,6 +55,11 @@ class EmploymentController extends Controller
 
     }
 
+    public function usermenus(Role $role_id)
+    {
+        return $role_id->usermenus()->pluck('id');
+
+    }
     /**
      * Retrive cities name based on state selected by user
      * @param State $state_id
@@ -88,7 +91,7 @@ class EmploymentController extends Controller
         $rules = [
             'FirstName' => ['required', 'regex:/^[\pL\s\-]+$/u'], //acceps alpha and space in this field
             'LastName' => ['required', 'regex:/^[\pL\s\-]+$/u'],  //acceps alpha and space in this field
-            'BirthDate' => ['required'],
+//            'BirthDate' => ['required'],
             'Gender' => ['required', 'boolean'],
             'Email' => ['required', 'email', 'unique:users'],
             'Password' => ['required', 'confirmed'],
@@ -99,7 +102,7 @@ class EmploymentController extends Controller
             'City' => ['required', 'numeric', 'min:1', 'max:429'],
             'Address' => ['required', 'max:150'],
             'Degree' => ['required', 'regex:/^[\pL\s\-]+$/u'], //acceps alpha and space in this field
-            'GraduationDate' => ['required'],
+//            'GraduationDate' => ['required'],
             'GraduationField' => ['required', 'regex:/^[\pL\s\-\/]+$/u'], //acceps alpha and space and '/' in this field
             'Resume' => ['nullable'],
             'UserSelectedLangs' => ['required'],
@@ -126,9 +129,9 @@ class EmploymentController extends Controller
             $uploaded->storeAs('public\Documentation\Translators', $filename);
         }
 
-        $department=Department::where('DepartmentName','ترجمه')->get('id');
-        $role=Role::where('RoleName','مترجم')->get('id');
-        $MenuItems=serialize(UserMenu::where('Role_id','$role')->get('id'));
+        $department=Department::where('DepartmentName','ترجمه')->pluck('id')->first();
+        $role=Role::where('RoleName','مترجم')->pluck('id')->first();
+        $MenuItems= serialize(Role::find($role)->usermenus()->pluck('id')); //get array of menu id's belongs to user role
 
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
