@@ -2183,9 +2183,20 @@ input:focus {
     text-transform: capitalize;
 }
 
+.breadcrumb-area .description {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .breadcrumb-area .title {
         font-size: 25px;
+    }
+    .breadcrumb-area .description {
+        font-size: 14px;
+        margin-bottom: 0;
     }
 }
 
@@ -2193,11 +2204,19 @@ input:focus {
     .breadcrumb-area .title {
         font-size: 22px;
     }
+    .breadcrumb-area .description {
+        font-size: 13px;
+        margin-bottom: 0;
+    }
 }
 
 @media only screen and (max-width: 767px) {
     .breadcrumb-area .title {
         font-size: 20px;
+    }
+    .breadcrumb-area .description {
+        font-size: 12px;
+        margin-bottom: 0;
     }
 }
 

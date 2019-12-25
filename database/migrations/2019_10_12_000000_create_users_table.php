@@ -37,7 +37,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus.
             $table->string('Menus');
             $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
-            $table->longText('QuizResult')->nullable();
+            $table->longText('QuizAnswer')->nullable();
             $table->string('BankCard')->nullable();
             $table->string('ProfilePhoto')->nullable();
             $table->rememberToken();
