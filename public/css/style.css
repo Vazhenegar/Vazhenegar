@@ -2248,15 +2248,15 @@ input:focus {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .timer {
-        margin-left: 90px;
-        font-size: 20px;
+        margin-left: 120px;
+        font-size: 14px;
     }
 }
 
 @media only screen and (max-width: 767px) {
     .timer {
-        margin-left: 90px;
-        font-size: 20px;
+        margin-left: 120px;
+        font-size: 14px;
     }
 }
 
