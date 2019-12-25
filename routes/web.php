@@ -16,3 +16,7 @@ Route::get('/employment/city/{state_id}', 'EmploymentController@cities');
 Route::get('/employment/quiz', 'EmploymentController@quiz')->name('quiz');
 //Route::get('/employment/quiz/{user}', 'EmploymentController@quiz')->name('quiz');
 Route::resource('employment', EmploymentController::class);
+
+Route::get('/tmp',function (){
+    return view('vazhenegar/tmp');
+});

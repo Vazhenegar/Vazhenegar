@@ -22,12 +22,20 @@
         </div>
     </div>
     <!-- ***** Breadcrumb Area End ***** -->
-    <div class="container mb-15" dir="ltr">
+
+    <!-- ***** ‏Timer Goes Here ***** -->
+    <div class="container col-12 mb-15" dir="ltr">
         <div class="row">
-            timer goes here.
+            <div class="timer">
+                <span class="col-2" id="cd-min">00</span>
+                <span>:</span>
+                <span class="col-2" id="cd-sec">00</span>
+                <span class="col-2" id="cd-sec">زمان باقی مانده </span>
+            </div>
         </div>
     </div>
-    <!-- ***** Why Choose Us Area Start ***** -->
+    <!-- ***** Timer Area End ***** -->
+    <!-- ***** Quiz Area Start ***** -->
     <section class="uza-why-choose-us-area">
         <div class="container">
             <div class="row align-items-center">
@@ -35,18 +43,32 @@
                 <form action="#" method="post"></form>
                 <div class="col-12">
                     <div class="form-group">
-                        <textarea class="form-control mb-30" name="QuizText">this is Quiz textarea.</textarea>
+                        <textarea class="form-control mb-30" name="QuizText" rows="10" disabled>this is Quiz textarea.
+                        this text is fetched from db to show to translator.
+                            it is a multiline text.
+                            but we dont want user to be able to change the source text.
+                            so we are goint to disable this textarea and see if it work properly or no
+                            at the same time we dont want it to stretch too much
+                            now if this
+                            text goes
+                            so long
+                            and long
+                            and long
+                            the textarea wont be too long
+                            and it contains scrollbar
+                            to see the rest of this text.
+                        </textarea>
                     </div>
                 </div>
 
                 <div class="col-12" dir="rtl">
                     <div class="form-group">
-                        <textarea class="form-control mb-30" name="QuizAnswer">این محل ترجمه است.</textarea>
+                        <textarea class="form-control mb-30" name="QuizAnswer" rows="10" required></textarea>
                     </div>
                 </div>
 
                 <div class="col-12 mb-30">
-                    <button type="submit" class="btn uza-btn btn-2 mt-15">ارسال</button>
+                    <button type="submit" class="quiz-submit btn uza-btn btn-2 mt-15">ارسال</button>
                 </div>
 
                 </form>

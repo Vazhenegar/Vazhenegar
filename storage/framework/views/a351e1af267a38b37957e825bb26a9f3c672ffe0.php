@@ -18,11 +18,11 @@
 
     <!-- Demo Font Embed -->
     <!-- ------------------------------------------------------------------------------------ -->
-    <link href="{{asset('css/fontiran.css')}}" rel="stylesheet"/>
+    <link href="<?php echo e(asset('css/fontiran.css')); ?>" rel="stylesheet"/>
 
     <!-- Persian Datepicker Style -->
     <!-- ------------------------------------------------------------------------------------ -->
-    <link id="datepickerTheme" href="{{asset('css/persian-datepicker.css')}}" rel="stylesheet"/>
+    <link id="datepickerTheme" href="<?php echo e(asset('css/persian-datepicker.css')); ?>" rel="stylesheet"/>
 
     <!-- Theme Switcher -->
     <!-- ------------------------------------------------------------------------------------ -->
@@ -60,7 +60,7 @@
 
 <body>
 
-{{--Timer--}}
+
 
     <div>
         <div id="cd-min">00</div>
@@ -70,49 +70,49 @@
         <div>ثانیه</div>
     </div>
 
-{{--End of timer--}}
-{{--<div class="container">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-xs-12">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-xs-12 col-md-4">--}}
-{{--                    <div class="panel panel-default">--}}
-{{--                        <div class="panel-heading">--}}
-{{--                            <h3 class="panel-title">Input Sample without intial value observer true</h3>--}}
-{{--                        </div>--}}
-{{--                        <div class="panel-body">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <input id="normalAlt" class="form-control pwt-datepicker-input-element"/>--}}
-{{--                            </div>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <input class="form-control" id="normal"/>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
 
 
-{{--<br> <br>--}}
 
 
-{{-- Dependent select box --}}
 
-{{--<select name="state" id="state">--}}
-{{--    <option value=""></option>--}}
-{{--    @foreach ($states as $state)--}}
 
-{{--        <option value="{{$state->id}}">{{$state->state_name}}</option>--}}
-{{--    @endforeach--}}
 
-{{--</select>--}}
 
-{{--<select name="city" id="city">--}}
-{{--    <option value="">select state</option>--}}
-{{--</select>--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- Jquery (required dependency) -->
@@ -190,8 +190,8 @@
     });
 </script>
 
-{{-- dependent select box --}}
-{{-- Retrive city names based on state selected by user --}}
+
+
 <script>
     $(document).ready(function () {
         $('#state').on('change', function () {
@@ -217,7 +217,7 @@
 
 </script>
 
-{{--timer js--}}
+
 <script>
 let counter = {};
 window.addEventListener("load", function () {
@@ -251,7 +251,8 @@ counter.sec.innerHTML = secs;
 }
 });
 </script>
-{{--timer end--}}
+
 </body>
 
 </html>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/tmp.blade.php ENDPATH**/ ?>
