@@ -54,11 +54,6 @@ class EmploymentController extends Controller
 
     }
 
-    public function usermenus(Role $role_id)
-    {
-        return $role_id->usermenus()->pluck('id');
-
-    }
     /**
      * Retrive cities name based on state selected by user
      * @param State $state_id
@@ -156,7 +151,8 @@ class EmploymentController extends Controller
         $translator->Menus = $MenuItems;
 
         $translator->saveOrFail();
-        return redirect()->route('quiz', [$translator]);
+        session(['user' => $translator]);
+        return redirect()->to('quiz');
 
 
 //run command (php artisan storage:link) in terminal to link storage\app folder to public\storage to use in whole website
@@ -210,8 +206,4 @@ class EmploymentController extends Controller
         //
     }
 
-    public function quiz(User $user)
-    {
-        return view('vazhenegar/translator-quiz', compact('user'));
-    }
 }

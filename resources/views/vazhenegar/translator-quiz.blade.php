@@ -1,4 +1,3 @@
-{{--<p>this is quiz page for translator with id of {{$user->id}}</p>--}}
 @extends('vazhenegar.layout.MasterLayout')
 @section('PageTitle', 'آزمون آنلاین')
 
@@ -13,6 +12,7 @@
                     <h1 class="title">آزمون آنلاین</h1>
                     <h3 class="description">متن زیر را تا قبل از اتمام زمان، با دقت ترجمه کنید و در کادر پایین
                         بنویسید.</h3>
+                    <h3><p>this is quiz page for translator with id of {{$user->id}} and the name of {{$user->FirstName}}</p></h3>
                 </div>
             </div>
         </div>
