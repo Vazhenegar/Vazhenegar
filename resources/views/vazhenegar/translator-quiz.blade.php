@@ -3,7 +3,7 @@
 
 @section('content')
 
-
+    @include('vazhenegar.layout.timer')
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
         <div class="container h-100">
