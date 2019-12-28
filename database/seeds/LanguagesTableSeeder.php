@@ -12,24 +12,14 @@ class LanguagesTableSeeder extends Seeder
     public function run()
     {
         $language_list = [
-            'آلمانی',
-            'ارمنی',
-            'اسپانیایی',
             'انگلیسی',
-            'ایتالیایی',
             'ترکی آذربایجانی',
             'ترکی استانبولی',
-            'چینی',
             'روسی',
-            'ژاپنی',
-            'سوئدی',
             'عربی',
             'فارسی',
-            'فرانسه',
             'کردی',
-            'کره ای',
-            'لهستانی',
-            'هلندی',
+
         ];
 
         foreach ($language_list as $language) {

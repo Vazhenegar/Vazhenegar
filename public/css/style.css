@@ -3655,3 +3655,49 @@ input[type="number"]::-webkit-outer-spin-button {
     direction: ltr;
     text-align: right;
 }
+
+/*login*/
+.login-container{
+    margin: 5% 20% 5% 30%;
+}
+.login-form-1{
+    padding: 3%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-form-1 h1{
+    font-size: 16px;
+}
+.login-container form{
+    padding: 5%;
+}
+
+.login-container .login-form-1 .input{
+    margin: auto;
+    display: block;
+    text-align: center;
+    width:300px ;
+}
+
+.login-container .login-form-1 .display-block{
+    margin: auto;
+    display: inline-block;
+}
+
+.login-form-1 .loginBtnSubmit{
+    font-size: 13px;
+    height: 40px;
+    min-width: 50px;
+    max-width: fit-content;
+    position: relative;
+    line-height: 30px;
+    font-weight: 400;
+    display:inline;
+}
+
+
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}

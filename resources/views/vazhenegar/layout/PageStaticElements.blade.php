@@ -60,7 +60,7 @@
 
                         <!-- Login / Register -->
                         <div class="login-register-btn mx-3">
-                            <a href="#">ورود <span>/ </span> ثبت نام</a>
+                            <a href="/login">ورود <span>/ </span> ثبت نام</a>
                         </div>
                     </div>
                     <!-- Nav End -->
