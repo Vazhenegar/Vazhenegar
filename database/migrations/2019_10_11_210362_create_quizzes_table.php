@@ -17,7 +17,8 @@ class CreateQuizzesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('source_language_id')->unsigned();
             $table->bigInteger('translation_field_id')->unsigned();
-            $table->longText('source_text');
+            $table->integer('text_id');
+            $table->longText('quiz_content');
             $table->timestamps();
 
             $table->foreign('source_language_id')

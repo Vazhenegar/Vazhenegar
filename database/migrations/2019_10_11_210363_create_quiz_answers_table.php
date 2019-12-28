@@ -15,10 +15,16 @@ class CreateQuizAnswersTable extends Migration
     {
         Schema::create('quiz_answers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('source_language_id')->unsigned();
             $table->bigInteger('dest_language_id')->unsigned();
             $table->bigInteger('translation_field_id')->unsigned();
+            $table->integer('text_id');
             $table->longText('answer_text');
             $table->timestamps();
+
+            $table->foreign('source_language_id')
+                ->references('id')->on('languages')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('dest_language_id')
                 ->references('id')->on('languages')
