@@ -6,7 +6,7 @@
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
         <div class="container h-100">
-            <div class="row h-100 align-items-end">
+            <div class="row 75 align-items-end">
 
             </div>
         </div>
@@ -17,28 +17,25 @@
     </div>
     <!-- ***** Breadcrumb Area End ***** -->
 
-    <div class="container login-container">
-        <div class="row">
-            <div class="col-md-6 login-form-1">
+    <div class="col-12 login">
+        <div class="login-container">
+            <div class="col-7 login-form">
                 <h1>ورود کاربران</h1>
                 <form>
                     <div class="form-group">
-{{--                        <input type="text" class="input form-control" placeholder="ایمیل یا کد کاربری" required/>--}}
-                        <input type="text" class="form-control mb-30" name="username" required>
-                        <label class="form-placeholder-label" for="username"> ایمیل یا کد کاربری</label>
+                        <input type="text" class="input form-control" placeholder="ایمیل یا کد کاربری" required/>
                     </div>
                     <div class="form-group mb-30">
                         <input type="password" class="form-control input " placeholder="رمز عبور" required/>
                     </div>
 
                     <div class="form-group text-center">
-                        <a href="/UserRegister"><button  type="button" class="btn uza-btn btn-2 loginBtnSubmit">ثبت نام </button></a>
-                        <button type="submit" class="btn uza-btn btn-2 loginBtnSubmit">ورود به ناحیه کاربری </button>
-{{--                        <input type="submit" class="btn uza-btn btn-2 loginBtnSubmit" value="ورود به ناحیه کاربری"/>--}}
-
-{{--                        <input type="submit" class="btn uza-btn btn-2 loginBtnSubmit" value="ثبت نام"/>--}}
+                        <a href="/UserRegister">
+                            <button type="button" class="btn uza-btn btn-2 loginBtnSubmit">ثبت نام</button>
+                        </a>
+                        <button type="submit" class="btn uza-btn btn-2 loginBtnSubmit">ورود به ناحیه کاربری</button>
                     </div>
-                    <div class="form-group display-block">
+                    <div class="form-group">
                         <a href="#" class="ForgetPwd">رمز عبور را فراموش کرده ام</a>
                     </div>
                 </form>

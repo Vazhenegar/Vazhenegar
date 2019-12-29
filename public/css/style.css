@@ -3657,34 +3657,29 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /*login*/
-.login-container{
-    margin: 5% 20% 5% 30%;
+
+.login .login-container{
+    text-align: center;
 }
-.login-form-1{
+.login-form{
+    display: inline-block;
     padding: 3%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    width: 40%;
 }
 
-.login-form-1 h1{
+.login-container .login-form h1{
     font-size: 16px;
-}
-.login-container form{
-    padding: 5%;
+    text-align: right;
 }
 
-.login-container .login-form-1 .input{
+.login-container .login-form .input{
     margin: auto;
-    display: block;
     text-align: center;
     width:300px ;
 }
 
-.login-container .login-form-1 .display-block{
-    margin: auto;
-    display: inline-block;
-}
-
-.login-form-1 .loginBtnSubmit{
+.login-form .loginBtnSubmit{
     font-size: 13px;
     height: 40px;
     min-width: 50px;
@@ -3696,7 +3691,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 
-.login-form-1 .ForgetPwd{
+.login-form .ForgetPwd{
     color: #0062cc;
     font-weight: 600;
     text-decoration: none;
