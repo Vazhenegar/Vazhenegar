@@ -19,7 +19,7 @@
 
     <div class="col-12 login">
         <div class="login-container">
-            <div class="col-7 login-form">
+            <div class="login-form">
                 <h1>ورود کاربران</h1>
                 <form>
                     <div class="form-group">
@@ -30,13 +30,13 @@
                     </div>
 
                     <div class="form-group text-center">
+                        <button type="submit" class="btn uza-btn btn-2 loginBtnSubmit">ورود به ناحیه کاربری</button>
                         <a href="/UserRegister">
                             <button type="button" class="btn uza-btn btn-2 loginBtnSubmit">ثبت نام</button>
                         </a>
-                        <button type="submit" class="btn uza-btn btn-2 loginBtnSubmit">ورود به ناحیه کاربری</button>
                     </div>
-                    <div class="form-group">
-                        <a href="#" class="ForgetPwd">رمز عبور را فراموش کرده ام</a>
+                    <div class="form-group ForgetPwd">
+                        <a href="#">رمز عبور را فراموش کرده ام</a>
                     </div>
                 </form>
             </div>
