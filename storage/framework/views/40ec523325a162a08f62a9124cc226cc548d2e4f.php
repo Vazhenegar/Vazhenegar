@@ -1,5 +1,9 @@
 <?php
     $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+    $user_menus=\App\UserMenu::where('Role_id',Auth::user()->Role)
+                               ->where('Department_id',Auth::user()->Department)
+                                ->pluck('MenuItem');
+    dd($user_menus);
 ?>
 
 <?php $__env->startSection('Role', $role_name); ?>
