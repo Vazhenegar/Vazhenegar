@@ -1,6 +1,9 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
+@php
+    $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+@endphp
 
-@section('Role', 'مدیریت')
+@section('Role', $role_name)
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -1,4 +1,8 @@
-<?php $__env->startSection('Role', 'مدیریت'); ?>
+<?php
+    $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+?>
+
+<?php $__env->startSection('Role', $role_name); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
