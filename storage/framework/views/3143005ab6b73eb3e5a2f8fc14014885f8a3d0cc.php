@@ -1,18 +1,18 @@
-{{-- Elements that shown in all pages, fetch from this page --}}
 
-{{-- Preloader --}}
-@section('preloader')
+
+
+<?php $__env->startSection('preloader'); ?>
 <div id="preloader">
     <div class="wrapper">
         <div class="cssload-loader"></div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-{{-- ======================================================== --}}
 
-{{-- Header, Navbar --}}
-@section('HeaderAndNav')
+
+
+<?php $__env->startSection('HeaderAndNav'); ?>
 
 <header class="header-area">
     <!-- Main Header Start -->
@@ -22,8 +22,8 @@
 
             <nav class="classy-navbar justify-content-between" id="uzaNav">
 
-                {{-- logo --}}
-                <a class="nav-brand" href="/"><img class="logoimagesize" src="{{asset('images/site/logo.png')}}"
+                
+                <a class="nav-brand" href="/"><img class="logoimagesize" src="<?php echo e(asset('images/site/logo.png')); ?>"
                         alt=""></a>
 
 
@@ -60,7 +60,7 @@
 
                         <!-- Login / Register -->
                         <div class="login-register-btn mx-3">
-                            <a href="/dashboard">ورود <span>/ </span> ثبت نام</a>
+                            <a href="/login">ورود <span>/ </span> ثبت نام</a>
                         </div>
                     </div>
                     <!-- Nav End -->
@@ -70,14 +70,14 @@
         </div>
     </div>
 </header>
-@endsection
-
-{{-- ======================================================== --}}
+<?php $__env->stopSection(); ?>
 
 
-{{-- Footer --}}
 
-@section('Footer')
+
+
+
+<?php $__env->startSection('Footer'); ?>
 
 <footer class="footer-area section-padding-80-0">
     <div class="container">
@@ -151,10 +151,10 @@
                     <!-- Widget Title -->
                     <h4 class="widget-title">نمادهای سایت</h4>
                     <div class="SiteSymbols">
-                        <img src="{{asset('images/site/enamad.png') }}">
-                        <img src="{{asset('images/site/shaparak.png') }}">
+                        <img src="<?php echo e(asset('images/site/enamad.png')); ?>">
+                        <img src="<?php echo e(asset('images/site/shaparak.png')); ?>">
                         <br>
-                        <img src="{{asset('images/site/ssl.png') }}">
+                        <img src="<?php echo e(asset('images/site/ssl.png')); ?>">
                     </div>
                 </div>
             </div>
@@ -165,6 +165,7 @@
         </div>
     </div>
 </footer>
-@endsection
+<?php $__env->stopSection(); ?>
 
-{{-- ======================================================== --}}
+
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\PageStaticElements.blade.php ENDPATH**/ ?>

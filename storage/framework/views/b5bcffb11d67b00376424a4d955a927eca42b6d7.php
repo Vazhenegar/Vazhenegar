@@ -37,4 +37,4 @@
     });
 </script>
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/layout/timer.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\timer.blade.php ENDPATH**/ ?>

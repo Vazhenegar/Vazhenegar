@@ -20,4 +20,6 @@ Route::get('tmp',function (){
     return view('vazhenegar.tmp');
 });
 
-Route::view('login','vazhenegar.login');
+Auth::routes();
+
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');

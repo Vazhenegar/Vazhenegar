@@ -255,4 +255,4 @@ counter.sec.innerHTML = secs;
 </body>
 
 </html>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/tmp.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\tmp.blade.php ENDPATH**/ ?>

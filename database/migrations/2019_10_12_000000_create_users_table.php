@@ -16,45 +16,48 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('FirstName');
-            $table->string('LastName');
-            $table->string('BirthDate')->nullable();
-            $table->boolean('Gender')->nullable();
+//            $table->string('name');
+//            $table->string('LastName');
+//            $table->string('BirthDate')->nullable();
+//            $table->boolean('Gender')->nullable();
             $table->string('Email')->unique();
+//            $table->string('email')->unique();
             $table->string('Password');
-            $table->string('FixNumber');
-            $table->string('MobileNumber');
-            $table->tinyInteger('State')->nullable();
-            $table->smallInteger('City')->nullable();
-            $table->longText('Address')->nullable();
-            $table->string('Degree')->nullable();
-            $table->string('GraduationDate')->nullable();
-            $table->string('GraduationField')->nullable();
-            $table->longText('Resume')->nullable();
-            $table->longText('UserSelectedLangs')->nullable(); //for translators
-            $table->longText('TranslationFields')->nullable(); //for translators
-            $table->string('UserDocuments')->nullable();
-            $table->tinyInteger('Department')->unsigned();//foreign key for determine user department.
-            $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus.
-            $table->string('Menus');
-            $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
-            $table->longText('QuizAnswer')->nullable();
-            $table->string('BankCard')->nullable();
-            $table->string('ProfilePhoto')->nullable();
+//            $table->string('password');
+//            $table->string('FixNumber');
+//            $table->string('MobileNumber');
+//            $table->tinyInteger('State')->nullable();
+//            $table->smallInteger('City')->nullable();
+//            $table->longText('Address')->nullable();
+//            $table->string('Degree')->nullable();
+//            $table->string('GraduationDate')->nullable();
+//            $table->string('GraduationField')->nullable();
+//            $table->longText('Resume')->nullable();
+//            $table->longText('UserSelectedLangs')->nullable(); //for translators
+//            $table->longText('TranslationFields')->nullable(); //for translators
+//            $table->string('UserDocuments')->nullable();
+//            $table->tinyInteger('Department')->unsigned();//foreign key for determine user department.
+//            $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus.
+//            $table->string('Menus');
+//            $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
+//            $table->longText('QuizAnswer')->nullable();
+//            $table->string('BankCard')->nullable();
+//            $table->string('ProfilePhoto')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
 
-            $table->foreign('Department')
-                ->references('id')->on('departments')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('Role')
-                ->references('id')->on('roles')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('Status')
-                ->references('id')->on('user_statuses')
-                ->onUpdate('cascade')->onDelete('cascade');
+//            $table->foreign('Department')
+//                ->references('id')->on('departments')
+//                ->onUpdate('cascade')->onDelete('cascade');
+//
+//            $table->foreign('Role')
+//                ->references('id')->on('roles')
+//                ->onUpdate('cascade')->onDelete('cascade');
+//
+//            $table->foreign('Status')
+//                ->references('id')->on('user_statuses')
+//                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
