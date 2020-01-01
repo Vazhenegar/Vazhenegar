@@ -1,3 +1,4 @@
+<?php $__env->startSection('Role', 'مدیریت'); ?>;
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">
@@ -12,7 +13,6 @@
 
                         </div>
                     <?php endif; ?>
-
 
                     <?php if(session('status')): ?>
                         <div class="alert alert-success" role="alert">
@@ -29,4 +29,4 @@
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('DashboardLayout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\dashboard.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\dashboard.blade.php ENDPATH**/ ?>

@@ -2,6 +2,7 @@
 
 
 <!-- ******* All JS Files ******* -->
+
 <!-- jQuery js -->
 <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
 

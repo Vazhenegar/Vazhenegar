@@ -63,7 +63,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        session('UserFirstName')=>$data['FirstName'];
         session(['UserFirstName' => $data['FirstName']]);
         return User::create([
             'FirstName' => $data['FirstName'],
