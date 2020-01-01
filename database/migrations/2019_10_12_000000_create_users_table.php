@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('UserDocuments')->nullable();
             $table->tinyInteger('Department')->unsigned(); //foreign key for determine user department.
             $table->tinyInteger('Role')->unsigned(); //foreign key for determine user type and menus.
-            $table->string('Menus');
+//            $table->string('Menus');
             $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
             $table->longText('QuizAnswer')->nullable();
             $table->string('BankCard')->nullable();

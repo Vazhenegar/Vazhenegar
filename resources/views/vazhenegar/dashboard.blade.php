@@ -1,6 +1,6 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 
-@section('Role', 'مدیریت');
+@section('Role', 'مدیریت')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

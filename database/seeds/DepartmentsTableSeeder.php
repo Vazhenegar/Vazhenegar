@@ -19,6 +19,7 @@ class DepartmentsTableSeeder extends Seeder
             'تایپ',
             'آموزش',
             'فروش',
+            'مشتریان',
         ];
         foreach ($departments as $department) {
             DB::table('departments')->insert([

@@ -1,4 +1,4 @@
-<?php $__env->startSection('Role', 'مدیریت'); ?>;
+<?php $__env->startSection('Role', 'مدیریت'); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row justify-content-center">

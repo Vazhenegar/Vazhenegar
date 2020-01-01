@@ -19,8 +19,7 @@ class User extends Authenticatable
         'FirstName', 'LastName', 'BirthDate', 'Gender', 'Email', 'Password',
         'FixNumber', 'MobileNumber', 'State', 'City', 'Address', 'Degree',
         'GraduationDate', 'GraduationField', 'Resume', 'UserSelectedLangs',
-        'TranslationFields', 'UserDocuments', 'Menus',
-        'QuizAnswer', 'BankCard', 'ProfilePhoto'
+        'TranslationFields', 'UserDocuments', 'QuizAnswer', 'BankCard', 'ProfilePhoto'
     ];
 
     /**
@@ -49,5 +48,10 @@ class User extends Authenticatable
     public function getAuthPassword()
     {
         return $this->Password;
+    }
+
+    public function role()
+    {
+        $this->belongsTo(User::class);
     }
 }
