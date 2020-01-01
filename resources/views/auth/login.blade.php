@@ -1,4 +1,4 @@
-@extends('auth.layouts.app')
+@extends('auth.DashboardLayout.DashboardMasterLayout')
 
 @section('content')
 <div class="container">

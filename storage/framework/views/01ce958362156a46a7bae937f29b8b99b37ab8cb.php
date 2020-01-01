@@ -80,4 +80,4 @@
     </div>
 </body>
 </html>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\layouts\app.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\DashboardLayout\DashboardMasterLayout.blade.php ENDPATH**/ ?>

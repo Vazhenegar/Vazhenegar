@@ -2,6 +2,7 @@
 
 
 <!-- ******* All JS Files ******* -->
+
 <!-- jQuery js -->
 <script src="{{asset('js/jquery.min.js')}}"></script>
 

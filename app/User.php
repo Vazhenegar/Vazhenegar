@@ -19,8 +19,8 @@ class User extends Authenticatable
         'FirstName', 'LastName', 'BirthDate', 'Gender', 'Email', 'Password',
         'FixNumber', 'MobileNumber', 'State', 'City', 'Address', 'Degree',
         'GraduationDate', 'GraduationField', 'Resume', 'UserSelectedLangs',
-        'TranslationFields', 'UserDocuments', 'Department', 'Role', 'Menus',
-        'Status', 'QuizAnswer', 'BankCard', 'ProfilePhoto'
+        'TranslationFields', 'UserDocuments', 'Menus',
+        'QuizAnswer', 'BankCard', 'ProfilePhoto'
     ];
 
     /**

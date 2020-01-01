@@ -33,8 +33,8 @@ class CreateUsersTable extends Migration
             $table->longText('UserSelectedLangs')->nullable(); //for translators
             $table->longText('TranslationFields')->nullable(); //for translators
             $table->string('UserDocuments')->nullable();
-            $table->tinyInteger('Department')->unsigned();//foreign key for determine user department.
-            $table->tinyInteger('Role')->unsigned();//foreign key for determine user type and menus.
+            $table->tinyInteger('Department')->unsigned(); //foreign key for determine user department.
+            $table->tinyInteger('Role')->unsigned(); //foreign key for determine user type and menus.
             $table->string('Menus');
             $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
             $table->longText('QuizAnswer')->nullable();
@@ -43,18 +43,17 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
+            $table->foreign('Department')
+                ->references('id')->on('departments')
+                ->onUpdate('cascade')->onDelete('cascade');
 
-//            $table->foreign('Department')
-//                ->references('id')->on('departments')
-//                ->onUpdate('cascade')->onDelete('cascade');
-//
-//            $table->foreign('Role')
-//                ->references('id')->on('roles')
-//                ->onUpdate('cascade')->onDelete('cascade');
-//
-//            $table->foreign('Status')
-//                ->references('id')->on('user_statuses')
-//                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('Role')
+                ->references('id')->on('roles')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('Status')
+                ->references('id')->on('user_statuses')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
