@@ -15,7 +15,7 @@
     {{--    css files --}}
     @include('auth.DashboardLayout.css')
 </head>
-<body>
+<body class="hold-transition skin-blue sidebar-mini">
 
 @guest
 {{--    if user not logged in, show login form --}}
@@ -31,5 +31,7 @@
 @endguest
 
 
+{{--js files--}}
+@include('auth.DashboardLayout.js')
 </body>
 </html>
