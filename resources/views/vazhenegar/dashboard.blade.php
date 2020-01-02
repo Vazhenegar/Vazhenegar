@@ -3,35 +3,35 @@
     $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
     $user_menus=\App\UserMenu::where('Role_id',Auth::user()->Role)
                                ->where('Department_id',Auth::user()->Department)
-                                ->pluck('MenuItem');
+                                ->get(['Url', 'MenuItem']);
 
 @endphp
 
 @section('Role', $role_name)
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if(session('UserFirstName'))
-                        <div class="alert alert-success" role="alert">
-                           Hello {{ session('UserFirstName') }}
-                        </div>
-                    @endif
+                    <div class="card-body">
+                        @if(session('UserFirstName'))
+                            <div class="alert alert-success" role="alert">
+                                Hello {{ session('UserFirstName') }}
+                            </div>
+                        @endif
 
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-                    You are logged in to exclusive dashboard!
+                        You are logged in to exclusive dashboard!
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
