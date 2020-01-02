@@ -3696,6 +3696,12 @@ input[type="number"]::-webkit-outer-spin-button {
     float: left;
 }
 
+.login-form .login-error{
+    font-weight: 300;
+    text-decoration: none;
+    float: right;
+}
+
 @media only screen and (max-width: 767px) {
     .login-form {
         padding: 3%;
@@ -3716,6 +3722,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
     .login-form .ForgetPwd a{
         font-weight: 500;
+    }
+    .login-form .login-error{
+        font-weight: 200;
     }
 }
 
@@ -3739,6 +3748,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
     .login-form .ForgetPwd a{
         font-weight: 500;
+    }
+
+    .login-form .login-error{
+        font-weight: 200;
     }
 
 }

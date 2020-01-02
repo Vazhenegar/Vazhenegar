@@ -27,22 +27,11 @@
                     <div class="form-group">
                         <input type="email" name="email" class="input form-control" value="{{ old('email') }}"
                                placeholder="ایمیل" required/>
-
-                        @error('Email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>آدرس ایمیل اشتباه است</strong>
-                        </span>
-                        @enderror
                     </div>
 
                     <div class="form-group mb-30">
                         <input type="password" name="password" class="form-control input " placeholder="رمز عبور"
                                required/>
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                    <strong>رمز عبور اشتباه است</strong>
-                </span>
-                        @enderror
                     </div>
 
                     <div class="form-group text-center">
@@ -59,6 +48,13 @@
                             </a>
                         @endif
                     </div>
+
+                    @if ($errors->any())
+                        <div class="login-error alert alert-danger">
+                            نام کاربری یا رمز عبور اشتباه است.
+                        </div>
+                    @endif
+
                 </form>
             </div>
         </div>

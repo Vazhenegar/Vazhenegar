@@ -26,36 +26,11 @@
                     <div class="form-group">
                         <input type="email" name="email" class="input form-control" value="<?php echo e(old('email')); ?>"
                                placeholder="ایمیل" required/>
-
-                        <?php $__errorArgs = ['Email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                        <span class="invalid-feedback" role="alert">
-                            <strong>آدرس ایمیل اشتباه است</strong>
-                        </span>
-                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <div class="form-group mb-30">
                         <input type="password" name="password" class="form-control input " placeholder="رمز عبور"
                                required/>
-                        <?php $__errorArgs = ['password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                        <span class="invalid-feedback" role="alert">
-                    <strong>رمز عبور اشتباه است</strong>
-                </span>
-                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <div class="form-group text-center">
@@ -72,6 +47,13 @@ unset($__errorArgs, $__bag); ?>
                             </a>
                         <?php endif; ?>
                     </div>
+
+                    <?php if($errors->any()): ?>
+                        <div class="login-error alert alert-danger">
+                            نام کاربری یا رمز عبور اشتباه است.
+                        </div>
+                    <?php endif; ?>
+
                 </form>
             </div>
         </div>
