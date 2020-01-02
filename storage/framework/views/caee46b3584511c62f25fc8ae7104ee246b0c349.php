@@ -1,7 +1,6 @@
-@extends('vazhenegar.layout.MasterLayout')
-@section('PageTitle', 'ورود کاربران')
+<?php $__env->startSection('PageTitle', 'ورود کاربران'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
@@ -12,7 +11,7 @@
         </div>
         <!-- Background Curve -->
         <div class="breadcrumb-bg-curve">
-            <img src="{{asset('images/core-img/curve-5.png')}}" alt="">
+            <img src="<?php echo e(asset('images/core-img/curve-5.png')); ?>" alt="">
         </div>
     </div>
     <!-- ***** Breadcrumb Area End ***** -->
@@ -21,46 +20,62 @@
         <div class="login-container">
             <div class="login-form">
                 <h1>ورود کاربران</h1>
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
+                <form method="POST" action="<?php echo e(route('login')); ?>">
+                    <?php echo csrf_field(); ?>
 
                     <div class="form-group">
-                        <input type="email" name="email" class="input form-control" value="{{ old('email') }}"
+                        <input type="email" name="email" class="input form-control" value="<?php echo e(old('email')); ?>"
                                placeholder="ایمیل" required/>
 
-                        @error('Email')
+                        <?php $__errorArgs = ['Email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                         <span class="invalid-feedback" role="alert">
                             <strong>آدرس ایمیل اشتباه است</strong>
                         </span>
-                        @enderror
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <div class="form-group mb-30">
                         <input type="password" name="password" class="form-control input " placeholder="رمز عبور"
                                required/>
-                        @error('password')
+                        <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                         <span class="invalid-feedback" role="alert">
                     <strong>رمز عبور اشتباه است</strong>
                 </span>
-                        @enderror
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
 
                     <div class="form-group text-center">
                         <button type="submit" class="btn uza-btn btn-2 loginBtnSubmit">ورود به ناحیه کاربری</button>
-                        <a href="{{ route('register') }}">
+                        <a href="<?php echo e(route('register')); ?>">
                             <button type="button" class="btn uza-btn btn-2 loginBtnSubmit">ثبت نام</button>
                         </a>
                     </div>
 
                     <div class="form-group ForgetPwd">
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                        <?php if(Route::has('password.request')): ?>
+                            <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
                                 رمز عبور را فراموش کرده ام
                             </a>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/login.blade.php ENDPATH**/ ?>

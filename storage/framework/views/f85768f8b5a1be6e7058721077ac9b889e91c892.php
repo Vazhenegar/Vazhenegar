@@ -1,13 +1,5 @@
 <?php
     $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
-    $user_menus=\App\UserMenu::where('Role_id',Auth::user()->Role)
-                               ->where('Department_id',Auth::user()->Department)
-                                ->get();
-
-            foreach ($user_menus as $menu){
-                echo $menu->MenuItem;
-                echo '<br/>';
-            }
 ?>
 
 <?php $__env->startSection('Role', $role_name); ?>

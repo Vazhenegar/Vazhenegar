@@ -27,6 +27,7 @@
             </li>
         <?php endif; ?>
     <?php else: ?>
+        <?php echo $__env->make('auth.DashboardLayout.menus', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false" v-pre>

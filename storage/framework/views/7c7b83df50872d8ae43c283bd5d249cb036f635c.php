@@ -1,4 +1,4 @@
-@php
+<?php
     $user_menus=\App\UserMenu::where('Role_id',Auth::user()->Role)
                                ->where('Department_id',Auth::user()->Department)
                                 ->get(['Url', 'MenuItem']);
@@ -8,4 +8,5 @@ foreach ($user_menus as $menu){
     echo $menu->Url;
     echo '<br/>';
 }
-@endphp
+?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/menus.blade.php ENDPATH**/ ?>
