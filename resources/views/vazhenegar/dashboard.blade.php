@@ -4,30 +4,26 @@
 @endphp
 
 @section('Role', $role_name)
+
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
 
-                    <div class="card-body">
-                        @if(session('UserFirstName'))
-                            <div class="alert alert-success" role="alert">
-                                Hello {{ session('UserFirstName') }}
-                            </div>
-                        @endif
+    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false" v-pre>
+        {{ Auth::user()->FirstName }} <span class="caret"></span>
+    </a>
 
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+    {{--======  for logout from dashboard =============--}}
+    <a class="dropdown-item" href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        خروج از ناحیه کاربری
+    </a>
 
-                        You are logged in to exclusive dashboard!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    {{--==============================================--}}
+
+    @include('auth.DashboardLayout.menus')
+
 @endsection
