@@ -1,10 +1,6 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 @php
     $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
-    $user_menus=\App\UserMenu::where('Role_id',Auth::user()->Role)
-                               ->where('Department_id',Auth::user()->Department)
-                                ->get(['Url', 'MenuItem']);
-
 @endphp
 
 @section('Role', $role_name)
