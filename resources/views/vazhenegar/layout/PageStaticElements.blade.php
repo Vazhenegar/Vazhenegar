@@ -60,7 +60,14 @@
 
                         <!-- Login / Register -->
                         <div class="login-register-btn mx-3">
-                            <a href="/dashboard">ورود <span>/ </span> ثبت نام</a>
+                            @guest
+                                {{--    if user not logged in, show login link --}}
+                                <a href="/dashboard">ورود <span>/ </span> ثبت نام</a>
+                            @else
+                                {{--if user logged in, show full name--}}
+                                <a href="/dashboard"> {{Auth::user()->FirstName .' '. Auth::user()->LastName}}</a>
+                            @endguest
+
                         </div>
                     </div>
                     <!-- Nav End -->

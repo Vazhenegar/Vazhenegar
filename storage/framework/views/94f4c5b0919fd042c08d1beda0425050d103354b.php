@@ -60,7 +60,14 @@
 
                         <!-- Login / Register -->
                         <div class="login-register-btn mx-3">
-                            <a href="/dashboard">ورود <span>/ </span> ثبت نام</a>
+                            <?php if(auth()->guard()->guest()): ?>
+                                
+                                <a href="/dashboard">ورود <span>/ </span> ثبت نام</a>
+                            <?php else: ?>
+                                
+                                <a href="/dashboard"> <?php echo e(Auth::user()->FirstName .' '. Auth::user()->LastName); ?></a>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                     <!-- Nav End -->
