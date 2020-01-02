@@ -62,7 +62,7 @@
                         <div class="login-register-btn mx-3">
                             @guest
                                 {{--    if user not logged in, show login link --}}
-                                <a href="/dashboard">ورود <span>/ </span> ثبت نام</a>
+                                <a href="/login">ورود <span>/ </span> ثبت نام</a>
                             @else
                                 {{--if user logged in, show full name--}}
                                 <a href="/dashboard"> {{Auth::user()->FirstName .' '. Auth::user()->LastName}}</a>

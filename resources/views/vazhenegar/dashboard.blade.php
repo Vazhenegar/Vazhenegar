@@ -1,7 +1,11 @@
+
 @extends('auth.DashboardLayout.DashboardMasterLayout')
+
 @php
+$user=new App\User;
     $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
     $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
+    $UserStatus=Auth::user()->Status;
 @endphp
 
 @section('Role', $RoleName)
@@ -271,8 +275,7 @@
                                     <div class="pull-left">
                                         <a href="{{route('logout')}}" class="btn btn-default btn-flat"
                                            onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();"
-                                        >خروج</a>
+                                           document.getElementById('logout-form').submit();">خروج</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">
                                             @csrf
@@ -299,21 +302,11 @@
                         <img src="auth/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
-                        <p>علیرضا حسینی زاده</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
+                        <p>{{$UserFullName}}</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i>{{$user->status($UserStatus)}}</a>
                     </div>
                 </div>
-                <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="جستجو">
-                        <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-                <!-- /.search form -->
+
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">منو</li>

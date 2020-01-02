@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\UserStatus;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,10 @@ class User extends Authenticatable
     public function role()
     {
         $this->belongsTo(User::class);
+    }
+
+    public function status(string $id)
+    {
+        return UserStatus::where('id', $id)->value('status');
     }
 }

@@ -1,8 +1,9 @@
 <?php
-    $role_name=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+    $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+    $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
 ?>
 
-<?php $__env->startSection('Role', $role_name); ?>
+<?php $__env->startSection('Role', $RoleName); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -10,11 +11,11 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">پنل</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>کنترل پنل مدیریت</b></span>
+                <span class="logo-lg"><b>کنترل پنل <?php echo e($RoleName); ?></b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -22,14 +23,6 @@
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
-
-
-                <!-- Delete This after download -->
-                <a href="https://github.com/hosseinizadeh/AdminLTE_Persian" class="btn hidden-xs"
-                   style="margin:6px 100px;padding:9px 50px;background-color:#d61577;border-color:#ad0b5d;font-weight:bold;color:#FFF">دانلود
-                    رایگان قالب</a>
-                <!-- End Delete-->
-
 
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
@@ -47,7 +40,7 @@
                                         <li><!-- start message -->
                                             <a href="#">
                                                 <div class="pull-right">
-                                                    <img src="dist/img/user2-160x160.jpg" class="img-circle"
+                                                    <img src="auth/dist/img/user2-160x160.jpg" class="img-circle"
                                                          alt="User Image">
                                                 </div>
                                                 <h4>
@@ -61,7 +54,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-right">
-                                                    <img src="dist/img/user3-128x128.jpg" class="img-circle"
+                                                    <img src="auth/dist/img/user3-128x128.jpg" class="img-circle"
                                                          alt="User Image">
                                                 </div>
                                                 <h4>
@@ -74,7 +67,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-right">
-                                                    <img src="dist/img/user4-128x128.jpg" class="img-circle"
+                                                    <img src="auth/dist/img/user4-128x128.jpg" class="img-circle"
                                                          alt="User Image">
                                                 </div>
                                                 <h4>
@@ -87,7 +80,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-right">
-                                                    <img src="dist/img/user3-128x128.jpg" class="img-circle"
+                                                    <img src="auth/dist/img/user3-128x128.jpg" class="img-circle"
                                                          alt="User Image">
                                                 </div>
                                                 <h4>
@@ -100,7 +93,7 @@
                                         <li>
                                             <a href="#">
                                                 <div class="pull-right">
-                                                    <img src="dist/img/user4-128x128.jpg" class="img-circle"
+                                                    <img src="auth/dist/img/user4-128x128.jpg" class="img-circle"
                                                          alt="User Image">
                                                 </div>
                                                 <h4>
@@ -241,17 +234,18 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">علیرضا حسینی زاده</span>
+                                <img src="auth/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs"><?php echo e($UserFullName); ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="auth/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        علیرضا حسینی زاده
-                                        <small>مدیریت کل سایت</small>
+                                        <?php echo e($UserFullName); ?>
+
+                                        <small><?php echo e($RoleName); ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -275,7 +269,14 @@
                                         <a href="#" class="btn btn-default btn-flat">پروفایل</a>
                                     </div>
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">خروج</a>
+                                        <a href="<?php echo e(route('logout')); ?>" class="btn btn-default btn-flat"
+                                           onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();"
+                                        >خروج</a>
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
+                                              style="display: none;">
+                                            <?php echo csrf_field(); ?>
+                                        </form>
                                     </div>
                                 </li>
                             </ul>
@@ -295,7 +296,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-right image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="auth/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
                         <p>علیرضا حسینی زاده</p>
@@ -653,7 +654,7 @@
                             <div class="box-body chat" id="chat-box">
                                 <!-- chat item -->
                                 <div class="item">
-                                    <img src="dist/img/user4-128x128.jpg" alt="user image" class="online">
+                                    <img src="auth/dist/img/user4-128x128.jpg" alt="user image" class="online">
 
                                     <p class="message">
                                         <a href="#" class="name">
@@ -680,7 +681,7 @@
                                 <!-- /.item -->
                                 <!-- chat item -->
                                 <div class="item">
-                                    <img src="dist/img/user3-128x128.jpg" alt="user image" class="offline">
+                                    <img src="auth/dist/img/user3-128x128.jpg" alt="user image" class="offline">
 
                                     <p class="message">
                                         <a href="#" class="name">
@@ -694,7 +695,7 @@
                                 <!-- /.item -->
                                 <!-- chat item -->
                                 <div class="item">
-                                    <img src="dist/img/user2-160x160.jpg" alt="user image" class="offline">
+                                    <img src="auth/dist/img/user2-160x160.jpg" alt="user image" class="offline">
 
                                     <p class="message">
                                         <a href="#" class="name">
@@ -1066,12 +1067,12 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer text-left">
-            <strong>Copyleft &copy; 2014-2017 <a href="https://adminlte.io">Almsaeed Studio</a> & <a
-                    href="http://hosseinizadeh.ir/adminlte">Alireza Hosseinizadeh</a></strong>
-        </footer>
+    
+    
+    
+    
 
-        <!-- Control Sidebar -->
+    <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Create the tabs -->
             <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
