@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,28 +10,27 @@
     {{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
     <title>{{config('app.name')}}- پنل @yield('Role')</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     {{--    css files --}}
     @include('auth.DashboardLayout.css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
 @guest
-{{--    if user not logged in, show login form --}}
+    {{--    if user not logged in, show login form --}}
     @php
         return redirect()->route('login');
     @endphp
-
 @else
-{{--if user logged in, show dashboard--}}
-@section('content')
-@show
-
+    {{--if user logged in, show dashboard--}}
+    <div class="wrapper">
+        @section('content')
+        @show
+    </div>
 @endguest
 
 
 {{--js files--}}
 @include('auth.DashboardLayout.js')
+
 </body>
 </html>
