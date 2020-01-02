@@ -1,9 +1,12 @@
 <?php
-    $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
-    $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
+    $user=new App\User;
+        $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+        $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
+        $UserStatus=Auth::user()->Status;
+        $UserMode=Auth::user()->Mode;
 ?>
 
-<?php $__env->startSection('Role', $RoleName); ?>
+<?php $__env->startSection('Role', '- پنل'.$RoleName); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -271,8 +274,7 @@
                                     <div class="pull-left">
                                         <a href="<?php echo e(route('logout')); ?>" class="btn btn-default btn-flat"
                                            onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();"
-                                        >خروج</a>
+                                           document.getElementById('logout-form').submit();">خروج</a>
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                               style="display: none;">
                                             <?php echo csrf_field(); ?>
@@ -299,27 +301,19 @@
                         <img src="auth/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
-                        <p>علیرضا حسینی زاده</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
+                        <p><?php echo e($UserFullName); ?></p>
+                        <a href="#"><i class="fa fa-circle text-success"></i><?php echo e($user->mode($UserMode)); ?></a>
                     </div>
                 </div>
-                <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="جستجو">
-                        <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-                <!-- /.search form -->
+
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">منو</li>
+                    
                     <li class="active treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i> <span>داشبرد</span>
+                            <i class="fa fa-dashboard"></i>
+                            <span>داشبرد</span>
                             <span class="pull-left-container">
               <i class="fa fa-angle-right pull-left"></i>
             </span>
@@ -329,13 +323,15 @@
                             <li><a href="index2.html"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
                         </ul>
                     </li>
+                    
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-files-o"></i>
                             <span>لایه های صفحه</span>
                             <span class="pull-left-container">
-              <span class="label label-primary pull-left">4</span>
-            </span>
+                                <i class="fa fa-angle-right pull-left"></i>
+                                <span class="label label-primary pull-left">4</span>
+                            </span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> نوار بالا</a></li>
@@ -345,6 +341,7 @@
                             </li>
                         </ul>
                     </li>
+                    
                     <li>
                         <a href="pages/widgets.html">
                             <i class="fa fa-th"></i> <span>ویجت ها</span>

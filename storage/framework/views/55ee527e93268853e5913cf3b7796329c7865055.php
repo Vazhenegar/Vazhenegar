@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
     
-    <title><?php echo e(config('app.name')); ?>- پنل <?php echo $__env->yieldContent('Role'); ?></title>
+    <title><?php echo e(config('app.name')); ?> <?php echo $__env->yieldContent('Role'); ?></title>
 
     
     <?php echo $__env->make('auth.DashboardLayout.css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -20,6 +20,7 @@
     <?php
         return redirect()->route('login');
     ?>
+
 <?php else: ?>
     
     <div class="wrapper">

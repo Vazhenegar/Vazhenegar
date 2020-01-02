@@ -1,14 +1,15 @@
-
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 
 @php
-$user=new App\User;
-    $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
-    $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
-    $UserStatus=Auth::user()->Status;
+    $user=new App\User;
+        $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+        $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
+        $UserStatus=Auth::user()->Status;
+        $UserMode=Auth::user()->Mode;
+
 @endphp
 
-@section('Role', $RoleName)
+@section('Role', '- پنل '.$RoleName)
 
 @section('content')
 
@@ -303,16 +304,18 @@ $user=new App\User;
                     </div>
                     <div class="pull-right info">
                         <p>{{$UserFullName}}</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i>{{$user->status($UserStatus)}}</a>
+                        <a href="#"><i class="fa fa-circle text-success"></i>{{$user->mode($UserMode)}}</a>
                     </div>
                 </div>
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">منو</li>
+                    {{--========================================================================--}}
                     <li class="active treeview">
                         <a href="#">
-                            <i class="fa fa-dashboard"></i> <span>داشبرد</span>
+                            <i class="fa fa-dashboard"></i>
+                            <span>داشبرد</span>
                             <span class="pull-left-container">
               <i class="fa fa-angle-right pull-left"></i>
             </span>
@@ -322,13 +325,15 @@ $user=new App\User;
                             <li><a href="index2.html"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
                         </ul>
                     </li>
+                    {{--========================================================================--}}
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-files-o"></i>
                             <span>لایه های صفحه</span>
                             <span class="pull-left-container">
-              <span class="label label-primary pull-left">4</span>
-            </span>
+                                <i class="fa fa-angle-right pull-left"></i>
+                                <span class="label label-primary pull-left">4</span>
+                            </span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> نوار بالا</a></li>
@@ -338,6 +343,7 @@ $user=new App\User;
                             </li>
                         </ul>
                     </li>
+                    {{--========================================================================--}}
                     <li>
                         <a href="pages/widgets.html">
                             <i class="fa fa-th"></i> <span>ویجت ها</span>

@@ -36,6 +36,7 @@
 
                     <div class="form-group text-center">
                         <button type="submit" class="btn uza-btn btn-2 loginBtnSubmit">ورود به ناحیه کاربری</button>
+
                         <a href="{{ route('register') }}">
                             <button type="button" class="btn uza-btn btn-2 loginBtnSubmit">ثبت نام</button>
                         </a>

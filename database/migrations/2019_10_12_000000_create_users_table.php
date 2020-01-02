@@ -36,7 +36,8 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('Department')->unsigned(); //foreign key for determine user department.
             $table->tinyInteger('Role')->unsigned(); //foreign key for determine user type and menus.
 //            $table->string('Menus');
-            $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive ...
+            $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive
+            $table->string('Mode')->default('ON'); //to determine user mode: (On)line, (OFF)line
             $table->longText('QuizAnswer')->nullable();
             $table->string('BankCard')->nullable();
             $table->string('ProfilePhoto')->nullable();
@@ -53,6 +54,10 @@ class CreateUsersTable extends Migration
 
             $table->foreign('Status')
                 ->references('id')->on('user_statuses')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('Mode')
+                ->references('id')->on('user_modes')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }

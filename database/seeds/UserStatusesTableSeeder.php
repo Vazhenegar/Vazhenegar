@@ -14,33 +14,23 @@ class UserStatusesTableSeeder extends Seeder
         $statuses=[
             [
                 'id'=>'P',
-                'status'=>'Pending',
-                'description'=>'کاربر در حالت انتظار برای تعیین وضعیت از طرف سایت'
+                'status'=>'در انتظار',
+                'description'=>'Pending'
             ],
             [
                 'id'=>'A',
-                'status'=>'Active',
-                'description'=>'وضعیت کاربر فعال است'
+                'status'=>'فعال',
+                'description'=>'Active'
             ],
             [
                 'id'=>'B',
-                'status'=>'Blocked',
-                'description'=>'کاربر بلاک شده است'
+                'status'=>'قفل',
+                'description'=>'Blocked'
             ],
             [
                 'id'=>'D',
-                'status'=>'Deactive',
-                'description'=>'وضعیت کاربر غیرفعال است'
-            ],
-            [
-                'id'=>'ON',
-                'status'=>'Online',
-                'description'=>'کاربر آنلاین است'
-            ],
-            [
-                'id'=>'OFF',
-                'status'=>'Offline',
-                'description'=>'کاربر آفلاین است'
+                'status'=>'غیرفعال',
+                'description'=>'Deactive'
             ],
         ];
 

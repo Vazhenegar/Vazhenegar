@@ -205,4 +205,4 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\register.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/register.blade.php ENDPATH**/ ?>

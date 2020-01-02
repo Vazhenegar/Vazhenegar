@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
-    <title>{{config('app.name')}}- پنل @yield('Role')</title>
+    <title>{{config('app.name')}} @yield('Role')</title>
 
     {{--    css files --}}
     @include('auth.DashboardLayout.css')
@@ -20,6 +20,7 @@
     @php
         return redirect()->route('login');
     @endphp
+
 @else
     {{--if user logged in, show dashboard--}}
     <div class="wrapper">
