@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,15 @@ class HomeController extends Controller
     public function index()
     {
         return view('vazhenegar.dashboard');
+    }
+
+    public function ChangeStatus($UserId, $Status)
+    {
+//        $user = new User();
+        $user = User::where('id', $UserId)->first();
+        $user->Status = $Status;
+        $user->save();
+        return back();
+
     }
 }

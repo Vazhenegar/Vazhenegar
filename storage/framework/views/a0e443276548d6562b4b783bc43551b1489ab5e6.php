@@ -27,8 +27,8 @@
             <div class="col-lg-12 ">
                 <div class="choose-us-content">
                     <?php $__currentLoopData = $TOS; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tos): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <p class="static-text-title"><?php echo e($tos->tostitle); ?></p>
-                    <p class="static-text-content"><?php echo e($tos->toscontent); ?></p>
+                    <p class="static-text-title"><?php echo e($tos->TosTitle); ?></p>
+                    <p class="static-text-content"><?php echo e($tos->TosContent); ?></p>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>

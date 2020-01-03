@@ -2,25 +2,31 @@
 
 @php
     $user=new App\User;
-        $RoleName=Auth::user()->Role;
-        $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
-        $UserStatus=Auth::user()->Status;
-        $UserMode=Auth::user()->Mode;
+    $CurrentUser=Auth::user();
+    $RoleId=$CurrentUser->Role;
+    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
+    $UserStatus=$CurrentUser->Status;
+    $UserMode=$CurrentUser->Mode;
 @endphp
 
-@section('Role', '- پنل '.$RoleName)
+{{--use this to determine if user is online or no --}}
+{{--@if($user->isOnline())--}}
+{{--    user is online!!--}}
+{{--@endif--}}
+
+
+@section('Role', '- پنل '.$user->role($RoleId))
 
 @section('content')
 
     <div class="wrapper">
-
         <header class="main-header">
             <!-- Logo -->
             <a class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">پنل</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>کنترل پنل {{$user->role($RoleName)}}</b></span>
+                <span class="logo-lg"><b>کنترل پنل {{$user->role($RoleId)}}</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -249,7 +255,7 @@
 
                                     <p>
                                         {{$UserFullName}}
-                                        <small>{{$user->role($RoleName)}}</small>
+                                        <small>{{$user->role($RoleId)}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -270,14 +276,24 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">پروفایل</a>
+                                        <a class="btn btn-default btn-flat"
+                                           onclick="event.preventDefault();
+                                           document.getElementById('UserStatusChange').submit();">پروفایل</a>
+
+                                        <form id="UserStatusChange" action="{{route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])}}" method="POST"
+                                              style="display: none;">
+
+                                            @csrf
+                                        </form>
                                     </div>
+
                                     <div class="pull-left">
-                                        <a href="{{route('logout')}}" class="btn btn-default btn-flat"
+                                        <a class="btn btn-default btn-flat"
                                            onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">خروج</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">
+
                                             @csrf
                                         </form>
                                     </div>

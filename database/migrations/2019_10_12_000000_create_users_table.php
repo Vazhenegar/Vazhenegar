@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('Password');
             $table->string('FixNumber');
             $table->string('MobileNumber');
-            $table->tinyInteger('State')->nullable();
-            $table->smallInteger('City')->nullable();
+            $table->integer('State')->unsigned()->nullable();
+            $table->integer('City')->unsigned()->nullable();
             $table->longText('Address')->nullable();
             $table->string('Degree')->nullable();
             $table->string('GraduationDate')->nullable();
@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->longText('TranslationFields')->nullable(); //for translators
             $table->string('UserDocuments')->nullable();
             $table->tinyInteger('Department')->unsigned(); //foreign key for determine user department.
-            $table->tinyInteger('Role')->unsigned(); //foreign key for determine user type and menus.
+            $table->Integer('Role')->unsigned(); //foreign key for determine user type and menus.
             $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive
             $table->string('Mode')->default('ON'); //to determine user mode: (On)line, (OFF)line
             $table->longText('QuizAnswer')->nullable();
@@ -43,6 +43,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
+
+            $table->foreign('State')
+                ->references('id')->on('states')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('City')
+                ->references('id')->on('cities')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('Department')
                 ->references('id')->on('departments')

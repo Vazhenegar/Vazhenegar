@@ -269,7 +269,7 @@
                                                     <select class="form-control mb-30" name="source_lang" onchange="SL(this)" required>
                                                         <option value="<?php echo e(old('source_lang')); ?>"></option>
                                                         <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($language->id); ?>"><?php echo e($language->language_name); ?></option>
+                                                            <option value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                     <label class="form-placeholder-label" for="source_lang">زبان مبدا</label>
@@ -279,7 +279,7 @@
                                                     <select class="form-control mb-30" name="dest_lang" onchange="DL(this)" required>
                                                         <option value="<?php echo e(old('dest_lang')); ?>"></option>
                                                         <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value=" <?php echo e($language->id); ?>"><?php echo e($language->language_name); ?></option>
+                                                            <option value=" <?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                     <label class="form-placeholder-label" for="dest_lang">زبان مقصد</label>
@@ -321,7 +321,7 @@
                                                 <div class="form-group" id="translation_fields1">
                                                     
                                                     <?php for($i=0; $i<14; $i++): ?>
-                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="<?php echo e($translation_fields[$i]->field_name); ?>" type="checkbox"><span><?php echo e($translation_fields[$i]->field_name); ?></span></label><br>
+                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="<?php echo e($translation_fields[$i]->FieldName); ?>" type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label><br>
                                                     <?php endfor; ?>
                                                 </div>
                                             </div>
@@ -330,7 +330,7 @@
                                                 <div class="form-group" id="translation_fields2">
                                                     
                                                     <?php for($i=14; $i<count($translation_fields); $i++): ?>
-                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="<?php echo e($translation_fields[$i]->field_name); ?>" type="checkbox"><span><?php echo e($translation_fields[$i]->field_name); ?></span></label><br>
+                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="<?php echo e($translation_fields[$i]->FieldName); ?>" type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label><br>
                                                     <?php endfor; ?>
 
                                                 </div>

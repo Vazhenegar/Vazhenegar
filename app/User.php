@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use phpDocumentor\Reflection\Types\Integer;
+use Illuminate\Support\Facades\Cache;
 
 class User extends Authenticatable
 {
@@ -52,7 +53,7 @@ class User extends Authenticatable
         return $this->Password;
     }
 
-    public function role(Integer $id)
+    public function role(Int $id)
     {
         return Role::where('id', $id)->value('RoleName');
     }
@@ -65,5 +66,11 @@ class User extends Authenticatable
     public function mode(string $id)
     {
         return UserMode::where('id', $id)->value('Mode');
+    }
+
+    //to check if the user is online or no, with (LogLastUserActivity) middleware.
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
     }
 }

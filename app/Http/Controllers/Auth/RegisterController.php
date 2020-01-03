@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Department;
 use App\Http\Controllers\Controller;
+use App\Role;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -67,6 +69,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 //        session(['UserFirstName' => $data['FirstName']]);
+        $role_id=Role::where('RoleName','مشتری')->value('id');
+        $dep_id=Department::where('DepartmentName','مشتریان')->value('id');
         return User::create([
             'FirstName' => $data['FirstName'],
             'LastName' => $data['LastName'],
@@ -74,8 +78,8 @@ class RegisterController extends Controller
             'Password' => Hash::make($data['Password']),
             'FixNumber' => $data['FixNumber'],
             'MobileNumber' => $data['MobileNumber'],
-            'Role'=>11, //this  belongs to customers.
-            'Department'=>8, //this belongs to customers.
+            'Role'=> $role_id, //this  belongs to customers.
+            'Department'=> $dep_id, //this belongs to customers.
 
         ]);
     }

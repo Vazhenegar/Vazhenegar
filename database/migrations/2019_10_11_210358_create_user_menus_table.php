@@ -15,7 +15,7 @@ class CreateUserMenusTable extends Migration
     {
         Schema::create('user_menus', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->tinyInteger('RoleId')->unsigned();
+            $table->Integer('RoleId')->unsigned();
             $table->string('MenuItem');
             $table->string('Url')->nullable();
             $table->timestamps();

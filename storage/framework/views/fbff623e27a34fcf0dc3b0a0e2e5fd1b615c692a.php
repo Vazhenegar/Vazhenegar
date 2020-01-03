@@ -84,9 +84,9 @@
                 if ((oldstate) && (value.id == oldstate)) {
                     //if state was selected before put its id in state_id variable and select that state in select box
                     state_id = oldstate;
-                    $('#State').append('<option value="' + value.id + '" selected>' + value.state_name + '</option>');
+                    $('#State').append('<option value="' + value.id + '" selected>' + value.StateName + '</option>');
                 } else {
-                    $('#State').append('<option value="' + value.id + '">' + value.state_name + '</option>');
+                    $('#State').append('<option value="' + value.id + '">' + value.StateName + '</option>');
                 }
 
             });
@@ -112,9 +112,9 @@
                         $('#City').empty();
                         $.each(data, function (key, value) {
                             if ((oldcity) && (value.id == oldcity)) {
-                                $('#City').append('<option value="' + value.id + '" selected>' + value.city_name + '</option>');
+                                $('#City').append('<option value="' + value.id + '" selected>' + value.CityName + '</option>');
                             } else {
-                                $('#City').append('<option value="' + value.id + '">' + value.city_name + '</option>');
+                                $('#City').append('<option value="' + value.id + '">' + value.CityName + '</option>');
                             }
                         });
                     }
