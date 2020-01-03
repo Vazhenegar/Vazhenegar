@@ -15,14 +15,13 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->Integer('state_id')->unsigned();
-            $table->string('city_name');
+            $table->Integer('StateId')->unsigned();
+            $table->string('CityName');
             $table->timestamps();
 
-            $table->foreign('state_id')
+            $table->foreign('StateId')
                 ->references('id')->on('states')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
-    protected $fillable = ['state_id', 'city_name'];
+    protected $fillable = ['StateId', 'CityName'];
     public function state()
     {
         return $this->belongsTo(State::class);

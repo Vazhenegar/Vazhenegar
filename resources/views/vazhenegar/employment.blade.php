@@ -270,7 +270,7 @@
                                                     <select class="form-control mb-30" name="source_lang" onchange="SL(this)" required>
                                                         <option value="{{old('source_lang')}}"></option>
                                                         @foreach ($languages as $language)
-                                                            <option value="{{$language->id}}">{{$language->language_name}}</option>
+                                                            <option value="{{$language->id}}">{{$language->LanguageName}}</option>
                                                         @endforeach
                                                     </select>
                                                     <label class="form-placeholder-label" for="source_lang">زبان مبدا</label>
@@ -280,7 +280,7 @@
                                                     <select class="form-control mb-30" name="dest_lang" onchange="DL(this)" required>
                                                         <option value="{{old('dest_lang')}}"></option>
                                                         @foreach ($languages as $language)
-                                                            <option value=" {{$language->id}}">{{$language->language_name}}</option>
+                                                            <option value=" {{$language->id}}">{{$language->LanguageName}}</option>
                                                         @endforeach
                                                     </select>
                                                     <label class="form-placeholder-label" for="dest_lang">زبان مقصد</label>
@@ -322,7 +322,7 @@
                                                 <div class="form-group" id="translation_fields1">
                                                     {{-- translation fields will populate here--}}
                                                     @for($i=0; $i<14; $i++)
-                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="{{$translation_fields[$i]->field_name}}" type="checkbox"><span>{{$translation_fields[$i]->field_name}}</span></label><br>
+                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="{{$translation_fields[$i]->FieldName}}" type="checkbox"><span>{{$translation_fields[$i]->FieldName}}</span></label><br>
                                                     @endfor
                                                 </div>
                                             </div>
@@ -331,7 +331,7 @@
                                                 <div class="form-group" id="translation_fields2">
                                                     {{-- translation fields will populate here --}}
                                                     @for($i=14; $i<count($translation_fields); $i++)
-                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="{{$translation_fields[$i]->field_name}}" type="checkbox"><span>{{$translation_fields[$i]->field_name}}</span></label><br>
+                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="{{$translation_fields[$i]->FieldName}}" type="checkbox"><span>{{$translation_fields[$i]->FieldName}}</span></label><br>
                                                     @endfor
 
                                                 </div>

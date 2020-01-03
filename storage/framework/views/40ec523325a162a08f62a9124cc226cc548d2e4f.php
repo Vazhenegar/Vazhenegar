@@ -4,7 +4,6 @@
         $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
         $UserStatus=Auth::user()->Status;
         $UserMode=Auth::user()->Mode;
-
 ?>
 
 <?php $__env->startSection('Role', '- پنل '.$RoleName); ?>
@@ -279,6 +278,9 @@
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                               style="display: none;">
                                             <?php echo csrf_field(); ?>
+                                            <?php
+                                                Auth::user()->Mode='OFF';
+                                            ?>
                                         </form>
                                     </div>
                                 </li>

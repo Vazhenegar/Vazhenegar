@@ -37,8 +37,8 @@ class UserStatusesTableSeeder extends Seeder
         foreach ($statuses as $status) {
             DB::table('user_statuses')->insert([
                 'id' => $status['id'],
-                'status' => $status['status'],
-                'description' => $status['description'],
+                'Status' => $status['status'],
+                'Description' => $status['description'],
             ]);
         }
     }

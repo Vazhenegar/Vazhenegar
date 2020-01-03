@@ -14,7 +14,8 @@ class CreateNewsLetterMembersTable extends Migration
     public function up()
     {
         Schema::create('news_letter_members', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
+            $table->string('Email')->unique();
             $table->timestamps();
         });
     }

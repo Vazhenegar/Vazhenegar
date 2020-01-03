@@ -47,7 +47,7 @@ class StatesTableSeeder extends Seeder
         foreach ($States as $State) {
 
             DB::table('states')->insert([
-                'state_name' => $State,
+                'StateName' => $State,
             ]);
         }
     }

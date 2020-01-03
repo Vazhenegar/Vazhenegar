@@ -15,8 +15,8 @@ class CreateUserStatusesTable extends Migration
     {
         Schema::create('user_statuses', function (Blueprint $table) {
             $table->string('id')->unique(); //because this is a string type, it should be unique for able to set as foreign key in other tables.
-            $table->string('status');
-            $table->string('description');
+            $table->string('Status');
+            $table->string('Description');
             $table->timestamps();
         });
     }

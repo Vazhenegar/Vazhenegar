@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use phpDocumentor\Reflection\Types\Integer;
 
 class User extends Authenticatable
 {
@@ -19,8 +20,8 @@ class User extends Authenticatable
         'FirstName', 'LastName', 'BirthDate', 'Gender', 'Email', 'Password',
         'FixNumber', 'MobileNumber', 'State', 'City', 'Address', 'Degree',
         'GraduationDate', 'GraduationField', 'Resume', 'UserSelectedLangs',
-        'TranslationFields','Role', 'Department', 'UserDocuments', 'QuizAnswer',
-        'BankCard', 'ProfilePhoto',
+        'TranslationFields', 'UserDocuments', 'Department', 'Role', 'Status',
+        'Mode', 'QuizAnswer', 'BankCard', 'ProfilePhoto',
     ];
 
     /**
@@ -51,18 +52,18 @@ class User extends Authenticatable
         return $this->Password;
     }
 
-    public function role()
+    public function role(Integer $id)
     {
-        $this->belongsTo(User::class);
+        return Role::where('id', $id)->value('RoleName');
     }
 
     public function status(string $id)
     {
-        return UserStatus::where('id', $id)->value('status');
+        return UserStatus::where('id', $id)->value('Status');
     }
 
     public function mode(string $id)
     {
-        return UserMode::where('id', $id)->value('mode');
+        return UserMode::where('id', $id)->value('Mode');
     }
 }

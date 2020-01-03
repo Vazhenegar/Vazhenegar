@@ -2,11 +2,10 @@
 
 @php
     $user=new App\User;
-        $RoleName=\App\Role::where('id',Auth::user()->Role)->value('RoleName');
+        $RoleName=Auth::user()->Role;
         $UserFullName=Auth::user()->FirstName .' '. Auth::user()->LastName;
         $UserStatus=Auth::user()->Status;
         $UserMode=Auth::user()->Mode;
-
 @endphp
 
 @section('Role', '- پنل '.$RoleName)
@@ -21,7 +20,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">پنل</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>کنترل پنل {{$RoleName}}</b></span>
+                <span class="logo-lg"><b>کنترل پنل {{$user->role($RoleName)}}</b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -250,7 +249,7 @@
 
                                     <p>
                                         {{$UserFullName}}
-                                        <small>{{$RoleName}}</small>
+                                        <small>{{$user->role($RoleName)}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->

@@ -15,7 +15,7 @@ class CreateTranslationFieldsTable extends Migration
     {
         Schema::create('translation_fields', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('field_name');
+            $table->string('FieldName');
             $table->timestamps();
         });
     }

@@ -26,8 +26,8 @@ class UserModesTableSeeder extends Seeder
         foreach ($modes as $mode) {
             DB::table('user_modes')->insert([
                 'id' => $mode['id'],
-                'mode' => $mode['mode'],
-                'description' => $mode['description'],
+                'Mode' => $mode['mode'],
+                'Description' => $mode['description'],
             ]);
         }
     }

@@ -44,7 +44,7 @@ class TranslationfieldsTableSeeder extends Seeder
 
         foreach ($translation_fields as $field) {
             DB::table('translation_fields')->insert([
-                'field_name' => $field,
+                'FieldName' => $field,
             ]);
         }
     }

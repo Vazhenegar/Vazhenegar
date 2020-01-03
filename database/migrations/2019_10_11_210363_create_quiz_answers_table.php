@@ -15,22 +15,22 @@ class CreateQuizAnswersTable extends Migration
     {
         Schema::create('quiz_answers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('source_language_id')->unsigned();
-            $table->bigInteger('dest_language_id')->unsigned();
-            $table->bigInteger('translation_field_id')->unsigned();
-            $table->integer('text_id');
-            $table->longText('answer_text');
+            $table->bigInteger('SourceLanguageId')->unsigned();
+            $table->bigInteger('destLanguageId')->unsigned();
+            $table->bigInteger('TranslationFieldId')->unsigned();
+            $table->integer('TextId'); //if a field has multiple text for quiz, this would be count number of text
+            $table->longText('AnswerText');
             $table->timestamps();
 
-            $table->foreign('source_language_id')
+            $table->foreign('SourceLanguageId')
                 ->references('id')->on('languages')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('dest_language_id')
+            $table->foreign('destLanguageId')
                 ->references('id')->on('languages')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('translation_field_id')
+            $table->foreign('TranslationFieldId')
                 ->references('id')->on('translation_fields')
                 ->onUpdate('cascade')->onDelete('cascade');
         });

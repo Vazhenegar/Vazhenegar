@@ -15,17 +15,12 @@ class CreateUserMenusTable extends Migration
     {
         Schema::create('user_menus', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->tinyInteger('Department_id')->unsigned();
-            $table->tinyInteger('Role_id')->unsigned();
+            $table->tinyInteger('RoleId')->unsigned();
             $table->string('MenuItem');
             $table->string('Url')->nullable();
             $table->timestamps();
 
-            $table->foreign('Department_id')
-                ->references('id')->on('departments')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('Role_id')
+            $table->foreign('RoleId')
                 ->references('id')->on('roles')
                 ->onUpdate('cascade')->onDelete('cascade');
         });

@@ -15,8 +15,8 @@ class CreateTermsOfServicesTable extends Migration
     {
         Schema::create('terms_of_services', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tostitle');
-            $table->longText('toscontent');
+            $table->string('TosTitle');
+            $table->longText('TosContent');
             $table->timestamps();
         });
     }

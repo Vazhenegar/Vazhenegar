@@ -39,8 +39,8 @@ class TermsOfServiceTableseeder extends Seeder
         foreach($tos as $tostitle=>$toscontent){
 
             DB::table('terms_of_services')->insert([
-                'tostitle'=>$tostitle,
-                'toscontent'=>$toscontent,
+                'TosTitle'=>$tostitle,
+                'TosContent'=>$toscontent,
             ]);
         }
     }

@@ -24,7 +24,7 @@ class LanguagesTableSeeder extends Seeder
 
         foreach ($language_list as $language) {
             DB::table('languages')->insert([
-                'language_name' => $language,
+                'LanguageName' => $language,
             ]);
         }
     }
