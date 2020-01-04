@@ -508,7 +508,7 @@ class CitiesTableSeeder extends Seeder
         foreach ($city_list as $state_id => $city_name) {
             foreach ($city_name as $city) {
                 DB::table('cities')->insert([
-                    'StateId' => $state_id,
+                    'state_id' => $state_id,
                     'CityName' => $city,
                 ]);
             }

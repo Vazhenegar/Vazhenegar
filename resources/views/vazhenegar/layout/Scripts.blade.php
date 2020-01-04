@@ -109,6 +109,7 @@
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
+
                         $('#City').empty();
                         $.each(data, function (key, value) {
                             if ((oldcity) && (value.id == oldcity)) {

@@ -30,6 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/dashboard';
 
     /**
@@ -42,35 +43,39 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'FirstName' => ['required', 'string', 'max:255'],
-            'LastName' => ['required', 'string', 'max:255'],
-            'Email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'Password' => ['required', 'string', 'min:8', 'confirmed'],
+// ============for regular users
+            'FirstName' => ['required', 'regex:/^[\pL\s\-]+$/u'], //acceps alpha and space in this field
+            'LastName' => ['required', 'regex:/^[\pL\s\-]+$/u'],  //acceps alpha and space in this field
+            'Email' => ['required', 'email', 'unique:users'],
+            'Password' => ['required', 'min:8', 'confirmed'],
             'FixNumber' => ['required', 'numeric', 'regex:/^0\d{10}$/'],
             'MobileNumber' => ['required', 'numeric', 'regex:/^09\d{9}$/'],
+// ============end of regular users
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-//        session(['UserFirstName' => $data['FirstName']]);
-        $role_id=Role::where('RoleName','مشتری')->value('id');
-        $dep_id=Department::where('DepartmentName','مشتریان')->value('id');
+        $role_id = Role::where('RoleName', 'مشتری')->value('id');
+        $dep_id = Department::where('DepartmentName', 'مشتریان')->value('id');
+
+
         return User::create([
             'FirstName' => $data['FirstName'],
             'LastName' => $data['LastName'],
@@ -78,9 +83,8 @@ class RegisterController extends Controller
             'Password' => Hash::make($data['Password']),
             'FixNumber' => $data['FixNumber'],
             'MobileNumber' => $data['MobileNumber'],
-            'Role'=> $role_id, //this  belongs to customers.
-            'Department'=> $dep_id, //this belongs to customers.
-
+            'Role' => $role_id, //this  belongs to customers.
+            'Department' => $dep_id, //this belongs to customers.
         ]);
     }
 }

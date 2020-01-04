@@ -4,7 +4,7 @@
     let counter = {};
     window.addEventListener("load", function () {
 // COUNTDOWN IN SECONDS
-// EXAMPLE - 15 MINS = 15 X 60 = 900 SECS
+// 15 MINS = 15 X 60 = 900 SECS
         counter.end = 900;
 
 // Get the containers

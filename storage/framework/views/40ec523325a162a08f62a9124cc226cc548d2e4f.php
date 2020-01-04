@@ -1,6 +1,7 @@
 <?php
     $user=new App\User;
     $CurrentUser=Auth::user();
+    dd($CurrentUser);
     $RoleId=$CurrentUser->Role;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;

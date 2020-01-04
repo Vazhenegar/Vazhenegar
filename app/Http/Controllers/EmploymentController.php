@@ -10,6 +10,8 @@ use App\Language;
 use App\TranslationField;
 use App\Role;
 use App\Department;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class EmploymentController extends Controller
 {
@@ -88,8 +90,7 @@ class EmploymentController extends Controller
             'BirthDate' => ['required'],
             'Gender' => ['required', 'boolean'],
             'Email' => ['required', 'email', 'unique:users'],
-            'Password' => ['required', 'confirmed'],
-//            'Password_confirmation' => ['required'],
+            'Password' => ['required', 'min:8', 'confirmed'],
             'FixNumber' => ['required', 'numeric', 'regex:/^0\d{10}$/'],
             'MobileNumber' => ['required', 'numeric', 'regex:/^09\d{9}$/'],
             'State' => ['required', 'numeric', 'min:1', 'max:31'],
@@ -123,9 +124,8 @@ class EmploymentController extends Controller
             $uploaded->storeAs('public\Documentation\Translators', $filename);
         }
 
-        $department=Department::where('DepartmentName','ترجمه')->pluck('id')->first();
-        $role=Role::where('RoleName','مترجم')->pluck('id')->first();
-        $MenuItems= serialize(Role::find($role)->usermenus()->pluck('id')); //get array of menu id's belongs to user role
+        $role_id = Role::where('RoleName', 'مترجم')->value('id');
+        $dep_id = Department::where('DepartmentName', 'ترجمه')->value('id');
 
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
@@ -133,7 +133,7 @@ class EmploymentController extends Controller
         $translator->BirthDate = $BirthDate;
         $translator->Gender = $request->input('Gender');
         $translator->Email = $request->input('Email');
-        $translator->Password = bcrypt($request->input('Password'));
+        $translator->Password = Hash::make($request->input('Password'));
         $translator->FixNumber = $request->input('FixNumber');
         $translator->MobileNumber = $request->input('MobileNumber');
         $translator->State = $request->input('State');
@@ -146,13 +146,12 @@ class EmploymentController extends Controller
         $translator->UserSelectedLangs = $TranslatorSelectedLangs;
         $translator->TranslationFields = $TranslationFields;
         $translator->UserDocuments = $filename;
-        $translator->Department = $department;
-        $translator->Role = $role;
-        $translator->Menus = $MenuItems;
+        $translator->Department = $dep_id;
+        $translator->Role = $role_id;
 
         $translator->saveOrFail();
-        session(['user' => $translator]);
-        return redirect()->to('quiz');
+        Auth::login($translator);
+        return redirect()->to('dashboard');
 
 
 //run command (php artisan storage:link) in terminal to link storage\app folder to public\storage to use in whole website
