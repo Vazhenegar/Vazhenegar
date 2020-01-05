@@ -4,6 +4,10 @@
 
 
 @section('content')
+{{--if user is redirected from employment page this alert would be show to user--}}
+    @if(session('status')=='Quiz Stored')
+        <script>alert("مترجم گرامی درخواست شما با موفقیت ثبت شد. در صورت کسب امتیاز لازم با شما تماس گرفته خواهد شد.")</script>';
+    @endif
 
 {{-- Index Welcome Area --}}
 

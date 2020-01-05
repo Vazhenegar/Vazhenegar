@@ -17,7 +17,9 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
-Route::get('employment/city/{state_id}', 'EmploymentController@cities');
-Route::resource('employment', EmploymentController::class);
+Route::get('employment/city/{state_id}', 'TranslatorEmploymentController@cities');
+Route::resource('TranslatorEmployment',TranslatorEmploymentController::class);
 
 Route::post('/ChangeUserStatus/{UserId}/{Status}', 'HomeController@ChangeStatus')->name('changestatus');
+
+Route::view('q','vazhenegar.TranslatorQuiz');

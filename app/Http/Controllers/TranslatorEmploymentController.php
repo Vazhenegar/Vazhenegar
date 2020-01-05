@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\employment;
-use App\User;
+use App\TranslatorEmployment;
 use Illuminate\Http\Request;
+use App\User;
 use App\State;
 use App\Language;
 use App\TranslationField;
@@ -13,12 +13,13 @@ use App\Department;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-class EmploymentController extends Controller
+
+class TranslatorEmploymentController extends Controller
 {
     /*
-     function for replace persian digits with english to save in db
-     because persian srting cannot validate in laravel
-     */
+         function for replace persian digits with english to save in db
+         because persian srting cannot validate in laravel
+         */
     public function per_digit_conv(string $per_digits)
     {
         $result = "";
@@ -40,6 +41,16 @@ class EmploymentController extends Controller
     }
 
     /**
+     * Retrive cities name based on state selected by user
+     * @param State $state_id
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function cities(State $state_id)
+    {
+        return $state_id->cities()->get();
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -50,20 +61,9 @@ class EmploymentController extends Controller
         $languages = Language::all();
         $translation_fields = TranslationField::all();
         return view(
-            'vazhenegar/employment',
+            'vazhenegar.TranslatorEmployment',
             compact('states', 'languages', 'translation_fields')
         );
-
-    }
-
-    /**
-     * Retrive cities name based on state selected by user
-     * @param State $state_id
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    public function cities(State $state_id)
-    {
-        return $state_id->cities()->get();
     }
 
     /**
@@ -79,7 +79,7 @@ class EmploymentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -150,23 +150,21 @@ class EmploymentController extends Controller
         $translator->Role = $role_id;
 
         $translator->saveOrFail();
-        Auth::login($translator);
-        return redirect()->to('dashboard');
+        session()->flash('TranslatorId', $translator->id);
+        return redirect()->to('/quiz');
 
 
 //run command (php artisan storage:link) in terminal to link storage\app folder to public\storage to use in whole website
 
-
     }
-
 
     /**
      * Display the specified resource.
      *
-     * @param \App\employment $employment
+     * @param  \App\TranslatorEmployment  $translatorEmployment
      * @return \Illuminate\Http\Response
      */
-    public function show(employment $employment)
+    public function show(TranslatorEmployment $translatorEmployment)
     {
         //
     }
@@ -174,10 +172,10 @@ class EmploymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\employment $employment
+     * @param  \App\TranslatorEmployment  $translatorEmployment
      * @return \Illuminate\Http\Response
      */
-    public function edit(employment $employment)
+    public function edit(TranslatorEmployment $translatorEmployment)
     {
         //
     }
@@ -185,11 +183,11 @@ class EmploymentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\employment $employment
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\TranslatorEmployment  $translatorEmployment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, employment $employment)
+    public function update(Request $request, TranslatorEmployment $translatorEmployment)
     {
         //
     }
@@ -197,12 +195,11 @@ class EmploymentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\employment $employment
+     * @param  \App\TranslatorEmployment  $translatorEmployment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(employment $employment)
+    public function destroy(TranslatorEmployment $translatorEmployment)
     {
         //
     }
-
 }

@@ -1,9 +1,10 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 
 @php
+use Illuminate\Support\Facades\Auth;
     $user=new App\User;
     $CurrentUser=Auth::user();
-    dd($CurrentUser);
+
     $RoleId=$CurrentUser->Role;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
@@ -256,7 +257,7 @@
 
                                     <p>
                                         {{$UserFullName}}
-                                        <small>{{$user->role($RoleId)}}</small>
+                                        <small>کد کاربری {{$CurrentUser->id}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -338,7 +339,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> داشبرد اول</a></li>
-                            <li><a href="index2.html"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
+                            <li><a href="/quiz"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
                         </ul>
                     </li>
                     {{--========================================================================--}}
