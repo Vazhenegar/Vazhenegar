@@ -1,6 +1,7 @@
 <?php $__env->startSection('PageTitle', 'آزمون آنلاین'); ?>
 
 <?php $__env->startSection('content'); ?>
+
     <?php echo $__env->make('vazhenegar.layout.QuizTimer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
@@ -41,20 +42,13 @@
                     <form action="/quiz" method="post">
                         <?php echo csrf_field(); ?>
                         <div class="form-group">
-                        <textarea class="form-control mb-30" name="QuizText" rows="10" disabled>this is Quiz textarea.
-                        this text is fetched from db to show to translator.
-                            it is a multiline text.
-                            but we dont want user to be able to change the source text.
-                            so we are goint to disable this textarea and see if it work properly or no
-                            at the same time we dont want it to stretch too much
-                            now if this
-                            text goes
-                            so long
-                            and long
-                            and long
-                            the textarea wont be too long
-                            and it contains scrollbar
-                            to see the rest of this text.
+
+
+                        <textarea class="form-control mb-30" name="QuizText" rows="10" disabled>
+                            <?php $__currentLoopData = $Contents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php echo e($Content); ?>
+
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </textarea>
                         </div>
 

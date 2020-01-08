@@ -22,7 +22,7 @@ class User extends Authenticatable
         'FixNumber', 'MobileNumber', 'State', 'City', 'Address', 'Degree',
         'GraduationDate', 'GraduationField', 'Resume', 'UserSelectedLangs',
         'TranslationFields', 'UserDocuments', 'Department', 'Role', 'Status',
-        'Mode', 'QuizAnswer', 'BankCard', 'ProfilePhoto',
+        'Mode', 'QuizAnswer', 'QuizReference', 'BankCard', 'ProfilePhoto',
     ];
 
     /**

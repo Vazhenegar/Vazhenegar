@@ -17,7 +17,7 @@ class QuizzesTableSeeder extends Seeder
         $fields = TranslationField::get()->pluck('id', 'FieldName');
         foreach ($langs as $lang_name => $lang_id) {
             foreach ($fields as $field_name => $field_id) {
-                for ($i = 1; $i <= 20; $i++) {
+                for ($i = 1; $i <= rand(3,10); $i++) {
                     DB::table('quizzes')->insert([
                         'SourceLanguageId' => $lang_id,
                         'TranslationFieldId' => $field_id,

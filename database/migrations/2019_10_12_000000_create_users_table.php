@@ -36,8 +36,9 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('Department')->unsigned(); //foreign key for determine user department.
             $table->Integer('Role')->unsigned(); //foreign key for determine user type and menus.
             $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive
-            $table->string('Mode')->default('ON'); //to determine user mode: (On)line, (OFF)line
-            $table->longText('QuizAnswer')->nullable();
+            $table->string('Mode')->default('OFF'); //to determine user mode: (On)line, (OFF)line
+            $table->longText('QuizReference')->nullable(); //for see quiz and answer reference
+            $table->longText('UserQuizAnswer')->nullable();
             $table->string('BankCard')->nullable();
             $table->string('ProfilePhoto')->nullable();
             $table->rememberToken();

@@ -150,7 +150,9 @@ class TranslatorEmploymentController extends Controller
         $translator->Role = $role_id;
 
         $translator->saveOrFail();
-        session()->flash('TranslatorId', $translator->id);
+        session([
+            'TranslatorId'=> $translator->id,
+            ]);
         return redirect()->to('/quiz');
 
 
