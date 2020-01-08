@@ -54,7 +54,7 @@
 
                         <div class="col-12" dir="rtl">
                             <div class="form-group">
-                                <textarea class="form-control mb-30" name="QuizAnswer" rows="10" required></textarea>
+                                <textarea class="form-control mb-30 quiz-answer" name="QuizAnswer" rows="10" required></textarea>
                             </div>
                         </div>
 

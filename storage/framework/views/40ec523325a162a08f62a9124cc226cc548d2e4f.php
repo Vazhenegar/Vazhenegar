@@ -1,6 +1,4 @@
-@extends('auth.DashboardLayout.DashboardMasterLayout')
-
-@php
+<?php
 use Illuminate\Support\Facades\Auth;
     $user=new App\User;
 //    $CurrentUser=Auth::user();
@@ -10,17 +8,17 @@ use Illuminate\Support\Facades\Auth;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
-@endphp
-
-{{--use this to determine if user is online or no --}}
-{{--@if($user->isOnline())--}}
-{{--    user is online!!--}}
-{{--@endif--}}
+?>
 
 
-@section('Role', '- پنل '.$user->role($RoleId))
 
-@section('content')
+
+
+
+
+<?php $__env->startSection('Role', '- پنل '.$user->role($RoleId)); ?>
+
+<?php $__env->startSection('content'); ?>
 
     <div class="wrapper">
         <header class="main-header">
@@ -29,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">پنل</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>کنترل پنل {{$user->role($RoleId)}}</b></span>
+                <span class="logo-lg"><b>کنترل پنل <?php echo e($user->role($RoleId)); ?></b></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -249,7 +247,7 @@ use Illuminate\Support\Facades\Auth;
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="auth/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">{{$UserFullName}}</span>
+                                <span class="hidden-xs"><?php echo e($UserFullName); ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -257,8 +255,9 @@ use Illuminate\Support\Facades\Auth;
                                     <img src="auth/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        {{$UserFullName}}
-                                        <small>کد کاربری {{$CurrentUser->id}}</small>
+                                        <?php echo e($UserFullName); ?>
+
+                                        <small>کد کاربری <?php echo e($CurrentUser->id); ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -283,10 +282,10 @@ use Illuminate\Support\Facades\Auth;
                                            onclick="event.preventDefault();
                                            document.getElementById('UserStatusChange').submit();">پروفایل</a>
 
-                                        <form id="UserStatusChange" action="{{route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])}}" method="POST"
+                                        <form id="UserStatusChange" action="<?php echo e(route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])); ?>" method="POST"
                                               style="display: none;">
 
-                                            @csrf
+                                            <?php echo csrf_field(); ?>
                                         </form>
                                     </div>
 
@@ -294,9 +293,9 @@ use Illuminate\Support\Facades\Auth;
                                         <a class="btn btn-default btn-flat"
                                            onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">خروج</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                               style="display: none;">
-                                            @csrf
+                                            <?php echo csrf_field(); ?>
                                         </form>
                                     </div>
                                 </li>
@@ -320,15 +319,15 @@ use Illuminate\Support\Facades\Auth;
                         <img src="auth/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
-                        <p>{{$UserFullName}}</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i>{{$user->mode($UserMode)}}</a>
+                        <p><?php echo e($UserFullName); ?></p>
+                        <a href="#"><i class="fa fa-circle text-success"></i><?php echo e($user->mode($UserMode)); ?></a>
                     </div>
                 </div>
 
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">منو</li>
-                    {{--========================================================================--}}
+                    
                     <li class="active treeview">
                         <a href="#">
                             <i class="fa fa-dashboard"></i>
@@ -342,7 +341,7 @@ use Illuminate\Support\Facades\Auth;
                             <li><a href="/quiz"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
                         </ul>
                     </li>
-                    {{--========================================================================--}}
+                    
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-files-o"></i>
@@ -360,7 +359,7 @@ use Illuminate\Support\Facades\Auth;
                             </li>
                         </ul>
                     </li>
-                    {{--========================================================================--}}
+                    
                     <li>
                         <a href="pages/widgets.html">
                             <i class="fa fa-th"></i> <span>ویجت ها</span>
@@ -1083,10 +1082,10 @@ use Illuminate\Support\Facades\Auth;
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-    {{--        <footer class="main-footer text-left">--}}
-    {{--            <strong>Copyleft &copy; 2014-2017 <a href="https://adminlte.io">Almsaeed Studio</a> & <a--}}
-    {{--                    href="http://hosseinizadeh.ir/adminlte">Alireza Hosseinizadeh</a></strong>--}}
-    {{--        </footer>--}}
+    
+    
+    
+    
 
     <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -1283,4 +1282,6 @@ use Illuminate\Support\Facades\Auth;
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/dashboard.blade.php ENDPATH**/ ?>

@@ -113,7 +113,6 @@ class QuizController extends Controller
                 }
             }
 
-
             $Contents = [];
             foreach ($this->FinalQuizIds as $finalQuizId) {
                 $Contents[] = Quiz::where('id', $finalQuizId)->value('QuizContent');
@@ -149,10 +148,10 @@ class QuizController extends Controller
         //create pair of quiz answer array to save in user db
         $this->QuizReference = [];
 
-        $rules = [
-            'QuizAnswer' => ['required'],
-        ];
-        $this->validate($request, $rules);
+//        $rules = [
+//            'QuizAnswer' => [''],
+//        ];
+//        $this->validate($request, $rules);
         $user = User::find(session('TranslatorId'));
         $user->UserQuizAnswer = $request->input('QuizAnswer');
 
@@ -170,7 +169,7 @@ class QuizController extends Controller
         $user->save();
 
         //remove translator id to prevent reload same quiz page after save
-        session()->forget(['TranslatorId', 'QuizIds', 'AnswerIds']);
+        session()->forget(['TranslatorId', 'QuizIds', 'AnswerIds','timer']);
 
         //return to home page with success message
         session()->flash('status', 'Quiz Stored');

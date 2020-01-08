@@ -4,7 +4,7 @@
 <?php $__env->startSection('content'); ?>
 
     <?php if(session('status')=='Quiz Stored'): ?>
-        <script>alert("مترجم گرامی درخواست شما با موفقیت ثبت شد. در صورت کسب امتیاز لازم با شما تماس گرفته خواهد شد.")</script>';
+        <script>alert("مترجم گرامی درخواست شما با موفقیت ثبت شد. در صورت کسب امتیاز لازم با شما تماس گرفته خواهد شد.")</script>
     <?php endif; ?>
 
 

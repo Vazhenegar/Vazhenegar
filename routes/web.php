@@ -22,4 +22,4 @@ Route::resource('TranslatorEmployment',TranslatorEmploymentController::class);
 
 Route::post('/ChangeUserStatus/{UserId}/{Status}', 'HomeController@ChangeStatus')->name('changestatus');
 
-route::view('q','vazhenegar.TranslatorQuiz');
+Route::view('d','vazhenegar.dashboard');
