@@ -3767,3 +3767,12 @@ input[type="number"]::-webkit-outer-spin-button {
         margin-bottom: 20px;
     }
 }
+
+/*Quiz page style*/
+.quizText{
+    resize: none;
+    text-align: justify;
+    white-space: pre-line;
+    -moz-text-align-last: left;
+    text-align-last: left;
+}

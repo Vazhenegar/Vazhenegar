@@ -41,14 +41,16 @@
                 <div class="col-12">
                     <form action="/quiz" method="post">
                         <?php echo csrf_field(); ?>
+
                         <div class="form-group">
+                        <textarea class="form-control mb-30 quizText" name="QuizText" rows="10" disabled>
 
 
-                        <textarea class="form-control mb-30" name="QuizText" rows="10" disabled>
-                            <?php $__currentLoopData = $Contents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php echo e($Content); ?>
 
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi doloremque eaque,
+                            esse eum expedita fuga labore laudantium non perferendis quae quibusdam quidem rem
+                            voluptas voluptates voluptatum.
+                            Dolor error illo pariatur.
                         </textarea>
                         </div>
 

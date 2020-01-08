@@ -42,10 +42,9 @@
                 <div class="col-12">
                     <form action="/quiz" method="post">
                         @csrf
+
                         <div class="form-group">
-
-
-                        <textarea class="form-control mb-30" name="QuizText" rows="10" disabled>
+                        <textarea class="form-control mb-30 quizText" name="QuizText" rows="10" disabled>
                             @foreach ($Contents as $Content)
                                 {{$Content}}
                             @endforeach
