@@ -1,6 +1,5 @@
 @extends('vazhenegar.layout.MasterLayout')
 @section('PageTitle', 'ورود کاربران')
-
 @section('content')
 
     <!-- ***** Breadcrumb Area Start ***** -->

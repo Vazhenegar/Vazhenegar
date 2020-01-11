@@ -23,3 +23,5 @@ Route::resource('TranslatorEmployment',TranslatorEmploymentController::class);
 Route::post('/ChangeUserStatus/{UserId}/{Status}', 'HomeController@ChangeStatus')->name('changestatus');
 
 Route::view('d','vazhenegar.dashboard');
+
+Route::get('/SetUserStatus/{status}','HomeController@SetUserStatus')->name('SetUserStatus');

@@ -514,9 +514,9 @@
   ),
   'session' => 
   array (
-    'driver' => 'file',
-    'lifetime' => '120',
-    'expire_on_close' => false,
+    'driver' => 'database',
+    'lifetime' => '15',
+    'expire_on_close' => true,
     'encrypt' => false,
     'files' => 'E:\\Projects\\vazhenegar\\Main Project\\storage\\framework/sessions',
     'connection' => NULL,
@@ -524,8 +524,8 @@
     'store' => NULL,
     'lottery' => 
     array (
-      0 => 2,
-      1 => 100,
+      0 => 1,
+      1 => 1,
     ),
     'cookie' => 'oazhh_ngar_session',
     'path' => '/',

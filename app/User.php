@@ -2,11 +2,10 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use phpDocumentor\Reflection\Types\Integer;
-use Illuminate\Support\Facades\Cache;
+
 
 class User extends Authenticatable
 {
@@ -68,9 +67,5 @@ class User extends Authenticatable
         return UserMode::where('id', $id)->value('Mode');
     }
 
-    //to check if the user is online or no, with (LogLastUserActivity) middleware.
-    public function isOnline()
-    {
-        return Cache::has('user-is-online-' . $this->id);
-    }
+
 }

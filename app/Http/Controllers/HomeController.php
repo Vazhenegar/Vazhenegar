@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,16 +26,24 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+        $OnlineIds = (new \App\Session)->GetUsersId();
+        SetUsersMode($OnlineIds);
+
         return view('vazhenegar.dashboard');
     }
 
-    public function ChangeStatus($UserId, $Status)
+    public function SetUserStatus($status)
     {
-//        $user = new User();
-        $user = User::where('id', $UserId)->first();
-        $user->Status = $Status;
-        $user->save();
-        return back();
+        if (Auth::check() && $status) {
+            $CurrentUser = Auth::user();
+            $CurrentUser->Mode = $status;
+            $CurrentUser->save();
+        } else {
+            return back();
+        }
 
     }
+
 }

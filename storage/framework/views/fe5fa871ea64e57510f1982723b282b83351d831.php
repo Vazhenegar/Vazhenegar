@@ -1,9 +1,7 @@
 <?php $__env->startSection('PageTitle', 'آزمون آنلاین'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <?php
-    dd($QuestionSheet);
-    ?>
+
     <?php echo $__env->make('vazhenegar.layout.QuizTimer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
@@ -11,7 +9,8 @@
             <div class="row h-100 align-items-end">
                 <div class="col-12 mb-15" dir="rtl">
                     <h1 class="title">آزمون آنلاین</h1>
-                    <h3 class="description">متن زیر را تا قبل از اتمام زمان، با دقت ترجمه کنید و در کادر پایین بنویسید.</h3>
+                    <h3 class="description">متن زیر را تا قبل از اتمام زمان، با دقت ترجمه کنید و در کادر پایین
+                        بنویسید.</h3>
                 </div>
             </div>
         </div>
@@ -42,28 +41,20 @@
                 <div class="col-12">
                     <form action="/quiz" method="post">
                         <?php echo csrf_field(); ?>
+
                         <div class="form-group">
-                        <textarea class="form-control mb-30" name="QuizText" rows="10" disabled>this is Quiz textarea.
-                        this text is fetched from db to show to translator.
-                            it is a multiline text.
-                            but we dont want user to be able to change the source text.
-                            so we are goint to disable this textarea and see if it work properly or no
-                            at the same time we dont want it to stretch too much
-                            now if this
-                            text goes
-                            so long
-                            and long
-                            and long
-                            the textarea wont be too long
-                            and it contains scrollbar
-                            to see the rest of this text.
+                        <textarea class="form-control mb-30 quizText" name="QuizText" rows="10" disabled>
+                            <?php $__currentLoopData = $Contents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php echo e($Content); ?>
+
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </textarea>
                         </div>
 
 
                         <div class="col-12" dir="rtl">
                             <div class="form-group">
-                                <textarea class="form-control mb-30" name="QuizAnswer" rows="10" required></textarea>
+                                <textarea class="form-control mb-30 quiz-answer" name="QuizAnswer" rows="10" required></textarea>
                             </div>
                         </div>
 

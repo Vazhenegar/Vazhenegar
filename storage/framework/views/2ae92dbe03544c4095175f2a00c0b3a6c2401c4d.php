@@ -11,12 +11,15 @@
         counter.min = document.getElementById("cd-min");
         counter.sec = document.getElementById("cd-sec");
 
-// COUNTDOWN IN SECONDS
-// if user refresh the page in the middle of quiz, timer will remain from refreshed point.
-        if (sessionStorage.getItem("timer") > 0) {
+        if (performance.navigation.type == 1) {
+            //This page is refreshed
+
+            //set quiz timer
             counter.end = sessionStorage.getItem("timer");
         } else {
-// 15 MINS = 15 X 60 = 900 SECS
+            //This page is loaded for the first time
+
+            //set quiz timer -  15 MINS = 15 X 60 = 900 SECS
             counter.end = 900;
         }
 
@@ -31,9 +34,8 @@
                 if (counter.end < 0) {
                     clearInterval(counter.ticker);
                     counter.end = 0;
-                    sessionStorage.removeItem('timer');
-                    $(".quiz-submit").prop("disabled", true);
-                    alert('زمان شما به پایان رسید.');
+                    $(".quiz-answer").prop("disabled", true);
+                    alert('زمان شما به پایان رسید، لطفا ترجمه خود را ارسال کنید.');
                 }
 
 // Calculate remaining time
@@ -45,6 +47,13 @@
                 counter.min.innerHTML = mins;
                 counter.sec.innerHTML = secs;
             }, 1000);
+        }
+        //quiz time is over and user refreshed the page.
+        else {
+            clearInterval(counter.ticker);
+            counter.end = 0;
+            $(".quiz-answer").prop("disabled", true);
+            alert('زمان شما به پایان رسید، لطفا ترجمه خود را ارسال کنید.');
         }
     });
 </script>

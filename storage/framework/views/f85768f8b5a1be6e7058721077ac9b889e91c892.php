@@ -1,23 +1,25 @@
 <?php
-use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Auth;
     $user=new App\User;
     $CurrentUser=Auth::user();
-
     $RoleId=$CurrentUser->Role;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
 ?>
 
-
-
-
-
-
-
 <?php $__env->startSection('Role', '- پنل '.$user->role($RoleId)); ?>
 
 <?php $__env->startSection('content'); ?>
+
+    <?php
+
+    //    $CurrentUser=Auth::loginUsingId(20);
+
+
+    ?>
+
+
 
     <div class="wrapper">
         <header class="main-header">
@@ -281,7 +283,9 @@ use Illuminate\Support\Facades\Auth;
                                            onclick="event.preventDefault();
                                            document.getElementById('UserStatusChange').submit();">پروفایل</a>
 
-                                        <form id="UserStatusChange" action="<?php echo e(route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])); ?>" method="POST"
+                                        <form id="UserStatusChange"
+                                              action="<?php echo e(route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])); ?>"
+                                              method="POST"
                                               style="display: none;">
 
                                             <?php echo csrf_field(); ?>
@@ -294,7 +298,6 @@ use Illuminate\Support\Facades\Auth;
                                            document.getElementById('logout-form').submit();">خروج</a>
                                         <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                               style="display: none;">
-
                                             <?php echo csrf_field(); ?>
                                         </form>
                                     </div>
@@ -320,7 +323,9 @@ use Illuminate\Support\Facades\Auth;
                     </div>
                     <div class="pull-right info">
                         <p><?php echo e($UserFullName); ?></p>
-                        <a href="#"><i class="fa fa-circle text-success"></i><?php echo e($user->mode($UserMode)); ?></a>
+                        <a id="UserMode" href="#"><i class="fa fa-circle text-success"></i><?php echo e($user->mode($UserMode)); ?>
+
+                        </a>
                     </div>
                 </div>
 

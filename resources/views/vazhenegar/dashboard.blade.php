@@ -1,26 +1,27 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 
 @php
-use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Auth;
     $user=new App\User;
-//    $CurrentUser=Auth::user();
-    $CurrentUser=Auth::loginUsingId(20);
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
+    $CurrentUser=Auth::user();
     $RoleId=$CurrentUser->Role;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
 @endphp
 
-{{--use this to determine if user is online or no --}}
-{{--@if($user->isOnline())--}}
-{{--    user is online!!--}}
-{{--@endif--}}
-
-
 @section('Role', '- پنل '.$user->role($RoleId))
 
 @section('content')
+
+    @php
+
+    //    $CurrentUser=Auth::loginUsingId(20);
+
+
+    @endphp
+
+
 
     <div class="wrapper">
         <header class="main-header">
@@ -283,7 +284,9 @@ use Illuminate\Support\Facades\Auth;
                                            onclick="event.preventDefault();
                                            document.getElementById('UserStatusChange').submit();">پروفایل</a>
 
-                                        <form id="UserStatusChange" action="{{route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])}}" method="POST"
+                                        <form id="UserStatusChange"
+                                              action="{{route('changestatus', ['UserId'=>$CurrentUser->id, 'Status'=>'A'])}}"
+                                              method="POST"
                                               style="display: none;">
 
                                             @csrf
@@ -321,7 +324,8 @@ use Illuminate\Support\Facades\Auth;
                     </div>
                     <div class="pull-right info">
                         <p>{{$UserFullName}}</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i>{{$user->mode($UserMode)}}</a>
+                        <a id="UserMode" href="#"><i class="fa fa-circle text-success"></i>{{$user->mode($UserMode)}}
+                        </a>
                     </div>
                 </div>
 
