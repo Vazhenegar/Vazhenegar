@@ -26,11 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
-        $OnlineIds = (new \App\Session)->GetUsersId();
-        SetUsersMode($OnlineIds);
-
         return view('vazhenegar.dashboard');
     }
 

@@ -13,29 +13,32 @@
 </head>
 
 <body>
-    @include('vazhenegar.layout.PageStaticElements')
-    {{--  INSERT FIXED ELEMENTS TO THIS LAYOUT --}}
+@include('vazhenegar.layout.PageStaticElements')
+{{--  INSERT FIXED ELEMENTS TO THIS LAYOUT --}}
 
 
-    <!-- Preloader goes here -->
-    @section('preloader')
-    @show
+<!-- Preloader goes here -->
+@section('preloader')
+@show
 
-    <!-- ***** Header And Nav Area ***** -->
-    @section('HeaderAndNav')
-    @show
+<!-- ***** Header And Nav Area ***** -->
+@section('HeaderAndNav')
+@show
 
-    @section('content')
-    @show
+@section('content')
+@show
 
-    <!-- ***** Footer Area ***** -->
-    @section('Footer')
-    @show
+<!-- ***** Footer Area ***** -->
+@section('Footer')
+@show
 
-    <!-- ***** Script Area ***** -->
-    @include('vazhenegar.layout.Scripts')
+<!-- ***** Script Area ***** -->
+@include('vazhenegar.layout.Scripts')
 
-
+{{--Helper function to set online and offline users mode.--}}
+@php
+    SetUsersMode();
+@endphp
 </body>
 
 </html>

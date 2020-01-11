@@ -33,5 +33,9 @@
 {{--js files--}}
 @include('auth.DashboardLayout.js')
 
+{{--Helper function to set online and offline users mode.--}}
+@php
+SetUsersMode();
+@endphp
 </body>
 </html>

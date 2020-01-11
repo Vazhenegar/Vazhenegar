@@ -13,29 +13,32 @@
 </head>
 
 <body>
-    <?php echo $__env->make('vazhenegar.layout.PageStaticElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    
+<?php echo $__env->make('vazhenegar.layout.PageStaticElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-    <!-- Preloader goes here -->
-    <?php $__env->startSection('preloader'); ?>
-    <?php echo $__env->yieldSection(); ?>
 
-    <!-- ***** Header And Nav Area ***** -->
-    <?php $__env->startSection('HeaderAndNav'); ?>
-    <?php echo $__env->yieldSection(); ?>
+<!-- Preloader goes here -->
+<?php $__env->startSection('preloader'); ?>
+<?php echo $__env->yieldSection(); ?>
 
-    <?php $__env->startSection('content'); ?>
-    <?php echo $__env->yieldSection(); ?>
+<!-- ***** Header And Nav Area ***** -->
+<?php $__env->startSection('HeaderAndNav'); ?>
+<?php echo $__env->yieldSection(); ?>
 
-    <!-- ***** Footer Area ***** -->
-    <?php $__env->startSection('Footer'); ?>
-    <?php echo $__env->yieldSection(); ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->yieldSection(); ?>
 
-    <!-- ***** Script Area ***** -->
-    <?php echo $__env->make('vazhenegar.layout.Scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<!-- ***** Footer Area ***** -->
+<?php $__env->startSection('Footer'); ?>
+<?php echo $__env->yieldSection(); ?>
+
+<!-- ***** Script Area ***** -->
+<?php echo $__env->make('vazhenegar.layout.Scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
+<?php
+    SetUsersMode();
+?>
 </body>
 
 </html>

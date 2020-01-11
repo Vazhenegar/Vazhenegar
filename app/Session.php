@@ -9,7 +9,9 @@ class Session extends Model
 {
     public function GetUsersId()
     {
-        return Session::whereNotNull('user_id')-> pluck('user_id');
+        return Session::whereNotNull('user_id')
+            ->where('last_activity', '>=', now()->subMinutes(1))
+            ->pluck('user_id');
 
     }
 }
