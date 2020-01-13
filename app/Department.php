@@ -8,4 +8,8 @@ class Department extends Model
 {
     protected $fillable = ['DepartmentName'];
 
+    public function roles()
+    {
+        $this->hasMany(Role::class);
+    }
 }

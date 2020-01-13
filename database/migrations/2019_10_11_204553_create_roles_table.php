@@ -15,8 +15,13 @@ class CreateRolesTable extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->Increments('id')->unsigned();
+            $table->tinyInteger('DepartmentId')->unsigned();
             $table->string('RoleName');
             $table->timestamps();
+
+            $table->foreign('DepartmentId')
+                ->references('id')->on('departments')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -12,4 +12,9 @@ class Role extends Model
     {
         $this->belongsTo(User::class);
     }
+
+    public function department()
+    {
+        $this->belongsTo(Department::class);
+    }
 }

@@ -35,5 +35,5 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo e(asset('auth/dist/js/pages/dashboard.js')); ?>"></script>
 <!-- AdminLTE for demo purposes -->
-
+<script src="<?php echo e(asset('auth/dist/js/demo.js')); ?>"></script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\js.blade.php ENDPATH**/ ?>
