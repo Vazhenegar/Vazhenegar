@@ -1,8 +1,8 @@
 <?php
     use Illuminate\Support\Facades\Auth;
     $user=new App\User;
-    //$CurrentUser=Auth::user();
-    $CurrentUser=Auth::loginUsingId(20);
+    $CurrentUser=Auth::user();
+    //$CurrentUser=Auth::loginUsingId(20);
     $CurrentUser->Mode='ON'; $CurrentUser->save();
     $RoleId=$CurrentUser->Role;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
@@ -10,20 +10,18 @@
     $UserMode=$CurrentUser->Mode;
 ?>
 
-<?php $__env->startSection('Role', '- پنل '.$user->role($RoleId)); ?>
+<?php $__env->startSection('Title', '- پنل '.$user->role($RoleId)); ?>
 
-<?php echo $__env->make('auth.DashboardLayout.AdminDashboardElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('auth.DashboardLayout.DashboardElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->startSection('content'); ?>
-    
-
-<?php $__env->startSection('TopBar'); ?>
-<?php echo $__env->yieldSection(); ?>
 
 
+<?php echo $__env->make('auth.DashboardLayout.TopBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<?php $__env->startSection('RightSideBar'); ?>
-<?php echo $__env->yieldSection(); ?>
+
+
+<?php echo $__env->make('auth.DashboardLayout.RightSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 

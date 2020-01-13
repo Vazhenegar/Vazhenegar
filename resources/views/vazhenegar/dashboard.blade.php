@@ -3,8 +3,8 @@
 @php
     use Illuminate\Support\Facades\Auth;
     $user=new App\User;
-    //$CurrentUser=Auth::user();
-    $CurrentUser=Auth::loginUsingId(20);
+    $CurrentUser=Auth::user();
+    //$CurrentUser=Auth::loginUsingId(20);
     $CurrentUser->Mode='ON'; $CurrentUser->save();
     $RoleId=$CurrentUser->Role;
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
@@ -12,23 +12,22 @@
     $UserMode=$CurrentUser->Mode;
 @endphp
 
-@section('Role', '- پنل '.$user->role($RoleId))
+@section('Title', '- پنل '.$user->role($RoleId))
 
-@include('auth.DashboardLayout.AdminDashboardElements')
+
 
 @section('content')
-    {{--=========================================================--}}
+{{--=========================================================--}}
 
-@section('TopBar')
-@show
+@include('auth.DashboardLayout.TopBar')
 
 {{--=========================================================--}}
 
-@section('RightSideBar')
-@show
+@include('auth.DashboardLayout.RightSideBar')
 
-{{--=========================================================--}}
+{{--======= Get Main Content of dashboard from dashboard elements according to user type ========--}}
 
+@include('auth.DashboardLayout.DashboardElements')
 @section('MainContent')
 @show
 
