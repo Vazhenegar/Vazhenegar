@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'Email' => ['required', 'email', 'unique:users'],
             'Password' => ['required', 'min:8', 'confirmed'],
             'FixNumber' => ['required', 'numeric', 'regex:/^0\d{10}$/'],
-            'MobileNumber' => ['required', 'numeric', 'regex:/^09\d{9}$/'],
+            'MobileNumber' => ['required', 'numeric', 'unique:users', 'regex:/^09\d{9}$/'],
 // ============end of regular users
         ]);
     }

@@ -12,7 +12,7 @@
 
 <?php $__env->startSection('Role', '- پنل '.$user->role($RoleId)); ?>
 
-<?php echo $__env->make('auth.DashboardLayout.DashboardElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('auth.DashboardLayout.AdminDashboardElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->startSection('content'); ?>
     

@@ -18,3 +18,4 @@ Route::get('/GetOnlineUsers', function () {
 });
 
 Route::view('/d','vazhenegar.dashboard');
+Route::view('/r','auth.register');
