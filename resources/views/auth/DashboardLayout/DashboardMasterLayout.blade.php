@@ -12,8 +12,11 @@
 
     {{--    css files --}}
     @include('auth.DashboardLayout.css')
+
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
+
 
 @guest
     {{--    if user not logged in, show login form --}}
@@ -22,7 +25,7 @@
     @endphp
 
 @else
-    {{--if user logged in, show dashboard--}}
+
     <div class="wrapper">
         @section('content')
         @show
@@ -33,9 +36,5 @@
 {{--js files--}}
 @include('auth.DashboardLayout.js')
 
-{{--Helper function to set online and offline users mode.--}}
-@php
-SetUsersMode();
-@endphp
 </body>
 </html>

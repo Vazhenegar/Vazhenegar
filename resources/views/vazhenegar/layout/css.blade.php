@@ -6,8 +6,8 @@
 
 <!-- Core Stylesheet -->
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 <!-- Persian Datepicker Style -->
-<!-- ------------------------------------------------------------------------------------ -->
 <link id="datepickerTheme" href="{{asset('css/persian-datepicker.css')}}" rel="stylesheet" />
 
 {{-- Dropzone --}}

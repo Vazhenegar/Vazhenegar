@@ -1,4 +1,7 @@
 
+<!-- Preloader -->
+<link rel="stylesheet" href="<?php echo e(asset('auth/dist/css/Preloader.css')); ?>">
+
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="<?php echo e(asset('auth/dist/css/bootstrap-theme.css')); ?>">
 <!-- Bootstrap rtl -->

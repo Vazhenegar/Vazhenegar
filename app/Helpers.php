@@ -1,13 +1,19 @@
 <?php
 
+
 use App\User;
 
-if (!function_exists('SetUsersMode')) {
-    function SetUsersMode()
-    {
-        $OnlineIds = (new App\Session)->GetUsersId();
-        User::whereNotIn('id',$OnlineIds)->update(['Mode' => 'OFF']);
-        User::whereIn('id',$OnlineIds)->update(['Mode' => 'ON']);
-        return true;
-    }
+function SetUsersMode()
+{
+    $OnlineIds = (new App\Session)->GetOnlineUsersSession();
+    User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
+    User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
 }
+
+function OnlineUsers()
+{
+   SetUsersMode();
+    return User::Where('Mode','ON')->count();
+}
+
+

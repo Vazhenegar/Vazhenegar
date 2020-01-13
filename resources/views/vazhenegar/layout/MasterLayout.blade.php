@@ -35,10 +35,6 @@
 <!-- ***** Script Area ***** -->
 @include('vazhenegar.layout.Scripts')
 
-{{--Helper function to set online and offline users mode.--}}
-@php
-    SetUsersMode();
-@endphp
 </body>
 
 </html>

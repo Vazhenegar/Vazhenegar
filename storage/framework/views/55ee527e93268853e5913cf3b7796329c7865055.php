@@ -12,8 +12,11 @@
 
     
     <?php echo $__env->make('auth.DashboardLayout.css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
+
 
 <?php if(auth()->guard()->guest()): ?>
     
@@ -22,7 +25,7 @@
     ?>
 
 <?php else: ?>
-    
+
     <div class="wrapper">
         <?php $__env->startSection('content'); ?>
         <?php echo $__env->yieldSection(); ?>

@@ -3,15 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
-
+use Carbon\Carbon;
 class Session extends Model
 {
-    public function GetUsersId()
+    public function GetOnlineUsersSession()
     {
-        return Session::whereNotNull('user_id')
-            ->where('last_activity', '>=', now()->subMinutes(1))
+        $ids= Session::whereNotNull('user_id')
+            ->where('last_activity', '>=',date_timestamp_get(Carbon::now()->subMinutes(1)))
             ->pluck('user_id');
+        $ids->unique()->values()->all();
+        return $ids;
+    }
 
+    public function GetSiteVisitors($day)
+    {
+        return Session::where('last_activity', '>=',date_timestamp_get(Carbon::now()->subDays($day)))
+            ->count();
     }
 }

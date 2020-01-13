@@ -6,8 +6,8 @@
 
 <!-- Core Stylesheet -->
 <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+
 <!-- Persian Datepicker Style -->
-<!-- ------------------------------------------------------------------------------------ -->
 <link id="datepickerTheme" href="<?php echo e(asset('css/persian-datepicker.css')); ?>" rel="stylesheet" />
 
 

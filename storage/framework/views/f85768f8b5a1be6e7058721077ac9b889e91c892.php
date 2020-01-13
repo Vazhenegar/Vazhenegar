@@ -11,17 +11,6 @@
 <?php $__env->startSection('Role', '- پنل '.$user->role($RoleId)); ?>
 
 <?php $__env->startSection('content'); ?>
-
-    <?php
-
-    //    $CurrentUser=Auth::loginUsingId(20);
-
-
-    ?>
-
-
-
-    <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
             <a class="logo">
@@ -552,9 +541,9 @@
                         <!-- small box -->
                         <div class="small-box bg-green">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <h3><?php echo e(OnlineUsers()); ?></h3>
 
-                                <p>افزایش امتیاز</p>
+                                <p>کاربران آنلاین</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -570,7 +559,7 @@
                             <div class="inner">
                                 <h3>44</h3>
 
-                                <p>کاربران ثبت شده</p>
+                                <p>درخواست همکاری ثبت شده</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
@@ -584,9 +573,9 @@
                         <!-- small box -->
                         <div class="small-box bg-red">
                             <div class="inner">
-                                <h3>65</h3>
+                                <h3><?php echo e((new App\Session)->GetSiteVisitors(1)); ?></h3> 
 
-                                <p>بازدید جدید</p>
+                                <p>بازدید امروز</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
@@ -1286,7 +1275,6 @@
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
-    </div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\dashboard.blade.php ENDPATH**/ ?>

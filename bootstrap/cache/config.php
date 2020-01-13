@@ -516,7 +516,7 @@
   array (
     'driver' => 'database',
     'lifetime' => '15',
-    'expire_on_close' => true,
+    'expire_on_close' => false,
     'encrypt' => false,
     'files' => 'E:\\Projects\\vazhenegar\\Main Project\\storage\\framework/sessions',
     'connection' => NULL,
