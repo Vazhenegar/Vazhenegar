@@ -19,9 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call(TermsOfServiceTableseeder::class);
         $this->call(DepartmentsTableSeeder::class);
         $this->call(RolesTableSeeder::class);
-        $this->call(UserMenusTableSeeder::class);
         $this->call(UserStatusesTableSeeder::class);
         $this->call(UserModesTableSeeder::class);
+        $this->call(UserMainMenuTableSeeder::class);
+        $this->call(UserSubMenuTableSeeder::class);
         $this->call(QuizzesTableSeeder::class);
         $this->call(QuizAnswersTableSeeder::class);
         $this->call(OrderStatusesTableSeeder::class);

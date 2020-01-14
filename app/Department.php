@@ -10,6 +10,6 @@ class Department extends Model
 
     public function roles()
     {
-        $this->hasMany(Role::class);
+        return $this->hasMany(Role::class);
     }
 }

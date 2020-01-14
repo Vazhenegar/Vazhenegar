@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\UserMenu;
+use App\UserSubMenu;
 use Illuminate\Http\Request;
 
-class UserMenuController extends Controller
+class UserSubMenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserMenuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserMenu  $userMenu
+     * @param  \App\UserSubMenu  $userSubMenu
      * @return \Illuminate\Http\Response
      */
-    public function show(UserMenu $userMenu)
+    public function show(UserSubMenu $userSubMenu)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserMenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserMenu  $userMenu
+     * @param  \App\UserSubMenu  $userSubMenu
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserMenu $userMenu)
+    public function edit(UserSubMenu $userSubMenu)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserMenuController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserMenu  $userMenu
+     * @param  \App\UserSubMenu  $userSubMenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserMenu $userMenu)
+    public function update(Request $request, UserSubMenu $userSubMenu)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserMenuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserMenu  $userMenu
+     * @param  \App\UserSubMenu  $userSubMenu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserMenu $userMenu)
+    public function destroy(UserSubMenu $userSubMenu)
     {
         //
     }

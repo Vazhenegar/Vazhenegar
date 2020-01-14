@@ -10,11 +10,16 @@ class Role extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function department()
     {
-        $this->belongsTo(Department::class);
+       return $this->belongsTo(Department::class);
+    }
+
+    public function menus()
+    {
+        return $this->hasMany(UserMainMenu::class);
     }
 }
