@@ -18,8 +18,9 @@ class Role extends Model
        return $this->belongsTo(Department::class);
     }
 
-    public function menus()
+    public function main_menus()
     {
         return $this->hasMany(UserMainMenu::class);
     }
+
 }

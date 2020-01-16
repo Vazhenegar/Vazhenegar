@@ -83,7 +83,7 @@ class RegisterController extends Controller
             'Password' => Hash::make($data['Password']),
             'FixNumber' => $data['FixNumber'],
             'MobileNumber' => $data['MobileNumber'],
-            'Role' => $role_id, //this  belongs to customers.
+            'role_id' => $role_id, //this  belongs to customers.
             'Department' => $dep_id, //this belongs to customers.
         ]);
     }

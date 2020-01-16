@@ -25,22 +25,7 @@
         <!-- small box -->
         <div class="small-box bg-green-gradient">
             <div class="inner">
-
-                <script>
-                    setInterval(function () {
-                        $.ajax({
-                            type: "GET",
-                            url: '/GetOnlineUsers',
-                            success: function (data) {
-                                $('#OnlineAmount').empty();
-                                $('#OnlineAmount').append(data);
-                            }
-                        });
-                    }, 1000);
-
-                </script>
-                <h3 id="OnlineAmount"></h3>
-
+                <h3 id="OnlineAmount">{{OnlineUsers()}}</h3>
                 <p>کاربران آنلاین</p>
             </div>
             <div class="icon">
@@ -75,7 +60,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3>{{(new App\Session)->GetSiteVisitors(1)}}</h3> {{--visitors of last day--}}
+                <h3 id="DailySiteVisitors">{{(new App\Session)->GetSiteVisitors(1)}}</h3> {{--visitors of last day--}}
 
                 <p>بازدید امروز</p>
             </div>
@@ -90,3 +75,36 @@
 </div>
 <!-- /.row -->
 {{--=================== End Of Admin Badges   =================================--}}
+
+{{-- scripts for admin badges--}}
+
+<script>
+
+        {{--    for online users--}}
+        setInterval(function () {
+            $.ajax({
+                type: "GET",
+                url: '/GetOnlineUsers',
+                success: function (data) {
+                    $('#OnlineAmount').empty();
+                    $('#OnlineAmount').append(data);
+                }
+            });
+        }, 30000);
+
+            {{--    for site visitors--}}
+
+        let day = 1;
+        let token = "{{ csrf_token() }}";
+        setInterval(function () {
+            $.ajax({
+                type: "POST",
+                url: '/GetDailyVisitors/' + day,
+                data : {_token:token},
+                success: function (data) {
+                    $('#DailySiteVisitors').empty();
+                    $('#DailySiteVisitors').append(data);
+                }
+            });
+        }, 30000);
+</script>

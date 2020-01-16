@@ -20,7 +20,7 @@ class User extends Authenticatable
         'FirstName', 'LastName', 'BirthDate', 'Gender', 'Email', 'Password',
         'FixNumber', 'MobileNumber', 'State', 'City', 'Address', 'Degree',
         'GraduationDate', 'GraduationField', 'Resume', 'UserSelectedLangs',
-        'TranslationFields', 'UserDocuments', 'Department', 'Role', 'Status',
+        'TranslationFields', 'UserDocuments', 'Department', 'role_id', 'Status',
         'Mode', 'QuizAnswer', 'QuizReference', 'BankCard', 'ProfilePhoto',
     ];
 
@@ -52,9 +52,9 @@ class User extends Authenticatable
         return $this->Password;
     }
 
-    public function role(Int $id)
+    public function role()
     {
-        return Role::where('id', $id)->value('RoleName');
+        return $this->belongsTo(Role::class);
     }
 
     public function status(string $id)
@@ -66,6 +66,5 @@ class User extends Authenticatable
     {
         return UserMode::where('id', $id)->value('Mode');
     }
-
 
 }

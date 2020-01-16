@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\State;
 use App\City;
 
+use App\UserMainMenu;
 use Illuminate\Http\Request;
 
 class tmp extends Controller
@@ -13,6 +15,8 @@ class tmp extends Controller
     public function index()
     {
         $states = State::all();
+
+
         return view('vazhenegar/tmp', compact('states'));
     }
 

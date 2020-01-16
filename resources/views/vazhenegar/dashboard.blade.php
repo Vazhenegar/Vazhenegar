@@ -2,17 +2,19 @@
 
 @php
     use Illuminate\Support\Facades\Auth;
+    use App\Http\Controllers\DashboardMenuPicker;
     $user=new App\User;
     $CurrentUser=Auth::user();
-    //$CurrentUser=Auth::loginUsingId(20);
     $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $RoleId=$CurrentUser->Role;
+    $Role=$CurrentUser->role()->value('RoleName');
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
+    $Menus= (new DashboardMenuPicker)->MenuPicker($CurrentUser);
+
 @endphp
 
-@section('Title', '- پنل '.$user->role($RoleId))
+@section('Title', '- پنل '.$Role)
 
 
 
@@ -35,7 +37,7 @@
     <div class="content-wrapper">
         <!-- Main content -->
         <section class="content">
-        @switch($RoleId)
+        @switch($CurrentUser->role()->value('id'))
             {{--=============================== ِ Admin =======================================--}}
 
             @case(1)

@@ -60,15 +60,23 @@
 
 <body>
 
+{{--menus --}}
+<ul>
+
+@foreach($fullmenu as $menu)
+<li>{{$menu}}</li>
+    @endforeach
+
+</ul>
 {{--Timer--}}
 
-    <div>
-        <div id="cd-min">00</div>
-        <div>دقیقه</div>
+{{--    <div>--}}
+{{--        <div id="cd-min">00</div>--}}
+{{--        <div>دقیقه</div>--}}
 
-        <div id="cd-sec">00</div>
-        <div>ثانیه</div>
-    </div>
+{{--        <div id="cd-sec">00</div>--}}
+{{--        <div>ثانیه</div>--}}
+{{--    </div>--}}
 
 {{--End of timer--}}
 {{--<div class="container">--}}

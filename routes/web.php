@@ -17,5 +17,13 @@ Route::get('/GetOnlineUsers', function () {
     return OnlineUsers();
 });
 
-Route::view('/d','vazhenegar.dashboard');
-Route::view('/r','auth.register');
+Route::post('/GetDailyVisitors/{day}', function ($day) {
+    return (new App\Session)->GetSiteVisitors($day);
+});
+
+//Set Online and Offline users mode in DB
+Route::get('/SetUsersMode',function (){
+    SetUsersMode();
+});
+
+Route::post('/UserMenus/{user}','DashboardMenuPicker@MenuPicker');

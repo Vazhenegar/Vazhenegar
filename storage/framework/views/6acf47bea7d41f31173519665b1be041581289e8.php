@@ -61,14 +61,22 @@
 <body>
 
 
+<ul>
 
-    <div>
-        <div id="cd-min">00</div>
-        <div>دقیقه</div>
+<?php $__currentLoopData = $fullmenu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<li><?php echo e($menu); ?></li>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-        <div id="cd-sec">00</div>
-        <div>ثانیه</div>
-    </div>
+</ul>
+
+
+
+
+
+
+
+
+
 
 
 

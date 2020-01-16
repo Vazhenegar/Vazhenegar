@@ -13,75 +13,45 @@ class UserMainMenuTableSeeder extends Seeder
     {
         $MainMenu = [
             [
-                'RoleId' => 1,
-                'MainMenu' => 'منوی مدیریت 1',
+                'role_id' => 1,
+                'MainMenu' => 'سفارشات',
                 'Url' => null,
+                'Icon'=>'fa fa-file-text',
             ],
             [
-                'RoleId' => 1,
-                'MainMenu' => 'منوی مدیریت 2',
+                'role_id' => 1,
+                'MainMenu' => 'کاربران',
                 'Url' => null,
+                'Icon'=>'fa fa-users',
             ],
             [
-                'RoleId' => 1,
-                'MainMenu' => 'منوی مدیریت 3',
-                'Url' => '/managementMenu1',
-            ],
-            [
-                'RoleId' => 1,
-                'MainMenu' => 'منوی مدیریت 4',
+                'role_id' => 1,
+                'MainMenu' => 'پیام ها',
                 'Url' => null,
+                'Icon'=>'fa fa-comments',
             ],
             [
-                'RoleId' => 5,
-                'MainMenu' => 'منوی مترجم 1',
-                'Url' => '/managementMenu1',
-            ],
-            [
-                'RoleId' => 5,
-                'MainMenu' => 'منوی مترجم 2',
+                'role_id' => 1,
+                'MainMenu' => 'امور مالی و حسابداری',
                 'Url' => null,
-
+                'Icon'=>'fa fa-dollar',
             ],
             [
-                'RoleId' => 5,
-                'MainMenu' => 'منوی مترجم 3',
-                'Url' => '/managementMenu1',
-            ],
-            [
-                'RoleId' => 5,
-                'MainMenu' => 'منوی مترجم 4',
-                'Url' => '/managementMenu1',
+                'role_id' => 1,
+                'MainMenu' => 'تنظیمات',
+                'Url' => null,
+                'Icon'=>'fa fa-cogs',
             ],
 
-            [
-                'RoleId' => 11,
-                'MainMenu' => 'منوی مشتری 1',
-                'Url' => '/managementMenu1',
-            ],
-            [
-                'RoleId' => 11,
-                'MainMenu' => 'منوی مشتری 2',
-                'Url' => '/managementMenu1',
-            ],
-            [
-                'RoleId' => 11,
-                'MainMenu' => 'منوی مشتری 3',
-                'Url' => '/managementMenu1',
-            ],
-            [
-                'RoleId' => 11,
-                'MainMenu' => 'منوی مشتری 4',
-                'Url' => '/managementMenu1',
-            ],
 
         ];
 
         foreach ($MainMenu as $menu) {
             DB::table('user_main_menus')->insert([
-                'RoleId' => $menu['RoleId'],
+                'role_id' => $menu['role_id'],
                 'MainMenu' => $menu['MainMenu'],
                 'Url' => $menu['Url'],
+                'Icon'=>$menu['Icon'],
             ]);
         }
     }

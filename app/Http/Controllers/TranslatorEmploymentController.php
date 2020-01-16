@@ -147,7 +147,7 @@ class TranslatorEmploymentController extends Controller
         $translator->TranslationFields = $TranslationFields;
         $translator->UserDocuments = $filename;
         $translator->Department = $dep_id;
-        $translator->Role = $role_id;
+        $translator->role_id = $role_id;
 
         $translator->saveOrFail();
         session([

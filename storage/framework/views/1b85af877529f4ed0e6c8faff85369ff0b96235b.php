@@ -25,22 +25,7 @@
         <!-- small box -->
         <div class="small-box bg-green-gradient">
             <div class="inner">
-
-                <script>
-                    setInterval(function () {
-                        $.ajax({
-                            type: "GET",
-                            url: '/GetOnlineUsers',
-                            success: function (data) {
-                                $('#OnlineAmount').empty();
-                                $('#OnlineAmount').append(data);
-                            }
-                        });
-                    }, 1000);
-
-                </script>
-                <h3 id="OnlineAmount"></h3>
-
+                <h3 id="OnlineAmount"><?php echo e(OnlineUsers()); ?></h3>
                 <p>کاربران آنلاین</p>
             </div>
             <div class="icon">
@@ -75,7 +60,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3><?php echo e((new App\Session)->GetSiteVisitors(1)); ?></h3> 
+                <h3 id="DailySiteVisitors"><?php echo e((new App\Session)->GetSiteVisitors(1)); ?></h3> 
 
                 <p>بازدید امروز</p>
             </div>
@@ -90,4 +75,37 @@
 </div>
 <!-- /.row -->
 
+
+
+
+<script>
+
+        
+        setInterval(function () {
+            $.ajax({
+                type: "GET",
+                url: '/GetOnlineUsers',
+                success: function (data) {
+                    $('#OnlineAmount').empty();
+                    $('#OnlineAmount').append(data);
+                }
+            });
+        }, 30000);
+
+            
+
+        let day = 1;
+        let token = "<?php echo e(csrf_token()); ?>";
+        setInterval(function () {
+            $.ajax({
+                type: "POST",
+                url: '/GetDailyVisitors/' + day,
+                data : {_token:token},
+                success: function (data) {
+                    $('#DailySiteVisitors').empty();
+                    $('#DailySiteVisitors').append(data);
+                }
+            });
+        }, 30000);
+</script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/AdminBadges.blade.php ENDPATH**/ ?>

@@ -59,7 +59,7 @@
         <!-- /.item -->
         <!-- chat item -->
         <div class="item">
-            <img src="auth/dist/img/user2-160x160.jpg" alt="user image" class="offline">
+            <img src="auth/dist/img/user2.png" alt="user image" class="offline">
 
             <p class="message">
                 <a href="#" class="name">

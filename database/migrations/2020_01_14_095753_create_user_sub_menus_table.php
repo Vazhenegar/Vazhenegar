@@ -15,12 +15,13 @@ class CreateUserSubMenusTable extends Migration
     {
         Schema::create('user_sub_menus', function (Blueprint $table) {
             $table->Increments('id');
-            $table->integer('MainMenuId')->unsigned();
+            $table->integer('user_main_menu_id')->unsigned();
             $table->string('SubMenu');
             $table->string('Url');
+            $table->string('Icon')->nullable();
             $table->timestamps();
 
-            $table->foreign('MainMenuId')
+            $table->foreign('user_main_menu_id')
                 ->references('id')->on('user_main_menus')
                 ->onUpdate('cascade')->onDelete('cascade');
         });

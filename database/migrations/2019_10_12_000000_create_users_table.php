@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->longText('TranslationFields')->nullable(); //for translators
             $table->string('UserDocuments')->nullable();
             $table->tinyInteger('Department')->unsigned(); //foreign key for determine user department.
-            $table->Integer('Role')->unsigned(); //foreign key for determine user type and menus.
+            $table->Integer('role_id')->unsigned(); //foreign key for determine user type and menus.
             $table->string('Status')->default('P'); //to determine user status: (P)ending, (A)ctive, (B)locked, (D)eactive
             $table->string('Mode')->default('OFF'); //to determine user mode: (On)line, (OFF)line
             $table->longText('QuizReference')->nullable(); //for see quiz and answer reference
@@ -57,7 +57,7 @@ class CreateUsersTable extends Migration
                 ->references('id')->on('departments')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('Role')
+            $table->foreign('role_id')
                 ->references('id')->on('roles')
                 ->onUpdate('cascade')->onDelete('cascade');
 

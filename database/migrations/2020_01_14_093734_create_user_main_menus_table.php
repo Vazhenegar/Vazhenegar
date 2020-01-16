@@ -15,12 +15,13 @@ class CreateUserMainMenusTable extends Migration
     {
         Schema::create('user_main_menus', function (Blueprint $table) {
             $table->Increments('id')->unsigned();
-            $table->Integer('RoleId')->unsigned();
+            $table->Integer('role_id')->unsigned();
             $table->string('MainMenu');
             $table->string('Url')->nullable();
+            $table->string('Icon')->nullable();
             $table->timestamps();
 
-            $table->foreign('RoleId')
+            $table->foreign('role_id')
                 ->references('id')->on('roles')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
