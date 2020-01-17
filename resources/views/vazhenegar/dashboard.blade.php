@@ -41,23 +41,23 @@
             {{--=============================== ِ Admin =======================================--}}
                     {{--Admin--}}
             @case(1)
-            @include('auth.DashboardLayout.AdminBadges')
-            @include('auth.DashboardLayout.OrdersList')
+            @include('vazhenegar.AdminBadges')
+            @include('vazhenegar.OrdersList')
 
             <!-- Main row -->
                 <div class="row">
                     <!-- right col -->
                     <section class="col-lg-7 connectedSortable">
-                        @include('auth.DashboardLayout.Charts')
-                        @include('auth.DashboardLayout.ChatBox')
-                        @include('auth.DashboardLayout.EmailWidget')
+                        @include('vazhenegar.Charts')
+                        @include('vazhenegar.ChatBox')
+                        @include('vazhenegar.EmailWidget')
                     </section>
                     <!-- /.right col -->
 
 
                     <!-- left col (We are only adding the ID to make the widgets sortable)-->
                     <section class="col-lg-5 connectedSortable">
-                        @include('auth.DashboardLayout.Calendar')
+                        @include('vazhenegar.Calendar')
                     </section>
                     <!-- left col -->
 
@@ -77,7 +77,7 @@
                 {{--=============================== ِ Customer =======================================--}}
                     {{--Customer--}}
                 @case(11)
-                @include('auth.DashboardLayout.CustomerBadges')
+                @include('vazhenegar.CustomerBadges')
 
 
                 @break
