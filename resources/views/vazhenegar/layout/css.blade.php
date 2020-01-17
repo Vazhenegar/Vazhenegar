@@ -18,3 +18,6 @@
 
 {{--Checkbox --}}
 <link rel="stylesheet" href="{{asset('css/checkbox.css')}}">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="{{asset('auth/bower_components/font-awesome/css/font-awesome.min.css')}}">

@@ -54,4 +54,9 @@ class LoginController extends Controller
         return $this->loggedOut($request) ?: redirect('/');
     }
 
+    protected function credentials(Request $request)
+    {
+        return ['Email' => $request->{$this->username()}, 'password' => $request->password, 'Status' => 'A'];
+    }
+
 }

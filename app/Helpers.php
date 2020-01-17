@@ -16,4 +16,12 @@ function OnlineUsers()
     return User::Where('Mode','ON')->count();
 }
 
+//Get all employment requests except management and customers id's and departments
+function NewEmployment()
+{
+    return User::where('Status','P')
+        ->whereNotIn('Department', ['1','8'])
+        ->whereNotIn('role_id', ['1','11'])
+        ->count();
+}
 

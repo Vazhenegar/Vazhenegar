@@ -37,7 +37,7 @@
         <section class="content">
         <?php switch($CurrentUser->role()->value('id')):
             
-
+                    
             case (1): ?>
             <?php echo $__env->make('auth.DashboardLayout.AdminBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php echo $__env->make('auth.DashboardLayout.OrdersList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -66,16 +66,16 @@
 
                 <?php break; ?>
                 
-
+                    
                 <?php case (8): ?>
 
 
 
                 <?php break; ?>
                 
-
+                    
                 <?php case (11): ?>
-
+                <?php echo $__env->make('auth.DashboardLayout.CustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
                 <?php break; ?>
@@ -84,6 +84,69 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+
+
+    
+    <?php
+        $employmentRequest=NewEmployment();
+        $OnlineUsers=OnlineUsers();
+        $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
+    ?>
+    <script>
+            
+        let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
+        let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
+        let DailyVisitors=<?php echo json_encode($DailyVisitors, 15, 512) ?>;
+        document.getElementById('NewEmployment').innerHTML = employmentRequest;
+        document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
+        document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
+        document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
+
+        
+        
+        setInterval(function () {
+            $.ajax({
+                type: "GET",
+                url: '/GetOnlineUsers',
+                success: function (data) {
+                    $('#OnlineAmount').empty();
+                    $('#OnlineAmount').append(data);
+                }
+            });
+        }, 30000);
+
+            
+        let day = 1;
+        let token = "<?php echo e(csrf_token()); ?>";
+        setInterval(function () {
+            $.ajax({
+                type: "POST",
+                url: '/GetDailyVisitors/' + day,
+                data: {_token: token},
+                success: function (data) {
+                    $('#DailySiteVisitors').empty();
+                    $('#DailySiteVisitors').append(data);
+                }
+            });
+        }, 30000);
+
+        
+
+        setInterval(function () {
+            $.ajax({
+                type: "GET",
+                url: '/NewEmployments',
+                success: function (data) {
+                    $('#NewEmployment').empty();
+                    $('#NewEmployment').append(data);
+                    let spanclass = 'pull-left-container';
+                    let smallclass = 'label pull-left bg-yellow';
+                    document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
+                }
+            });
+        }, 30000);
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/dashboard.blade.php ENDPATH**/ ?>

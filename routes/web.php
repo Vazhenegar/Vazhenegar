@@ -13,12 +13,18 @@ Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/GetOnlineUsers', function () {
-    return OnlineUsers();
-});
+Route::resource('/dashboard/NewOrders',OrderController::class);
 
 Route::post('/GetDailyVisitors/{day}', function ($day) {
     return (new App\Session)->GetSiteVisitors($day);
+});
+
+Route::post('/UserMenus/{user}','DashboardMenuPicker@MenuPicker');
+
+//========================== Helpers Routes ======================//
+//Get users that have Online mode in DB
+Route::get('/GetOnlineUsers', function () {
+    return OnlineUsers();
 });
 
 //Set Online and Offline users mode in DB
@@ -26,4 +32,7 @@ Route::get('/SetUsersMode',function (){
     SetUsersMode();
 });
 
-Route::post('/UserMenus/{user}','DashboardMenuPicker@MenuPicker');
+//Get users that fill employment form for translation
+Route::get('/NewEmployments',function (){
+   return NewEmployment();
+});

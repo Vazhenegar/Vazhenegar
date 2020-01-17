@@ -85,6 +85,7 @@ class RegisterController extends Controller
             'MobileNumber' => $data['MobileNumber'],
             'role_id' => $role_id, //this  belongs to customers.
             'Department' => $dep_id, //this belongs to customers.
+            'Status'=>'A',
         ]);
     }
 }

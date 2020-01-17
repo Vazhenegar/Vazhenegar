@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserMainMenu;
+use App\UserSubMenu;
 use Illuminate\Http\Request;
 use App\Role;
 

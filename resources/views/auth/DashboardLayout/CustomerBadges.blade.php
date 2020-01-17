@@ -1,71 +1,71 @@
-{{--================ Badges For Admin ====================================--}}
+{{--================ Badges For Customer ====================================--}}
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    {{--==================== New Orders ================================--}}
+    {{--==================== Current Orders ================================--}}
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
-                <h3 id="NewOrders"></h3>
+                <h3 id="CurrentOrders">12</h3>
 
-                <p>سفارش جدید</p>
+                <p>سفارشات جاری</p>
             </div>
             <div class="icon">
-                <i class="fa fa-file-text"></i>
+                <i class="fa fa-pencil-square-o"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Online Users =================================--}}
+    {{--=================== Finished Orders =================================--}}
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-green-gradient">
             <div class="inner">
-                <h3 id="OnlineUsers"></h3>
-                <p>کاربران آنلاین</p>
+                <h3 id="FinishedOrders">12</h3>
+                <p>سفارشات تکمیل شده</p>
             </div>
             <div class="icon">
-                <i class="fa fa-wifi"></i>
+                <i class="fa fa-check-square-o"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
     <!-- ./col -->
-    {{--==================== Employment ================================--}}
+    {{--==================== Messages ================================--}}
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-yellow-gradient">
             <div class="inner">
-                <h3 id="NewEmployment"></h3>
+                <h3 id="Messages">12</h3>
 
-                <p>درخواست همکاری جدید</p>
+                <p>پیام ها</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa fa-envelope-open-o"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Site Visit Statistics  =================================--}}
+    {{--=================== Invoices  =================================--}}
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="DailySiteVisitors"></h3> {{--visitors of last day--}}
+                <h3 id="Invoices">12</h3>
 
-                <p>بازدید امروز</p>
+                <p>فاکتور ها</p>
             </div>
             <div class="icon">
-                <i class="fa fa-line-chart"></i>
+                <i class="fa fa-money"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
@@ -74,4 +74,4 @@
     <!-- ./col -->
 </div>
 <!-- /.row -->
-{{--=================== End Of Admin Badges   =================================--}}
+{{--=================== End Of Customer Badges   =================================--}}

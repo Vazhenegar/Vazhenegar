@@ -15,7 +15,7 @@ class CreateUserMainMenusTable extends Migration
     {
         Schema::create('user_main_menus', function (Blueprint $table) {
             $table->Increments('id')->unsigned();
-            $table->Integer('role_id')->unsigned();
+            $table->Integer('role_id')->unsigned()->nullable();
             $table->string('MainMenu');
             $table->string('Url')->nullable();
             $table->string('Icon')->nullable();

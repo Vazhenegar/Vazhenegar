@@ -22,37 +22,29 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">منو</li>
 
-
-            <li class="treeview">
-                <a>
-                    <i class="fa fa-file-invoice-dollar"></i>
-                    <span>منو تست</span>
-                    <span class="pull-left-container">
-                            <i class="fa fa-angle-right pull-left"></i>
-                        </span>
-                </a>
-            </li>
-
-
-
             <?php $__currentLoopData = $Menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 
                 <li class="treeview">
                     <a href="<?php echo e($item->Url); ?>">
                         <i class="<?php echo e($item->Icon?$item->Icon :'fa fa-circle-o'); ?>"></i>
                         <span><?php echo e($item->MainMenu); ?></span>
-                        <span class="pull-left-container">
-                            <i class="fa fa-angle-right pull-left"></i>
+                        <?php if($item->sub_menus->count()): ?>
+                            <span class="pull-left-container">
+                            <i class="fa fa-angle-double-left pull-left"></i>
                         </span>
+                        <?php endif; ?>
                     </a>
                     <?php if($item->sub_menus->count()): ?>
                         <ul class="treeview-menu">
                             <?php $__currentLoopData = $item->sub_menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subitem): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><a href="<?php echo e($subitem->Url); ?>"><i class="<?php echo e($subitem->Icon?$subitem->Icon :'fa fa-circle-o'); ?>"></i><?php echo e($subitem->SubMenu); ?></a>
+                                <li><a href="<?php echo e($subitem->Url); ?>"><i
+                                            class="<?php echo e($subitem->Icon?$subitem->Icon :'fa fa-circle-o'); ?>"></i><?php echo e($subitem->SubMenu); ?>
+
+                                    </a>
                                 </li>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </ul>
-                        <?php endif; ?>
+                    <?php endif; ?>
                 </li>
                 
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -60,5 +52,4 @@
     </section>
     <!-- /.sidebar -->
 </aside>
-
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\RightSideBar.blade.php ENDPATH**/ ?>
