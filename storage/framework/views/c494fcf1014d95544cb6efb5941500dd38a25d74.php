@@ -1,7 +1,6 @@
 <?php $__env->startSection('PageTitle', 'استخدام مترجم'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <?php echo $__env->make('vazhenegar.layout.Employment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     
     <!-- ***** Breadcrumb Area Start ***** -->
@@ -417,6 +416,9 @@
     </section>
     <!-- ***** employment Area End ***** -->
 
+
+    <?php echo $__env->make('vazhenegar.layout.Employment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\TranslatorEmployment.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslatorEmployment.blade.php ENDPATH**/ ?>

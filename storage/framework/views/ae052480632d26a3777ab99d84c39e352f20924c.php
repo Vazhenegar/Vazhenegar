@@ -75,4 +75,60 @@
 </div>
 <!-- /.row -->
 
+
+<script>
+    let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
+    let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
+    let DailyVisitors=<?php echo json_encode($DailyVisitors, 15, 512) ?>;
+
+    document.getElementById('NewEmployment').innerHTML = employmentRequest;
+    document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
+    document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
+    document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
+
+    
+    
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/GetOnlineUsers',
+            success: function (data) {
+                $('#OnlineAmount').empty();
+                $('#OnlineAmount').append(data);
+            }
+        });
+    }, 30000);
+
+        
+    let day = 1;
+    let token = "<?php echo e(csrf_token()); ?>";
+    setInterval(function () {
+        $.ajax({
+            type: "POST",
+            url: '/GetDailyVisitors/' + day,
+            data: {_token: token},
+            success: function (data) {
+                $('#DailySiteVisitors').empty();
+                $('#DailySiteVisitors').append(data);
+            }
+        });
+    }, 30000);
+
+    
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/NewEmployments',
+            success: function (data) {
+                $('#NewEmployment').empty();
+                $('#NewEmployment').append(data);
+                let spanclass = 'pull-left-container';
+                let smallclass = 'label pull-left bg-yellow';
+                document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
+            }
+        });
+    }, 30000);
+
+</script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\AdminBadges.blade.php ENDPATH**/ ?>

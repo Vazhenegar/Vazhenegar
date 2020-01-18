@@ -35,17 +35,6 @@
 <!-- ***** Script Area ***** -->
 <?php echo $__env->make('vazhenegar.layout.Scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-
-<script>
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '/SetUsersMode',
-        });
-    }, 30000);
-
-</script>
-
 </body>
 
 </html>

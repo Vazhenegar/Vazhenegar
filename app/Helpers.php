@@ -8,6 +8,7 @@ function SetUsersMode()
     $OnlineIds = (new App\Session)->GetOnlineUsersSession();
     User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
     User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
+    return back();
 }
 
 function OnlineUsers()

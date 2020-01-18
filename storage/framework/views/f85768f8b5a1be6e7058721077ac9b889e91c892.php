@@ -1,6 +1,5 @@
 <?php
     use Illuminate\Support\Facades\Auth;
-    use App\Http\Controllers\DashboardMenuPicker;
     $user=new App\User;
     $CurrentUser=Auth::user();
     $CurrentUser->Mode='ON'; $CurrentUser->save();
@@ -8,13 +7,15 @@
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
-    $Menus= (new DashboardMenuPicker)->MenuPicker($CurrentUser);
+    $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
 
+ // for admin badges
+        $employmentRequest=NewEmployment();
+        $OnlineUsers=OnlineUsers();
+        $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
 ?>
 
 <?php $__env->startSection('Title', '- پنل '.$Role); ?>
-
-
 
 <?php $__env->startSection('content'); ?>
     
@@ -75,8 +76,8 @@
                 
                     
                 <?php case (11): ?>
-                <?php echo $__env->make('vazhenegar.CustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php echo $__env->make('vazhenegar.CustomerGuide', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make('vazhenegar.CustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make('vazhenegar.CustomerGuide', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
@@ -89,66 +90,6 @@
 
 
 
-    
-    <?php
-        $employmentRequest=NewEmployment();
-        $OnlineUsers=OnlineUsers();
-        $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
-    ?>
-    <script>
-            
-        let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
-        let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
-        let DailyVisitors=<?php echo json_encode($DailyVisitors, 15, 512) ?>;
-        document.getElementById('NewEmployment').innerHTML = employmentRequest;
-        document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
-        document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
-        document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
-
-        
-        
-        setInterval(function () {
-            $.ajax({
-                type: "GET",
-                url: '/GetOnlineUsers',
-                success: function (data) {
-                    $('#OnlineAmount').empty();
-                    $('#OnlineAmount').append(data);
-                }
-            });
-        }, 30000);
-
-            
-        let day = 1;
-        let token = "<?php echo e(csrf_token()); ?>";
-        setInterval(function () {
-            $.ajax({
-                type: "POST",
-                url: '/GetDailyVisitors/' + day,
-                data: {_token: token},
-                success: function (data) {
-                    $('#DailySiteVisitors').empty();
-                    $('#DailySiteVisitors').append(data);
-                }
-            });
-        }, 30000);
-
-        
-
-        setInterval(function () {
-            $.ajax({
-                type: "GET",
-                url: '/NewEmployments',
-                success: function (data) {
-                    $('#NewEmployment').empty();
-                    $('#NewEmployment').append(data);
-                    let spanclass = 'pull-left-container';
-                    let smallclass = 'label pull-left bg-yellow';
-                    document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
-                }
-            });
-        }, 30000);
-    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\dashboard.blade.php ENDPATH**/ ?>

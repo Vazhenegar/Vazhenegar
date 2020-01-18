@@ -1,12 +1,9 @@
-<!-- jQuery js -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
 
-{{-- Dynamic dropdown for state and city fields --}}
 <script>
     $(document).ready(function () {
 
-        let oldstate = '{{old('State')}}'; // when validation fails, this variable keeps previous select item for state
-        let oldcity = '{{old('City')}}';  // when validation fails, this variable keeps previous select item for city
+        let oldstate = '<?php echo e(old('State')); ?>'; // when validation fails, this variable keeps previous select item for state
+        let oldcity = '<?php echo e(old('City')); ?>';  // when validation fails, this variable keeps previous select item for city
         let state_id;
 
         $.ajaxSetup({
@@ -63,7 +60,7 @@
     });
 </script>
 <!-- ------------------------------------------------------------------------------------ -->
-{{-- Translation Languages --}}
+
 <script>
     var source_l;
     var dest_l;
@@ -140,8 +137,8 @@
     }
 </script>
 <!-- ------------------------------------------------------------------------------------ -->
-{{-- translation fields --}}
-{{-- check for previously user selected items in case of form validation fails --}}
+
+
 <script>
     $(document).ready(function () {
         $.ajaxSetup({
@@ -165,3 +162,4 @@
 
     });
 </script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\Employment.blade.php ENDPATH**/ ?>

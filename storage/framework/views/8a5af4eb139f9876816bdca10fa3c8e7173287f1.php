@@ -1,7 +1,6 @@
-@extends('vazhenegar.layout.MasterLayout')
-@section('PageTitle', 'درباره ما')
+<?php $__env->startSection('PageTitle', 'درباره ما'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <!-- ***** Breadcrumb Area Start ***** -->
@@ -15,7 +14,7 @@
     </div>
     <!-- Background Curve -->
     <div class="breadcrumb-bg-curve">
-        <img src="{{asset('images/core-img/curve-5.png')}}" alt="">
+        <img src="<?php echo e(asset('images/core-img/curve-5.png')); ?>" alt="">
     </div>
 </div>
 <!-- ***** Breadcrumb Area End ***** -->
@@ -27,7 +26,7 @@
             <!-- About Thumbnail -->
             <div class="col-12 col-lg-6">
                 <div class="about-us-thumbnail mb-80">
-                    <img src="{{asset('images/site/about-us.jpg')}}" alt="">
+                    <img src="<?php echo e(asset('images/site/about-us.jpg')); ?>" alt="">
 
                 </div>
             </div>
@@ -121,7 +120,7 @@
 
     <!-- About Background Pattern -->
     <div class="about-bg-pattern">
-        <img src="{{asset('images/core-img/curve-2.png')}}" alt="">
+        <img src="<?php echo e(asset('images/core-img/curve-2.png')); ?>" alt="">
     </div>
 </section>
 <!-- ***** About Us Area End ***** -->
@@ -178,7 +177,7 @@
                     <div class="single-testimonial-slide d-flex align-items-center">
                         <!-- Testimonial Thumbnail -->
                         <div class="testimonial-thumbnail">
-                            <img src="{{asset('images/bg-img/7.jpg')}}" alt="">
+                            <img src="<?php echo e(asset('images/bg-img/7.jpg')); ?>" alt="">
                         </div>
                         <!-- Testimonial Content -->
                         <div class="testimonial-content">
@@ -198,7 +197,7 @@
                                 <h5>ایرج آذروند <span>- واحد ترجمه</span></h5>
                             </div>
                             <!-- Quote Icon -->
-                            <div class="quote-icon"><img src="{{asset('images/core-img/quote.png')}}" alt=""></div>
+                            <div class="quote-icon"><img src="<?php echo e(asset('images/core-img/quote.png')); ?>" alt=""></div>
                         </div>
                     </div>
 
@@ -206,7 +205,7 @@
                     <div class="single-testimonial-slide d-flex align-items-center">
                         <!-- Testimonial Thumbnail -->
                         <div class="testimonial-thumbnail">
-                            <img src="{{asset('images/bg-img/23.jpg')}}" alt="">
+                            <img src="<?php echo e(asset('images/bg-img/23.jpg')); ?>" alt="">
                         </div>
                         <!-- Testimonial Content -->
                         <div class="testimonial-content">
@@ -228,7 +227,7 @@
                                 <h5>ایرج آذروند <span>- واحد ترجمه</span></h5>
                             </div>
                             <!-- Quote Icon -->
-                            <div class="quote-icon"><img src="{{asset('images/core-img/quote.png')}}" alt=""></div>
+                            <div class="quote-icon"><img src="<?php echo e(asset('images/core-img/quote.png')); ?>" alt=""></div>
                         </div>
                     </div>
 
@@ -236,7 +235,7 @@
                     <div class="single-testimonial-slide d-flex align-items-center">
                         <!-- Testimonial Thumbnail -->
                         <div class="testimonial-thumbnail">
-                            <img src="{{asset('images/bg-img/24.jpg')}}" alt="">
+                            <img src="<?php echo e(asset('images/bg-img/24.jpg')); ?>" alt="">
                         </div>
                         <!-- Testimonial Content -->
                         <div class="testimonial-content">
@@ -258,7 +257,7 @@
                                 <h5>ایرج آذروند <span>- واحد ترجمه</span></h5>
                             </div>
                             <!-- Quote Icon -->
-                            <div class="quote-icon"><img src="{{asset('images/core-img/quote.png')}}" alt=""></div>
+                            <div class="quote-icon"><img src="<?php echo e(asset('images/core-img/quote.png')); ?>" alt=""></div>
                         </div>
                     </div>
 
@@ -269,4 +268,6 @@
 </div>
 <!-- ***** Client Feedback Area End ***** -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/about-us.blade.php ENDPATH**/ ?>

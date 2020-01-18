@@ -3,7 +3,6 @@
 @section('PageTitle', 'استخدام مترجم')
 
 @section('content')
-    @include('vazhenegar.layout.Employment')
 
     {{-- employment Area --}}
     <!-- ***** Breadcrumb Area Start ***** -->
@@ -417,5 +416,8 @@
         </div>
     </section>
     <!-- ***** employment Area End ***** -->
+
+{{--    script needed for employment page--}}
+    @include('vazhenegar.layout.Employment')
 
 @endsection

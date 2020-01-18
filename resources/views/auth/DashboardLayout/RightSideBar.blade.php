@@ -6,7 +6,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-right image">
-                <img src="auth/dist/img/user2.png" class="img-circle" alt="User Image">
+                <img src="{{asset('images/site/user.png')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-right info">
                 <p>{{$UserFullName}}</p>
