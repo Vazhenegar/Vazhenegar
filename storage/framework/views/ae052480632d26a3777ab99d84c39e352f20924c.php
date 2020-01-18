@@ -7,12 +7,12 @@
         <!-- small box -->
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
-                <h3 id="CurrentOrders">12</h3>
+                <h3 id="NewOrders"></h3>
 
-                <p>سفارشات جاری</p>
+                <p>سفارش جدید</p>
             </div>
             <div class="icon">
-                <i class="fa fa-pencil-square-o"></i>
+                <i class="fa fa-file-text"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
@@ -25,11 +25,11 @@
         <!-- small box -->
         <div class="small-box bg-green-gradient">
             <div class="inner">
-                <h3 id="FinishedOrders">12</h3>
-                <p>سفارشات تکمیل شده</p>
+                <h3 id="OnlineUsers"></h3>
+                <p>کاربران آنلاین</p>
             </div>
             <div class="icon">
-                <i class="fa fa-check-square-o"></i>
+                <i class="fa fa-wifi"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
@@ -42,12 +42,12 @@
         <!-- small box -->
         <div class="small-box bg-yellow-gradient">
             <div class="inner">
-                <h3 id="Messages">12</h3>
+                <h3 id="NewEmployment"></h3>
 
-                <p>پیام ها</p>
+                <p>درخواست همکاری جدید</p>
             </div>
             <div class="icon">
-                <i class="fa fa-envelope-open-o"></i>
+                <i class="ion ion-person-add"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
@@ -60,12 +60,12 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="Invoices">12</h3>
+                <h3 id="DailySiteVisitors"></h3> 
 
-                <p>فاکتور ها</p>
+                <p>بازدید امروز</p>
             </div>
             <div class="icon">
-                <i class="fa fa-money"></i>
+                <i class="fa fa-line-chart"></i>
             </div>
             <a href="#" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
@@ -75,4 +75,4 @@
 </div>
 <!-- /.row -->
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/CustomerBadges.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\AdminBadges.blade.php ENDPATH**/ ?>

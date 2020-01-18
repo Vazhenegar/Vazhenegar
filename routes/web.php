@@ -19,7 +19,7 @@ Route::post('/GetDailyVisitors/{day}', function ($day) {
     return (new App\Session)->GetSiteVisitors($day);
 });
 
-Route::post('/UserMenus/{user}','DashboardMenuPicker@MenuPicker');
+Route::post('/UserMenus/{user}','HomeController@MenuPicker');
 
 //========================== Helpers Routes ======================//
 //Get users that have Online mode in DB

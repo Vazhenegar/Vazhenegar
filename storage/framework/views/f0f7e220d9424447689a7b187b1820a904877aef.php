@@ -75,4 +75,4 @@
 </div>
 <!-- /.row -->
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/CustomerBadges.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\CustomerBadges.blade.php ENDPATH**/ ?>

@@ -1,6 +1,5 @@
 <?php
     use Illuminate\Support\Facades\Auth;
-    use App\Http\Controllers\DashboardMenuPicker;
     $user=new App\User;
     $CurrentUser=Auth::user();
     $CurrentUser->Mode='ON'; $CurrentUser->save();
@@ -8,7 +7,7 @@
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
-    $Menus= (new DashboardMenuPicker)->MenuPicker($CurrentUser);
+    $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
 
 ?>
 
@@ -76,6 +75,8 @@
                     
                 <?php case (11): ?>
                 <?php echo $__env->make('vazhenegar.CustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('vazhenegar.CustomerGuide', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 
                 <?php break; ?>

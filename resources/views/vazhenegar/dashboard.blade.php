@@ -2,7 +2,6 @@
 
 @php
     use Illuminate\Support\Facades\Auth;
-    use App\Http\Controllers\DashboardMenuPicker;
     $user=new App\User;
     $CurrentUser=Auth::user();
     $CurrentUser->Mode='ON'; $CurrentUser->save();
@@ -10,7 +9,7 @@
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
-    $Menus= (new DashboardMenuPicker)->MenuPicker($CurrentUser);
+    $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
 
 @endphp
 
@@ -78,6 +77,8 @@
                     {{--Customer--}}
                 @case(11)
                 @include('vazhenegar.CustomerBadges')
+                @include('vazhenegar.CustomerGuide')
+
 
 
                 @break
