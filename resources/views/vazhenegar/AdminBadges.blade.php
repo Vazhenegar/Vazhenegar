@@ -75,3 +75,59 @@
 </div>
 <!-- /.row -->
 {{--=================== End Of Admin Badges   =================================--}}
+{{-- initialize badges with data that sent from dashboard main page--}}
+<script>
+    let employmentRequest =@json($employmentRequest);
+    let OnlineUsers =@json($OnlineUsers);
+    let DailyVisitors=@json($DailyVisitors);
+
+    document.getElementById('NewEmployment').innerHTML = employmentRequest;
+    document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
+    document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
+    document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
+
+    {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
+    {{--  ====================  for online users ===================--}}
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/GetOnlineUsers',
+            success: function (data) {
+                $('#OnlineAmount').empty();
+                $('#OnlineAmount').append(data);
+            }
+        });
+    }, 30000);
+
+        {{-- ===================   for daily visitors ===============--}}
+    let day = 1;
+    let token = "{{ csrf_token() }}";
+    setInterval(function () {
+        $.ajax({
+            type: "POST",
+            url: '/GetDailyVisitors/' + day,
+            data: {_token: token},
+            success: function (data) {
+                $('#DailySiteVisitors').empty();
+                $('#DailySiteVisitors').append(data);
+            }
+        });
+    }, 30000);
+
+    {{--  ====================  for new employments ================--}}
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/NewEmployments',
+            success: function (data) {
+                $('#NewEmployment').empty();
+                $('#NewEmployment').append(data);
+                let spanclass = 'pull-left-container';
+                let smallclass = 'label pull-left bg-yellow';
+                document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
+            }
+        });
+    }, 30000);
+
+</script>

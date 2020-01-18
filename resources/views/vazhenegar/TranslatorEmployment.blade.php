@@ -3,6 +3,7 @@
 @section('PageTitle', 'استخدام مترجم')
 
 @section('content')
+    @include('vazhenegar.layout.Employment')
 
     {{-- employment Area --}}
     <!-- ***** Breadcrumb Area Start ***** -->
@@ -409,11 +410,6 @@
         </div>
 
     {{-- ================================================ --}}
-
-
-
-    {{-- ================================================ --}}
-
 
     <!-- Form Background Pattern -->
         <div class="employment-area-bg-pattern">
