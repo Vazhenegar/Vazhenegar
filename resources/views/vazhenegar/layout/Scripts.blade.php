@@ -17,12 +17,11 @@
 
 <!-- Active js -->
 <script src="{{asset('js/default-assets/active.js')}}"></script>
-{{-- date picker --}}
 
+{{-- date picker --}}
 <script src="js/persian-date.min.js"></script>
 
 <!-- Datepicker main script -->
-<!-- ------------------------------------------------------------------------------------ -->
 <script src="js/persian-datepicker.js"></script>
 
 <!-- Init datepicker -->

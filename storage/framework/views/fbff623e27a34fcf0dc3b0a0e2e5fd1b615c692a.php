@@ -22,7 +22,6 @@
 <script src="js/persian-date.min.js"></script>
 
 <!-- Datepicker main script -->
-<!-- ------------------------------------------------------------------------------------ -->
 <script src="js/persian-datepicker.js"></script>
 
 <!-- Init datepicker -->

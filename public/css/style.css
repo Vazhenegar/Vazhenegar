@@ -57,7 +57,7 @@ Last Update: Dec 31, 2018
 @import url(default-assets/classy-nav.css);
 @import url(owl.carousel.min.css);
 @import url(magnific-popup.css);
-@import url(font-awesome.min.css);
+@import url(public/auth/bower_components/font-awesome/css/font-awesome.min.css);
 @import url(style2.css);
 /* :: 1.0 Reboot CSS */
 
@@ -70,7 +70,6 @@ Last Update: Dec 31, 2018
 
 body {
     font-weight: 100;
-    /* was 400*/
     font-size: 14px;
     text-align: right;
 }

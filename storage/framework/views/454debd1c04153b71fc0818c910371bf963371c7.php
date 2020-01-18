@@ -1,4 +1,4 @@
-{{--=================== Customer Guide  =================================--}}
+
 
 <div class="box box-primary">
     <div class="box-header">
@@ -78,4 +78,5 @@
     <!-- /.box-body -->
 </div>
 
-{{--=================== End Of Customer Guide  =================================--}}
+
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/CustomerGuide.blade.php ENDPATH**/ ?>

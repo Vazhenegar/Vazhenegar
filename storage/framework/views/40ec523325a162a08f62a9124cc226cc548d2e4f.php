@@ -13,6 +13,9 @@
         $employmentRequest=NewEmployment();
         $OnlineUsers=OnlineUsers();
         $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
+
+//  for user badges
+
 ?>
 
 <?php $__env->startSection('Title', '- پنل '.$Role); ?>
@@ -56,7 +59,7 @@
 
                     <!-- left col (We are only adding the ID to make the widgets sortable)-->
                     <section class="col-lg-5 connectedSortable">
-                        <?php echo $__env->make('vazhenegar.Calendar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <?php echo $__env->make('vazhenegar.DashboardCalendar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     </section>
                     <!-- left col -->
 
@@ -77,8 +80,25 @@
                     
                 <?php case (11): ?>
                     <?php echo $__env->make('vazhenegar.CustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                    <?php echo $__env->make('vazhenegar.CustomerGuide', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make('vazhenegar.DashboardGuideBox', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <!-- Main row -->
+                <div class="row">
+                    <!-- right col -->
+                    <section class="col-lg-7 connectedSortable">
+                        <?php echo $__env->make('vazhenegar.ChatBox', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <?php echo $__env->make('vazhenegar.EmailWidget', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    </section>
+                    <!-- /.right col -->
 
+
+                    <!-- left col (We are only adding the ID to make the widgets sortable)-->
+                    <section class="col-lg-5 connectedSortable">
+                        <?php echo $__env->make('vazhenegar.DashboardCalendar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    </section>
+                    <!-- left col -->
+
+                </div>
+                <!-- /.row (main row) -->
 
 
                 <?php break; ?>
