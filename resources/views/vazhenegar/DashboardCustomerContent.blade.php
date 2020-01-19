@@ -1,5 +1,6 @@
 
-{{-- these contents will include to dashboard master layout--}}
+{{-- these contents will include to dashboard index--}}
+@include('vazhenegar.CustomerBadges')
 @include('vazhenegar.DashboardGuideBox')
 <!-- Main row -->
 <div class="row">

@@ -17,7 +17,6 @@ class CreateUserMainMenusTable extends Migration
             $table->Increments('id')->unsigned();
             $table->Integer('role_id')->unsigned()->nullable();
             $table->string('MainMenu');
-            $table->string('Url')->nullable();
             $table->string('Icon')->nullable();
             $table->timestamps();
 

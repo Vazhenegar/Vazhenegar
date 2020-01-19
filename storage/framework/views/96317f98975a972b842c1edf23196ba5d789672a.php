@@ -1,4 +1,4 @@
-<?php $__env->startSection('Title', 'ثبت سفارش جدید'); ?>
+<?php $__env->startSection('Title', '- ثبت سفارش جدید'); ?>
 
 <?php
     $CurrentUser=Auth::user();
@@ -9,12 +9,6 @@
     $UserMode=$CurrentUser->Mode;
     $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
 
- // for admin badges
-        $employmentRequest=NewEmployment();
-        $OnlineUsers=OnlineUsers();
-        $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
-
-//  for user badges
 
 ?>
 

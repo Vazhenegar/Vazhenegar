@@ -22,7 +22,6 @@
         {{--=============================== ِ Admin =======================================--}}
         @case(1)
             @section('Title', '- پنل '.$Role)
-            @include('vazhenegar.AdminBadges')
             @include('vazhenegar.DashboardAdminContent')
         @break
     {{--=============================== ِ Translator =======================================--}}
@@ -34,7 +33,6 @@
     {{--=============================== ِ Customer =======================================--}}
         @case(11)
             @section('Title', '- پنل '.$Role)
-            @include('vazhenegar.CustomerBadges')
             @include('vazhenegar.DashboardCustomerContent')
         @break
     @endswitch

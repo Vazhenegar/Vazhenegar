@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserMainMenu extends Model
 {
-    protected $fillable = ['role_id', 'MainMenu', 'Url', 'Icon'];
+    protected $fillable = ['role_id', 'MainMenu', 'Icon'];
 
 
     public function role()

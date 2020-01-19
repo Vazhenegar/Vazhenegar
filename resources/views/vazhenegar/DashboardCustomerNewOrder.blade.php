@@ -1,5 +1,5 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
-@section('Title', 'ثبت سفارش جدید')
+@section('Title', '- ثبت سفارش جدید')
 
 @php
     $CurrentUser=Auth::user();
@@ -9,14 +9,6 @@
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
     $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
-
- // for admin badges
-        $employmentRequest=NewEmployment();
-        $OnlineUsers=OnlineUsers();
-        $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
-
-//  for user badges
-
 @endphp
 
 @section('content')
