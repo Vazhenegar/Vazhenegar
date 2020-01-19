@@ -33,4 +33,4 @@
             <i class="fa fa-arrow-circle-left"></i></button>
     </div>
 </div>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\EmailWidget.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardEmailWidget.blade.php ENDPATH**/ ?>

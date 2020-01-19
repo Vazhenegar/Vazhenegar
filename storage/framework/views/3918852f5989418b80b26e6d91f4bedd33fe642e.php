@@ -22,7 +22,6 @@
 <script src="js/persian-date.min.js"></script>
 
 <!-- Datepicker main script -->
-<!-- ------------------------------------------------------------------------------------ -->
 <script src="js/persian-datepicker.js"></script>
 
 <!-- Init datepicker -->
@@ -64,4 +63,13 @@
 </script>
 <!-- ------------------------------------------------------------------------------------ -->
 
+<script>
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/SetUsersMode',
+        });
+    }, 30000);
+
+</script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\Scripts.blade.php ENDPATH**/ ?>

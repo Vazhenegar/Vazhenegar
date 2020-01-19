@@ -1,4 +1,3 @@
-
 <!-- jQuery 3 -->
 <script src="<?php echo e(asset('auth/bower_components/jquery/dist/jquery.min.js')); ?>"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -23,7 +22,12 @@
 <script src="<?php echo e(asset('auth/bower_components/moment/min/moment.min.js')); ?>"></script>
 <script src="<?php echo e(asset('auth/bower_components/bootstrap-daterangepicker/daterangepicker.js')); ?>"></script>
 <!-- datepicker -->
-<script src="<?php echo e(asset('auth/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')); ?>"></script>
+
+<!-- Datepicker main script -->
+<script src="js/persian-datepicker.js"></script>
+
+<script src="js/persian-date.min.js"></script>
+
 <!-- Bootstrap WYSIHTML5 -->
 <script src="<?php echo e(asset('auth/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')); ?>"></script>
 <!-- Slimscroll -->
@@ -36,4 +40,32 @@
 <script src="<?php echo e(asset('auth/dist/js/pages/dashboard.js')); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo e(asset('auth/dist/js/demo.js')); ?>"></script>
+
+
+<script>
+    $("#inlineGregorian").persianDatepicker({
+        inline: true,
+        calendar: {
+            persian: {
+                showHint: true
+            },
+            gregorian: {
+                showHint: true
+            }
+        },
+        calendarType__: 'gregorian',
+        format: "lll",
+        toolbox: {
+            calendarSwitch: {
+                enabled: true
+            }
+        },
+        timePicker: {
+            enabled: false,
+            meridian: {
+                enabled: false
+            }
+        },
+    });
+</script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\js.blade.php ENDPATH**/ ?>

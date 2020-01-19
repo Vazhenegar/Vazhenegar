@@ -10,7 +10,7 @@
             </div>
             <div class="pull-right info">
                 <p>{{$UserFullName}}</p>
-                <a id="UserMode"><i class="fa fa-circle text-success"></i>{{$user->mode($UserMode)}}
+                <a id="UserMode"><i class="fa fa-circle text-success"></i>{{$CurrentUser->mode($UserMode)}}
                 </a>
             </div>
         </div>

@@ -10,7 +10,7 @@
             </div>
             <div class="pull-right info">
                 <p><?php echo e($UserFullName); ?></p>
-                <a id="UserMode"><i class="fa fa-circle text-success"></i><?php echo e($user->mode($UserMode)); ?>
+                <a id="UserMode"><i class="fa fa-circle text-success"></i><?php echo e($CurrentUser->mode($UserMode)); ?>
 
                 </a>
             </div>

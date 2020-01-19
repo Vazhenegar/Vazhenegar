@@ -25,10 +25,29 @@
     ?>
 
 <?php else: ?>
-
     <div class="wrapper">
-        <?php $__env->startSection('content'); ?>
-        <?php echo $__env->yieldSection(); ?>
+
+
+    
+
+    <?php echo $__env->make('auth.DashboardLayout.TopBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    
+
+    <?php echo $__env->make('auth.DashboardLayout.RightSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    
+
+    <?php echo $__env->make('auth.DashboardLayout.LeftSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                <?php $__env->startSection('content'); ?>
+                <?php echo $__env->yieldSection(); ?>
+            </section>
+        </div>
     </div>
 <?php endif; ?>
 

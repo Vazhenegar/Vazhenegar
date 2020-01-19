@@ -25,10 +25,28 @@
     @endphp
 
 @else
-
     <div class="wrapper">
-        @section('content')
-        @show
+
+    {{--=========================================================--}}
+
+    @include('vazhenegar.DashboardTopBar')
+
+    {{--=========================================================--}}
+
+    @include('vazhenegar.DashboardRightSideBar')
+
+    {{--=========================================================--}}
+
+    @include('vazhenegar.DashboardLeftSideBar')
+
+    {{--   main content of dashboard      --}}
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+                @section('content')
+                @show
+            </section>
+        </div>
     </div>
 @endguest
 

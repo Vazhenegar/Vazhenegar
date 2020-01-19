@@ -120,7 +120,7 @@
 
     <!-- About Background Pattern -->
     <div class="about-bg-pattern">
-        <img src="./img/core-img/curve-2.png" alt="">
+        <img src="<?php echo e(asset('images/core-img/curve-2.png')); ?>" alt="">
     </div>
 </section>
 <!-- ***** About Us Area End ***** -->
@@ -148,7 +148,6 @@
             <!-- Choose Us Thumbnail -->
             <div class="col-12 col-lg-6">
                 <div class="choose-us-thumbnail mb-80">
-                    <img class="w-100" src="img/bg-img/22.jpg" alt="">
                 </div>
             </div>
         </div>
