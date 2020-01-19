@@ -29,15 +29,15 @@
 
     
 
-    <?php echo $__env->make('auth.DashboardLayout.TopBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('vazhenegar.DashboardTopBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     
 
-    <?php echo $__env->make('auth.DashboardLayout.RightSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('vazhenegar.DashboardRightSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     
 
-    <?php echo $__env->make('auth.DashboardLayout.LeftSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('vazhenegar.DashboardLeftSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     
         <div class="content-wrapper">

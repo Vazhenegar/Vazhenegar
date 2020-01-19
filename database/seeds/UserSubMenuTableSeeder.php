@@ -13,10 +13,10 @@ class UserSubMenuTableSeeder extends Seeder
     {
         $SubMenus = [
             //مدیر - سفارشات
-            2 => [
+            1 => [
                 [
                     'SubMenu' => 'جدید',
-                    'Url' => '/new',
+                    'Url' => 'New',
                     'Icon' => 'fa fa-star',
                 ],
                 [
@@ -47,7 +47,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مدیر - کاربران
-            3 => [
+            2 => [
                 [
                     'SubMenu' => 'لیست کاربران',
                     'Url' => '/users',
@@ -62,7 +62,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مدیر - پیام ها
-            4 => [
+            3 => [
                 [
                     'SubMenu' => 'نوشتن پیام',
                     'Url' => '/compose',
@@ -92,7 +92,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مدیر - امور مالی و حسابداری
-            5 => [
+            4 => [
                 [
                     'SubMenu' => 'گردش مالی',
                     'Url' => '/finance',
@@ -106,7 +106,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مدیر - تنظیمات
-            6 => [
+            5 => [
                 [
                     'SubMenu' => 'سفارشات',
                     'Url' => '/orders setting',
@@ -140,7 +140,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مدیر - راهنما
-            7 => [
+            6 => [
                 [
                     'SubMenu' => 'راهنمای مدیر',
                     'Url' => '/admin guide',
@@ -149,7 +149,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مترجم - سفارشات
-            9 => [
+            7 => [
                 [
                     'SubMenu' => 'جدید',
                     'Url' => '/new',
@@ -168,7 +168,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مترجم - پیام ها
-            10 => [
+            8 => [
                 [
                     'SubMenu' => 'نوشتن پیام',
                     'Url' => '/compose',
@@ -192,7 +192,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مترجم - امور مالی حسابداری
-            11 => [
+            9 => [
                 [
                     'SubMenu' => 'جزئیات درآمد',
                     'Url' => '/transaction',
@@ -206,7 +206,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مترجم - تنظیمات
-            12 => [
+            10 => [
                 [
                     'SubMenu' => 'پروفایل',
                     'Url' => '/transaction',
@@ -225,7 +225,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مترجم - راهنما
-            13 => [
+            11 => [
                 [
                     'SubMenu' => 'راهنمای مترجم',
                     'Url' => '/trans guide',
@@ -234,10 +234,10 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مشتری - سفارشات
-            15 => [
+            12 => [
                 [
                     'SubMenu' => 'جدید',
-                    'Url' => '/new',
+                    'Url' => '/dashboard/NewOrder',
                     'Icon' => 'fa fa-star',
                 ],
                 [
@@ -258,7 +258,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مشتری - پیام ها
-            16 => [
+            13 => [
                 [
                     'SubMenu' => 'نوشتن پیام',
                     'Url' => '/compose',
@@ -286,7 +286,7 @@ class UserSubMenuTableSeeder extends Seeder
                 ],
             ],
             //مشتری - امور مالی و حسابداری
-            17 => [
+            14 => [
                 [
                     'SubMenu' => 'پیش فاکتور',
                     'Url' => '/compose',
@@ -306,7 +306,7 @@ class UserSubMenuTableSeeder extends Seeder
 
 
             //مشتری - تنظیمات
-            18 => [
+            15 => [
                 [
                     'SubMenu' => 'پروفایل',
                     'Url' => '/transaction',
@@ -320,7 +320,7 @@ class UserSubMenuTableSeeder extends Seeder
             ],
 
             //مشتری - راهنما
-            19 => [
+            16 => [
                 [
                     'SubMenu' => 'راهنمای مشتری',
                     'Url' => '/customer guide',

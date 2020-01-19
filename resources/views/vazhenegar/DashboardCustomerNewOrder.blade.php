@@ -1,5 +1,7 @@
+@extends('auth.DashboardLayout.DashboardMasterLayout')
+@section('Title', 'ثبت سفارش جدید')
 
-<?php
+@php
     $CurrentUser=Auth::user();
     $Role=$CurrentUser->role()->value('RoleName');
     $CurrentUser->Mode='ON'; $CurrentUser->save();
@@ -15,5 +17,8 @@
 
 //  for user badges
 
-?>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/UserIdentifier.blade.php ENDPATH**/ ?>
+@endphp
+
+@section('content')
+    <p>صفحه ثبت سفارش جدید مشتری</p>
+@endsection

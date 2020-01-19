@@ -1,6 +1,6 @@
 
-<?php $__env->startSection('DashboardAdminContent'); ?>
-    <?php echo $__env->make('vazhenegar.OrdersList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <?php echo $__env->make('vazhenegar.DashboardAdminOrdersList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <!-- Main row -->
     <div class="row">
@@ -16,10 +16,8 @@
         <section class="col-lg-5 connectedSortable">
             <?php echo $__env->make('vazhenegar.DashboardCalendar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php echo $__env->make('vazhenegar.ChatBox', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
         </section>
         <!-- left col -->
 
     </div>
-<?php $__env->stopSection(); ?>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminContent.blade.php ENDPATH**/ ?>

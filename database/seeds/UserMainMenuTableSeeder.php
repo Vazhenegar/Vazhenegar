@@ -17,46 +17,39 @@ class UserMainMenuTableSeeder extends Seeder
             //1
             [
                 'role_id' => 1,
-                'MainMenu' => 'داشبورد',
-                'Url' => '/dashboard',
-                'Icon'=>'fa fa-home',
-            ],
-            //2
-            [
-                'role_id' => 1,
                 'MainMenu' => 'سفارشات',
                 'Url' => null,
                 'Icon'=>'fa fa-file-text',
             ],
-            //3
+            //2
             [
                 'role_id' => 1,
                 'MainMenu' => 'کاربران',
                 'Url' => null,
                 'Icon'=>'fa fa-users',
             ],
-            //4
+            //3
             [
                 'role_id' => 1,
                 'MainMenu' => 'پیام ها',
                 'Url' => null,
                 'Icon'=>'fa fa-comments',
             ],
-            //5
+            //4
             [
                 'role_id' => 1,
                 'MainMenu' => 'امور مالی و حسابداری',
                 'Url' => null,
                 'Icon'=>'fa fa-dollar',
             ],
-            //6
+            //5
             [
                 'role_id' => 1,
                 'MainMenu' => 'تنظیمات',
                 'Url' => null,
                 'Icon'=>'fa fa-cogs',
             ],
-            //7
+            //6
             [
                 'role_id' => 1,
                 'MainMenu' => 'راهنما',
@@ -65,42 +58,35 @@ class UserMainMenuTableSeeder extends Seeder
             ],
 
             //مترجم
-            //8
-            [
-                'role_id' => 5,
-                'MainMenu' => 'داشبورد',
-                'Url' => '/dashboard',
-                'Icon'=>'fa fa-home',
-            ],
-            //9
+            //7
             [
                 'role_id' => 5,
                 'MainMenu' => 'سفارشات',
                 'Url' => null,
                 'Icon'=>'fa fa-file-text',
             ],
-            //10
+            //8
             [
                 'role_id' => 5,
                 'MainMenu' => 'پیام ها',
                 'Url' => null,
                 'Icon'=>'fa fa-comments',
             ],
-            //11
+            //9
             [
                 'role_id' => 5,
                 'MainMenu' => 'امور مالی و حسابداری',
                 'Url' => null,
                 'Icon'=>'fa fa-dollar',
             ],
-            //12
+            //10
             [
                 'role_id' => 5,
                 'MainMenu' => 'تنظیمات',
                 'Url' => null,
                 'Icon'=>'fa fa-cogs',
             ],
-            //13
+            //11
             [
                 'role_id' => 5,
                 'MainMenu' => 'راهنما',
@@ -111,42 +97,35 @@ class UserMainMenuTableSeeder extends Seeder
 
 
             //مشتری
-            //14
-            [
-                'role_id' => 11,
-                'MainMenu' => 'داشبورد',
-                'Url' => '/dashboard',
-                'Icon'=>'fa fa-home',
-            ],
-            //15
+            //12
             [
                 'role_id' => 11,
                 'MainMenu' => 'سفارشات',
                 'Url' => null,
                 'Icon'=>'fa fa-file-text',
             ],
-            //16
+            //13
             [
                 'role_id' => 11,
                 'MainMenu' => 'پیام ها',
                 'Url' => null,
                 'Icon'=>'fa fa-comments',
             ],
-            //17
+            //14
             [
                 'role_id' => 11,
                 'MainMenu' => 'امور مالی و حسابداری',
                 'Url' => null,
                 'Icon'=>'fa fa-dollar',
             ],
-            //18
+            //15
             [
                 'role_id' => 11,
                 'MainMenu' => 'تنظیمات',
                 'Url' => null,
                 'Icon'=>'fa fa-cogs',
             ],
-            //19
+            //16
             [
                 'role_id' => 11,
                 'MainMenu' => 'راهنما',

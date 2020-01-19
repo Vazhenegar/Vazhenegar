@@ -21,6 +21,12 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">منو</li>
+            <li>
+                <a href="<?php echo e(route('dashboard')); ?>">
+                    <i class="fa fa-home"></i>
+                    <span> داشبورد</span>
+                </a>
+            </li>
 
             <?php $__currentLoopData = $Menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 
@@ -57,4 +63,4 @@
     </section>
     <!-- /.sidebar -->
 </aside>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/RightSideBar.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardRightSideBar.blade.php ENDPATH**/ ?>

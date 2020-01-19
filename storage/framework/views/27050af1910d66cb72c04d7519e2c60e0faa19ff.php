@@ -192,4 +192,4 @@
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
 <div class="control-sidebar-bg"></div>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\LeftSideBar.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardLeftSideBar.blade.php ENDPATH**/ ?>

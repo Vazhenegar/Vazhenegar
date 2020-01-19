@@ -20,6 +20,12 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">منو</li>
+            <li>
+                <a href="{{route('dashboard')}}">
+                    <i class="fa fa-home"></i>
+                    <span> داشبورد</span>
+                </a>
+            </li>
 
             @foreach($Menus as $item)
                 {{--========================================================================--}}

@@ -24,7 +24,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        echo 'this is new orders page';
+        return view('vazhenegar.DashboardCustomerNewOrder');
     }
 
     /**

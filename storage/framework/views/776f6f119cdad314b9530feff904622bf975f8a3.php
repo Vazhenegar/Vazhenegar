@@ -1,7 +1,7 @@
 <?php
     $CurrentUser=Auth::user();
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
     $Role=$CurrentUser->role()->value('RoleName');
+    $CurrentUser->Mode='ON'; $CurrentUser->save();
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
@@ -15,6 +15,7 @@
 //  for user badges
 
 ?>
+
 <?php $__env->startSection('content'); ?>
     <?php switch($CurrentUser->role()->value('id')):
         

@@ -282,4 +282,4 @@
     </nav>
 </header>
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/TopBar.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardTopBar.blade.php ENDPATH**/ ?>

@@ -118,4 +118,4 @@
 </div>
 
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\OrdersList.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminOrdersList.blade.php ENDPATH**/ ?>
