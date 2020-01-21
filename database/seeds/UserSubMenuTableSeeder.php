@@ -237,7 +237,7 @@ class UserSubMenuTableSeeder extends Seeder
             12 => [
                 [
                     'SubMenu' => 'جدید',
-                    'Url' => '/dashboard/NewOrder',
+                    'Url' => '/dashboard/Order',
                     'Icon' => 'fa fa-star',
                 ],
                 [

@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('vazhenegar.DashboardIndex');
+        return view('vazhenegar.Dashboard');
     }
 
     public function MenuPicker(User $user)

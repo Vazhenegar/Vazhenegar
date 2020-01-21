@@ -1,5 +1,5 @@
 /* Import Fonts & All CSS */
-@import url(public/css/fonts/persian-vazir-fonts.css);
+@import url(../../../css/fonts/persian-vazir-fonts.css);
 /*@import url(public/auth/bower_components/font-awesome/css/font-awesome.min.css);*/
 
 * {

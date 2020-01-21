@@ -29,3 +29,14 @@
 
 <!-- bootstrap wysihtml5 - text editor -->
 <link rel="stylesheet" href="{{asset('auth/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+
+<!-- My style for dashboard -->
+<link rel="stylesheet" href="{{asset('css/DashboardStyle.css')}}">
+
+{{--Checkbox --}}
+<link rel="stylesheet" href="{{asset('css/checkbox.css')}}">
+
+
+
+{{--Dropzone--}}
+<link rel="stylesheet" href="{{asset('css/dropzone.css')}}">

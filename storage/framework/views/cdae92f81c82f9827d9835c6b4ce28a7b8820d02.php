@@ -1,5 +1,5 @@
 <!-- jQuery js -->
-<script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+<?php echo $__env->make('vazhenegar.layout.CoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <script>
@@ -165,4 +165,40 @@
 
     });
 </script>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\Employment.blade.php ENDPATH**/ ?>
+
+<!-- datepicker -->
+<!-- ------------------------------------------------------------------------------------ -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        let pd;
+        pd = $('.date_picker').persianDatepicker({
+            initialValue: false,
+            observer: false,
+            format: 'YYYY - MM - DD',
+            autoClose: true,
+            calendar: {
+                persian: {
+                    enabled: true,
+                    locale: 'fa',
+                    showHint: true,
+                    leapYearMode: "astronomical"
+                }
+            },
+            dayPicker: {
+                enabled: true
+            },
+            yearPicker: {
+                enabled: true
+            },
+            timePicker: {
+                enabled: false,
+                meridian: {
+                    enabled: false
+                }
+            },
+
+        });
+    });
+
+</script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\StateDatetimeLanguageScripts.blade.php ENDPATH**/ ?>

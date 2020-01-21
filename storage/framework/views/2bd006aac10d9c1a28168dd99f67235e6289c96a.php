@@ -29,4 +29,15 @@
 
 <!-- bootstrap wysihtml5 - text editor -->
 <link rel="stylesheet" href="<?php echo e(asset('auth/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')); ?>">
+
+<!-- My style for dashboard -->
+<link rel="stylesheet" href="<?php echo e(asset('css/DashboardStyle.css')); ?>">
+
+
+<link rel="stylesheet" href="<?php echo e(asset('css/checkbox.css')); ?>">
+
+
+
+
+<link rel="stylesheet" href="<?php echo e(asset('css/dropzone.css')); ?>">
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\css.blade.php ENDPATH**/ ?>

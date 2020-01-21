@@ -131,4 +131,4 @@
     }, 30000);
 
 </script>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/AdminBadges.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminBadges.blade.php ENDPATH**/ ?>

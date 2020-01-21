@@ -30,7 +30,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="auth/dist/img/user2.png" class="img-circle"
+                                            <img src="<?php echo e(asset('images/site/user.png')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -44,7 +44,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="auth/dist/img/user3-128x128.jpg" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -57,7 +57,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="auth/dist/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -70,7 +70,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="auth/dist/img/user3-128x128.jpg" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -83,7 +83,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="auth/dist/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>

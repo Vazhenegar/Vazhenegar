@@ -24,9 +24,9 @@
 <!-- datepicker -->
 {{--<script src="{{asset('auth/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>--}}
 <!-- Datepicker main script -->
-<script src="js/persian-datepicker.js"></script>
+<script src="{{asset('js/persian-datepicker.js')}}"></script>
 {{-- date picker --}}
-<script src="js/persian-date.min.js"></script>
+<script src="{{asset('js/persian-date.min.js')}}"></script>
 
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{asset('auth/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
@@ -40,6 +40,9 @@
 <script src="{{asset('auth/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('auth/dist/js/demo.js')}}"></script>
+
+{{--Dropzone--}}
+<script src="{{asset('js/dropzone.js')}}"></script>
 
 {{--dashboard calendar--}}
 <script>
@@ -66,5 +69,27 @@
                 enabled: false
             }
         },
+    });
+</script>
+
+{{--New Order date time picker --}}
+<script>
+    $(document).ready(function () {
+        // Debug mode
+        // --------------------------------------------
+        //        window.persianDatepickerDebug = true;
+
+        // Normal Sample
+        // --------------------------------------------
+        window.pd = $('#DeliveryDate').persianDatepicker({
+            altField: '#DeliveryDateAlt',
+            altFormat: 'YYYY-MM-DD HH:mm',
+            initialValue: true,
+            observer: true,
+            format: 'LLLL',
+            timePicker: {
+                enabled: true
+            }
+        });
     });
 </script>

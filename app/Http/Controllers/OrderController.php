@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Language;
 use App\Order;
+use App\TranslationField;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -24,7 +26,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('vazhenegar.DashboardCustomerNewOrder');
+        $languages = Language::all();
+        $translation_fields = TranslationField::all();
+        return view('vazhenegar.DashboardCustomerNewOrder',
+            compact('languages', 'translation_fields')
+        );
     }
 
     /**
@@ -45,7 +51,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

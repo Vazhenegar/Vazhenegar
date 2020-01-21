@@ -33,7 +33,7 @@
 <?php echo $__env->yieldSection(); ?>
 
 <!-- ***** Script Area ***** -->
-<?php echo $__env->make('vazhenegar.layout.Scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('vazhenegar.layout.CoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 </body>
 

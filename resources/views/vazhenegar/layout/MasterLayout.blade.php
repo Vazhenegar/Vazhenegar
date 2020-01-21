@@ -33,7 +33,7 @@
 @show
 
 <!-- ***** Script Area ***** -->
-@include('vazhenegar.layout.Scripts')
+@include('vazhenegar.layout.CoreScripts')
 
 </body>
 

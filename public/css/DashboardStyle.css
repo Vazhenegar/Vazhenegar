@@ -1,0 +1,27 @@
+/*Customer New Order*/
+
+.NewOrder .form-group{
+    width: 90%;
+}
+.NewOrder input, .NewOrder select, .NewOrder label {
+    font-size: 14px;
+    height: fit-content;
+
+}
+
+.NewOrder textarea {
+    width: 100%;
+    height: 125px;
+    font-size: 14px;
+    line-height: 18px;
+    border: 1px solid #dddddd;
+    padding: 10px;
+}
+
+.NewOrder .form-group h3{
+    font-size: 14px;
+}
+
+.NewOrder .pure-material-checkbox span{
+    font-weight: normal;
+}

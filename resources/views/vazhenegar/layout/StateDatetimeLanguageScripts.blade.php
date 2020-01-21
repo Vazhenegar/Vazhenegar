@@ -1,5 +1,5 @@
 <!-- jQuery js -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
+@include('vazhenegar.layout.CoreScripts')
 
 {{-- Dynamic dropdown for state and city fields --}}
 <script>
@@ -164,4 +164,40 @@
         }
 
     });
+</script>
+
+<!-- datepicker -->
+<!-- ------------------------------------------------------------------------------------ -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        let pd;
+        pd = $('.date_picker').persianDatepicker({
+            initialValue: false,
+            observer: false,
+            format: 'YYYY - MM - DD',
+            autoClose: true,
+            calendar: {
+                persian: {
+                    enabled: true,
+                    locale: 'fa',
+                    showHint: true,
+                    leapYearMode: "astronomical"
+                }
+            },
+            dayPicker: {
+                enabled: true
+            },
+            yearPicker: {
+                enabled: true
+            },
+            timePicker: {
+                enabled: false,
+                meridian: {
+                    enabled: false
+                }
+            },
+
+        });
+    });
+
 </script>

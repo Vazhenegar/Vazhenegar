@@ -24,9 +24,9 @@
 <!-- datepicker -->
 
 <!-- Datepicker main script -->
-<script src="js/persian-datepicker.js"></script>
+<script src="<?php echo e(asset('js/persian-datepicker.js')); ?>"></script>
 
-<script src="js/persian-date.min.js"></script>
+<script src="<?php echo e(asset('js/persian-date.min.js')); ?>"></script>
 
 <!-- Bootstrap WYSIHTML5 -->
 <script src="<?php echo e(asset('auth/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')); ?>"></script>
@@ -40,6 +40,9 @@
 <script src="<?php echo e(asset('auth/dist/js/pages/dashboard.js')); ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo e(asset('auth/dist/js/demo.js')); ?>"></script>
+
+
+<script src="<?php echo e(asset('js/dropzone.js')); ?>"></script>
 
 
 <script>
@@ -66,6 +69,28 @@
                 enabled: false
             }
         },
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        // Debug mode
+        // --------------------------------------------
+        //        window.persianDatepickerDebug = true;
+
+        // Normal Sample
+        // --------------------------------------------
+        window.pd = $('#DeliveryDate').persianDatepicker({
+            altField: '#DeliveryDateAlt',
+            altFormat: 'YYYY-MM-DD HH:mm',
+            initialValue: true,
+            observer: true,
+            format: 'LLLL',
+            timePicker: {
+                enabled: true
+            }
+        });
     });
 </script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/js.blade.php ENDPATH**/ ?>

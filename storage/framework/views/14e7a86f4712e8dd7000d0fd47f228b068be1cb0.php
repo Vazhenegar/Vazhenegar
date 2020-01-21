@@ -7,7 +7,7 @@
     <div class="box-body chat" id="chat-box">
         <!-- chat item -->
         <div class="item">
-            <img src="auth/dist/img/user4-128x128.jpg" alt="user image" class="online">
+            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" alt="user image" class="online">
 
             <p class="message">
                 <a href="#" class="name">
@@ -34,7 +34,7 @@
         <!-- /.item -->
         <!-- chat item -->
         <div class="item">
-            <img src="auth/dist/img/user3-128x128.jpg" alt="user image" class="offline">
+            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" alt="user image" class="offline">
 
             <p class="message">
                 <a href="#" class="name">
@@ -64,10 +64,10 @@
     <!-- /.chat -->
     <div class="box-footer">
         <div class="input-group">
-            <input class="form-control" placeholder="Type message...">
+            <input class="form-control" placeholder="متن پیام...">
 
             <div class="input-group-btn">
-                <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>
+                <button type="button" class="btn btn-success"><i class="fa fa-chevron-left"></i>
                 </button>
             </div>
         </div>

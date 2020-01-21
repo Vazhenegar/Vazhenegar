@@ -13,7 +13,7 @@ Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::resource('/dashboard/NewOrder',OrderController::class);
+Route::resource('/dashboard/Order',OrderController::class);
 
 Route::post('/GetDailyVisitors/{day}', function ($day) {
     return (new App\Session)->GetSiteVisitors($day);
