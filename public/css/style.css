@@ -3650,7 +3650,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* date picker style for right to left  text */
-.date_picker {
+.DatePicker {
     direction: ltr;
     text-align: right;
 }

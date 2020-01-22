@@ -75,21 +75,48 @@
 {{--New Order date time picker --}}
 <script>
     $(document).ready(function () {
-        // Debug mode
-        // --------------------------------------------
-        //        window.persianDatepickerDebug = true;
 
-        // Normal Sample
-        // --------------------------------------------
-        window.pd = $('#DeliveryDate').persianDatepicker({
-            altField: '#DeliveryDateAlt',
-            altFormat: 'YYYY-MM-DD HH:mm',
-            initialValue: true,
-            observer: true,
-            format: 'LLLL',
-            timePicker: {
-                enabled: true
-            }
+        populate_DateTime_Field();
+
+        function populate_DateTime_Field() {
+            window.pd = $('#DeliveryDate').persianDatepicker({
+                altField: '#DeliveryDateAlt',
+                altFormat: 'gregorian',
+                initialValue: true,
+                format: 'LLLL',
+                timePicker: {
+                    enabled: true
+                }
+            });
+
+            // convert_to_unix();
+        }
+
+        //convert shamsi date to gregorian unix
+        function convert_to_unix() {
+            $('#DeliveryDateAlt').persianDatepicker({
+                formatter: function (unixDate) {
+                    let self = this;
+                    let thisAltFormat = self.altFormat.toLowerCase();
+                    if (thisAltFormat === 'gregorian' || thisAltFormat === 'g') {
+                        return new Date(unixDate);
+                    }
+                    if (thisAltFormat === 'unix' || thisAltFormat === 'u') {
+                        return unixDate;
+                    }
+                    else {
+                        let pd = new persianDate(unixDate);
+                        pd.formatPersian = this.persianDigit;
+                        return pd.format(self.altFormat);
+                    }
+                }
+            });
+        }
+
+        $('#DeliveryDateAlt').on('change', function () {
+            convert_to_unix();
         });
+
     });
+
 </script>

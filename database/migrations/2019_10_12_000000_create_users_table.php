@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->string('FirstName');
             $table->string('LastName');
-            $table->string('BirthDate')->nullable();
+            $table->dateTime('BirthDate')->nullable();
             $table->boolean('Gender')->nullable();
             $table->string('Email')->unique();
             $table->string('Password');
@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('City')->unsigned()->nullable();
             $table->longText('Address')->nullable();
             $table->string('Degree')->nullable();
-            $table->string('GraduationDate')->nullable();
+            $table->dateTime('GraduationDate')->nullable();
             $table->string('GraduationField')->nullable();
             $table->longText('Resume')->nullable();
             $table->longText('UserSelectedLangs')->nullable(); //for translators

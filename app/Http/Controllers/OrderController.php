@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Language;
 use App\Order;
 use App\TranslationField;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class OrderController extends Controller
 {
@@ -51,7 +55,50 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $rules = [
+            'OrderSubject' => ['required', 'max:200'],
+            'source_lang' => ['required'],
+            'dest_lang' => ['required'],
+            'TranslationField' => ['required'],
+            'OrderFile'=>['required','max:19999','mimes:pdf,docx,doc,pptx,ppt,xlsx,xls,rar,zip'],
+            'DeliveryDateAlt' => ['required'],
+            'TranslationParts' => ['nullable'],
+            'Description' => ['nullable', 'max:500'],
+        ];
+        $this->validate($request, $rules);
+
+        $TranslationParts = serialize($request->input('TranslationParts'));
+        $DeliveryDate=per_digit_conv($request->input('DeliveryDateAlt'));
+        $DeliveryDate=Carbon::parse($DeliveryDate)->timestamp;
+
+        $filename='';
+        if ($request->hasFile('UserDocuments')) {
+            $uploaded = $request->file('UserDocuments');
+            $filename = $request->input('FirstName') . '-' . $request->input('LastName') . '-' . time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
+            $uploaded->storeAs('public\Customers'.$request->input('FirstName').' '.$request->input('LastName'), $filename);
+        }
+
+        $Order = new Order;
+        $CurrentUser=Auth::user();
+        $Order->UserId = $CurrentUser->id;
+        $Order->DeliveryDate = $DeliveryDate;
+        $Order->RelatedDepartment = Department::where('DepartmentName','ترجمه')->value('id');
+        $Order->SourceLanguage = $request->input('source_lang');
+        $Order->DestLanguage = $request->input('dest_lang');
+        $Order->TranslationField = $request->input('TranslationField');
+        $Order->TranslationParts = $TranslationParts;
+        $Order->StatusId = 1; //در حال انتظار برای بررسی و تعیین قیمت
+        $Order->Description = $request->input('Description');
+        $Order->OrderFile = $filename;
+
+        $Order->save();
+
+        //return to dashboard home page with success message
+        session()->flash('status', 'Order Stored');
+        return redirect('/dashboard');
+
+
+
     }
 
     /**

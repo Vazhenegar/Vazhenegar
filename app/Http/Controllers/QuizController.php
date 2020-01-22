@@ -26,7 +26,7 @@ class QuizController extends Controller
     public function index()
     {
 //if user fill employment form and didn't do the quiz before,
-//then this page will shown other wise user will redirect to home page.
+//then this page will shown otherwise user will redirect to home page.
         if (session('TranslatorId') && !User::find(session('TranslatorId'))->QuizAnswer) {
 
             $User = User::find(session('TranslatorId'));

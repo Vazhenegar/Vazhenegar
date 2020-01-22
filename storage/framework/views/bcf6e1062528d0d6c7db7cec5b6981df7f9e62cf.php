@@ -15,4 +15,4 @@
     </div>
 </div>
 <!-- /.nav-tabs-custom -->
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/Charts.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardCharts.blade.php ENDPATH**/ ?>

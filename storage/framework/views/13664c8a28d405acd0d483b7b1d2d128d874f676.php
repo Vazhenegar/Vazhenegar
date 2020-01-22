@@ -58,4 +58,4 @@
     });
 </script>
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\QuizTimer.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\scripts\QuizTimer.blade.php ENDPATH**/ ?>

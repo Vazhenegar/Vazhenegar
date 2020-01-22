@@ -74,4 +74,4 @@
     </div>
 </div>
 <!-- /.box (chat box) -->
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/ChatBox.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardChatBox.blade.php ENDPATH**/ ?>

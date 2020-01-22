@@ -31,7 +31,8 @@
                                 <br>
                                 لطفا در صورتی که فرصت کافی دارید فرم زیر را تکمیل و در آزمون آنلاین شرکت کنید.
                                 <br>
-                                بدیهی است به فرم هایی که بصورت ناقص ارسال شده باشند یا در آزمون شرکت نکرده باشند پاسخی داده نخواهد شد.
+                                بدیهی است به فرم هایی که بصورت ناقص ارسال شده باشند یا در آزمون شرکت نکرده باشند پاسخی
+                                داده نخواهد شد.
                             </h4>
                         </div>
                     </div>
@@ -53,9 +54,11 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('FirstName')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30" name="FirstName" value="<?php echo e(old('FirstName')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30" name="FirstName"
+                                               value="<?php echo e(old('FirstName')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30" name="FirstName" value="<?php echo e(old('FirstName')); ?>" required>
+                                        <input type="text" class="form-control mb-30" name="FirstName"
+                                               value="<?php echo e(old('FirstName')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="FirstName"> نام</label>
                                 </div>
@@ -64,9 +67,11 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('LastName')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30" name="LastName" value="<?php echo e(old('LastName')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30" name="LastName"
+                                               value="<?php echo e(old('LastName')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30" name="LastName" value="<?php echo e(old('LastName')); ?>" required>
+                                        <input type="text" class="form-control mb-30" name="LastName"
+                                               value="<?php echo e(old('LastName')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="LastName">نام خانوادگی</label>
                                 </div>
@@ -75,11 +80,16 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('BirthDate')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30 date_picker" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30 date_picker"
+                                               id="DatePicker" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>"
+                                               onchange="ch()" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30 date_picker" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>" required>
+                                        <input type="text" class="form-control mb-30 date_picker" id="DatePicker"
+                                               name="BirthDate" value="<?php echo e(old('BirthDate')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="BirthDate">تاریخ تولد</label>
+                                    <input class="form-control" name="DatePickerAlt" id="DatePickerAlt" type="hidden"
+                                           readonly/>
                                 </div>
                             </div>
                             
@@ -103,7 +113,8 @@
                                                 </span>
                                                             <span class="r-pill__item">
                                                     <?php if(($errors->any()) && (old('Gender')==0) && (old('Gender')!=null)): ?>
-                                                                    <input type="radio" name="Gender" value="0" id="r2" checked>
+                                                                    <input type="radio" name="Gender" value="0" id="r2"
+                                                                           checked>
                                                                 <?php else: ?>
                                                                     <input type="radio" name="Gender" value="0" id="r2">
                                                                 <?php endif; ?>
@@ -119,9 +130,11 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Email')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30" name="Email" id="email" value="<?php echo e(old('Email')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30" name="Email"
+                                               id="email" value="<?php echo e(old('Email')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30" name="Email" id="email" value="<?php echo e(old('Email')); ?>" required>
+                                        <input type="text" class="form-control mb-30" name="Email" id="email"
+                                               value="<?php echo e(old('Email')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="Email">ایمیل</label>
                                 </div>
@@ -130,9 +143,11 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Password')): ?>
-                                        <input type="password" class="wrong-field form-control mb-30" name="Password" value="<?php echo e(old('Password')); ?>" required>
+                                        <input type="password" class="wrong-field form-control mb-30" name="Password"
+                                               value="<?php echo e(old('Password')); ?>" required>
                                     <?php else: ?>
-                                        <input type="password" class="form-control mb-30" name="Password" value="<?php echo e(old('Password')); ?>" required>
+                                        <input type="password" class="form-control mb-30" name="Password"
+                                               value="<?php echo e(old('Password')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="Password">رمز عبور</label>
                                 </div>
@@ -141,31 +156,40 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Password')): ?>
-                                        <input type="password" class=" wrong-field form-control mb-30" name="Password_confirmation" value="<?php echo e(old('Password_confirmation')); ?>" required>
+                                        <input type="password" class=" wrong-field form-control mb-30"
+                                               name="Password_confirmation" value="<?php echo e(old('Password_confirmation')); ?>"
+                                               required>
                                     <?php else: ?>
-                                        <input type="password" class="form-control mb-30" name="Password_confirmation" value="<?php echo e(old('Password_confirmation')); ?>" required>
+                                        <input type="password" class="form-control mb-30" name="Password_confirmation"
+                                               value="<?php echo e(old('Password_confirmation')); ?>" required>
                                     <?php endif; ?>
-                                    <label class="form-placeholder-label" for="Password_confirmation">تکرار رمز عبور</label>
+                                    <label class="form-placeholder-label" for="Password_confirmation">تکرار رمز
+                                        عبور</label>
                                 </div>
                             </div>
                             
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('FixNumber')): ?>
-                                        <input type="number" class="wrong-field form-control mb-30" name="FixNumber" value="<?php echo e(old('FixNumber')); ?>" required>
+                                        <input type="number" class="wrong-field form-control mb-30" name="FixNumber"
+                                               value="<?php echo e(old('FixNumber')); ?>" required>
                                     <?php else: ?>
-                                        <input type="number" class="form-control mb-30" name="FixNumber" value="<?php echo e(old('FixNumber')); ?>" required>
+                                        <input type="number" class="form-control mb-30" name="FixNumber"
+                                               value="<?php echo e(old('FixNumber')); ?>" required>
                                     <?php endif; ?>
-                                    <label class="form-placeholder-label" for="FixNumber"> تلفن ثابت با کد شهرستان</label>
+                                    <label class="form-placeholder-label" for="FixNumber"> تلفن ثابت با کد
+                                        شهرستان</label>
                                 </div>
                             </div>
                             
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('MobileNumber')): ?>
-                                        <input type="number" class="wrong-field form-control mb-30" name="MobileNumber" value="<?php echo e(old('MobileNumber')); ?>" required>
+                                        <input type="number" class="wrong-field form-control mb-30" name="MobileNumber"
+                                               value="<?php echo e(old('MobileNumber')); ?>" required>
                                     <?php else: ?>
-                                        <input type="number" class="form-control mb-30" name="MobileNumber" value="<?php echo e(old('MobileNumber')); ?>" required>
+                                        <input type="number" class="form-control mb-30" name="MobileNumber"
+                                               value="<?php echo e(old('MobileNumber')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="MobileNumber">تلفن همراه</label>
                                 </div>
@@ -195,9 +219,11 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Address')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30" name="Address" value="<?php echo e(old('Address')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30" name="Address"
+                                               value="<?php echo e(old('Address')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30" name="Address" value="<?php echo e(old('Address')); ?>" required>
+                                        <input type="text" class="form-control mb-30" name="Address"
+                                               value="<?php echo e(old('Address')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="Address">آدرس</label>
                                 </div>
@@ -212,9 +238,11 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Degree')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30" name="Degree" value="<?php echo e(old('Degree')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30" name="Degree"
+                                               value="<?php echo e(old('Degree')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30" name="Degree" value="<?php echo e(old('Degree')); ?>" required>
+                                        <input type="text" class="form-control mb-30" name="Degree"
+                                               value="<?php echo e(old('Degree')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="Degree">آخرین مدرک تحصیلی</label>
                                 </div>
@@ -223,20 +251,25 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('GraduationDate')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30 date_picker" name="GraduationDate" value="<?php echo e(old('GraduationDate')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30 date_picker"
+                                               name="GraduationDate" value="<?php echo e(old('GraduationDate')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30 date_picker" name="GraduationDate" value="<?php echo e(old('GraduationDate')); ?>" required>
+                                        <input type="text" class="form-control mb-30 date_picker" name="GraduationDate"
+                                               value="<?php echo e(old('GraduationDate')); ?>" required>
                                     <?php endif; ?>
-                                    <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ التحصیلی</label>
+                                    <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ
+                                        التحصیلی</label>
                                 </div>
                             </div>
                             
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('GraduationField')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30" name="GraduationField" value="<?php echo e(old('GraduationField')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30" name="GraduationField"
+                                               value="<?php echo e(old('GraduationField')); ?>" required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30" name="GraduationField" value="<?php echo e(old('GraduationField')); ?>" required>
+                                        <input type="text" class="form-control mb-30" name="GraduationField"
+                                               value="<?php echo e(old('GraduationField')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="GraduationField">رشته / گرایش</label>
                                 </div>
@@ -250,7 +283,8 @@
 
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    <textarea class="form-control mb-30" name="Resume" rows="8" cols="80"><?php echo e(old('Resume')); ?></textarea>
+                                    <textarea class="form-control mb-30" name="Resume" rows="8"
+                                              cols="80"><?php echo e(old('Resume')); ?></textarea>
                                 </div>
                             </div>
                             
@@ -266,25 +300,32 @@
                                             <?php endif; ?>
                                             <div class="row">
                                                 <div class="col-3 form-group">
-                                                    <select class="form-control mb-30" name="source_lang" onchange="SL(this)" required>
+                                                    <select class="form-control mb-30" name="source_lang"
+                                                            onchange="SL(this)" required>
                                                         <option value="<?php echo e(old('source_lang')); ?>"></option>
                                                         <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                                            <option
+                                                                value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
-                                                    <label class="form-placeholder-label" for="source_lang">زبان مبدا</label>
+                                                    <label class="form-placeholder-label" for="source_lang">زبان
+                                                        مبدا</label>
                                                 </div>
 
                                                 <div class="col-3 form-group">
-                                                    <select class="form-control mb-30" name="dest_lang" onchange="DL(this)" required>
+                                                    <select class="form-control mb-30" name="dest_lang"
+                                                            onchange="DL(this)" required>
                                                         <option value="<?php echo e(old('dest_lang')); ?>"></option>
                                                         <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value=" <?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                                            <option
+                                                                value=" <?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
-                                                    <label class="form-placeholder-label" for="dest_lang">زبان مقصد</label>
+                                                    <label class="form-placeholder-label" for="dest_lang">زبان
+                                                        مقصد</label>
                                                 </div>
-                                                <button type="submit" class="btn lang-btn btn-2 fa fa-check" id="lang-btn" onclick="add_to_list()" disabled></button>
+                                                <button type="submit" class="btn lang-btn btn-2 fa fa-check"
+                                                        id="lang-btn" onclick="add_to_list()" disabled></button>
                                             </div>
                                         </div>
                                 </div>
@@ -321,7 +362,11 @@
                                                 <div class="form-group" id="translation_fields1">
                                                     
                                                     <?php for($i=0; $i<14; $i++): ?>
-                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="<?php echo e($translation_fields[$i]->FieldName); ?>" type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label><br>
+                                                        <label class="pure-material-checkbox"><input
+                                                                name="TranslationFields[]"
+                                                                value="<?php echo e($translation_fields[$i]->FieldName); ?>"
+                                                                type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label>
+                                                        <br>
                                                     <?php endfor; ?>
                                                 </div>
                                             </div>
@@ -330,7 +375,11 @@
                                                 <div class="form-group" id="translation_fields2">
                                                     
                                                     <?php for($i=14; $i<count($translation_fields); $i++): ?>
-                                                        <label class="pure-material-checkbox"><input name="TranslationFields[]" value="<?php echo e($translation_fields[$i]->FieldName); ?>" type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label><br>
+                                                        <label class="pure-material-checkbox"><input
+                                                                name="TranslationFields[]"
+                                                                value="<?php echo e($translation_fields[$i]->FieldName); ?>"
+                                                                type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label>
+                                                        <br>
                                                     <?php endfor; ?>
 
                                                 </div>
@@ -348,7 +397,8 @@
                                     <div class="col-12">
                                         <p class="mb-30">
                                             ارسال مدارک <br>
-                                            مدارک شناسایی (شناسنامه یا کارت ملی) و مدارک تحصیلی خود را در یک فایل زیپ (zip, rar) ارسال کنید.
+                                            مدارک شناسایی (شناسنامه یا کارت ملی) و مدارک تحصیلی خود را در یک فایل زیپ
+                                            (zip, rar) ارسال کنید.
                                         </p>
                                     </div>
 
@@ -416,8 +466,13 @@
     </section>
     <!-- ***** employment Area End ***** -->
 
+    
+    <?php echo $__env->make('scripts.CoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.StateCity', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.TranslationFields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.TranslationLanguages', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    <?php echo $__env->make('vazhenegar.layout.StateDatetimeLanguageScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <?php $__env->stopSection(); ?>
 

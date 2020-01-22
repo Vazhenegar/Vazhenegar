@@ -1,10 +1,8 @@
-@extends('vazhenegar.layout.MasterLayout')
+<?php $__env->startSection('PageTitle', 'استخدام مترجم'); ?>
 
-@section('PageTitle', 'استخدام مترجم')
+<?php $__env->startSection('content'); ?>
 
-@section('content')
-
-    {{-- employment Area --}}
+    
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
         <div class="container h-100">
@@ -17,7 +15,7 @@
 
         <!-- Background Curve -->
         <div class="breadcrumb-bg-curve">
-            <img src="{{asset('images/core-img/curve-5.png')}}" alt="">
+            <img src="<?php echo e(asset('images/core-img/curve-5.png')); ?>" alt="">
         </div>
     </div>
     <!-- ***** Breadcrumb Area End ***** -->
@@ -45,8 +43,9 @@
                 <div class="employment-form mb-40">
                     <form action="/TranslatorEmployment" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            {{ csrf_field() }}
-                            {{-- =========================================================================== --}}
+                            <?php echo e(csrf_field()); ?>
+
+                            
                             <div class="col-12">
                                 <p class="mb-30">
                                     اطلاعات فردی
@@ -54,72 +53,72 @@
                             </div>
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('FirstName'))
+                                    <?php if($errors->has('FirstName')): ?>
                                         <input type="text" class="wrong-field form-control mb-30" name="FirstName"
-                                               value="{{old('FirstName')}}" required>
-                                    @else
+                                               value="<?php echo e(old('FirstName')); ?>" required>
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30" name="FirstName"
-                                               value="{{old('FirstName')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('FirstName')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="FirstName"> نام</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('LastName'))
+                                    <?php if($errors->has('LastName')): ?>
                                         <input type="text" class="wrong-field form-control mb-30" name="LastName"
-                                               value="{{old('LastName')}}" required>
-                                    @else
+                                               value="<?php echo e(old('LastName')); ?>" required>
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30" name="LastName"
-                                               value="{{old('LastName')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('LastName')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="LastName">نام خانوادگی</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('BirthDate'))
+                                    <?php if($errors->has('BirthDate')): ?>
                                         <input type="text" class="wrong-field form-control mb-30 DatePicker"
-                                               id="BirthDate" name="BirthDate" value="{{old('BirthDate')}}"
+                                               id="BirthDate" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>"
                                                required>
-                                    @else
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30 DatePicker"
-                                               id="BirthDate" name="BirthDate" value="{{old('BirthDate')}}" required>
-                                    @endif
+                                               id="BirthDate" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="BirthDate">تاریخ تولد</label>
                                     <input class="form-control" name="BirthDateAlt" id="BirthDateAlt"
-                                           value="{{old('BirthDateAlt')}}"
+                                           value="<?php echo e(old('BirthDateAlt')); ?>"
                                            readonly/>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <div class="FormRadioBox">
-                                        @if ($errors->has('Gender'))
+                                        <?php if($errors->has('Gender')): ?>
                                             <fieldset class="r-pill wrong-field">
-                                                @else
+                                                <?php else: ?>
                                                     <fieldset class="r-pill">
-                                                        @endif
+                                                        <?php endif; ?>
                                                         <label class="mb-30" dir="rtl">جنسیت:</label>
                                                         <div class="r-pill__group">
                                                 <span class="r-pill__item">
-                                                    @if (($errors->any()) && (old('Gender')==1))
+                                                    <?php if(($errors->any()) && (old('Gender')==1)): ?>
                                                         <input type="radio" name="Gender" value="1" id=r1 checked>
-                                                    @else
+                                                    <?php else: ?>
                                                         <input type="radio" name="Gender" value="1" id=r1>
-                                                    @endif
+                                                    <?php endif; ?>
                                                     <label for="r1">مرد</label>
                                                 </span>
                                                             <span class="r-pill__item">
-                                                    @if (($errors->any()) && (old('Gender')==0) && (old('Gender')!=null))
+                                                    <?php if(($errors->any()) && (old('Gender')==0) && (old('Gender')!=null)): ?>
                                                                     <input type="radio" name="Gender" value="0" id="r2"
                                                                            checked>
-                                                                @else
+                                                                <?php else: ?>
                                                                     <input type="radio" name="Gender" value="0" id="r2">
-                                                                @endif
+                                                                <?php endif; ?>
                                                     <label for="r2">زن</label>
                                                 </span>
                                                         </div>
@@ -128,87 +127,87 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('Email'))
+                                    <?php if($errors->has('Email')): ?>
                                         <input type="text" class="wrong-field form-control mb-30" name="Email"
-                                               id="email" value="{{old('Email')}}" required>
-                                    @else
+                                               id="email" value="<?php echo e(old('Email')); ?>" required>
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30" name="Email" id="email"
-                                               value="{{old('Email')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('Email')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="Email">ایمیل</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('Password'))
+                                    <?php if($errors->has('Password')): ?>
                                         <input type="password" class="wrong-field form-control mb-30" name="Password"
-                                               value="{{old('Password')}}" required>
-                                    @else
+                                               value="<?php echo e(old('Password')); ?>" required>
+                                    <?php else: ?>
                                         <input type="password" class="form-control mb-30" name="Password"
-                                               value="{{old('Password')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('Password')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="Password">رمز عبور</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('Password'))
+                                    <?php if($errors->has('Password')): ?>
                                         <input type="password" class=" wrong-field form-control mb-30"
-                                               name="Password_confirmation" value="{{old('Password_confirmation')}}"
+                                               name="Password_confirmation" value="<?php echo e(old('Password_confirmation')); ?>"
                                                required>
-                                    @else
+                                    <?php else: ?>
                                         <input type="password" class="form-control mb-30" name="Password_confirmation"
-                                               value="{{old('Password_confirmation')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('Password_confirmation')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="Password_confirmation">تکرار رمز
                                         عبور</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('FixNumber'))
+                                    <?php if($errors->has('FixNumber')): ?>
                                         <input type="number" class="wrong-field form-control mb-30" name="FixNumber"
-                                               value="{{old('FixNumber')}}" required>
-                                    @else
+                                               value="<?php echo e(old('FixNumber')); ?>" required>
+                                    <?php else: ?>
                                         <input type="number" class="form-control mb-30" name="FixNumber"
-                                               value="{{old('FixNumber')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('FixNumber')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="FixNumber"> تلفن ثابت با کد
                                         شهرستان</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('MobileNumber'))
+                                    <?php if($errors->has('MobileNumber')): ?>
                                         <input type="number" class="wrong-field form-control mb-30" name="MobileNumber"
-                                               value="{{old('MobileNumber')}}" required>
-                                    @else
+                                               value="<?php echo e(old('MobileNumber')); ?>" required>
+                                    <?php else: ?>
                                         <input type="number" class="form-control mb-30" name="MobileNumber"
-                                               value="{{old('MobileNumber')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('MobileNumber')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="MobileNumber">تلفن همراه</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <select class="form-control mb-30" name="State" id="State" required>
                                         <option value=""></option>
                                         <script>
-                                            let states =@json($states);//for using states array in js to populate select box
+                                            let states =<?php echo json_encode($states, 15, 512) ?>;//for using states array in js to populate select box
                                         </script>
                                     </select>
                                     <label class="form-placeholder-label" for="State">استان محل سکونت</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <select class="form-control mb-30" name="City" id="City" required>
@@ -217,20 +216,20 @@
                                     <label class="form-placeholder-label" for="City">شهر محل سکونت</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('Address'))
+                                    <?php if($errors->has('Address')): ?>
                                         <input type="text" class="wrong-field form-control mb-30" name="Address"
-                                               value="{{old('Address')}}" required>
-                                    @else
+                                               value="<?php echo e(old('Address')); ?>" required>
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30" name="Address"
-                                               value="{{old('Address')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('Address')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="Address">آدرس</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <p class="mb-30">
                                     اطلاعات تحصیلی
@@ -239,49 +238,49 @@
 
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('Degree'))
+                                    <?php if($errors->has('Degree')): ?>
                                         <input type="text" class="wrong-field form-control mb-30" name="Degree"
-                                               value="{{old('Degree')}}" required>
-                                    @else
+                                               value="<?php echo e(old('Degree')); ?>" required>
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30" name="Degree"
-                                               value="{{old('Degree')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('Degree')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="Degree">آخرین مدرک تحصیلی</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('GraduationDate'))
+                                    <?php if($errors->has('GraduationDate')): ?>
                                         <input type="text" class="wrong-field form-control mb-30 DatePicker"
                                                id="GraduationDate" name="GraduationDate"
-                                               value="{{old('GraduationDate')}}"
+                                               value="<?php echo e(old('GraduationDate')); ?>"
                                                required>
-                                    @else
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30 DatePicker" name="GraduationDate"
-                                               id="GraduationDate" value="{{old('GraduationDate')}}" required>
-                                    @endif
+                                               id="GraduationDate" value="<?php echo e(old('GraduationDate')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ
                                         التحصیلی</label>
                                     <input class="form-control" name="GraduationDateAlt" id="GraduationDateAlt"
-                                           value="{{old('GraduationDateAlt')}}"
+                                           value="<?php echo e(old('GraduationDateAlt')); ?>"
                                            readonly/>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <div class="col-4 form-group">
-                                    @if ($errors->has('GraduationField'))
+                                    <?php if($errors->has('GraduationField')): ?>
                                         <input type="text" class="wrong-field form-control mb-30" name="GraduationField"
-                                               value="{{old('GraduationField')}}" required>
-                                    @else
+                                               value="<?php echo e(old('GraduationField')); ?>" required>
+                                    <?php else: ?>
                                         <input type="text" class="form-control mb-30" name="GraduationField"
-                                               value="{{old('GraduationField')}}" required>
-                                    @endif
+                                               value="<?php echo e(old('GraduationField')); ?>" required>
+                                    <?php endif; ?>
                                     <label class="form-placeholder-label" for="GraduationField">رشته / گرایش</label>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <p class="mb-30">
                                     سوابق کاری
@@ -291,29 +290,29 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <textarea class="form-control mb-30" name="Resume" rows="8"
-                                              cols="80">{{old('Resume')}}</textarea>
+                                              cols="80"><?php echo e(old('Resume')); ?></textarea>
                                 </div>
                             </div>
-                            {{-- =========================================================================== --}}
+                            
                             <div class="col-12">
                                 <p class="mb-30">
                                     زبان ها
                                 </p>
                             </div>
-                            @if ($errors->has('UserSelectedLangs'))
+                            <?php if($errors->has('UserSelectedLangs')): ?>
                                 <div class="col-12 wrong-field">
-                                    @else
+                                    <?php else: ?>
                                         <div class="col-12">
-                                            @endif
+                                            <?php endif; ?>
                                             <div class="row">
                                                 <div class="col-3 form-group">
                                                     <select class="form-control mb-30" name="source_lang"
                                                             onchange="SL(this)" required>
-                                                        <option value="{{old('source_lang')}}"></option>
-                                                        @foreach ($languages as $language)
+                                                        <option value="<?php echo e(old('source_lang')); ?>"></option>
+                                                        <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <option
-                                                                value="{{$language->id}}">{{$language->LanguageName}}</option>
-                                                        @endforeach
+                                                                value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                     <label class="form-placeholder-label" for="source_lang">زبان
                                                         مبدا</label>
@@ -322,11 +321,11 @@
                                                 <div class="col-3 form-group">
                                                     <select class="form-control mb-30" name="dest_lang"
                                                             onchange="DL(this)" required>
-                                                        <option value="{{old('dest_lang')}}"></option>
-                                                        @foreach ($languages as $language)
+                                                        <option value="<?php echo e(old('dest_lang')); ?>"></option>
+                                                        <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <option
-                                                                value=" {{$language->id}}">{{$language->LanguageName}}</option>
-                                                        @endforeach
+                                                                value=" <?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                     <label class="form-placeholder-label" for="dest_lang">زبان
                                                         مقصد</label>
@@ -334,72 +333,72 @@
                                                 <button type="submit" class="btn lang-btn btn-2 fa fa-check"
                                                         id="lang-btn" onclick="add_to_list()" disabled></button>
                                             </div>
-                                        </div>{{-- for div without wrong field --}}
-                                </div>{{-- for div with wrong field --}}
+                                        </div>
+                                </div>
 
                                 <div class="col-12">
                                     <div class="col-7">
                                         <div class="form-group" id="selected_lang">
-                                            {{-- if form has some errors and user was selected some languages, they will show up here --}}
+                                            
                                             <script>
-                                                let UserSelectedLangs = @json(old('UserSelectedLangs'));//for language pairs that may user selected before
+                                                let UserSelectedLangs = <?php echo json_encode(old('UserSelectedLangs'), 15, 512) ?>;//for language pairs that may user selected before
                                             </script>
-                                            {{-- and user newly selected langs will appear here --}}
+                                            
                                         </div>
                                     </div>
                                 </div>
 
-                                {{-- =========================================================================== --}}
+                                
 
-                                @if ($errors->has('TranslationFields'))
+                                <?php if($errors->has('TranslationFields')): ?>
                                     <div class="col-12 wrong-field">
-                                        @else
+                                        <?php else: ?>
                                             <div class="col-12">
-                                                @endif
+                                                <?php endif; ?>
                                                 <p class="mb-30">
                                                     زمینه ها
                                                 </p>
-                                            </div>{{-- for div without wrong field --}}
-                                    </div>{{-- for div with wrong field --}}
+                                            </div>
+                                    </div>
 
                                     <div class="col-12">
                                         <div class="row">
 
                                             <div class="col-4">
                                                 <div class="form-group" id="translation_fields1">
-                                                    {{-- translation fields will populate here--}}
-                                                    @for($i=0; $i<14; $i++)
+                                                    
+                                                    <?php for($i=0; $i<14; $i++): ?>
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
-                                                                value="{{$translation_fields[$i]->FieldName}}"
-                                                                type="checkbox"><span>{{$translation_fields[$i]->FieldName}}</span></label>
+                                                                value="<?php echo e($translation_fields[$i]->FieldName); ?>"
+                                                                type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label>
                                                         <br>
-                                                    @endfor
+                                                    <?php endfor; ?>
                                                 </div>
                                             </div>
 
                                             <div class="col-4">
                                                 <div class="form-group" id="translation_fields2">
-                                                    {{-- translation fields will populate here --}}
-                                                    @for($i=14; $i<count($translation_fields); $i++)
+                                                    
+                                                    <?php for($i=14; $i<count($translation_fields); $i++): ?>
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
-                                                                value="{{$translation_fields[$i]->FieldName}}"
-                                                                type="checkbox"><span>{{$translation_fields[$i]->FieldName}}</span></label>
+                                                                value="<?php echo e($translation_fields[$i]->FieldName); ?>"
+                                                                type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label>
                                                         <br>
-                                                    @endfor
+                                                    <?php endfor; ?>
 
                                                 </div>
                                             </div>
 
                                             <script>
-                                                let old_tf =@json(old('TranslationFields')); //for populate and select translation fields that user may selected before --}
+                                                let old_tf =<?php echo json_encode(old('TranslationFields'), 15, 512) ?>; //for populate and select translation fields that user may selected before --}
                                             </script>
 
                                         </div>
                                     </div>
 
-                                    {{-- =========================================================================== --}}
+                                    
 
                                     <div class="col-12">
                                         <p class="mb-30">
@@ -410,75 +409,77 @@
                                     </div>
 
                                     <div class="col-12">
-                                        @if($errors->has('UserDocuments'))
+                                        <?php if($errors->has('UserDocuments')): ?>
                                             <div class="wrong-field col-4 form-group">
-                                                @else
+                                                <?php else: ?>
                                                     <div class="col-4 form-group">
-                                                        @endif
+                                                        <?php endif; ?>
                                                         <input type="file" name="UserDocuments">
                                                     </div>
                                             </div>
                                     </div>
 
-                                    {{-- =========================================================================== --}}
+                                    
 
-                                    {{--  Terms Of Service --}}
+                                    
 
                                     <div class="col-12">
                                         <div class="col-4 form-group">
                                             <label class="pure-material-checkbox">
                                                 <input type="checkbox" name="tos" required>
-                                                @if ($errors->has('tos'))
+                                                <?php if($errors->has('tos')): ?>
                                                     <span class="wrong-field"><a href="/tos" target="blank">قوانین و مقررات </a>را
                                         مطالعه کردم و
                                         موافقم.</span>
-                                                @else
+                                                <?php else: ?>
                                                     <span><a href="/tos" target="blank">قوانین و مقررات </a>را مطالعه کردم و
                                         موافقم.</span>
-                                                @endif
+                                                <?php endif; ?>
                                             </label>
                                         </div>
                                     </div>
-                                    {{-- =========================================================================== --}}
+                                    
                                     <div class="col-12 mb-30">
                                         <button type="submit" class="btn uza-btn btn-2 mt-15">مرحله
                                             بعد
                                         </button>
                                     </div>
-                                    {{-- =========================================================================== --}}
+                                    
                                     <div class="col-12">
-                                        @if ($errors->any())
+                                        <?php if($errors->any()): ?>
                                             <div class="alert alert-danger">
                                                 <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
+                                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <li><?php echo e($error); ?></li>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </ul>
                                             </div>
-                                        @endif
+                                        <?php endif; ?>
                                     </div>
-                                    {{-- =========================================================================== --}}
+                                    
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-    {{-- ================================================ --}}
+    
 
     <!-- Form Background Pattern -->
         <div class="employment-area-bg-pattern">
-            <img src="{{asset('images/core-img/curve-2.png')}}" alt="">
+            <img src="<?php echo e(asset('images/core-img/curve-2.png')); ?>" alt="">
         </div>
     </section>
     <!-- ***** employment Area End ***** -->
 
-    {{--    script needed for employment page--}}
-    @include('scripts.CoreScripts')
-    @include('scripts.DatePicker')
-    @include('scripts.StateCity')
-    @include('scripts.TranslationFields')
-    @include('scripts.TranslationLanguages')
+    
+    <?php echo $__env->make('scripts.CoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.StateCity', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.TranslationFields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.TranslationLanguages', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslatorEmployment.blade.php ENDPATH**/ ?>

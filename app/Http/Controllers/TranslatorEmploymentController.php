@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\TranslatorEmployment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\User;
 use App\State;
@@ -16,29 +17,6 @@ use Illuminate\Support\Facades\Auth;
 
 class TranslatorEmploymentController extends Controller
 {
-    /*
-         function for replace persian digits with english to save in db
-         because persian srting cannot validate in laravel
-         */
-    public function per_digit_conv(string $per_digits)
-    {
-        $result = "";
-        $rep = [
-            '۰',
-            '۱',
-            '۲',
-            '۳',
-            '۴',
-            '۵',
-            '۶',
-            '۷',
-            '۸',
-            '۹',
-        ];
-        $en_digits = \range(0, 9);
-        $result = \str_replace($rep, $en_digits, $per_digits);
-        return $result;
-    }
 
     /**
      * Retrive cities name based on state selected by user
@@ -79,7 +57,7 @@ class TranslatorEmploymentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -113,15 +91,11 @@ class TranslatorEmploymentController extends Controller
         $TranslatorSelectedLangs = serialize($request->input('UserSelectedLangs')); //for get array back use unserialize
         $TranslationFields = serialize($request->input('TranslationFields')); //for get array back use unserialize
 
-        //convert persian digits to english
-        $BirthDate = $this->per_digit_conv($request->input('BirthDate'));
-        $GraduationDate = $this->per_digit_conv($request->input('GraduationDate'));
-
-        $filename='';
+        $filename = '';
         if ($request->hasFile('UserDocuments')) {
             $uploaded = $request->file('UserDocuments');
-            $filename = $request->input('FirstName') . '-' . $request->input('LastName') . '-' . time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
-            $uploaded->storeAs('public\Documentation\Translators', $filename);
+            $filename = $request->input('FirstName') . '-' . $request->input('LastName') . '-' . time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamp.extension
+            $uploaded->storeAs('public\Translators' . $request->input('FirstName') . ' ' . $request->input('LastName'), $filename);
         }
 
         $role_id = Role::where('RoleName', 'مترجم')->value('id');
@@ -130,7 +104,8 @@ class TranslatorEmploymentController extends Controller
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
         $translator->LastName = $request->input('LastName');
-        $translator->BirthDate = $BirthDate;
+//        $translator->BirthDate = datetime('Y-m-d H:i:s', ($request->input('BirthDateAlt')/1000));
+        $translator->BirthDate = Carbon::createFromTimestamp($request->input('BirthDateAlt')/1000,'Asia/Tehran');
         $translator->Gender = $request->input('Gender');
         $translator->Email = $request->input('Email');
         $translator->Password = Hash::make($request->input('Password'));
@@ -140,7 +115,7 @@ class TranslatorEmploymentController extends Controller
         $translator->City = $request->input('City');
         $translator->Address = $request->input('Address');
         $translator->Degree = $request->input('Degree');
-        $translator->GraduationDate = $GraduationDate;
+        $translator->GraduationDate =Carbon::createFromTimestamp($request->input('GraduationDateAlt')/1000,'Asia/Tehran');
         $translator->GraduationField = $request->input('GraduationField');
         $translator->Resume = $request->input('Resume');
         $translator->UserSelectedLangs = $TranslatorSelectedLangs;
@@ -151,8 +126,8 @@ class TranslatorEmploymentController extends Controller
 
         $translator->saveOrFail();
         session([
-            'TranslatorId'=> $translator->id,
-            ]);
+            'TranslatorId' => $translator->id,
+        ]);
         return redirect()->to('/quiz');
 
 
@@ -163,7 +138,7 @@ class TranslatorEmploymentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\TranslatorEmployment  $translatorEmployment
+     * @param \App\TranslatorEmployment $translatorEmployment
      * @return \Illuminate\Http\Response
      */
     public function show(TranslatorEmployment $translatorEmployment)
@@ -174,7 +149,7 @@ class TranslatorEmploymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TranslatorEmployment  $translatorEmployment
+     * @param \App\TranslatorEmployment $translatorEmployment
      * @return \Illuminate\Http\Response
      */
     public function edit(TranslatorEmployment $translatorEmployment)
@@ -185,8 +160,8 @@ class TranslatorEmploymentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TranslatorEmployment  $translatorEmployment
+     * @param \Illuminate\Http\Request $request
+     * @param \App\TranslatorEmployment $translatorEmployment
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TranslatorEmployment $translatorEmployment)
@@ -197,7 +172,7 @@ class TranslatorEmploymentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TranslatorEmployment  $translatorEmployment
+     * @param \App\TranslatorEmployment $translatorEmployment
      * @return \Illuminate\Http\Response
      */
     public function destroy(TranslatorEmployment $translatorEmployment)

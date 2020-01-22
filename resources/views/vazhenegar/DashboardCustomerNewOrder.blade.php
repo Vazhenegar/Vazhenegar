@@ -71,7 +71,7 @@
                         {{-- =================== File ================================================= --}}
                         <div class="form-group">
                             <div class="panel-heading">
-                                <h3 class="panel-title">فایل سفارش (zip, rar, image, pdf) حداکثر 20MB</h3>
+                                <h3 class="panel-title">فایل سفارش (zip, rar, image, pdf, docx) حداکثر 20MB</h3>
                             </div>
                             <input type="file" name="OrderFile" required>
                         </div>
@@ -85,59 +85,60 @@
                                 <input class="form-control" id="DeliveryDate" required/>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="DeliveryDateAlt" id="DeliveryDateAlt" readonly type="hidden" />
+{{--                                type="hidden"--}}
+                                <input class="form-control" name="DeliveryDateAlt" id="DeliveryDateAlt" readonly />
                             </div>
                         </div>
 
-                        {{-- =================== Translation Parts ========================================= --}}
+                        {{-- =================== TranslationParts ========================================= --}}
                         <div class="form-group">
                             <div class="panel-heading">
                                 <h3 class="panel-title">مواردی که ترجمه آنها ضروری است (در غیر این صورت ترجمه نخواهد شد)</h3>
                             </div>
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="جداول"
                                        type="checkbox"><span>جداول</span>
                             </label>
                             &nbsp; &nbsp;
 
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="شکل ها"
                                        type="checkbox"><span>شکل ها</span>
                             </label>
                             &nbsp; &nbsp;
 
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="نمودارها"
                                        type="checkbox"><span>نمودارها</span>
                             </label>
                             &nbsp; &nbsp;
 
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="منابع"
                                        type="checkbox"><span>منابع</span>
                             </label>
                             &nbsp; &nbsp;
 
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="فهرست"
                                        type="checkbox"><span>فهرست</span>
                             </label>
                             &nbsp; &nbsp;
 
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="زیرنویس"
                                        type="checkbox"><span>زیرنویس (اشکال، جداول، نمودارها)</span>
                             </label>
                             &nbsp; &nbsp;
 
                             <label class="pure-material-checkbox">
-                                <input name="Translation Parts[]"
+                                <input name="TranslationParts[]"
                                        value="فرمول"
                                        type="checkbox"><span>تایپ فرمول</span>
                             </label>
@@ -182,7 +183,7 @@
         <!-- left col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5">
             @include('vazhenegar.DashboardCalendar')
-            @include('vazhenegar.ChatBox')
+            @include('vazhenegar.DashboardChatBox')
         </section>
         <!-- left col -->
 

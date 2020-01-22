@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     {{-- insert css files in master layout --}}
-    @include('vazhenegar.layout.css')
+    @include('vazhenegar.layout.CoreCss')
 
 </head>
 
@@ -33,7 +33,7 @@
 @show
 
 <!-- ***** Script Area ***** -->
-@include('vazhenegar.layout.CoreScripts')
+@include('scripts.CoreScripts')
 
 </body>
 

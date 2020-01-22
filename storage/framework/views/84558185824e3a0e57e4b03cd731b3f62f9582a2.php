@@ -1,9 +1,8 @@
-@extends('vazhenegar.layout.MasterLayout')
-@section('PageTitle', 'آزمون آنلاین')
+<?php $__env->startSection('PageTitle', 'آزمون آنلاین'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-    @include('scripts.QuizTimer')
+    <?php echo $__env->make('scripts.QuizTimer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
         <div class="container h-100">
@@ -17,7 +16,7 @@
         </div>
         <!-- Background Curve -->
         <div class="breadcrumb-bg-curve">
-            <img src="{{asset('images/core-img/curve-5.png')}}" alt="">
+            <img src="<?php echo e(asset('images/core-img/curve-5.png')); ?>" alt="">
         </div>
     </div>
     <!-- ***** Breadcrumb Area End ***** -->
@@ -41,13 +40,14 @@
                 <!-- Quiz Content -->
                 <div class="col-12">
                     <form action="/quiz" method="post">
-                        @csrf
+                        <?php echo csrf_field(); ?>
 
                         <div class="form-group">
                         <textarea class="form-control mb-30 quizText" name="QuizText" rows="10" disabled>
-                            @foreach ($Contents as $Content)
-                                {{$Content}}
-                            @endforeach
+                            <?php $__currentLoopData = $Contents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php echo e($Content); ?>
+
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </textarea>
                         </div>
 
@@ -69,4 +69,6 @@
     </section>
     <!-- ***** Quiz Area End ***** -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslatorQuiz.blade.php ENDPATH**/ ?>

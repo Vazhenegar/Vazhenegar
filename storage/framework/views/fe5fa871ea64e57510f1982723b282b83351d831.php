@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <?php echo $__env->make('vazhenegar.layout.QuizTimer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.QuizTimer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
         <div class="container h-100">
