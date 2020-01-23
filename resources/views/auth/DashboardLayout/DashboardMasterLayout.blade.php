@@ -7,16 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
-    <title>{{config('app.name')}} @yield('Title')</title>
 
     {{--    css files --}}
-    @include('auth.DashboardLayout.css')
+    @include('auth.DashboardLayout.DashboardCoreCss')
 
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-
 
 @guest
     {{--    if user not logged in, show login form --}}
@@ -27,19 +24,19 @@
 @else
     <div class="wrapper">
 
-    {{--=========================================================--}}
+        {{--=========================================================--}}
 
-    @include('vazhenegar.DashboardTopBar')
+        @include('vazhenegar.DashboardTopBar')
 
-    {{--=========================================================--}}
+        {{--=========================================================--}}
 
-    @include('vazhenegar.DashboardRightSideBar')
+        @include('vazhenegar.DashboardRightSideBar')
 
-    {{--=========================================================--}}
+        {{--=========================================================--}}
 
-    @include('vazhenegar.DashboardLeftSideBar')
+        @include('vazhenegar.DashboardLeftSideBar')
 
-    {{--   main content of dashboard      --}}
+        {{--   main content of dashboard      --}}
         <div class="content-wrapper">
             <!-- Main content -->
             <section class="content">
@@ -49,10 +46,7 @@
         </div>
     </div>
 @endguest
-
-
-{{--js files--}}
-@include('auth.DashboardLayout.js')
+@include('scripts.DashboardCoreScripts')
 
 </body>
 </html>

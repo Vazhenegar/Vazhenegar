@@ -15,5 +15,6 @@
     <!-- /.box-body -->
 </div>
 <!-- /.box -->
+<?php echo $__env->make('scripts.CoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardCalendar.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCalendar.blade.php ENDPATH**/ ?>

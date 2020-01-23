@@ -1,5 +1,4 @@
 
-
 <!-- Calendar -->
 <div class="box box-solid bg-green-gradient">
     <div class="box-header">
@@ -10,8 +9,11 @@
     <!-- /.box-header -->
     <div class="box-body no-padding">
         <!--The calendar -->
-        <div id="inlineGregorian"></div>
+        <div id="DashboardCalendar">
+        </div>
     </div>
     <!-- /.box-body -->
 </div>
 <!-- /.box -->
+@include('scripts.CoreScripts')
+@include('scripts.DatePicker')

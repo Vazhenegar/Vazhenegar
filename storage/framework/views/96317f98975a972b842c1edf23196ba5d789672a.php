@@ -1,7 +1,6 @@
-@extends('auth.DashboardLayout.DashboardMasterLayout')
-@section('Title', '- ثبت سفارش جدید')
+<?php $__env->startSection('Title', '- ثبت سفارش جدید'); ?>
 
-@php
+<?php
     $CurrentUser=Auth::user();
     $Role=$CurrentUser->role()->value('RoleName');
     $CurrentUser->Mode='ON'; $CurrentUser->save();
@@ -9,10 +8,10 @@
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
     $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
-@endphp
+?>
 
-@section('content')
-    {{--=================== New order for customer  =================================--}}
+<?php $__env->startSection('content'); ?>
+    
     <!-- Main row -->
     <div class="row">
         <!-- right col -->
@@ -26,22 +25,24 @@
 
                 <div class="box-body">
                     <form action="/dashboard/Order" method="post" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                        <?php echo e(csrf_field()); ?>
 
-                        {{-- =============== Subject =================================================== --}}
+
+                        
                         <div class="form-group">
                             <input type="text" class="form-control" name="OrderSubject" placeholder="موضوع" required>
                         </div>
 
-                        {{-- =============== Languages ================================================= --}}
+
+                        
                         <div class="form-group">
                             <select class="form-control" name="source_lang"
                                     onchange="SL(this)" required>
                                 <option value="">زبان مبدا</option>
-                                @foreach ($languages as $language)
+                                <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option
-                                        value="{{$language->id}}">{{$language->LanguageName}}</option>
-                                @endforeach
+                                        value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
 
@@ -49,25 +50,25 @@
                             <select class="form-control" name="dest_lang"
                                     onchange="DL(this)" required>
                                 <option value="">زبان مقصد</option>
-                                @foreach ($languages as $language)
+                                <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option
-                                        value=" {{$language->id}}">{{$language->LanguageName}}</option>
-                                @endforeach
+                                        value=" <?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
 
-                        {{-- =================== Translation Fields =================================== --}}
+                        
                         <div class="form-group">
                             <select class="form-control" name="TranslationField" required>
                                 <option value="">زمینه</option>
-                                @foreach($translation_fields as $t_f)
-                                    <option value="{{$t_f->FieldName}}">{{$t_f->FieldName}}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $translation_fields; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t_f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($t_f->FieldName); ?>"><?php echo e($t_f->FieldName); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
 
                         <hr>
-                        {{-- =================== File ================================================= --}}
+                        
                         <div class="form-group">
                             <div class="panel-heading">
                                 <h3 class="panel-title">فایل سفارش (zip, rar, image, pdf, docx) حداکثر 20MB</h3>
@@ -75,23 +76,21 @@
                             <input type="file" name="OrderFile" required>
                         </div>
 
-                        {{-- =================== Date Time ================================================= --}}
+                        
                         <div class="form-group">
                             <div class="panel-heading">
                                 <h3 class="panel-title">تاریخ و ساعت مورد نظر برای تحویل سفارش</h3>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text"  name="NewOrderDeliveryDate"
-                                       id="NewOrderDeliveryDate" value="{{old('NewOrderDeliveryDate')}}" required>
+                                <input class="form-control" id="DeliveryDate" required/>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="NewOrderDeliveryDateAlt" id="NewOrderDeliveryDateAlt"
-                                       value="{{old('NewOrderDeliveryDateAlt')}}"
-                                       readonly/>
+
+                                <input class="form-control" name="DeliveryDateAlt" id="DeliveryDateAlt" readonly />
                             </div>
                         </div>
 
-                        {{-- =================== TranslationParts ========================================= --}}
+                        
                         <div class="form-group">
                             <div class="panel-heading">
                                 <h3 class="panel-title">مواردی که ترجمه آنها ضروری است (در غیر این صورت ترجمه نخواهد شد)</h3>
@@ -146,7 +145,7 @@
                             &nbsp; &nbsp;
                         </div>
 
-                        {{-- =================== Description ========================================= --}}
+                        
                         <div class="form-group">
                             <div class="panel-heading">
                                 <h3 class="panel-title">توضیحات</h3>
@@ -154,23 +153,23 @@
                             <textarea class="textarea" name="Description"
                                       placeholder="مواردی مانند گرایش، صفحات، و توضیحاتی که فکر می کنید به ترجمه راحتتر و بهتر مترجم کمک می کند را اینجا بنویسید"></textarea>
                         </div>
-                        {{-- =========================================================================== --}}
+                        
 
                         <div class="box-footer clearfix">
                             <button type="submit" class="pull-left btn btn-default">ارسال
                                 <i class="fa fa-arrow-circle-left"></i></button>
                         </div>
-                        {{-- =========================================================================== --}}
+                        
 
-                        @if ($errors->any())
+                        <?php if($errors->any()): ?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><?php echo e($error); ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>
-                        @endif
+                        <?php endif; ?>
                     </form>
                 </div>
 
@@ -183,16 +182,15 @@
 
         <!-- left col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5">
-            @include('vazhenegar.DashboardCalendar')
-            @include('vazhenegar.DashboardChatBox')
+            <?php echo $__env->make('vazhenegar.DashboardCalendar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('vazhenegar.DashboardChatBox', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </section>
         <!-- left col -->
 
     </div>
 
-    {{--    script needed for order--}}
-    @include('scripts.DashboardCoreScripts')
-    @include('scripts.DatePicker')
-    @include('scripts.TranslationLanguages')
-    @include('scripts.TranslationFields')
-@endsection
+    
+    <?php echo $__env->make('vazhenegar.layout.StateDatetimeLanguageScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerNewOrder.blade.php ENDPATH**/ ?>

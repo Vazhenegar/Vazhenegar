@@ -1,4 +1,5 @@
-
+{{--  Dashboard Pages Title  --}}
+<title>{{config('app.name')}} @yield('Title')</title>
 
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="{{asset('auth/dist/css/bootstrap-theme.css')}}">
@@ -7,7 +8,8 @@
 <link rel="stylesheet" href="{{asset('auth/dist/css/rtl.css')}}">
 
 <!-- persian Date Picker -->
-<link href="{{asset('css/persian-datepicker.css')}}" rel="stylesheet" />
+<link id="datepickerTheme" href="{{asset('css/persian-datepicker.css')}}" rel="stylesheet" />
+
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{asset('auth/bower_components/font-awesome/css/font-awesome.min.css')}}">
@@ -35,8 +37,3 @@
 
 {{--Checkbox --}}
 <link rel="stylesheet" href="{{asset('css/checkbox.css')}}">
-
-
-
-{{--Dropzone--}}
-<link rel="stylesheet" href="{{asset('css/dropzone.css')}}">

@@ -1,4 +1,5 @@
 
+<title><?php echo e(config('app.name')); ?> <?php echo $__env->yieldContent('Title'); ?></title>
 
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="<?php echo e(asset('auth/dist/css/bootstrap-theme.css')); ?>">
@@ -7,7 +8,8 @@
 <link rel="stylesheet" href="<?php echo e(asset('auth/dist/css/rtl.css')); ?>">
 
 <!-- persian Date Picker -->
-<link href="<?php echo e(asset('css/persian-datepicker.css')); ?>" rel="stylesheet" />
+<link id="datepickerTheme" href="<?php echo e(asset('css/persian-datepicker.css')); ?>" rel="stylesheet" />
+
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?php echo e(asset('auth/bower_components/font-awesome/css/font-awesome.min.css')); ?>">
@@ -35,9 +37,4 @@
 
 
 <link rel="stylesheet" href="<?php echo e(asset('css/checkbox.css')); ?>">
-
-
-
-
-<link rel="stylesheet" href="<?php echo e(asset('css/dropzone.css')); ?>">
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\css.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/auth/DashboardLayout/DashboardCoreCss.blade.php ENDPATH**/ ?>

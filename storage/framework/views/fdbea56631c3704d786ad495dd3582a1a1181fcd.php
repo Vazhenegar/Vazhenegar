@@ -80,15 +80,16 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('BirthDate')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30 date_picker"
-                                               id="DatePicker" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>"
-                                               onchange="ch()" required>
+                                        <input type="text" class="wrong-field form-control mb-30 DatePicker"
+                                               id="BirthDate" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>"
+                                               required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30 date_picker" id="DatePicker"
-                                               name="BirthDate" value="<?php echo e(old('BirthDate')); ?>" required>
+                                        <input type="text" class="form-control mb-30 DatePicker"
+                                               id="BirthDate" name="BirthDate" value="<?php echo e(old('BirthDate')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="BirthDate">تاریخ تولد</label>
-                                    <input class="form-control" name="DatePickerAlt" id="DatePickerAlt" type="hidden"
+                                    <input class="form-control" name="BirthDateAlt" id="BirthDateAlt"
+                                           value="<?php echo e(old('BirthDateAlt')); ?>" type="hidden"
                                            readonly/>
                                 </div>
                             </div>
@@ -251,14 +252,19 @@
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('GraduationDate')): ?>
-                                        <input type="text" class="wrong-field form-control mb-30 date_picker"
-                                               name="GraduationDate" value="<?php echo e(old('GraduationDate')); ?>" required>
+                                        <input type="text" class="wrong-field form-control mb-30 DatePicker"
+                                               id="GraduationDate" name="GraduationDate"
+                                               value="<?php echo e(old('GraduationDate')); ?>"
+                                               required>
                                     <?php else: ?>
-                                        <input type="text" class="form-control mb-30 date_picker" name="GraduationDate"
-                                               value="<?php echo e(old('GraduationDate')); ?>" required>
+                                        <input type="text" class="form-control mb-30 DatePicker" name="GraduationDate"
+                                               id="GraduationDate" value="<?php echo e(old('GraduationDate')); ?>" required>
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ
                                         التحصیلی</label>
+                                    <input class="form-control" name="GraduationDateAlt" id="GraduationDateAlt"
+                                           value="<?php echo e(old('GraduationDateAlt')); ?>" type="hidden"
+                                           readonly/>
                                 </div>
                             </div>
                             

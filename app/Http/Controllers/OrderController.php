@@ -61,27 +61,25 @@ class OrderController extends Controller
             'dest_lang' => ['required'],
             'TranslationField' => ['required'],
             'OrderFile'=>['required','max:19999','mimes:pdf,docx,doc,pptx,ppt,xlsx,xls,rar,zip'],
-            'DeliveryDateAlt' => ['required'],
+            'NewOrderDeliveryDateAlt' => ['required'],
             'TranslationParts' => ['nullable'],
             'Description' => ['nullable', 'max:500'],
         ];
         $this->validate($request, $rules);
 
         $TranslationParts = serialize($request->input('TranslationParts'));
-        $DeliveryDate=per_digit_conv($request->input('DeliveryDateAlt'));
-        $DeliveryDate=Carbon::parse($DeliveryDate)->timestamp;
 
         $filename='';
         if ($request->hasFile('UserDocuments')) {
             $uploaded = $request->file('UserDocuments');
             $filename = $request->input('FirstName') . '-' . $request->input('LastName') . '-' . time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
-            $uploaded->storeAs('public\Customers'.$request->input('FirstName').' '.$request->input('LastName'), $filename);
+            $uploaded->storeAs('public\Users\\'.$request->input('FirstName').' '.$request->input('LastName').'\\Orders', $filename);
         }
 
         $Order = new Order;
         $CurrentUser=Auth::user();
         $Order->UserId = $CurrentUser->id;
-        $Order->DeliveryDate = $DeliveryDate;
+        $Order->DeliveryDate = Carbon::createFromTimestamp($request->input('NewOrderDeliveryDateAlt')/1000,'Asia/Tehran');
         $Order->RelatedDepartment = Department::where('DepartmentName','ترجمه')->value('id');
         $Order->SourceLanguage = $request->input('source_lang');
         $Order->DestLanguage = $request->input('dest_lang');
