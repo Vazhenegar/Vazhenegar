@@ -89,7 +89,7 @@
                                     <?php endif; ?>
                                     <label class="form-placeholder-label" for="BirthDate">تاریخ تولد</label>
                                     <input class="form-control" name="BirthDateAlt" id="BirthDateAlt"
-                                           value="<?php echo e(old('BirthDateAlt')); ?>"
+                                           value="<?php echo e(old('BirthDateAlt')); ?>" type="hidden"
                                            readonly/>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                                     <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ
                                         التحصیلی</label>
                                     <input class="form-control" name="GraduationDateAlt" id="GraduationDateAlt"
-                                           value="<?php echo e(old('GraduationDateAlt')); ?>"
+                                           value="<?php echo e(old('GraduationDateAlt')); ?>" type="hidden"
                                            readonly/>
                                 </div>
                             </div>

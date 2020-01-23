@@ -104,7 +104,6 @@ class TranslatorEmploymentController extends Controller
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
         $translator->LastName = $request->input('LastName');
-//        $translator->BirthDate = datetime('Y-m-d H:i:s', ($request->input('BirthDateAlt')/1000));
         $translator->BirthDate = Carbon::createFromTimestamp($request->input('BirthDateAlt')/1000,'Asia/Tehran');
         $translator->Gender = $request->input('Gender');
         $translator->Email = $request->input('Email');

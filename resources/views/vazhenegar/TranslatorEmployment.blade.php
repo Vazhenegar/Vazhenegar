@@ -90,7 +90,7 @@
                                     @endif
                                     <label class="form-placeholder-label" for="BirthDate">تاریخ تولد</label>
                                     <input class="form-control" name="BirthDateAlt" id="BirthDateAlt"
-                                           value="{{old('BirthDateAlt')}}"
+                                           value="{{old('BirthDateAlt')}}" type="hidden"
                                            readonly/>
                                 </div>
                             </div>
@@ -264,7 +264,7 @@
                                     <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ
                                         التحصیلی</label>
                                     <input class="form-control" name="GraduationDateAlt" id="GraduationDateAlt"
-                                           value="{{old('GraduationDateAlt')}}"
+                                           value="{{old('GraduationDateAlt')}}" type="hidden"
                                            readonly/>
                                 </div>
                             </div>
