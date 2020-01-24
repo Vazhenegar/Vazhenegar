@@ -1,6 +1,6 @@
 
 {{-- these contents will include to dashboard index--}}
-@include('vazhenegar.CustomerBadges')
+@include('vazhenegar.DashboardCustomerBadges')
 @include('vazhenegar.DashboardGuideBox')
 {{--if user is redirected from employment page this alert would be show to user--}}
 @if(session('status')=='Order Stored')

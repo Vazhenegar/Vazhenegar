@@ -43,12 +43,12 @@ class QuizController extends Controller
                 ];
             }
 
-            //put user selected languages in ayyay
+            //put user selected languages in array
             $UserLangsId = arr::pluck($UserLangsId, 'dest', 'source');
 
             //extract Fields id from user selected array
             foreach ($UserFields as $UserField) {
-                $UserFieldsId[] = (new \App\TranslationField)->GetFieldId($UserField);
+                $UserFieldsId[] = $UserField;
             }
 
             $this->QuizReference = [];

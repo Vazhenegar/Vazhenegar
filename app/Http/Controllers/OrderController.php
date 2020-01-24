@@ -60,26 +60,28 @@ class OrderController extends Controller
             'source_lang' => ['required'],
             'dest_lang' => ['required'],
             'TranslationField' => ['required'],
-            'OrderFile'=>['required','max:19999','mimes:pdf,docx,doc,pptx,ppt,xlsx,xls,rar,zip'],
+            'OrderFile'=>['required','max:19999','mimes:rar,zip'],
+            'NewOrderDeliveryDate' => ['required'],
             'NewOrderDeliveryDateAlt' => ['required'],
-            'TranslationParts' => ['nullable'],
+            'TranslationParts' => ['nullable', 'array'],
             'Description' => ['nullable', 'max:500'],
         ];
         $this->validate($request, $rules);
 
         $TranslationParts = serialize($request->input('TranslationParts'));
 
-        $filename='';
-        if ($request->hasFile('UserDocuments')) {
-            $uploaded = $request->file('UserDocuments');
-            $filename = $request->input('FirstName') . '-' . $request->input('LastName') . '-' . time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
-            $uploaded->storeAs('public\Users\\'.$request->input('FirstName').' '.$request->input('LastName').'\\Orders', $filename);
-        }
-
         $Order = new Order;
         $CurrentUser=Auth::user();
+
+        $filename='';
+        if ($request->hasFile('OrderFile')) {
+            $uploaded = $request->file('OrderFile');
+            $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
+            $uploaded->storeAs('public\Orders\User'.$CurrentUser->id, $filename);
+        }
+
         $Order->UserId = $CurrentUser->id;
-        $Order->DeliveryDate = Carbon::createFromTimestamp($request->input('NewOrderDeliveryDateAlt')/1000,'Asia/Tehran');
+        $Order->DeliveryDate = Carbon::createFromTimestamp($request->input('NewOrderDeliveryDateAlt') / 1000, 'Asia/Tehran');
         $Order->RelatedDepartment = Department::where('DepartmentName','ترجمه')->value('id');
         $Order->SourceLanguage = $request->input('source_lang');
         $Order->DestLanguage = $request->input('dest_lang');
@@ -94,9 +96,6 @@ class OrderController extends Controller
         //return to dashboard home page with success message
         session()->flash('status', 'Order Stored');
         return redirect('/dashboard');
-
-
-
     }
 
     /**

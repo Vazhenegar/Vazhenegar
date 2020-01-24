@@ -17,12 +17,12 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('UserId')->unsigned();
             $table->dateTime('RegisterDate')->useCurrent();
-            $table->dateTime('DeliveryDate')->nullable();
+            $table->dateTime('DeliveryDate');
             $table->tinyInteger('RelatedDepartment')->unsigned();
-            $table->bigInteger('SourceLanguage')->unsigned()->nullable();
-            $table->bigInteger('DestLanguage')->unsigned()->nullable();
-            $table->bigInteger('TranslationField')->unsigned()->nullable();
-            $table->bigInteger('TranslationParts')->nullable();
+            $table->bigInteger('SourceLanguage')->unsigned();
+            $table->bigInteger('DestLanguage')->unsigned();
+            $table->bigInteger('TranslationField')->unsigned();
+            $table->longText('TranslationParts')->nullable();
             $table->integer('Amount')->nullable(); //number of words to be translated
             $table->decimal('TotalPrice',12,3)->nullable();
             $table->decimal('PrePaidPrice',12,3)->nullable();

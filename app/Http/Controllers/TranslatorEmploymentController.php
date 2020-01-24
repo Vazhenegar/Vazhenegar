@@ -94,8 +94,8 @@ class TranslatorEmploymentController extends Controller
         $filename = '';
         if ($request->hasFile('UserDocuments')) {
             $uploaded = $request->file('UserDocuments');
-            $filename = $request->input('FirstName') . '-' . $request->input('LastName') . '-' . time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamp.extension
-            $uploaded->storeAs('public\Users\\' . $request->input('FirstName') . ' ' . $request->input('LastName').'\\Documentation', $filename);
+            $filename = $request->input('FirstName') . ' ' . $request->input('LastName') . time() . '.' . $uploaded->getClientOriginalExtension();
+            $uploaded->storeAs('public\Users\TranslatorsDocuments\\', $filename);
         }
 
         $role_id = Role::where('RoleName', 'مترجم')->value('id');
@@ -104,7 +104,7 @@ class TranslatorEmploymentController extends Controller
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
         $translator->LastName = $request->input('LastName');
-        $translator->BirthDate = Carbon::createFromTimestamp($request->input('BirthDateAlt')/1000,'Asia/Tehran');
+        $translator->BirthDate = Carbon::createFromTimestamp($request->input('BirthDateAlt') / 1000, 'Asia/Tehran');
         $translator->Gender = $request->input('Gender');
         $translator->Email = $request->input('Email');
         $translator->Password = Hash::make($request->input('Password'));
@@ -114,7 +114,7 @@ class TranslatorEmploymentController extends Controller
         $translator->City = $request->input('City');
         $translator->Address = $request->input('Address');
         $translator->Degree = $request->input('Degree');
-        $translator->GraduationDate =Carbon::createFromTimestamp($request->input('GraduationDateAlt')/1000,'Asia/Tehran');
+        $translator->GraduationDate = Carbon::createFromTimestamp($request->input('GraduationDateAlt') / 1000, 'Asia/Tehran');
         $translator->GraduationField = $request->input('GraduationField');
         $translator->Resume = $request->input('Resume');
         $translator->UserSelectedLangs = $TranslatorSelectedLangs;

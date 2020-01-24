@@ -30,7 +30,7 @@
 
                         {{-- =============== Subject =================================================== --}}
                         <div class="form-group">
-                            <input type="text" class="form-control" name="OrderSubject" placeholder="موضوع" required>
+                            <input type="text" class="form-control" name="OrderSubject" placeholder="موضوع" value="{{old('OrderSubject')}}" required>
                         </div>
 
                         {{-- =============== Languages ================================================= --}}
@@ -61,7 +61,7 @@
                             <select class="form-control" name="TranslationField" required>
                                 <option value="">زمینه</option>
                                 @foreach($translation_fields as $t_f)
-                                    <option value="{{$t_f->FieldName}}">{{$t_f->FieldName}}</option>
+                                    <option value="{{$t_f->id}}">{{$t_f->FieldName}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -70,7 +70,7 @@
                         {{-- =================== File ================================================= --}}
                         <div class="form-group">
                             <div class="panel-heading">
-                                <h3 class="panel-title">فایل سفارش (zip, rar, image, pdf, docx) حداکثر 20MB</h3>
+                                <h3 class="panel-title">فایل سفارش (zip, rar) حداکثر 20MB</h3>
                             </div>
                             <input type="file" name="OrderFile" required>
                         </div>

@@ -370,7 +370,7 @@
                                                     <?php for($i=0; $i<14; $i++): ?>
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
-                                                                value="<?php echo e($translation_fields[$i]->FieldName); ?>"
+                                                                value="<?php echo e($translation_fields[$i]->id); ?>"
                                                                 type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label>
                                                         <br>
                                                     <?php endfor; ?>
@@ -383,7 +383,7 @@
                                                     <?php for($i=14; $i<count($translation_fields); $i++): ?>
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
-                                                                value="<?php echo e($translation_fields[$i]->FieldName); ?>"
+                                                                value="<?php echo e($translation_fields[$i]->id); ?>"
                                                                 type="checkbox"><span><?php echo e($translation_fields[$i]->FieldName); ?></span></label>
                                                         <br>
                                                     <?php endfor; ?>

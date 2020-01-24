@@ -30,9 +30,8 @@
 
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" name="OrderSubject" placeholder="موضوع" required>
+                            <input type="text" class="form-control" name="OrderSubject" placeholder="موضوع" value="<?php echo e(old('OrderSubject')); ?>" required>
                         </div>
-
 
                         
                         <div class="form-group">
@@ -62,7 +61,7 @@
                             <select class="form-control" name="TranslationField" required>
                                 <option value="">زمینه</option>
                                 <?php $__currentLoopData = $translation_fields; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t_f): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($t_f->FieldName); ?>"><?php echo e($t_f->FieldName); ?></option>
+                                    <option value="<?php echo e($t_f->id); ?>"><?php echo e($t_f->FieldName); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
@@ -71,7 +70,7 @@
                         
                         <div class="form-group">
                             <div class="panel-heading">
-                                <h3 class="panel-title">فایل سفارش (zip, rar, image, pdf, docx) حداکثر 20MB</h3>
+                                <h3 class="panel-title">فایل سفارش (zip, rar) حداکثر 20MB</h3>
                             </div>
                             <input type="file" name="OrderFile" required>
                         </div>
@@ -82,11 +81,13 @@
                                 <h3 class="panel-title">تاریخ و ساعت مورد نظر برای تحویل سفارش</h3>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" id="DeliveryDate" required/>
+                                <input class="form-control" type="text"  name="NewOrderDeliveryDate"
+                                       id="NewOrderDeliveryDate" value="<?php echo e(old('NewOrderDeliveryDate')); ?>" required>
                             </div>
                             <div class="form-group">
-
-                                <input class="form-control" name="DeliveryDateAlt" id="DeliveryDateAlt" readonly />
+                                <input class="form-control" name="NewOrderDeliveryDateAlt" id="NewOrderDeliveryDateAlt"
+                                       value="<?php echo e(old('NewOrderDeliveryDateAlt')); ?>"
+                                       readonly/>
                             </div>
                         </div>
 
@@ -190,7 +191,10 @@
     </div>
 
     
-    <?php echo $__env->make('vazhenegar.layout.StateDatetimeLanguageScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.DashboardCoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.TranslationLanguages', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('scripts.TranslationFields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerNewOrder.blade.php ENDPATH**/ ?>

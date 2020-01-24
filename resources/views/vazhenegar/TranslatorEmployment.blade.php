@@ -371,7 +371,7 @@
                                                     @for($i=0; $i<14; $i++)
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
-                                                                value="{{$translation_fields[$i]->FieldName}}"
+                                                                value="{{$translation_fields[$i]->id}}"
                                                                 type="checkbox"><span>{{$translation_fields[$i]->FieldName}}</span></label>
                                                         <br>
                                                     @endfor
@@ -384,7 +384,7 @@
                                                     @for($i=14; $i<count($translation_fields); $i++)
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
-                                                                value="{{$translation_fields[$i]->FieldName}}"
+                                                                value="{{$translation_fields[$i]->id}}"
                                                                 type="checkbox"><span>{{$translation_fields[$i]->FieldName}}</span></label>
                                                         <br>
                                                     @endfor
