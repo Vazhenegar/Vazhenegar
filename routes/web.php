@@ -37,12 +37,12 @@ Route::get('/NewEmployments',function (){
    return NewEmployment();
 });
 
-//Get count of orders that registered by all of users
+//Get count of orders that registered by all of users (to show in admin badges)
 Route::get('/AllNewRegisteredOrders',function (){
    return AllNewRegisteredOrders();
 });
 
-//Get count of orders that registered by a specific user
+//Get count of orders that registered by a specific user (to show in that users badges)
 Route::get('/UserRegisteredOrders/{UserId}',function ($UserId){
    return UserRegisteredOrders($UserId);
 });

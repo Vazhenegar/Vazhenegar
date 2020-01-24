@@ -77,7 +77,7 @@
 
 
 <script>
-    let allNewRegisteredOrders =<?php echo json_encode($allNewRegisteredOrders, 15, 512) ?>;
+    let allNewRegisteredOrders =<?php echo json_encode($allNewRegisteredOrders->count(), 15, 512) ?>;
     let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
     let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
     let DailyVisitors=<?php echo json_encode($DailyVisitors, 15, 512) ?>;
@@ -96,10 +96,23 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
+            url: '/AllNewRegisteredOrders',
+            success: function (data) {
+                let count=data.length;
+                document.getElementById('NewOrders').innerHTML = count;
+                document.getElementById('جدید').querySelector('#yellow').innerHTML = count;
+            }
+        });
+    }, 30000);
+
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
             url: '/GetOnlineUsers',
             success: function (data) {
-                $('#OnlineAmount').empty();
-                $('#OnlineAmount').append(data);
+                document.getElementById('OnlineUsers').innerHTML=data;
+
             }
         });
     }, 30000);
@@ -113,8 +126,7 @@
             url: '/GetDailyVisitors/' + day,
             data: {_token: token},
             success: function (data) {
-                $('#DailySiteVisitors').empty();
-                $('#DailySiteVisitors').append(data);
+                document.getElementById('DailySiteVisitors').innerHTML=data;
             }
         });
     }, 30000);
@@ -126,10 +138,7 @@
             type: "GET",
             url: '/NewEmployments',
             success: function (data) {
-                $('#NewEmployment').empty();
-                $('#NewEmployment').append(data);
-                let spanclass = 'pull-left-container';
-                let smallclass = 'label pull-left bg-yellow';
+                document.getElementById('NewEmployment').innerHTML = data;
                 document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
             }
         });

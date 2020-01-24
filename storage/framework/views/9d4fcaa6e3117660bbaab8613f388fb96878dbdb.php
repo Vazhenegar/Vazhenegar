@@ -7,7 +7,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
-                <h3 id="CurrentOrders">12</h3>
+                <h3 id="NewOrders"></h3>
 
                 <p>سفارشات جاری</p>
             </div>
@@ -75,4 +75,25 @@
 </div>
 <!-- /.row -->
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/CustomerBadges.blade.php ENDPATH**/ ?>
+
+<script>
+    let currentUserId=<?php echo json_encode($UserId, 15, 512) ?>;
+    let userRegisteredOrders =<?php echo json_encode($userRegisteredOrders, 15, 512) ?>;
+
+    document.getElementById('NewOrders').innerHTML = userRegisteredOrders;
+
+    
+    
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/UserRegisteredOrders/'+currentUserId,
+            success: function (data) {
+                $('#NewOrders').empty();
+                $('#NewOrders').append(data);
+            }
+        });
+    }, 30000);
+
+</script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardCustomerBadges.blade.php ENDPATH**/ ?>

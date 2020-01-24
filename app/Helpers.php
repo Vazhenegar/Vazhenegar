@@ -52,7 +52,7 @@ function per_digit_conv(string $per_digits)
 //for admin dashboard badges in case of registering a new order by any user
 function AllNewRegisteredOrders()
 {
-    return Order::where('StatusId',1)->count();
+    return Order::where('StatusId',1)->get();
 }
 
 //for user dashboard badges in case of registering a new order

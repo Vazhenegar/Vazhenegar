@@ -81,6 +81,7 @@ class OrderController extends Controller
         }
 
         $Order->UserId = $CurrentUser->id;
+        $Order->OrderSubject = $request->input('OrderSubject');
         $Order->DeliveryDate = Carbon::createFromTimestamp($request->input('NewOrderDeliveryDateAlt') / 1000, 'Asia/Tehran');
         $Order->RelatedDepartment = Department::where('DepartmentName','ترجمه')->value('id');
         $Order->SourceLanguage = $request->input('source_lang');

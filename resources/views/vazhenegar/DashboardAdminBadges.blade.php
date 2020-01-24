@@ -77,7 +77,7 @@
 {{--=================== End Of Admin Badges   =================================--}}
 {{-- initialize badges with data that sent from dashboard main page--}}
 <script>
-    let allNewRegisteredOrders =@json($allNewRegisteredOrders);
+    let allNewRegisteredOrders =@json($allNewRegisteredOrders->count());
     let employmentRequest =@json($employmentRequest);
     let OnlineUsers =@json($OnlineUsers);
     let DailyVisitors=@json($DailyVisitors);
@@ -92,14 +92,27 @@
     document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
 
     {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
-    {{--  ====================  for online users ===================--}}
+    {{--  ====================  for new orders ===================--}}
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/AllNewRegisteredOrders',
+            success: function (data) {
+                let count=data.length;
+                document.getElementById('NewOrders').innerHTML = count;
+                document.getElementById('جدید').querySelector('#yellow').innerHTML = count;
+            }
+        });
+    }, 30000);
+
+{{--  ====================  for online users ===================--}}
     setInterval(function () {
         $.ajax({
             type: "GET",
             url: '/GetOnlineUsers',
             success: function (data) {
-                $('#OnlineAmount').empty();
-                $('#OnlineAmount').append(data);
+                document.getElementById('OnlineUsers').innerHTML=data;
+
             }
         });
     }, 30000);
@@ -113,8 +126,7 @@
             url: '/GetDailyVisitors/' + day,
             data: {_token: token},
             success: function (data) {
-                $('#DailySiteVisitors').empty();
-                $('#DailySiteVisitors').append(data);
+                document.getElementById('DailySiteVisitors').innerHTML=data;
             }
         });
     }, 30000);
@@ -126,10 +138,7 @@
             type: "GET",
             url: '/NewEmployments',
             success: function (data) {
-                $('#NewEmployment').empty();
-                $('#NewEmployment').append(data);
-                let spanclass = 'pull-left-container';
-                let smallclass = 'label pull-left bg-yellow';
+                document.getElementById('NewEmployment').innerHTML = data;
                 document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
             }
         });

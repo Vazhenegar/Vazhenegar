@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('UserId')->unsigned();
+            $table->string('OrderSubject')->nullable();
             $table->dateTime('RegisterDate')->useCurrent();
             $table->dateTime('DeliveryDate');
             $table->tinyInteger('RelatedDepartment')->unsigned();
