@@ -9,11 +9,14 @@
     $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
 
  // for admin badges
-        $employmentRequest=NewEmployment();
-        $OnlineUsers=OnlineUsers();
-        $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
+    $allNewRegisteredOrders=AllNewRegisteredOrders();
+    $employmentRequest=NewEmployment();
+    $OnlineUsers=OnlineUsers();
+    $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
 
 //  for user badges
+    $UserId=$CurrentUser->id;
+    $userRegisteredOrders=UserRegisteredOrders($CurrentUser->id);
 
 @endphp
 
@@ -21,19 +24,19 @@
     @switch($CurrentUser->role()->value('id'))
         {{--=============================== ِ Admin =======================================--}}
         @case(1)
-            @section('Title', '- پنل '.$Role)
-            @include('vazhenegar.DashboardAdminContent')
-        @break
-    {{--=============================== ِ Translator =======================================--}}
-        @case(8)
-            @section('Title', '- پنل '.$Role)
+@section('Title', '- پنل '.$Role)
+@include('vazhenegar.DashboardAdminContent')
+@break
+{{--=============================== ِ Translator =======================================--}}
+@case(8)
+@section('Title', '- پنل '.$Role)
 
 
-        @break
-    {{--=============================== ِ Customer =======================================--}}
-        @case(11)
-            @section('Title', '- پنل '.$Role)
-            @include('vazhenegar.DashboardCustomerContent')
-        @break
-    @endswitch
+@break
+{{--=============================== ِ Customer =======================================--}}
+@case(11)
+@section('Title', '- پنل '.$Role)
+@include('vazhenegar.DashboardCustomerContent')
+@break
+@endswitch
 @endsection

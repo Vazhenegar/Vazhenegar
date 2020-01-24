@@ -77,12 +77,17 @@
 {{--=================== End Of Admin Badges   =================================--}}
 {{-- initialize badges with data that sent from dashboard main page--}}
 <script>
+    let allNewRegisteredOrders =@json($allNewRegisteredOrders);
     let employmentRequest =@json($employmentRequest);
     let OnlineUsers =@json($OnlineUsers);
     let DailyVisitors=@json($DailyVisitors);
 
+    document.getElementById('NewOrders').innerHTML = allNewRegisteredOrders;
+    document.getElementById('جدید').querySelector('#yellow').innerHTML = allNewRegisteredOrders;
+
     document.getElementById('NewEmployment').innerHTML = employmentRequest;
     document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
+
     document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
     document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
 

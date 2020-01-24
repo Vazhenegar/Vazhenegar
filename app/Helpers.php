@@ -2,6 +2,7 @@
 
 
 use App\User;
+use App\Order;
 
 function SetUsersMode()
 {
@@ -46,4 +47,18 @@ function per_digit_conv(string $per_digits)
     $en_digits = \range(0, 9);
     $result = \str_replace($rep, $en_digits, $per_digits);
     return $result;
+}
+
+//for admin dashboard badges in case of registering a new order by any user
+function AllNewRegisteredOrders()
+{
+    return Order::where('StatusId',1)->count();
+}
+
+//for user dashboard badges in case of registering a new order
+function UserRegisteredOrders($UserId)
+{
+    return Order::where('UserId',$UserId)
+        ->where('StatusId',1)
+        ->count();
 }

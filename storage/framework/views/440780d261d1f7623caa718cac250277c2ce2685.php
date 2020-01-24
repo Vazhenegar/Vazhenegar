@@ -77,12 +77,17 @@
 
 
 <script>
+    let allNewRegisteredOrders =<?php echo json_encode($allNewRegisteredOrders, 15, 512) ?>;
     let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
     let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
     let DailyVisitors=<?php echo json_encode($DailyVisitors, 15, 512) ?>;
 
+    document.getElementById('NewOrders').innerHTML = allNewRegisteredOrders;
+    document.getElementById('جدید').querySelector('#yellow').innerHTML = allNewRegisteredOrders;
+
     document.getElementById('NewEmployment').innerHTML = employmentRequest;
     document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
+
     document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
     document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
 

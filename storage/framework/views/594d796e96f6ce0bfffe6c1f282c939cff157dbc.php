@@ -1,7 +1,7 @@
-{{--================ Badges For Customer ====================================--}}
+
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    {{--==================== Current Orders ================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -19,7 +19,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Finished Orders =================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -36,7 +36,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--==================== Messages ================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -54,7 +54,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Invoices  =================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -74,16 +74,16 @@
     <!-- ./col -->
 </div>
 <!-- /.row -->
-{{--=================== End Of Customer Badges   =================================--}}
+
 
 <script>
-    let currentUserId=@json($UserId);
-    let userRegisteredOrders =@json($userRegisteredOrders);
+    let currentUserId=<?php echo json_encode($UserId, 15, 512) ?>;
+    let userRegisteredOrders =<?php echo json_encode($userRegisteredOrders, 15, 512) ?>;
 
     document.getElementById('NewOrders').innerHTML = userRegisteredOrders;
 
-    {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
-    {{--  ====================  for User New Orders ===================--}}
+    
+    
     setInterval(function () {
         $.ajax({
             type: "GET",
@@ -96,3 +96,4 @@
     }, 30000);
 
 </script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerBadges.blade.php ENDPATH**/ ?>

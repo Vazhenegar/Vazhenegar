@@ -36,3 +36,13 @@ Route::get('/SetUsersMode',function (){
 Route::get('/NewEmployments',function (){
    return NewEmployment();
 });
+
+//Get count of orders that registered by all of users
+Route::get('/AllNewRegisteredOrders',function (){
+   return AllNewRegisteredOrders();
+});
+
+//Get count of orders that registered by a specific user
+Route::get('/UserRegisteredOrders/{UserId}',function ($UserId){
+   return UserRegisteredOrders($UserId);
+});
