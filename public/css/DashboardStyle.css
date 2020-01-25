@@ -25,3 +25,8 @@
 .NewOrder .pure-material-checkbox span{
     font-weight: normal;
 }
+
+#NewOrdersTable thead tr th, #NewOrdersTable tbody tr td{
+    text-align: center;
+    vertical-align: middle;
+}

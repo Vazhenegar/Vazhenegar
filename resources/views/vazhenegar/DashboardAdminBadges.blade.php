@@ -8,7 +8,6 @@
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
                 <h3 id="NewOrders"></h3>
-
                 <p>سفارش جدید</p>
             </div>
             <div class="icon">
@@ -77,10 +76,10 @@
 {{--=================== End Of Admin Badges   =================================--}}
 {{-- initialize badges with data that sent from dashboard main page--}}
 <script>
-    let allNewRegisteredOrders =@json($allNewRegisteredOrders->count());
+    let allNewRegisteredOrders = @json(count($allNewRegisteredOrders['orders']));
     let employmentRequest =@json($employmentRequest);
     let OnlineUsers =@json($OnlineUsers);
-    let DailyVisitors=@json($DailyVisitors);
+    let DailyVisitors =@json($DailyVisitors);
 
     document.getElementById('NewOrders').innerHTML = allNewRegisteredOrders;
     document.getElementById('جدید').querySelector('#yellow').innerHTML = allNewRegisteredOrders;
@@ -88,8 +87,8 @@
     document.getElementById('NewEmployment').innerHTML = employmentRequest;
     document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
 
-    document.getElementById('OnlineUsers').innerHTML=OnlineUsers;
-    document.getElementById('DailySiteVisitors').innerHTML=DailyVisitors;
+    document.getElementById('OnlineUsers').innerHTML = OnlineUsers;
+    document.getElementById('DailySiteVisitors').innerHTML = DailyVisitors;
 
     {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
     {{--  ====================  for new orders ===================--}}
@@ -98,20 +97,20 @@
             type: "GET",
             url: '/AllNewRegisteredOrders',
             success: function (data) {
-                let count=data.length;
-                document.getElementById('NewOrders').innerHTML = count;
-                document.getElementById('جدید').querySelector('#yellow').innerHTML = count;
+                let Amount = data['orders'].length;
+                document.getElementById('NewOrders').innerHTML = Amount;
+                document.getElementById('جدید').querySelector('#yellow').innerHTML = Amount;
             }
         });
     }, 30000);
 
-{{--  ====================  for online users ===================--}}
+    {{--  ====================  for online users ===================--}}
     setInterval(function () {
         $.ajax({
             type: "GET",
             url: '/GetOnlineUsers',
             success: function (data) {
-                document.getElementById('OnlineUsers').innerHTML=data;
+                document.getElementById('OnlineUsers').innerHTML = data;
 
             }
         });
@@ -126,7 +125,7 @@
             url: '/GetDailyVisitors/' + day,
             data: {_token: token},
             success: function (data) {
-                document.getElementById('DailySiteVisitors').innerHTML=data;
+                document.getElementById('DailySiteVisitors').innerHTML = data;
             }
         });
     }, 30000);
