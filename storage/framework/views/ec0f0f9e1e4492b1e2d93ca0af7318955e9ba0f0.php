@@ -1,5 +1,5 @@
 
-<title><?php echo e(config('app.name')); ?> <?php echo $__env->yieldContent('Title'); ?></title>
+<title><?php echo e(config('app.name')); ?> - <?php echo $__env->yieldContent('Title'); ?></title>
 
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="<?php echo e(asset('auth/dist/css/bootstrap-theme.css')); ?>">

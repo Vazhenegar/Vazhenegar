@@ -22,4 +22,4 @@
 
 </div>
 
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminContent.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardAdminIndex.blade.php ENDPATH**/ ?>

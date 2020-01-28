@@ -6,12 +6,8 @@ use App\Department;
 use App\Language;
 use App\Order;
 use App\TranslationField;
-use Carbon\Carbon;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
-
 
 class OrderController extends Controller
 {
@@ -82,7 +78,7 @@ class OrderController extends Controller
         if ($request->hasFile('OrderFile')) {
             $uploaded = $request->file('OrderFile');
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
-            $uploaded->storeAs('public\Orders\User' . $CurrentUser->id, $filename);
+            $uploaded->storeAs('public\Orders\\'.$CurrentUser->id, $filename);
         }
 
         $Order->UserId = $CurrentUser->id;

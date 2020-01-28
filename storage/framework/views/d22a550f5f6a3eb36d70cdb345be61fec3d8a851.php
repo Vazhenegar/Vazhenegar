@@ -1,4 +1,4 @@
-<?php $__env->startSection('Title', '- ثبت سفارش جدید'); ?>
+<?php $__env->startSection('Title', 'ثبت سفارش جدید'); ?>
 
 <?php
     $CurrentUser=Auth::user();
@@ -7,7 +7,7 @@
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
-    $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
+    $Menus=MenuPicker($CurrentUser);
 ?>
 
 <?php $__env->startSection('content'); ?>
@@ -191,7 +191,6 @@
     </div>
 
     
-
     <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('scripts.TranslationLanguages', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('scripts.TranslationFields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

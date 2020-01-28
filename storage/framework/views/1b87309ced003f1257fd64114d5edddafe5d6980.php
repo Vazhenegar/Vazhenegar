@@ -22,4 +22,4 @@
     <!-- left col -->
 
 </div>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardCustomerContent.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerIndex.blade.php ENDPATH**/ ?>

@@ -1,48 +1,68 @@
 <?php
-
+//====================================== Main Routes
 Route::view('/', 'vazhenegar.index');
 Route::view('about-us', 'vazhenegar.about-us');
 Route::view('tmp', 'vazhenegar.tmp');
-
 Route::resource('tos', TermsOfServiceController::class);
 Route::resource('NewsLetterMembers', NewsLetterMembersController::class);
-Route::resource('quiz', QuizController::class);
 
+//===================================== Employment
+Route::resource('quiz', QuizController::class);
 Route::get('employment/city/{state_id}', 'TranslatorEmploymentController@cities');
 Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 
+//===================================== Dashboard
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+//===================================== Orders
 Route::resource('/dashboard/Order',OrderController::class);
 
-Route::post('/GetDailyVisitors/{day}', function ($day) {
-    return (new App\Session)->GetSiteVisitors($day);
-});
 
-Route::post('/UserMenus/{user}','HomeController@MenuPicker');
+//================================== Helpers Routes
 
-//========================== Helpers Routes ======================//
-//Get users that have Online mode in DB
-Route::get('/GetOnlineUsers', function () {
-    return OnlineUsers();
-});
+//============ Public
 
 //Set Online and Offline users mode in DB
 Route::get('/SetUsersMode',function (){
     SetUsersMode();
 });
 
-//Get users that fill employment form for translation
-Route::get('/NewEmployments',function (){
-   return NewEmployment();
+//Give number of visitors that see the website for last X day(s)
+Route::post('/UserMenus/{user}', function ($user) {
+    return MenuPicker($user);
 });
+
+
+//============ Admin
 
 //Get count of orders that registered by all of users (to show in admin badges)
 Route::get('/AllNewRegisteredOrders',function (){
-   return AllNewRegisteredOrders();
+    return AllNewRegisteredOrders();
 });
 
+//Get users that have Online mode in DB
+Route::get('/GetOnlineUsers', function () {
+    return OnlineUsers();
+});
+
+//Get users that fill employment form for translation
+Route::get('/NewEmployments',function (){
+    return NewEmployment();
+});
+
+//Give number of visitors that see the website for last X day(s)
+Route::post('/GetSiteVisitors/{day}', function ($day) {
+    return GetSiteVisitors($day);
+});
+
+
+//============ Translators
+
+
+//============ Customers
+
 //Get count of orders that registered by a specific user (to show in that users badges)
-Route::get('/UserRegisteredOrders/{UserId}',function ($UserId){
-   return UserRegisteredOrders($UserId);
+Route::get('/CustomersRegisteredOrders/{UserId}',function ($UserId){
+   return CustomerRegisteredOrders($UserId);
 });

@@ -97,7 +97,7 @@ class TranslatorEmploymentController extends Controller
         if ($request->hasFile('UserDocuments')) {
             $uploaded = $request->file('UserDocuments');
             $filename = $request->input('FirstName') . ' ' . $request->input('LastName') . time() . '.' . $uploaded->getClientOriginalExtension();
-            $uploaded->storeAs('public\Users\TranslatorsDocuments\\', $filename);
+            $uploaded->storeAs('public\TranslatorsDocuments\\', $filename);
         }
 
         $role_id = Role::where('RoleName', 'مترجم')->value('id');

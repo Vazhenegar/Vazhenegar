@@ -1,7 +1,7 @@
-{{--================ Badges For Admin ====================================--}}
+
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    {{--==================== New Orders ================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -18,7 +18,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Online Users =================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -35,7 +35,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--==================== Employment ================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -53,13 +53,13 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Site Visit Statistics  =================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="SiteVisitors"></h3> {{--visitors of last day--}}
+                <h3 id="SiteVisitors"></h3> 
 
                 <p>بازدید امروز</p>
             </div>
@@ -73,13 +73,13 @@
     <!-- ./col -->
 </div>
 <!-- /.row -->
-{{--=================== End Of Admin Badges   =================================--}}
-{{-- initialize badges with data that sent from dashboard main page--}}
+
+
 <script>
-    let allNewRegisteredOrders = @json(count($allNewRegisteredOrders['orders']));//Get from dashboard
-    let employmentRequest =@json($employmentRequest);
-    let OnlineUsers =@json($OnlineUsers);
-    let SiteVisitors =@json($SiteVisitors);
+    let allNewRegisteredOrders = <?php echo json_encode(count($allNewRegisteredOrders['orders']), 15, 512) ?>;//Get from dashboard
+    let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
+    let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
+    let SiteVisitors =<?php echo json_encode($SiteVisitors, 15, 512) ?>;
 
     document.getElementById('NewOrders').innerHTML = allNewRegisteredOrders;
     document.getElementById('جدید').querySelector('#yellow').innerHTML = allNewRegisteredOrders;
@@ -91,8 +91,8 @@
 
     document.getElementById('SiteVisitors').innerHTML = SiteVisitors;
 
-    {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
-    {{--  ====================  for new orders ===================--}}
+    
+    
     setInterval(function () {
         $.ajax({
             type: "GET",
@@ -105,7 +105,7 @@
         });
     }, 30000);
 
-    {{--  ====================  for online users ===================--}}
+    
     setInterval(function () {
         $.ajax({
             type: "GET",
@@ -117,7 +117,7 @@
         });
     }, 30000);
 
-    {{--  ====================  for new employments ================--}}
+    
 
     setInterval(function () {
         $.ajax({
@@ -130,9 +130,9 @@
         });
     }, 30000);
 
-        {{-- ===================   for daily visitors ===============--}}
+        
     let day = 1;
-    let token = "{{ csrf_token() }}";
+    let token = "<?php echo e(csrf_token()); ?>";
     setInterval(function () {
         $.ajax({
             type: "POST",
@@ -147,3 +147,4 @@
 
 
 </script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardAdminBadges.blade.php ENDPATH**/ ?>

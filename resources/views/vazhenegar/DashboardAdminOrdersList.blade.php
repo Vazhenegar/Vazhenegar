@@ -39,7 +39,7 @@
             @else
                 @php
                     $counter=1;
-                 foreach($allNewRegisteredOrders['orders'] as $order){
+                 foreach($allNewRegisteredOrders['orders'] as $order){ //get from dashboard
                     echo '<tr>';
                     echo '<td>'.$counter++.'</td>';
                     echo '<td>'.$order['OrderSubject'].'</td>';

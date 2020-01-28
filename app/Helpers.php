@@ -1,38 +1,26 @@
 <?php
-
-
+use App\Session;
 use App\User;
 use App\Order;
 use App\TranslationField;
 use App\Language;
+use Carbon\Carbon;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Str;
 
+//============== General
+
+//set Online and Offline users mode in users table depending on id's received from session table.
 function SetUsersMode()
 {
-    $OnlineIds = (new App\Session)->GetOnlineUsersSession();
+    $OnlineIds = GetOnlineUsersSession();
     User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
     User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
     return back();
 }
 
-function OnlineUsers()
-{
-    SetUsersMode();
-    return User::Where('Mode', 'ON')->count();
-}
-
-//Get all employment requests except management and customers id's and departments
-function NewEmployment()
-{
-    return User::where('Status', 'P')
-        ->whereNotIn('Department', ['1', '8'])
-        ->whereNotIn('role_id', ['1', '11'])
-        ->count();
-}
-
 //function for replace persian digits with english to save in db
-//         because persian srting cannot validate in laravel
+//         because persian digits cannot validate in laravel
 function per_digit_conv(string $per_digits)
 {
     $result = "";
@@ -53,32 +41,17 @@ function per_digit_conv(string $per_digits)
     return $result;
 }
 
-//for admin dashboard badges in case of registering a new order by any user
-function AllNewRegisteredOrders()
-{
-    $AllNewOrders['orders'] = Order::where('StatusId', 1)->orderBy('id', 'DESC')->get();
-    foreach ($AllNewOrders['orders'] as $key => $order) {
-        $TF = TranslationField::where('id', $order['TranslationField'])->value('FieldName');
-        $SL = Language::where('id', $order['SourceLanguage'])->value('LanguageName');
-        $DL = Language::where('id', $order['DestLanguage'])->value('LanguageName');
-        $RD = DateTimeConversion($order['RegisterDate'], 'J');
-        $DD = DateTimeConversion($order['DeliveryDate'], 'J');
+//===================================================== Dashboard
+//============== Public
 
-        $AllNewOrders['orders'][$key]['TranslationField'] = $TF;
-        $AllNewOrders['orders'][$key]['SourceLanguage'] = $SL;
-        $AllNewOrders['orders'][$key]['DestLanguage'] = $DL;
-        $AllNewOrders['orders'][$key]['RegisterDate'] = $RD;
-        $AllNewOrders['orders'][$key]['DeliveryDate'] = $DD;
-    }
-    return $AllNewOrders;
-}
-
-//for user dashboard badges in case of registering a new order
-function UserRegisteredOrders($UserId)
+function MenuPicker(User $user)
 {
-    return Order::where('UserId', $UserId)
-        ->where('StatusId', 1)
-        ->count();
+    //get role of logged in user
+    $role = $user->role()->first();
+
+    //get menus of user related to role
+    return $role->main_menus()->with('sub_menus')->get();
+
 }
 
 //Convert Gregorian and Jalali to each other
@@ -103,3 +76,76 @@ function DateTimeConversion($DateTime, $To)
 
     }
 }
+
+//============== Admin
+//Give Number of visitors that see website in last X day(s)
+function GetSiteVisitors($day)
+{
+    return Session::where('last_activity', '>=',date_timestamp_get(Carbon::now()->subDays($day)))
+        ->count();
+}
+
+//look for users with user_id is sessions table to set their mode to ON in users table
+function GetOnlineUsersSession()
+{
+    $ids= Session::whereNotNull('user_id')
+        ->where('last_activity', '>=',date_timestamp_get(Carbon::now()->subMinutes(1)))
+        ->pluck('user_id');
+    $ids->unique()->values()->all();
+    return $ids;
+}
+
+function OnlineUsers()
+{
+    SetUsersMode();
+    return User::Where('Mode', 'ON')->count();
+}
+
+//Get all employment requests except management and customers id's and departments
+function NewEmployment()
+{
+    return User::where('Status', 'P')
+        ->whereNotIn('Department', ['1', '8'])
+        ->whereNotIn('role_id', ['1', '11'])
+        ->count();
+}
+
+//for admin dashboard badges in case of registering a new order by any user
+function AllNewRegisteredOrders()
+{
+    $AllNewOrders['orders'] = Order::where('StatusId', 1)->orderBy('id', 'DESC')->get();
+    foreach ($AllNewOrders['orders'] as $key => $order) {
+        $TF = TranslationField::where('id', $order['TranslationField'])->value('FieldName');
+        $SL = Language::where('id', $order['SourceLanguage'])->value('LanguageName');
+        $DL = Language::where('id', $order['DestLanguage'])->value('LanguageName');
+        $RD = DateTimeConversion($order['RegisterDate'], 'J');
+        $DD = DateTimeConversion($order['DeliveryDate'], 'J');
+
+        $AllNewOrders['orders'][$key]['TranslationField'] = $TF;
+        $AllNewOrders['orders'][$key]['SourceLanguage'] = $SL;
+        $AllNewOrders['orders'][$key]['DestLanguage'] = $DL;
+        $AllNewOrders['orders'][$key]['RegisterDate'] = $RD;
+        $AllNewOrders['orders'][$key]['DeliveryDate'] = $DD;
+    }
+    return $AllNewOrders;
+}
+
+
+
+//============== Translators
+
+
+
+//============== Users
+
+//for user dashboard badges in case of registering a new order
+function CustomerRegisteredOrders($UserId)
+{
+    return Order::where('UserId', $UserId)
+        ->where('StatusId', 1)
+        ->get();
+}
+
+
+
+

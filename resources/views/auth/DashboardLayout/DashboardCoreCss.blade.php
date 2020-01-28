@@ -1,5 +1,5 @@
 {{--  Dashboard Pages Title  --}}
-<title>{{config('app.name')}} @yield('Title')</title>
+<title>{{config('app.name')}} - @yield('Title')</title>
 
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="{{asset('auth/dist/css/bootstrap-theme.css')}}">

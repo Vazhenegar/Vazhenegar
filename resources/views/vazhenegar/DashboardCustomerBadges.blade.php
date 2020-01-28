@@ -7,7 +7,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
-                <h3 id="NewOrders"></h3>
+                <h3 id="CustomerNewOrders"></h3>
 
                 <p>سفارشات جاری</p>
             </div>
@@ -25,7 +25,7 @@
         <!-- small box -->
         <div class="small-box bg-green-gradient">
             <div class="inner">
-                <h3 id="FinishedOrders">12</h3>
+                <h3 id="CustomerFinishedOrders">12</h3>
                 <p>سفارشات تکمیل شده</p>
             </div>
             <div class="icon">
@@ -42,7 +42,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow-gradient">
             <div class="inner">
-                <h3 id="Messages">12</h3>
+                <h3 id="CustomerMessages">12</h3>
 
                 <p>پیام ها</p>
             </div>
@@ -60,7 +60,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="Invoices">12</h3>
+                <h3 id="CustomerInvoices">12</h3>
 
                 <p>فاکتور ها</p>
             </div>
@@ -77,20 +77,19 @@
 {{--=================== End Of Customer Badges   =================================--}}
 
 <script>
-    let currentUserId=@json($UserId);
-    let userRegisteredOrders =@json($userRegisteredOrders);
+    let CurrentCustomerId=@json($CustomerId); //Get from dashboard
+    let CustomerRegisteredOrders =@json(count($CustomerRegisteredOrders)); //Get from dashboard
 
-    document.getElementById('NewOrders').innerHTML = userRegisteredOrders;
+    document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
 
     {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
     {{--  ====================  for User New Orders ===================--}}
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: '/UserRegisteredOrders/'+currentUserId,
+            url: '/CustomersRegisteredOrders/'+CurrentCustomerId,
             success: function (data) {
-                $('#NewOrders').empty();
-                $('#NewOrders').append(data);
+                document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
             }
         });
     }, 30000);

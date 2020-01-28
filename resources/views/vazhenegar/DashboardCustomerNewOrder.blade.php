@@ -1,5 +1,5 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
-@section('Title', '- ثبت سفارش جدید')
+@section('Title', 'ثبت سفارش جدید')
 
 @php
     $CurrentUser=Auth::user();
@@ -8,7 +8,7 @@
     $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
-    $Menus=(new App\Http\Controllers\HomeController)->MenuPicker($CurrentUser);
+    $Menus=MenuPicker($CurrentUser);
 @endphp
 
 @section('content')

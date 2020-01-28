@@ -288,19 +288,14 @@ class UserSubMenuTableSeeder extends Seeder
             //مشتری - امور مالی و حسابداری
             14 => [
                 [
-                    'SubMenu' => 'پیش فاکتور',
-                    'Url' => '/compose',
-                    'Icon' => 'fa fa-commenting',
-                ],
-                [
                     'SubMenu' => 'فاکتور',
                     'Url' => '/inbox',
-                    'Icon' => 'fa fa-envelope',
+                    'Icon' => 'fa fa-clipboard',
                 ],
                 [
-                    'SubMenu' => 'پرداختی',
+                    'SubMenu' => 'سوابق پرداخت',
                     'Url' => '/sent',
-                    'Icon' => 'fa fa-paper-plane',
+                    'Icon' => 'fa fa-money',
                 ],
             ],
 

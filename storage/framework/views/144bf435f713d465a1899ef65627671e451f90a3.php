@@ -59,7 +59,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="DailySiteVisitors"></h3> 
+                <h3 id="SiteVisitors"></h3> 
 
                 <p>بازدید امروز</p>
             </div>
@@ -76,10 +76,10 @@
 
 
 <script>
-    let allNewRegisteredOrders = <?php echo json_encode(count($allNewRegisteredOrders['orders']), 15, 512) ?>;
+    let allNewRegisteredOrders = <?php echo json_encode(count($allNewRegisteredOrders['orders']), 15, 512) ?>;//Get from dashboard
     let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
     let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
-    let DailyVisitors =<?php echo json_encode($DailyVisitors, 15, 512) ?>;
+    let SiteVisitors =<?php echo json_encode($SiteVisitors, 15, 512) ?>;
 
     document.getElementById('NewOrders').innerHTML = allNewRegisteredOrders;
     document.getElementById('جدید').querySelector('#yellow').innerHTML = allNewRegisteredOrders;
@@ -88,7 +88,8 @@
     document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
 
     document.getElementById('OnlineUsers').innerHTML = OnlineUsers;
-    document.getElementById('DailySiteVisitors').innerHTML = DailyVisitors;
+
+    document.getElementById('SiteVisitors').innerHTML = SiteVisitors;
 
     
     
@@ -116,20 +117,6 @@
         });
     }, 30000);
 
-        
-    let day = 1;
-    let token = "<?php echo e(csrf_token()); ?>";
-    setInterval(function () {
-        $.ajax({
-            type: "POST",
-            url: '/GetDailyVisitors/' + day,
-            data: {_token: token},
-            success: function (data) {
-                document.getElementById('DailySiteVisitors').innerHTML = data;
-            }
-        });
-    }, 30000);
-
     
 
     setInterval(function () {
@@ -142,6 +129,22 @@
             }
         });
     }, 30000);
+
+        
+    let day = 1;
+    let token = "<?php echo e(csrf_token()); ?>";
+    setInterval(function () {
+        $.ajax({
+            type: "POST",
+            url: '/GetSiteVisitors/' + day,
+            data: {_token: token},
+            success: function (data) {
+                document.getElementById('SiteVisitors').innerHTML = data;
+            }
+        });
+    }, 30000);
+
+
 
 </script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminBadges.blade.php ENDPATH**/ ?>
