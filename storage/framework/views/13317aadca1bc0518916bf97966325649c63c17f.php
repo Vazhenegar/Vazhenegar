@@ -10,7 +10,7 @@
  // for admin badges
     $allNewRegisteredOrders=AllNewRegisteredOrders();
     $employmentRequest=NewEmployment();
-    $OnlineUsers=OnlineUsers();
+    $OnlineUsers=OnlineUsers();//
     $DailyVisitors=(new App\Session)->GetSiteVisitors(1);
 
 //  for user badges

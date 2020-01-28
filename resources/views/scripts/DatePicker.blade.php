@@ -4,17 +4,18 @@
     let BD = document.getElementById('BirthDate');
     let GD = document.getElementById('GraduationDate');
     let DC = document.getElementById('DashboardCalendar');
-    let NO = document.getElementById('NewOrderDeliveryDate');
+    let RD = document.getElementById('NewOrderRegisterDate');
+    let DD = document.getElementById('NewOrderDeliveryDate');
 
     //create date picker for birthdate
     if (document.contains(BD)) {
         window.pd = $('#BirthDate').persianDatepicker({
             altField: '#BirthDateAlt',
-            altFormat: 'unix',
+            altFormat: 'YYYY-MM-DD HH:mm:ss',
             initialValue: false,
-            format: 'YYYY - MM - DD',
+            format: 'L',
             timePicker: {
-                enabled: true
+                enabled: false
             }
         });
     }
@@ -23,11 +24,11 @@
     if (document.contains(GD)) {
         window.pd = $('#GraduationDate').persianDatepicker({
             altField: '#GraduationDateAlt',
-            altFormat: 'unix',
+            altFormat: 'YYYY-MM-DD HH:mm:ss',
             initialValue: false,
-            format: 'YYYY - MM - DD',
+            format: 'L',
             timePicker: {
-                enabled: true
+                enabled: false
             }
         });
     }
@@ -42,10 +43,19 @@
 
     //    ===============================================================
     //create date picker for new order delivery date
-    if (document.contains(NO)) {
+    if (document.contains(RD)) {
+         $('#NewOrderRegisterDate').persianDatepicker({
+             altField: '#NewOrderRegisterDateAlt',
+             altFormat: 'YYYY-MM-DD HH:mm:ss',
+             format: 'LLLL',
+        });
+    }
+    //    ===============================================================
+    //create date picker for new order delivery date
+    if (document.contains(DD)) {
         window.pd = $('#NewOrderDeliveryDate').persianDatepicker({
             altField: '#NewOrderDeliveryDateAlt',
-            altFormat: 'unix',
+            altFormat: 'YYYY-MM-DD HH:mm:ss',
             initialValue: false,
             format: 'LLLL',
             timePicker: {

@@ -7,8 +7,10 @@ use App\Language;
 use App\Order;
 use App\TranslationField;
 use Carbon\Carbon;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 
 class OrderController extends Controller
@@ -50,7 +52,7 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -60,30 +62,33 @@ class OrderController extends Controller
             'source_lang' => ['required'],
             'dest_lang' => ['required'],
             'TranslationField' => ['required'],
-            'OrderFile'=>['required','max:19999','mimes:rar,zip'],
+            'OrderFile' => ['required', 'max:19999', 'mimes:rar,zip'],
             'NewOrderDeliveryDate' => ['required'],
             'NewOrderDeliveryDateAlt' => ['required'],
             'TranslationParts' => ['nullable', 'array'],
             'Description' => ['nullable', 'max:500'],
         ];
+
+
         $this->validate($request, $rules);
 
+        $DeliveryDT = DateTimeConversion($request->input('NewOrderDeliveryDateAlt'), 'G');
         $TranslationParts = serialize($request->input('TranslationParts'));
 
         $Order = new Order;
-        $CurrentUser=Auth::user();
+        $CurrentUser = Auth::user();
 
-        $filename='';
+        $filename = '';
         if ($request->hasFile('OrderFile')) {
             $uploaded = $request->file('OrderFile');
             $filename = time() . '.' . $uploaded->getClientOriginalExtension();  //FirstName-LastName-timestamps.extension
-            $uploaded->storeAs('public\Orders\User'.$CurrentUser->id, $filename);
+            $uploaded->storeAs('public\Orders\User' . $CurrentUser->id, $filename);
         }
 
         $Order->UserId = $CurrentUser->id;
         $Order->OrderSubject = $request->input('OrderSubject');
-        $Order->DeliveryDate = Carbon::createFromTimestamp($request->input('NewOrderDeliveryDateAlt') / 1000, 'Asia/Tehran');
-        $Order->RelatedDepartment = Department::where('DepartmentName','ترجمه')->value('id');
+        $Order->DeliveryDate = $DeliveryDT;
+        $Order->RelatedDepartment = Department::where('DepartmentName', 'ترجمه')->value('id');
         $Order->SourceLanguage = $request->input('source_lang');
         $Order->DestLanguage = $request->input('dest_lang');
         $Order->TranslationField = $request->input('TranslationField');
@@ -102,7 +107,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
@@ -113,7 +118,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
@@ -124,8 +129,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -136,7 +141,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param \App\Order $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)

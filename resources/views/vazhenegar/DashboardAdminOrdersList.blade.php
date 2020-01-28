@@ -19,7 +19,7 @@
         <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
         <table class="table table-bordered" id="NewOrdersTable">
             <thead>
-            <tr >
+            <tr>
                 <th scope="col">ردیف</th>
                 <th scope="col">موضوع</th>
                 <th scope="col">تاریخ ثبت</th>
@@ -31,33 +31,36 @@
             </tr>
             </thead>
             <tbody>
-            @php $counter=1; @endphp
             @if(count($allNewRegisteredOrders['orders'])==0)
                 <tr>
                     <td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>
+
                 </tr>
             @else
-                @foreach($allNewRegisteredOrders['orders'] as $order)
-
-                    <tr>
-                        <td>{{$counter++}}</td>
-                        <td>{{$order['OrderSubject']}}</td>
-                        <td>{{$order['RegisterDate']}}</td>
-                        <td>{{$order['DeliveryDate']}}</td>
-                        <td>{{$order['TranslationField']}}</td>
-                        <td>{{$order['SourceLanguage']}}</td>
-                        <td>{{$order['DestLanguage']}}</td>
-
-                        <td>
-                            <button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button>
-                            <button type='button' class='btn btn-success'><i class='fa fa-arrow-down'></i></button>
-                            <button type='button' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>
-                        </td>
-                    </tr>
-                @endforeach
+                @php
+                    $counter=1;
+                 foreach($allNewRegisteredOrders['orders'] as $order){
+                    echo '<tr>';
+                    echo '<td>'.$counter++.'</td>';
+                    echo '<td>'.$order['OrderSubject'].'</td>';
+                    echo '<td class="NumberDirectionFixer">'.$order['RegisterDate'].'</td>';
+                    echo '<td class="NumberDirectionFixer">'.$order['DeliveryDate'].'</td>';
+                    echo '<td>'.$order['TranslationField'].'</td>';
+                    echo '<td>'.$order['SourceLanguage'].'</td>';
+                    echo '<td>'.$order['DestLanguage'].'</td>';
+                    echo '<td>'.
+                         '<button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>&nbsp'.
+                         '<button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i></button>&nbsp'.
+                         '<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>&nbsp'.
+                     '</td>';
+                     echo '</tr>';
+                 }
+                @endphp
             @endif
             </tbody>
         </table>
+
+
     </div>
     <!-- /.box-body -->
 
@@ -69,6 +72,7 @@
 <script>
     // ====================  Refresh Orders List every 30 seconds ===================
     // ====================  for new orders ===================
+
     setInterval(function () {
         $.ajax({
             type: "GET",
@@ -82,29 +86,29 @@
                 }
                 if (len > 0) {
                     for (let i = 0; i < len; i++) {
+
                         let OrderSubject = response['orders'][i].OrderSubject;
-                        let RegisterDate = response['orders'][i].RegisterDate;
-                        let DeliveryDate = response['orders'][i].DeliveryDate;
+                        let RDate = response['orders'][i].RegisterDate;
+                        let DDate = response['orders'][i].DeliveryDate;
                         let TranslationField = response['orders'][i].TranslationField;
                         let SourceLanguage = response['orders'][i].SourceLanguage;
                         let DestLanguage = response['orders'][i].DestLanguage;
 
                         let tr =
                             "<tr>" +
-                            "<td id='Row'>" + (i + 1) + "</td>" +
-                            "<td id='OrderSubject'>" + OrderSubject + "</td>" +
-                            "<td id='RegisterDate'>" + RegisterDate + "</td>" +
-                            "<td id='DeliveryDate'>" + DeliveryDate + "</td>" +
-                            "<td id='TranslationField'>" + TranslationField + "</td>" +
-                            "<td id='SourceLanguage'>" + SourceLanguage + "</td>" +
-                            "<td id='DestLanguage'>" + DestLanguage + "</td>" +
+                            "<td>" + (i + 1) + "</td>" +
+                            "<td>" + OrderSubject + "</td>" +
+                            "<td class='NumberDirectionFixer'>" + RDate + "</td>" +
+                            "<td class='NumberDirectionFixer'>" + DDate + "</td>" +
+                            "<td>" + TranslationField + "</td>" +
+                            "<td>" + SourceLanguage + "</td>" +
+                            "<td>" + DestLanguage + "</td>" +
                             "<td>" +
                             "<button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button>" + "&nbsp;" +
                             "<button type='button' class='btn btn-success'><i class='fa fa-arrow-down'></i></button>" + "&nbsp;" +
                             "<button type='button' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>" + "&nbsp;" +
                             "</td>" +
                             "</tr>";
-
                         $("#NewOrdersTable tbody").append(tr);
                     }
 

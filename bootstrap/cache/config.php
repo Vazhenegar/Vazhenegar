@@ -6,7 +6,7 @@
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tehran',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
@@ -36,10 +36,11 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\EventServiceProvider',
-      25 => 'App\\Providers\\RouteServiceProvider',
+      22 => 'Hekmatinasser\\Verta\\VertaServiceProvider',
+      23 => 'App\\Providers\\AppServiceProvider',
+      24 => 'App\\Providers\\AuthServiceProvider',
+      25 => 'App\\Providers\\EventServiceProvider',
+      26 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -78,6 +79,7 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'Verta' => 'Hekmatinasser\\Verta\\Verta',
     ),
   ),
   'auth' => 

@@ -89,7 +89,7 @@
                                                id="BirthDate" name="BirthDate" value="{{old('BirthDate')}}" required>
                                     @endif
                                     <label class="form-placeholder-label" for="BirthDate">تاریخ تولد</label>
-                                    <input class="form-control" name="BirthDateAlt" id="BirthDateAlt"
+                                    <input class="form-control NumberDirectionFixer" name="BirthDateAlt" id="BirthDateAlt"
                                            value="{{old('BirthDateAlt')}}" type="hidden"
                                            readonly/>
                                 </div>
@@ -263,7 +263,7 @@
                                     @endif
                                     <label class="form-placeholder-label" for="GraduationDate">تاریخ فارغ
                                         التحصیلی</label>
-                                    <input class="form-control" name="GraduationDateAlt" id="GraduationDateAlt"
+                                    <input class="form-control NumberDirectionFixer" name="GraduationDateAlt" id="GraduationDateAlt"
                                            value="{{old('GraduationDateAlt')}}" type="hidden"
                                            readonly/>
                                 </div>

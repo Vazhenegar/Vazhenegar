@@ -85,6 +85,8 @@ class TranslatorEmploymentController extends Controller
 
         ];
 
+
+
         $this->validate($request, $rules);
 
         //serialize array to save in DB
@@ -100,11 +102,14 @@ class TranslatorEmploymentController extends Controller
 
         $role_id = Role::where('RoleName', 'مترجم')->value('id');
         $dep_id = Department::where('DepartmentName', 'ترجمه')->value('id');
+        $BirthDate = DateTimeConversion($request->input('BirthDateAlt'), 'G');
+        $GraduationDate = DateTimeConversion($request->input('GraduationDateAlt'), 'G');
+
 
         $translator = new User;
         $translator->FirstName = $request->input('FirstName');
         $translator->LastName = $request->input('LastName');
-        $translator->BirthDate = Carbon::createFromTimestamp($request->input('BirthDateAlt') / 1000, 'Asia/Tehran');
+        $translator->BirthDate = $BirthDate;
         $translator->Gender = $request->input('Gender');
         $translator->Email = $request->input('Email');
         $translator->Password = Hash::make($request->input('Password'));
@@ -114,7 +119,7 @@ class TranslatorEmploymentController extends Controller
         $translator->City = $request->input('City');
         $translator->Address = $request->input('Address');
         $translator->Degree = $request->input('Degree');
-        $translator->GraduationDate = Carbon::createFromTimestamp($request->input('GraduationDateAlt') / 1000, 'Asia/Tehran');
+        $translator->GraduationDate = $GraduationDate;
         $translator->GraduationField = $request->input('GraduationField');
         $translator->Resume = $request->input('Resume');
         $translator->UserSelectedLangs = $TranslatorSelectedLangs;

@@ -30,3 +30,16 @@
     text-align: center;
     vertical-align: middle;
 }
+
+/*#NewOrdersTable #NewOrderRegisterDateAlt, #NewOrdersTable #NewOrderDeliveryDateAlt{*/
+/*    display: none;*/
+/*}*/
+
+#NewOrderRegisterDate, #NewOrderRegisterDateAlt{
+    width: 450px;
+}
+
+/* show persian numbers in correct form in pages */
+.NumberDirectionFixer {
+    direction: ltr;
+}

@@ -3496,7 +3496,6 @@ input:focus {
 /* show persian numbers in correct form in pages */
 .NumberDirectionFixer {
     direction: ltr;
-    display: inline-block;
 }
 
 /* form label placeholder */

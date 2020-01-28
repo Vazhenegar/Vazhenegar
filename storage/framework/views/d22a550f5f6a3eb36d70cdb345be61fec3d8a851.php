@@ -85,8 +85,8 @@
                                        id="NewOrderDeliveryDate" value="<?php echo e(old('NewOrderDeliveryDate')); ?>" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="NewOrderDeliveryDateAlt" id="NewOrderDeliveryDateAlt"
-                                       value="<?php echo e(old('NewOrderDeliveryDateAlt')); ?>"
+                                <input class="form-control" dir="ltr" name="NewOrderDeliveryDateAlt" id="NewOrderDeliveryDateAlt"
+                                       value="<?php echo e(old('NewOrderDeliveryDateAlt')); ?>" type="hidden"
                                        readonly/>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
     </div>
 
     
-    <?php echo $__env->make('scripts.DashboardCoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
     <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('scripts.TranslationLanguages', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('scripts.TranslationFields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
