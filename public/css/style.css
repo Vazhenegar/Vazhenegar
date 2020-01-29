@@ -3498,6 +3498,11 @@ input:focus {
     direction: ltr;
 }
 
+/* for hide an  item from view */
+.HiddenItem{
+    display: none;
+}
+
 /* form label placeholder */
 .form-placeholder-label {
     position: absolute;

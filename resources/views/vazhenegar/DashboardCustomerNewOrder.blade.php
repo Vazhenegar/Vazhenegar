@@ -85,8 +85,8 @@
                                        id="NewOrderDeliveryDate" value="{{old('NewOrderDeliveryDate')}}" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" dir="ltr" name="NewOrderDeliveryDateAlt" id="NewOrderDeliveryDateAlt"
-                                       value="{{old('NewOrderDeliveryDateAlt')}}" type="hidden"
+                                <input class="form-control HiddenItem" dir="ltr" name="NewOrderDeliveryDateAlt" id="NewOrderDeliveryDateAlt"
+                                       value="{{old('NewOrderDeliveryDateAlt')}}"
                                        readonly/>
                             </div>
                         </div>

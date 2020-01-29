@@ -1,14 +1,25 @@
-/*Customer New Order*/
-
-.NewOrder .form-group{
-    width: 90%;
+/*=========================================== Public styles*/
+/*for hiding fields like DateTimeAlt and ...*/
+.HiddenItem {
+    display: none;
 }
+
+/* show persian numbers in correct direction in pages */
+.NumberDirectionFixer {
+    direction: ltr;
+}
+
+/*========================================== Customer New Order*/
+.NewOrder .form-group {
+    width: 80%;
+}
+
 .NewOrder input, .NewOrder select, .NewOrder label {
     font-size: 14px;
     height: fit-content;
-
 }
 
+/*description*/
 .NewOrder textarea {
     width: 100%;
     height: 125px;
@@ -18,28 +29,22 @@
     padding: 10px;
 }
 
-.NewOrder .form-group h3{
+/*field title*/
+.NewOrder .form-group h3 {
     font-size: 14px;
 }
 
-.NewOrder .pure-material-checkbox span{
+/*translation parts*/
+.NewOrder .pure-material-checkbox span {
     font-weight: normal;
 }
 
-#NewOrdersTable thead tr th, #NewOrdersTable tbody tr td{
+/*======================================== End of customer new order page*/
+
+/*======================================== Admin new order list*/
+#NewOrdersTable thead tr th, #NewOrdersTable tbody tr td {
     text-align: center;
     vertical-align: middle;
 }
 
-/*#NewOrdersTable #NewOrderRegisterDateAlt, #NewOrdersTable #NewOrderDeliveryDateAlt{*/
-/*    display: none;*/
-/*}*/
 
-#NewOrderRegisterDate, #NewOrderRegisterDateAlt{
-    width: 450px;
-}
-
-/* show persian numbers in correct form in pages */
-.NumberDirectionFixer {
-    direction: ltr;
-}
