@@ -103,12 +103,17 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Order $order
+     * @param \App\Order $Order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Order $Order)
     {
-        //
+        $Order->RegisterDate=DateTimeConversion($Order->RegisterDate,'J');
+        $Order->DeliveryDate=DateTimeConversion($Order->DeliveryDate,'J');
+        $Order->TranslationField=TranslationField::where('id',$Order->TranslationField)->value('FieldName');
+        $Order->SourceLanguage=Language::where('id',$Order->SourceLanguage)->value('LanguageName');
+        $Order->DestLanguage=Language::where('id',$Order->DestLanguage)->value('LanguageName');
+        return view('vazhenegar.DashboardNewOrderSpecs',compact('Order'));
     }
 
     /**
@@ -126,12 +131,19 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Order $order
+     * @param \App\Order $Order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Order $Order)
     {
-        //
+        $Order->Amount=$request->input('WordCount');
+        $Order->TotalPrice=$request->input('TotalPrice');
+        $Order->StatusId=2;
+        $Order->save();
+        session()->flash('OrderStatus', 'Updated');
+        return back();
+
+
     }
 
     /**

@@ -35,8 +35,7 @@
 
                         
                         <div class="form-group">
-                            <select class="form-control" name="source_lang"
-                                    onchange="SL(this)" required>
+                            <select class="form-control" name="source_lang" required>
                                 <option value="">زبان مبدا</option>
                                 <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option
@@ -46,8 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select class="form-control" name="dest_lang"
-                                    onchange="DL(this)" required>
+                            <select class="form-control" name="dest_lang" required>
                                 <option value="">زبان مقصد</option>
                                 <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option

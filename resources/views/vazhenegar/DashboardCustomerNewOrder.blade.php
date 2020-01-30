@@ -35,8 +35,7 @@
 
                         {{-- =============== Languages ================================================= --}}
                         <div class="form-group">
-                            <select class="form-control" name="source_lang"
-                                    onchange="SL(this)" required>
+                            <select class="form-control" name="source_lang" required>
                                 <option value="">زبان مبدا</option>
                                 @foreach ($languages as $language)
                                     <option
@@ -46,8 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select class="form-control" name="dest_lang"
-                                    onchange="DL(this)" required>
+                            <select class="form-control" name="dest_lang" required>
                                 <option value="">زبان مقصد</option>
                                 @foreach ($languages as $language)
                                     <option

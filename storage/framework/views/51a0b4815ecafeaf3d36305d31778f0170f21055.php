@@ -1,6 +1,5 @@
 
 
-
 <div class="box box-primary">
     <div class="box-header">
         <i class="fa fa-star"></i>
@@ -49,7 +48,7 @@
                     echo '<td>'.$order['SourceLanguage'].'</td>';
                     echo '<td>'.$order['DestLanguage'].'</td>';
                     echo '<td>'.
-                         '<button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>&nbsp'.
+                         '<a href="/dashboard/Order/'.$order['id'].'"><button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button></a>&nbsp'.
                          '<button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i></button>&nbsp'.
                          '<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>&nbsp'.
                      '</td>';
@@ -59,8 +58,6 @@
             <?php endif; ?>
             </tbody>
         </table>
-
-
     </div>
     <!-- /.box-body -->
 
@@ -86,7 +83,7 @@
                 }
                 if (len > 0) {
                     for (let i = 0; i < len; i++) {
-
+                        let OrderId=response['orders'][i].id;
                         let OrderSubject = response['orders'][i].OrderSubject;
                         let RDate = response['orders'][i].RegisterDate;
                         let DDate = response['orders'][i].DeliveryDate;
@@ -104,7 +101,7 @@
                             "<td>" + SourceLanguage + "</td>" +
                             "<td>" + DestLanguage + "</td>" +
                             "<td>" +
-                            "<button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button>" + "&nbsp;" +
+                            "<a href='dashboard/Order/" + OrderId + "'><button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button></a>" + "&nbsp;" +
                             "<button type='button' class='btn btn-success'><i class='fa fa-arrow-down'></i></button>" + "&nbsp;" +
                             "<button type='button' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>" + "&nbsp;" +
                             "</td>" +

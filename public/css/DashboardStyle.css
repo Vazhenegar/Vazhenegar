@@ -7,8 +7,13 @@
 /* show persian numbers in correct direction in pages */
 .NumberDirectionFixer {
     direction: ltr;
+
 }
 
+/*new order specs table*/
+#NewOrderSpecs tbody tr td{
+    border: none;
+}
 /*========================================== Customer New Order*/
 .NewOrder .form-group {
     width: 80%;
@@ -45,6 +50,21 @@
 #NewOrdersTable thead tr th, #NewOrdersTable tbody tr td {
     text-align: center;
     vertical-align: middle;
+}
+
+#NewOrderSpecAdmin table tbody tr td{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+#NewOrderSpecAdmin table tbody tr td input{
+    width: 60%;
+}
+
+#NewOrderSpecAdmin table tbody tr td.submit{
+    width: 20%;
 }
 
 
