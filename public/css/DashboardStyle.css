@@ -14,18 +14,18 @@
 #NewOrderSpecs tbody tr td{
     border: none;
 }
-/*========================================== Customer New Order*/
-.NewOrder .form-group {
+/*========================================== New Order table*/
+.OrderSpecification .form-group {
     width: 80%;
 }
 
-.NewOrder input, .NewOrder select, .NewOrder label {
+.OrderSpecification input, .OrderSpecification select, .OrderSpecification label {
     font-size: 14px;
     height: fit-content;
 }
 
 /*description*/
-.NewOrder textarea {
+.OrderSpecification textarea {
     width: 100%;
     height: 125px;
     font-size: 14px;
@@ -35,16 +35,16 @@
 }
 
 /*field title*/
-.NewOrder .form-group h3 {
+.OrderSpecification .form-group h3 {
     font-size: 14px;
 }
 
 /*translation parts*/
-.NewOrder .pure-material-checkbox span {
+.OrderSpecification .pure-material-checkbox span {
     font-weight: normal;
 }
 
-/*======================================== End of customer new order page*/
+/*======================================== End of new order specification table*/
 
 /*======================================== Admin new order list*/
 #NewOrdersTable thead tr th, #NewOrdersTable tbody tr td {

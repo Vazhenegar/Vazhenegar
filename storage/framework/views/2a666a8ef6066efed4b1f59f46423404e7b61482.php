@@ -87,4 +87,4 @@
         </tbody>
     </table>
 </form>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardAdminNewOrderSpec.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminNewOrderSpec.blade.php ENDPATH**/ ?>

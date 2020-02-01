@@ -141,7 +141,7 @@ class OrderController extends Controller
      */
     public function edit(Order $Order)
     {
-        return $Order;
+        return view('vazhenegar.DashboardAdminOrderEdit',compact('Order'));
     }
 
     /**
@@ -153,13 +153,15 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $Order)
     {
-        $Order->Amount=$request->input('WordCount');
-        $Order->TotalPrice=$request->input('TotalPrice');
+        $request->has('OrderSubject') ? $Order->OrderSubject=$request->input('OrderSubject'): null;
+        $request->has('Description') ? $Order->Description=$request->input('Description'): null;
+        $request->has('WordCount') ? $Order->Amount=$request->input('WordCount'): null;
+        $request->has('TotalPrice') ? $Order->TotalPrice=$request->input('TotalPrice'): null;
+
         $Order->status_id=2;
         $Order->save();
         session()->flash('OrderStatus', 'Updated');
-        return back();
-
+        return redirect('/dashboard/Order/'.$Order->id);
 
     }
 
@@ -172,5 +174,11 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    //for invoices that customer should pay
+    public function invoice(Order $Order)
+    {
+        return view('vazhenegar.CustomerInvoice',compact('Order'));
     }
 }

@@ -18,7 +18,7 @@
         <!-- right col -->
         <section class="col-lg-7">
 
-            <div class="box box-primary NewOrder">
+            <div class="box box-primary OrderSpecification">
                 <div class="box-header">
                     <i class="ion ion-clipboard"></i>
                     <h3 class="box-title">ثبت سفارش جدید</h3>
