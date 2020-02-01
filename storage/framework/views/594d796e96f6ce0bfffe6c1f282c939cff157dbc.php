@@ -1,7 +1,7 @@
-{{--================ Badges For Customer ====================================--}}
+
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    {{--==================== Current Orders ================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -19,7 +19,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Finished Orders =================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -36,7 +36,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--==================== Messages ================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -54,7 +54,7 @@
         </div>
     </div>
     <!-- ./col -->
-    {{--=================== Invoices  =================================--}}
+    
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -74,20 +74,20 @@
     <!-- ./col -->
 </div>
 <!-- /.row -->
-{{--=================== End Of Customer Badges   =================================--}}
+
 
 <script>
-    let CurrentCustomerId=@json($CurrentUser->id); //Get from dashboard
-    let CustomerRegisteredOrders =@json(count($CustomerRegisteredOrders)); //Get from dashboard
-    let invoices=@json(count($CustomerInvoices));
+    let CurrentCustomerId=<?php echo json_encode($CurrentUser->id, 15, 512) ?>; //Get from dashboard
+    let CustomerRegisteredOrders =<?php echo json_encode(count($CustomerRegisteredOrders), 15, 512) ?>; //Get from dashboard
+    let invoices=<?php echo json_encode(count($CustomerInvoices), 15, 512) ?>;
 
     document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
 
     document.getElementById('CustomerInvoices').innerHTML = invoices;
     document.getElementById('فاکتور').querySelector('#yellow').innerHTML = invoices;
 
-    {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
-    {{--  ====================  for User New Orders ===================--}}
+    
+    
     setInterval(function () {
         $.ajax({
             type: "GET",
@@ -99,3 +99,4 @@
     }, 30000);
 
 </script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerBadges.blade.php ENDPATH**/ ?>

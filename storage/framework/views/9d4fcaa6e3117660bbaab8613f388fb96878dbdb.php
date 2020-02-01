@@ -77,7 +77,7 @@
 
 
 <script>
-    let CurrentCustomerId=<?php echo json_encode($CustomerId, 15, 512) ?>; //Get from dashboard
+    let CurrentCustomerId=<?php echo json_encode($CurrentUser->id, 15, 512) ?>; //Get from dashboard
     let CustomerRegisteredOrders =<?php echo json_encode(count($CustomerRegisteredOrders), 15, 512) ?>; //Get from dashboard
     let invoices=<?php echo json_encode(count($CustomerInvoices), 15, 512) ?>;
 

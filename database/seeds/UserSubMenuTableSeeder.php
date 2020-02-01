@@ -289,7 +289,7 @@ class UserSubMenuTableSeeder extends Seeder
             14 => [
                 [
                     'SubMenu' => 'فاکتور',
-                    'Url' => '/inbox',
+                    'Url' => '/Invoices',
                     'Icon' => 'fa fa-clipboard',
                 ],
                 [

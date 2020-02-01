@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 //===================================== Orders
+Route::get('/Invoices','OrderController@invoice');
+//Route::post('/dashboard/Order/invoice/{{$Order}}','OrderController@invoice');
 Route::resource('/dashboard/Order',OrderController::class);
 
 

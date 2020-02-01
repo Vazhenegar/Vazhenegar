@@ -16,7 +16,6 @@
     $SiteVisitors=GetSiteVisitors(1);
 
 //  for customer badges
-    $CustomerId=$CurrentUser->id;
     $CustomerRegisteredOrders=CustomerRegisteredOrders($CurrentUser->id);
     $CustomerInvoices=CustomerInvoices($CurrentUser->id);
 

@@ -177,8 +177,10 @@ class OrderController extends Controller
     }
 
     //for invoices that customer should pay
-    public function invoice(Order $Order)
+    public function invoice()
     {
-        return view('vazhenegar.CustomerInvoice',compact('Order'));
+        $Customer=Auth::user();
+        $Order=Order::where('user_id',$Customer->id)->where('status_id',2)->get();
+        return view('vazhenegar.DashboardCustomerNewOrderInvoiceList',compact('Order'));
     }
 }

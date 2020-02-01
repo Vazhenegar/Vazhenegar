@@ -110,7 +110,7 @@
                     @elseif($Role=='مترجم')
                         {{'این کاربر مترجم است'}}
                     @elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id)
-                        {{'این کاربر همان ثبت کننده سفارش است'}}
+                        {{'فرم پرداخت فاکتور مشتری'}}
                     @endif
                     {{--if the order status updated successfully an alert box would be show to admin--}}
                     @if(session('OrderStatus')=='Updated')
