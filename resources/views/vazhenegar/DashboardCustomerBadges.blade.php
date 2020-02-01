@@ -60,7 +60,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="CustomerInvoices">12</h3>
+                <h3 id="CustomerInvoices"></h3>
 
                 <p>فاکتور ها</p>
             </div>
@@ -79,8 +79,12 @@
 <script>
     let CurrentCustomerId=@json($CustomerId); //Get from dashboard
     let CustomerRegisteredOrders =@json(count($CustomerRegisteredOrders)); //Get from dashboard
+    let invoices=@json(count($CustomerInvoices));
 
     document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
+
+    document.getElementById('CustomerInvoices').innerHTML = invoices;
+    document.getElementById('فاکتور').querySelector('#yellow').innerHTML = invoices;
 
     {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
     {{--  ====================  for User New Orders ===================--}}

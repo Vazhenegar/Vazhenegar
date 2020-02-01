@@ -59,8 +59,8 @@
                         </tr>
 
                         <tr>
-                            <td class="pull-right">تعداد کلمات:&nbsp; <?php echo e($Order->Amount); ?>  &nbsp;&nbsp;&nbsp;</td>
-                            <td class="pull-right">قیمت: &nbsp;<?php echo e($Order->TotalPrice); ?></td>
+                            <td class="pull-right">تعداد کلمات:&nbsp; <?php echo e($Order->Amount); ?> &nbsp;&nbsp;&nbsp;</td>
+                            <td class="pull-right">مبلغ کل: &nbsp;<?php echo e($Order->TotalPrice); ?> &nbsp; تومان</td>
                         </tr>
 
                         <tr>
@@ -100,45 +100,18 @@
                                 </button>
                             </td>
                         </tr>
+
                         </tbody>
                     </table>
+                    <hr>
 
                     <?php if($Role=='مدیر'): ?>
-                        <form action="/dashboard/Order/<?php echo e($Order->id); ?>" method="post" id="NewOrderSpecAdmin">
-                            <?php echo e(csrf_field()); ?>
-
-                            <?php echo e(method_field('PATCH')); ?>
-
-                            <table class="table">
-                                <hr>
-                                <thead>بروز رسانی مشخصات فایل</thead>
-                                <tbody>
-
-                                
-                                <tr>
-                                    <td class="pull-right">
-                                        تعداد کلمات: &nbsp;
-                                        <input type="text" class="pull-right form-control" name="WordCount"
-                                               required>
-                                    </td>
-
-                                    
-                                    <td class="pull-right">
-                                        قیمت: &nbsp;
-                                        <input type="text" class="pull-right form-control" name="TotalPrice" required>
-                                    </td>
-
-                                    
-                                    <td class="pull-left submit">
-                                            <button type="submit" class="pull-left btn btn-default">بروز رسانی
-                                                <i class="fa fa-arrow-circle-left"></i></button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </form>
+                        <?php echo $__env->make('vazhenegar.DashboardAdminNewOrderSpec', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php elseif($Role=='مترجم'): ?>
                         <?php echo e('این کاربر مترجم است'); ?>
+
+                    <?php elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id): ?>
+                        <?php echo e('این کاربر همان ثبت کننده سفارش است'); ?>
 
                     <?php endif; ?>
                     

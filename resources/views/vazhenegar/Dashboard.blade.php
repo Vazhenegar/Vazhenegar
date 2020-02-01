@@ -18,6 +18,7 @@
 //  for customer badges
     $CustomerId=$CurrentUser->id;
     $CustomerRegisteredOrders=CustomerRegisteredOrders($CurrentUser->id);
+    $CustomerInvoices=CustomerInvoices($CurrentUser->id);
 
 @endphp
 
@@ -29,8 +30,9 @@
 @include('vazhenegar.DashboardAdminIndex')
 @break
 {{--=============================== ِ Translator =======================================--}}
-@case(8)
+@case(5)
 @section('Title', ' پنل '.$Role)
+@include('vazhenegar.DashboardTranslatorIndex')
 
 
 @break

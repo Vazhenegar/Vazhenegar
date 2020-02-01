@@ -113,7 +113,7 @@ function NewEmployment()
 //for admin dashboard badges in case of registering a new order by any user
 function AllNewRegisteredOrders()
 {
-    $AllNewOrders['orders'] = Order::where('StatusId', 1)->orderBy('id', 'DESC')->get();
+    $AllNewOrders['orders'] = Order::where('status_id', 1)->orderBy('id', 'DESC')->get();
     foreach ($AllNewOrders['orders'] as $key => $order) {
         $TF = TranslationField::where('id', $order['TranslationField'])->value('FieldName');
         $SL = Language::where('id', $order['SourceLanguage'])->value('LanguageName');
@@ -130,22 +130,54 @@ function AllNewRegisteredOrders()
     return $AllNewOrders;
 }
 
+//============== extract list of Translators that match the field and languages of specific order
+function TranslatorsList($OrderTranslationField,$OrderSourceLang,$OrderDestLang)
+{
+    $LangPair=$OrderSourceLang. ' به '. $OrderDestLang;
 
+    //get all active translators
+    $Translators=User::where('Department',4)->where('role_id',5)->where('Status','A')->get();
+
+    $TranslatorID=[];
+    foreach ($Translators as $translator)
+    {
+        $TL=unserialize($translator->UserSelectedLangs);
+        $TF=unserialize($translator->TranslationFields);
+        foreach ($TL as $language)
+        {
+            if ($language==$LangPair){
+                foreach ($TF as $field){
+                    if ($field==$OrderTranslationField){
+                        $TranslatorID[]=$translator->id;
+                    }
+                }
+            }
+        }
+    }
+    return $TranslatorID;
+
+}
 
 //============== Translators
 
 
 
-//============== Users
+//============== Customers
 
 //for user dashboard badges in case of registering a new order
-function CustomerRegisteredOrders($UserId)
+function CustomerRegisteredOrders($CustomerId)
 {
-    return Order::where('UserId', $UserId)
-        ->where('StatusId', 1)
+    return Order::where('user_id', $CustomerId)
+        ->where('status_id','<',10)
         ->get();
 }
 
+function CustomerInvoices($CustomerId)
+{
+    return Order::where('user_id',$CustomerId)
+        ->where('status_id',2)
+        ->get();
+}
 
 
 

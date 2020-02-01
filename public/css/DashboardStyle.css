@@ -52,19 +52,26 @@
     vertical-align: middle;
 }
 
-#NewOrderSpecAdmin table tbody tr td{
-    width: 40%;
-    display: flex;
+/*======================================== Admin new order spec*/
+#NewOrderSpecAdmin table tbody tr td {
+    width: fit-content;
+    display: inline-flex;
     align-items: center;
     border: none;
 }
 
 #NewOrderSpecAdmin table tbody tr td input{
-    width: 60%;
+    width: 50%;
+}
+
+#NewOrderSpecAdmin table tbody tr.OrderPrice td.pull-right{
+    width: 40%;
 }
 
 #NewOrderSpecAdmin table tbody tr td.submit{
     width: 20%;
 }
 
-
+#NewOrderSpecAdmin table tbody tr td.Translators span{
+    width: 100%;
+}

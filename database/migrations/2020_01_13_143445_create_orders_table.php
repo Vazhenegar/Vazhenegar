@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('UserId')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->string('OrderSubject')->nullable();
             $table->dateTime('RegisterDate')->useCurrent();
             $table->dateTime('DeliveryDate');
@@ -28,12 +28,12 @@ class CreateOrdersTable extends Migration
             $table->decimal('TotalPrice',12,3)->nullable();
             $table->decimal('PrePaidPrice',12,3)->nullable();
             $table->bigInteger('ResponsibleUserId')->unsigned()->nullable();
-            $table->tinyInteger('StatusId')->unsigned()->nullable();
+            $table->tinyInteger('status_id')->unsigned()->nullable();
             $table->longText('Description')->nullable();
             $table->string('OrderFile')->nullable();
             $table->timestamps();
 
-            $table->foreign('UserId')
+            $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
@@ -57,7 +57,7 @@ class CreateOrdersTable extends Migration
                 ->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->foreign('StatusId')
+            $table->foreign('status_id')
                 ->references('id')->on('order_statuses')
                 ->onUpdate('cascade')->onDelete('cascade');
         });

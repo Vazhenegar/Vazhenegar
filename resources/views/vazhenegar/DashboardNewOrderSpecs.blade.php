@@ -60,8 +60,8 @@
                         </tr>
 
                         <tr>
-                            <td class="pull-right">تعداد کلمات:&nbsp; {{$Order->Amount}}  &nbsp;&nbsp;&nbsp;</td>
-                            <td class="pull-right">قیمت: &nbsp;{{$Order->TotalPrice}}</td>
+                            <td class="pull-right">تعداد کلمات:&nbsp; {{$Order->Amount}} &nbsp;&nbsp;&nbsp;</td>
+                            <td class="pull-right">مبلغ کل: &nbsp;{{$Order->TotalPrice}} &nbsp; تومان</td>
                         </tr>
 
                         <tr>
@@ -100,43 +100,17 @@
                                 </button>
                             </td>
                         </tr>
+
                         </tbody>
                     </table>
+                    <hr>
 
                     @if($Role=='مدیر')
-                        <form action="/dashboard/Order/{{$Order->id}}" method="post" id="NewOrderSpecAdmin">
-                            {{ csrf_field() }}
-                            {{method_field('PATCH')}}
-                            <table class="table">
-                                <hr>
-                                <thead>بروز رسانی مشخصات فایل</thead>
-                                <tbody>
-
-                                {{-- =============== word count =================================================== --}}
-                                <tr>
-                                    <td class="pull-right">
-                                        تعداد کلمات: &nbsp;
-                                        <input type="text" class="pull-right form-control" name="WordCount"
-                                               required>
-                                    </td>
-
-                                    {{-- =============== Price =================================================== --}}
-                                    <td class="pull-right">
-                                        قیمت: &nbsp;
-                                        <input type="text" class="pull-right form-control" name="TotalPrice" required>
-                                    </td>
-
-                                    {{-- =============== ٍعذئهف =================================================== --}}
-                                    <td class="pull-left submit">
-                                            <button type="submit" class="pull-left btn btn-default">بروز رسانی
-                                                <i class="fa fa-arrow-circle-left"></i></button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </form>
+                        @include('vazhenegar.DashboardAdminNewOrderSpec')
                     @elseif($Role=='مترجم')
                         {{'این کاربر مترجم است'}}
+                    @elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id)
+                        {{'این کاربر همان ثبت کننده سفارش است'}}
                     @endif
                     {{--if the order status updated successfully an alert box would be show to admin--}}
                     @if(session('OrderStatus')=='Updated')

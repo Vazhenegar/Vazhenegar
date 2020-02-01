@@ -17,6 +17,7 @@
 //  for customer badges
     $CustomerId=$CurrentUser->id;
     $CustomerRegisteredOrders=CustomerRegisteredOrders($CurrentUser->id);
+    $CustomerInvoices=CustomerInvoices($CurrentUser->id);
 
 ?>
 
@@ -28,8 +29,9 @@
 <?php echo $__env->make('vazhenegar.DashboardAdminIndex', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php break; ?>
 
-<?php case (8): ?>
+<?php case (5): ?>
 <?php $__env->startSection('Title', ' پنل '.$Role); ?>
+<?php echo $__env->make('vazhenegar.DashboardTranslatorIndex', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <?php break; ?>

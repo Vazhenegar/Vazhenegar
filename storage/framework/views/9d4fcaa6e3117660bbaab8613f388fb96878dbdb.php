@@ -60,7 +60,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="CustomerInvoices">12</h3>
+                <h3 id="CustomerInvoices"></h3>
 
                 <p>فاکتور ها</p>
             </div>
@@ -79,8 +79,12 @@
 <script>
     let CurrentCustomerId=<?php echo json_encode($CustomerId, 15, 512) ?>; //Get from dashboard
     let CustomerRegisteredOrders =<?php echo json_encode(count($CustomerRegisteredOrders), 15, 512) ?>; //Get from dashboard
+    let invoices=<?php echo json_encode(count($CustomerInvoices), 15, 512) ?>;
 
     document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
+
+    document.getElementById('CustomerInvoices').innerHTML = invoices;
+    document.getElementById('فاکتور').querySelector('#yellow').innerHTML = invoices;
 
     
     
