@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 //===================================== Orders
-Route::get('/Invoices','OrderController@invoice');
+Route::get('/dashboard/Invoices','OrderController@invoice');
 //Route::post('/dashboard/Order/invoice/{{$Order}}','OrderController@invoice');
 Route::resource('/dashboard/Order',OrderController::class);
 
@@ -68,3 +68,9 @@ Route::post('/GetSiteVisitors/{day}', function ($day) {
 Route::get('/CustomersRegisteredOrders/{UserId}',function ($UserId){
    return CustomerRegisteredOrders($UserId);
 });
+
+//Get customers invoices
+Route::get('/Invoices/{user_id}', function ($user_id){
+    return CustomerInvoices($user_id);
+});
+

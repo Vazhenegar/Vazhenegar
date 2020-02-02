@@ -4,10 +4,13 @@
     <?php echo e(method_field('PATCH')); ?>
 
     <table class="table">
-        <thead>بخش مدیر</thead>
+        <thead>فرم پرداخت فاکتور مشتری</thead>
         <tbody>
 
         
+        <tr>
+            <td>انتخاب درگاه بانکی:</td>
+        </tr>
         <tr>
             <td class="pull-right">
                 نام مشتری:
@@ -87,4 +90,4 @@
         </tbody>
     </table>
 </form>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminNewOrderSpec.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardNewOrderSpecsCustomer.blade.php ENDPATH**/ ?>

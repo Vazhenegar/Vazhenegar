@@ -155,12 +155,15 @@ class OrderController extends Controller
     {
         $request->has('OrderSubject') ? $Order->OrderSubject=$request->input('OrderSubject'): null;
         $request->has('Description') ? $Order->Description=$request->input('Description'): null;
-        $request->has('WordCount') ? $Order->Amount=$request->input('WordCount'): null;
-        $request->has('TotalPrice') ? $Order->TotalPrice=$request->input('TotalPrice'): null;
-
-        $Order->status_id=2;
-        $Order->save();
         session()->flash('OrderStatus', 'Updated');
+
+        if ($request->has('WordCount') && $request->has('TotalPrice')){
+            $Order->Amount=$request->input('WordCount');
+            $Order->TotalPrice=$request->input('TotalPrice');
+            $Order->status_id=2;
+            session()->flash('OrderStatus', 'PriceAdded');
+        }
+        $Order->save();
         return redirect('/dashboard/Order/'.$Order->id);
 
     }
@@ -180,7 +183,7 @@ class OrderController extends Controller
     public function invoice()
     {
         $Customer=Auth::user();
-        $Order=Order::where('user_id',$Customer->id)->where('status_id',2)->get();
-        return view('vazhenegar.DashboardCustomerNewOrderInvoiceList',compact('Order'));
+        $Order= CustomerInvoices($Customer->id);
+        return view('vazhenegar.DashboardCustomerOrderInvoiceList',compact('Order'));
     }
 }

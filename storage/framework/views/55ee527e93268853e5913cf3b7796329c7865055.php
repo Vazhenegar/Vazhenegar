@@ -22,6 +22,7 @@
     ?>
 
 <?php else: ?>
+
     <div class="wrapper">
 
         
@@ -48,6 +49,7 @@
 <?php endif; ?>
 <?php echo $__env->make('scripts.DashboardCoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<?php echo $__env->make('scripts.DashboardBadgesAndMenusQuantification', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 </html>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\auth\DashboardLayout\DashboardMasterLayout.blade.php ENDPATH**/ ?>

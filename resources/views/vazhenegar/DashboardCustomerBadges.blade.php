@@ -67,7 +67,7 @@
             <div class="icon">
                 <i class="fa fa-money"></i>
             </div>
-            <a href="#" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="/dashboard/Invoices" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -75,27 +75,3 @@
 </div>
 <!-- /.row -->
 {{--=================== End Of Customer Badges   =================================--}}
-
-<script>
-    let CurrentCustomerId=@json($CurrentUser->id); //Get from dashboard
-    let CustomerRegisteredOrders =@json(count($CustomerRegisteredOrders)); //Get from dashboard
-    let invoices=@json(count($CustomerInvoices));
-
-    document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
-
-    document.getElementById('CustomerInvoices').innerHTML = invoices;
-    document.getElementById('فاکتور').querySelector('#yellow').innerHTML = invoices;
-
-    {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
-    {{--  ====================  for User New Orders ===================--}}
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '/CustomersRegisteredOrders/'+CurrentCustomerId,
-            success: function (data) {
-                document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
-            }
-        });
-    }, 30000);
-
-</script>

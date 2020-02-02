@@ -13,7 +13,7 @@
             <div class="icon">
                 <i class="fa fa-file-text"></i>
             </div>
-            <a href="#" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="/dashboard" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -74,76 +74,3 @@
 </div>
 <!-- /.row -->
 {{--=================== End Of Admin Badges   =================================--}}
-{{-- initialize badges with data that sent from dashboard main page--}}
-<script>
-    let allNewRegisteredOrders = @json(count($allNewRegisteredOrders['orders']));//Get from dashboard
-    let employmentRequest =@json($employmentRequest);
-    let OnlineUsers =@json($OnlineUsers);
-    let SiteVisitors =@json($SiteVisitors);
-
-    document.getElementById('NewOrders').innerHTML = allNewRegisteredOrders;
-    document.getElementById('جدید').querySelector('#yellow').innerHTML = allNewRegisteredOrders;
-
-    document.getElementById('NewEmployment').innerHTML = employmentRequest;
-    document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = employmentRequest;
-
-    document.getElementById('OnlineUsers').innerHTML = OnlineUsers;
-
-    document.getElementById('SiteVisitors').innerHTML = SiteVisitors;
-
-    {{--  ====================  Refresh dashboard data every 30 seconds ===================--}}
-    {{--  ====================  for new orders ===================--}}
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '/AllNewRegisteredOrders',
-            success: function (data) {
-                let Amount = data['orders'].length;
-                document.getElementById('NewOrders').innerHTML = Amount;
-                document.getElementById('جدید').querySelector('#yellow').innerHTML = Amount;
-            }
-        });
-    }, 30000);
-
-    {{--  ====================  for online users ===================--}}
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '/GetOnlineUsers',
-            success: function (data) {
-                document.getElementById('OnlineUsers').innerHTML = data;
-
-            }
-        });
-    }, 30000);
-
-    {{--  ====================  for new employments ================--}}
-
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '/NewEmployments',
-            success: function (data) {
-                document.getElementById('NewEmployment').innerHTML = data;
-                document.getElementById('درخواست همکاری').querySelector('#yellow').innerHTML = data;
-            }
-        });
-    }, 30000);
-
-        {{-- ===================   for daily visitors ===============--}}
-    let day = 1;
-    let token = "{{ csrf_token() }}";
-    setInterval(function () {
-        $.ajax({
-            type: "POST",
-            url: '/GetSiteVisitors/' + day,
-            data: {_token: token},
-            success: function (data) {
-                document.getElementById('SiteVisitors').innerHTML = data;
-            }
-        });
-    }, 30000);
-
-
-
-</script>

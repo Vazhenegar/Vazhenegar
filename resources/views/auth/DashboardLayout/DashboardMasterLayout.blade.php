@@ -22,6 +22,7 @@
     @endphp
 
 @else
+
     <div class="wrapper">
 
         {{--=========================================================--}}
@@ -47,6 +48,7 @@
     </div>
 @endguest
 @include('scripts.DashboardCoreScripts')
-
+{{-- script for initialize badges with data --}}
+@include('scripts.DashboardBadgesAndMenusQuantification')
 </body>
 </html>

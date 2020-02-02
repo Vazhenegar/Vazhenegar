@@ -1,27 +1,28 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
-@php
-//  General
-    $CurrentUser=Auth::user();
-    $Role=$CurrentUser->role()->value('RoleName');
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
-    $UserStatus=$CurrentUser->Status;
-    $UserMode=$CurrentUser->Mode;
-    $Menus=MenuPicker($CurrentUser);
+@section('content')
 
- // for admin badges
-    $allNewRegisteredOrders=AllNewRegisteredOrders();
-    $employmentRequest=NewEmployment();
-    $OnlineUsers=OnlineUsers();
-    $SiteVisitors=GetSiteVisitors(1);
+@php
+        //this file is to save and reuse logged in user info's in dashboard pages.
+//  General
+use Illuminate\Support\Facades\Auth;
+$CurrentUser = Auth::user();
+$Role = $CurrentUser->role()->value('RoleName');
+$UserFullName = $CurrentUser->FirstName . ' ' . $CurrentUser->LastName;
+$UserStatus = $CurrentUser->Status;
+$UserMode = $CurrentUser->Mode;
+$Menus = MenuPicker($CurrentUser);
+
+// for admin badges
+$allNewRegisteredOrders = AllNewRegisteredOrders();
+$employmentRequest = NewEmployment();
+$OnlineUsers = OnlineUsers();
+$SiteVisitors = GetSiteVisitors(1);
 
 //  for customer badges
-    $CustomerRegisteredOrders=CustomerRegisteredOrders($CurrentUser->id);
-    $CustomerInvoices=CustomerInvoices($CurrentUser->id);
-
+$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
+$CustomerInvoices = CustomerInvoices($CurrentUser->id);
 @endphp
 
-@section('content')
     @switch($CurrentUser->role()->value('id'))
         {{--=============================== ِ Admin =======================================--}}
         @case(1)
@@ -32,8 +33,6 @@
 @case(5)
 @section('Title', ' پنل '.$Role)
 @include('vazhenegar.DashboardTranslatorIndex')
-
-
 @break
 {{--=============================== ِ Customer =======================================--}}
 @case(11)

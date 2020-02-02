@@ -67,7 +67,7 @@
             <div class="icon">
                 <i class="fa fa-money"></i>
             </div>
-            <a href="#" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="/dashboard/Invoices" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -75,28 +75,4 @@
 </div>
 <!-- /.row -->
 
-
-<script>
-    let CurrentCustomerId=<?php echo json_encode($CurrentUser->id, 15, 512) ?>; //Get from dashboard
-    let CustomerRegisteredOrders =<?php echo json_encode(count($CustomerRegisteredOrders), 15, 512) ?>; //Get from dashboard
-    let invoices=<?php echo json_encode(count($CustomerInvoices), 15, 512) ?>;
-
-    document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
-
-    document.getElementById('CustomerInvoices').innerHTML = invoices;
-    document.getElementById('فاکتور').querySelector('#yellow').innerHTML = invoices;
-
-    
-    
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '/CustomersRegisteredOrders/'+CurrentCustomerId,
-            success: function (data) {
-                document.getElementById('CustomerNewOrders').innerHTML = CustomerRegisteredOrders;
-            }
-        });
-    }, 30000);
-
-</script>
 <?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardCustomerBadges.blade.php ENDPATH**/ ?>

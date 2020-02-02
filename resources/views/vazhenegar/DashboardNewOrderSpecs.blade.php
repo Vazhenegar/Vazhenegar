@@ -8,6 +8,16 @@
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
     $Menus=MenuPicker($CurrentUser);
+
+    // for admin badges
+$allNewRegisteredOrders = AllNewRegisteredOrders();
+$employmentRequest = NewEmployment();
+$OnlineUsers = OnlineUsers();
+$SiteVisitors = GetSiteVisitors(1);
+
+//  for customer badges
+$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
+$CustomerInvoices = CustomerInvoices($CurrentUser->id);
 @endphp
 
 @section('content')
@@ -106,15 +116,18 @@
                     <hr>
 
                     @if($Role=='مدیر')
-                        @include('vazhenegar.DashboardAdminNewOrderSpec')
+                        @include('vazhenegar.DashboardNewOrderSpecsAdmin')
                     @elseif($Role=='مترجم')
                         {{'این کاربر مترجم است'}}
                     @elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id)
-                        {{'فرم پرداخت فاکتور مشتری'}}
+                        @include('vazhenegar.DashboardNewOrderSpecsCustomer')
                     @endif
+
                     {{--if the order status updated successfully an alert box would be show to admin--}}
                     @if(session('OrderStatus')=='Updated')
-                        <script>alert("مشخصات سفارش با موفقیت بروز رسانی شد. در حال انتظار برای پرداخت مبلغ از سوی مشتری.")</script>
+                        <script>alert("مشخصات سفارش با موفقیت بروز رسانی شد.")</script>
+                    @elseif(session('OrderStatus')=='PriceAdded')
+                        <script>alert("وضعیت سفارش با موفقیت بروز رسانی شد. در حال انتظار برای پرداخت مبلغ از سوی مشتری.")</script>
                     @endif
                 </div>
 

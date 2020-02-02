@@ -16,7 +16,7 @@ class UserSubMenuTableSeeder extends Seeder
             1 => [
                 [
                     'SubMenu' => 'جدید',
-                    'Url' => 'New',
+                    'Url' => '/dashboard',
                     'Icon' => 'fa fa-star',
                 ],
                 [
@@ -236,7 +236,7 @@ class UserSubMenuTableSeeder extends Seeder
             //مشتری - سفارشات
             12 => [
                 [
-                    'SubMenu' => 'جدید',
+                    'SubMenu' => 'ثبت سفارش جدید',
                     'Url' => '/dashboard/Order',
                     'Icon' => 'fa fa-star',
                 ],
@@ -289,7 +289,7 @@ class UserSubMenuTableSeeder extends Seeder
             14 => [
                 [
                     'SubMenu' => 'فاکتور',
-                    'Url' => '/Invoices',
+                    'Url' => '/dashboard/Invoices',
                     'Icon' => 'fa fa-clipboard',
                 ],
                 [

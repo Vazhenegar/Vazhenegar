@@ -7,6 +7,16 @@
     $UserStatus=$CurrentUser->Status;
     $UserMode=$CurrentUser->Mode;
     $Menus=MenuPicker($CurrentUser);
+
+    // for admin badges
+$allNewRegisteredOrders = AllNewRegisteredOrders();
+$employmentRequest = NewEmployment();
+$OnlineUsers = OnlineUsers();
+$SiteVisitors = GetSiteVisitors(1);
+
+//  for customer badges
+$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
+$CustomerInvoices = CustomerInvoices($CurrentUser->id);
 ?>
 
 <?php $__env->startSection('content'); ?>
@@ -106,17 +116,19 @@
                     <hr>
 
                     <?php if($Role=='مدیر'): ?>
-                        <?php echo $__env->make('vazhenegar.DashboardAdminNewOrderSpec', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                        <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php elseif($Role=='مترجم'): ?>
                         <?php echo e('این کاربر مترجم است'); ?>
 
                     <?php elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id): ?>
-                        <?php echo e('فرم پرداخت فاکتور مشتری'); ?>
-
+                        <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php endif; ?>
+
                     
                     <?php if(session('OrderStatus')=='Updated'): ?>
-                        <script>alert("مشخصات سفارش با موفقیت بروز رسانی شد. در حال انتظار برای پرداخت مبلغ از سوی مشتری.")</script>
+                        <script>alert("مشخصات سفارش با موفقیت بروز رسانی شد.")</script>
+                    <?php elseif(session('OrderStatus')=='PriceAdded'): ?>
+                        <script>alert("وضعیت سفارش با موفقیت بروز رسانی شد. در حال انتظار برای پرداخت مبلغ از سوی مشتری.")</script>
                     <?php endif; ?>
                 </div>
 
