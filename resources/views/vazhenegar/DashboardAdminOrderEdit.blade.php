@@ -1,18 +1,9 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 @section('Title', 'ویرایش مشخصات سفارش')
 
-@php
-    $CurrentUser=Auth::user();
-    $Role=$CurrentUser->role()->value('RoleName');
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
-    $UserStatus=$CurrentUser->Status;
-    $UserMode=$CurrentUser->Mode;
-    $Menus=MenuPicker($CurrentUser);
-@endphp
-
 @section('content')
-    {{--=================== New order for customer  =================================--}}
+@include('vazhenegar.DashboardCurrentUser')
+    {{--=================== order edit form  =================================--}}
     <!-- Main row -->
     <div class="row">
         <!-- right col -->
@@ -26,7 +17,7 @@
 
                 <div class="box-body">
                     <form action="/dashboard/Order/{{$Order->id}}" method="post">
-                        {{ csrf_field() }}
+                        @csrf
                         {{method_field('PATCH')}}
 
 

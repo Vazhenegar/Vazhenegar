@@ -70,7 +70,7 @@ Route::get('/CustomersRegisteredOrders/{UserId}',function ($UserId){
 });
 
 //Get customers invoices
-Route::get('/Invoices/{user_id}', function ($user_id){
-    return CustomerInvoices($user_id);
+Route::get('/Invoices/{$CustomerId}/{$status_id}', function ($CustomerId, $status_id){
+    return CustomerInvoices($CustomerId, $status_id);
 });
 

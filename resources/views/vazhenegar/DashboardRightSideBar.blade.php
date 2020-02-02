@@ -9,8 +9,8 @@
                 <img src="{{asset('images/site/user.png')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-right info">
-                <p>{{$UserFullName}}</p>
-                <a id="UserMode"><i class="fa fa-circle text-success"></i>{{$CurrentUser->mode($UserMode)}}
+                <p>{{DashboardCurrentUser::$UserFullName}}</p>
+                <a id="UserMode"><i class="fa fa-circle text-success"></i>{{DashboardCurrentUser::$CurrentUser->mode(DashboardCurrentUser::$UserMode)}}
                 </a>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 </a>
             </li>
 
-            @foreach($Menus as $item)
+            @foreach(DashboardCurrentUser::$Menus as $item)
                 {{--========================================================================--}}
                 <li class="treeview">
                     <a id="{{$item->MainMenu}}" href="{{$item->Url}}">

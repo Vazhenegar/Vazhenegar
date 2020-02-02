@@ -1,6 +1,6 @@
 <form action="#" method="post" id="NewOrderSpecAdmin">
     @csrf
-    {{method_field('PATCH')}}
+
     <table class="table">
         <thead>فرم پرداخت فاکتور مشتری</thead>
         <tbody>
@@ -11,8 +11,7 @@
         </tr>
         <tr>
             <td class="pull-right">
-                نام مشتری:
-                 {{$RelatedCustomer->FirstName . ' ' . $RelatedCustomer->LastName}}
+                <img class="BankPortal" src="" alt="">
             </td>
             &nbsp;
             <td class="pull-right">

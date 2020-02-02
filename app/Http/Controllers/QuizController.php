@@ -148,10 +148,6 @@ class QuizController extends Controller
         //create pair of quiz answer array to save in user db
         $this->QuizReference = [];
 
-//        $rules = [
-//            'QuizAnswer' => [''],
-//        ];
-//        $this->validate($request, $rules);
         $user = User::find(session('TranslatorId'));
         $user->UserQuizAnswer = $request->input('QuizAnswer');
 

@@ -1,4 +1,4 @@
-{{--=================== Orders List  =================================--}}
+
 
 <div class="box box-primary">
     <div class="box-header">
@@ -30,13 +30,13 @@
             </tr>
             </thead>
             <tbody>
-            @if(count(DashboardCurrentUser::$allNewRegisteredOrders['orders'])==0)
+            <?php if(count(DashboardCurrentUser::$allNewRegisteredOrders['orders'])==0): ?>
                 <tr>
                     <td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>
 
                 </tr>
-            @else
-                @php
+            <?php else: ?>
+                <?php
                     $counter=1;
                  foreach(DashboardCurrentUser::$allNewRegisteredOrders['orders'] as $order){ //get from dashboard
                     echo '<tr>';
@@ -54,8 +54,8 @@
                      '</td>';
                      echo '</tr>';
                  }
-                @endphp
-            @endif
+                ?>
+            <?php endif; ?>
             </tbody>
         </table>
     </div>
@@ -63,9 +63,9 @@
 
 </div>
 
-{{--=================== End Of Orders List  =================================--}}
 
-{{-- Scripts for new orders that customers registered --}}
+
+
 <script>
     // ====================  Refresh Orders List every 30 seconds ===================
     // ====================  for new orders ===================
@@ -122,3 +122,4 @@
     }, 30000);
 
 </script>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardAdminOrdersList.blade.php ENDPATH**/ ?>

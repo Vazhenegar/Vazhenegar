@@ -1,4 +1,5 @@
 <?php
+
 use App\Session;
 use App\User;
 use App\Order;
@@ -65,13 +66,13 @@ function DateTimeConversion($DateTime, $To)
     $M = Str::substr($DateTime, 14, 2);
     $S = Str::substr($DateTime, 17, 2);
     if ($To == 'J') {
-        $JD=Verta::getJalali($year, $month, $day);
-        $JD=Verta::create($JD[0],$JD[1],$JD[2],$H,$M,$S);
+        $JD = Verta::getJalali($year, $month, $day);
+        $JD = Verta::create($JD[0], $JD[1], $JD[2], $H, $M, $S);
         return $JD->DateTime()->format('Y-m-d H:i:s');
 
     } elseif ($To == "G") {
         $GD = Verta::getGregorian($year, $month, $day);
-        $GD= Verta::create($GD[0], $GD[1], $GD[2], $H, $M, $S);
+        $GD = Verta::create($GD[0], $GD[1], $GD[2], $H, $M, $S);
         return $GD->DateTime()->format('Y-m-d H:i:s');
 
     }
@@ -81,15 +82,15 @@ function DateTimeConversion($DateTime, $To)
 //Give Number of visitors that see website in last X day(s)
 function GetSiteVisitors($day)
 {
-    return Session::where('last_activity', '>=',date_timestamp_get(Carbon::now()->subDays($day)))
+    return Session::where('last_activity', '>=', date_timestamp_get(Carbon::now()->subDays($day)))
         ->count();
 }
 
 //look for users with user_id is sessions table to set their mode to ON in users table
 function GetOnlineUsersSession()
 {
-    $ids= Session::whereNotNull('user_id')
-        ->where('last_activity', '>=',date_timestamp_get(Carbon::now()->subMinutes(1)))
+    $ids = Session::whereNotNull('user_id')
+        ->where('last_activity', '>=', date_timestamp_get(Carbon::now()->subMinutes(1)))
         ->pluck('user_id');
     $ids->unique()->values()->all();
     return $ids;
@@ -131,24 +132,22 @@ function AllNewRegisteredOrders()
 }
 
 //============== extract list of Translators that match the field and languages of specific order
-function TranslatorsList($OrderTranslationField,$OrderSourceLang,$OrderDestLang)
+function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLang)
 {
-    $LangPair=$OrderSourceLang. ' به '. $OrderDestLang;
+    $LangPair = $OrderSourceLang . ' به ' . $OrderDestLang;
 
     //get all active translators
-    $Translators=User::where('Department',4)->where('role_id',5)->where('Status','A')->get();
+    $Translators = User::where('Department', 4)->where('role_id', 5)->where('Status', 'A')->get();
 
-    $TranslatorID=[];
-    foreach ($Translators as $translator)
-    {
-        $TL=unserialize($translator->UserSelectedLangs);
-        $TF=unserialize($translator->TranslationFields);
-        foreach ($TL as $language)
-        {
-            if ($language==$LangPair){
-                foreach ($TF as $field){
-                    if ($field==$OrderTranslationField){
-                        $TranslatorID[]=$translator->id;
+    $TranslatorID = [];
+    foreach ($Translators as $translator) {
+        $TL = unserialize($translator->UserSelectedLangs);
+        $TF = unserialize($translator->TranslationFields);
+        foreach ($TL as $language) {
+            if ($language == $LangPair) {
+                foreach ($TF as $field) {
+                    if ($field == $OrderTranslationField) {
+                        $TranslatorID[] = $translator->id;
                     }
                 }
             }
@@ -161,21 +160,21 @@ function TranslatorsList($OrderTranslationField,$OrderSourceLang,$OrderDestLang)
 //============== Translators
 
 
-
 //============== Customers
 
 //for user dashboard badges in case of registering a new order
 function CustomerRegisteredOrders($CustomerId)
 {
     return Order::where('user_id', $CustomerId)
-        ->where('status_id','<',10)
+        ->where('status_id', '<', 10)
         ->get();
 }
 
-function CustomerInvoices($CustomerId)
+//Get list of orders that are ready for customer payment. (status_id = 1-> prepayment orders, 2-> final payment
+function CustomerInvoices($CustomerId, $status_id)
 {
-    return Order::where('user_id',$CustomerId)
-        ->where('status_id',2)
+    return Order::where('user_id', $CustomerId)
+        ->where('status_id', $status_id)
         ->get();
 }
 

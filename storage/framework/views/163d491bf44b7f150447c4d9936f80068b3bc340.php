@@ -1,7 +1,5 @@
-<form action="/dashboard/Order/<?php echo e($Order->id); ?>" method="post" id="NewOrderSpecAdmin">
-    <?php echo e(csrf_field()); ?>
-
-    <?php echo e(method_field('PATCH')); ?>
+<form action="#" method="post" id="NewOrderSpecAdmin">
+    <?php echo csrf_field(); ?>
 
     <table class="table">
         <thead>فرم پرداخت فاکتور مشتری</thead>
@@ -9,10 +7,11 @@
 
         
         <tr>
+            <td>انتخاب درگاه بانکی:</td>
+        </tr>
+        <tr>
             <td class="pull-right">
-                نام مشتری:
-                 <?php echo e($RelatedCustomer->FirstName . ' ' . $RelatedCustomer->LastName); ?>
-
+                <img class="BankPortal" src="" alt="">
             </td>
             &nbsp;
             <td class="pull-right">

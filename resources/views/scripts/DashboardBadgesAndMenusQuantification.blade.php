@@ -1,38 +1,17 @@
 {{-- initialize badges and menus with data that sent from dashboard main page--}}
-@php
-    //this file is to save and reuse logged in user info's in dashboard pages.
-//  General
-use Illuminate\Support\Facades\Auth;
-$CurrentUser = Auth::user();
-$Role = $CurrentUser->role()->value('RoleName');
-$UserFullName = $CurrentUser->FirstName . ' ' . $CurrentUser->LastName;
-$UserStatus = $CurrentUser->Status;
-$UserMode = $CurrentUser->Mode;
-$Menus = MenuPicker($CurrentUser);
-
-// for admin badges
-$allNewRegisteredOrders = AllNewRegisteredOrders();
-$employmentRequest = NewEmployment();
-$OnlineUsers = OnlineUsers();
-$SiteVisitors = GetSiteVisitors(1);
-
-//  for customer badges
-$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
-$CustomerInvoices = CustomerInvoices($CurrentUser->id);
-@endphp
 
 {{--    For badges and menus--}}
 <script>
     //admin
-    let allNewRegisteredOrders = @json(count($allNewRegisteredOrders['orders']));//Get from dashboard
-    let employmentRequest =@json($employmentRequest);
-    let OnlineUsers =@json($OnlineUsers);
-    let SiteVisitors =@json($SiteVisitors);
+    let allNewRegisteredOrders = @json(count(DashboardCurrentUser::$allNewRegisteredOrders['orders']));
+    let employmentRequest =@json(DashboardCurrentUser::$employmentRequest);
+    let OnlineUsers =@json(DashboardCurrentUser::$OnlineUsers);
+    let SiteVisitors =@json(DashboardCurrentUser::$SiteVisitors);
 
     //customer
-    let CurrentCustomerId =@json($CurrentUser->id);
-    let CustomerRegisteredOrders =@json(count($CustomerRegisteredOrders));
-    let invoices =@json(count($CustomerInvoices));
+    let CurrentCustomerId =@json(DashboardCurrentUser::$CurrentUser->id);
+    let CustomerRegisteredOrders =@json(count(DashboardCurrentUser::$CustomerRegisteredOrders));
+    let invoices =@json(count(DashboardCurrentUser::$CustomerInvoices));
 
 
     function setBadgeMenuValues(element_id,value,color) {
@@ -142,7 +121,7 @@ $CustomerInvoices = CustomerInvoices($CurrentUser->id);
         setInterval(function () {
             $.ajax({
                 type: "GET",
-                url: '/Invoices/' + CurrentCustomerId,
+                url: '/Invoices/' + CurrentCustomerId + '/2',
                 success: function (data) {
                     invoices=data.length;
                     setdata();

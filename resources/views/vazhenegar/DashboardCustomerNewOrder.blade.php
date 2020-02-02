@@ -1,17 +1,9 @@
 @extends('auth.DashboardLayout.DashboardMasterLayout')
 @section('Title', 'ثبت سفارش جدید')
 
-@php
-    $CurrentUser=Auth::user();
-    $Role=$CurrentUser->role()->value('RoleName');
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
-    $UserStatus=$CurrentUser->Status;
-    $UserMode=$CurrentUser->Mode;
-    $Menus=MenuPicker($CurrentUser);
-@endphp
 
 @section('content')
+@include('vazhenegar.DashboardCurrentUser')
     {{--=================== New order for customer  =================================--}}
     <!-- Main row -->
     <div class="row">
@@ -26,7 +18,7 @@
 
                 <div class="box-body">
                     <form action="/dashboard/Order" method="post" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                        @csrf
 
                         {{-- =============== Subject =================================================== --}}
                         <div class="form-group">

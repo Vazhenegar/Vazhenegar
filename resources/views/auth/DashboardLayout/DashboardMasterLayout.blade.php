@@ -25,6 +25,8 @@
 
     <div class="wrapper">
 
+
+
         {{--=========================================================--}}
 
         @include('vazhenegar.DashboardTopBar')
@@ -36,6 +38,7 @@
         {{--=========================================================--}}
 
         @include('vazhenegar.DashboardLeftSideBar')
+
 
         {{--   main content of dashboard      --}}
         <div class="content-wrapper">

@@ -1,6 +1,5 @@
 <form action="/dashboard/Order/<?php echo e($Order->id); ?>" method="post" id="NewOrderSpecAdmin">
-    <?php echo e(csrf_field()); ?>
-
+    <?php echo csrf_field(); ?>
     <?php echo e(method_field('PATCH')); ?>
 
     <table class="table">

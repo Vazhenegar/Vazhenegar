@@ -122,8 +122,8 @@ $CustomerInvoices = CustomerInvoices($CurrentUser->id);
 
                     <?php elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id): ?>
                         <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
                     <?php endif; ?>
+
                     
                     <?php if(session('OrderStatus')=='Updated'): ?>
                         <script>alert("مشخصات سفارش با موفقیت بروز رسانی شد.")</script>

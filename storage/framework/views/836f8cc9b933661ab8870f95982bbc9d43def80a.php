@@ -1,9 +1,18 @@
-{{--=================== Customer Invoice List  =================================--}}
-@extends('auth.DashboardLayout.DashboardMasterLayout')
-@section('Title', 'مشخصات سفارش جدید')
+<?php $__env->startSection('Title', 'مشخصات سفارش جدید'); ?>
+<?php
+    $CurrentUser=Auth::user();
+    $Role=$CurrentUser->role()->value('RoleName');
+    $CurrentUser->Mode='ON'; $CurrentUser->save();
+    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
+    $UserStatus=$CurrentUser->Status;
+    $UserMode=$CurrentUser->Mode;
+    $Menus=MenuPicker($CurrentUser);
+    $CustomerRegisteredOrders=CustomerRegisteredOrders($CurrentUser->id);
+    $CustomerInvoices=CustomerInvoices($CurrentUser->id);
+?>
 
-@section('content')
-@include('vazhenegar.DashboardCurrentUser')
+<?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('vazhenegar.DashboardCustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <div class="box box-primary">
     <div class="box-header">
@@ -32,13 +41,13 @@
             </tr>
             </thead>
             <tbody>
-            @if(count($Order)==0)
+            <?php if(count($Order)==0): ?>
                 <tr>
                     <td align='center' colspan='8'>فاکتور جدیدی وجود ندارد</td>
 
                 </tr>
-            @else
-                @php
+            <?php else: ?>
+                <?php
                     $counter=1;
                  foreach($Order as $item){
                     echo '<tr>';
@@ -53,8 +62,8 @@
                      '</td>';
                      echo '</tr>';
                  }
-                @endphp
-            @endif
+                ?>
+            <?php endif; ?>
             </tbody>
         </table>
     </div>
@@ -63,6 +72,8 @@
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-{{--=================== End Of Orders List  =================================--}}
+
+
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerOrderInvoiceList.blade.php ENDPATH**/ ?>

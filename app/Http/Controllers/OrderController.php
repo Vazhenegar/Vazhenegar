@@ -180,10 +180,9 @@ class OrderController extends Controller
     }
 
     //for invoices that customer should pay
-    public function invoice()
+    public function invoice($CustomerId, $StatusId)
     {
-        $Customer=Auth::user();
-        $Order= CustomerInvoices($Customer->id);
+        $Order= CustomerInvoices($CustomerId, $StatusId);
         return view('vazhenegar.DashboardCustomerOrderInvoiceList',compact('Order'));
     }
 }
