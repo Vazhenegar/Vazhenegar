@@ -97,11 +97,11 @@
                     </table>
                     <hr>
 
-                    @if($Role=='مدیر')
+                    @if(DashboardCurrentUser::$Role=='مدیر')
                         @include('vazhenegar.DashboardNewOrderSpecsAdmin')
-                    @elseif($Role=='مترجم')
+                    @elseif(DashboardCurrentUser::$Role=='مترجم')
                         {{'این کاربر مترجم است'}}
-                    @elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id)
+                    @elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id)
                         @include('vazhenegar.DashboardNewOrderSpecsCustomer')
                     @endif
 

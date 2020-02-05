@@ -22,10 +22,7 @@ if (!class_exists('DashboardCurrentUser')) {
 
     }
 }
-?>
 
-<?php
-    //this file is to save and reuse logged in user info's in dashboard pages.
 //  General
 use Illuminate\Support\Facades\Auth;
 DashboardCurrentUser::$CurrentUser= Auth::user();
@@ -43,7 +40,7 @@ DashboardCurrentUser::$SiteVisitors = GetSiteVisitors(1);
 
 //  for customer badges
 DashboardCurrentUser::$CustomerRegisteredOrders = CustomerRegisteredOrders(DashboardCurrentUser::$CurrentUser->id);
-DashboardCurrentUser::$CustomerInvoices = CustomerInvoices(DashboardCurrentUser::$CurrentUser->id);
+DashboardCurrentUser::$CustomerInvoices = CustomerInvoices(DashboardCurrentUser::$CurrentUser->id,2);
 
 ?>
 

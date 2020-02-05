@@ -1,10 +1,12 @@
 {{--=================== Customer Invoice List  =================================--}}
 @extends('auth.DashboardLayout.DashboardMasterLayout')
-@section('Title', 'مشخصات سفارش جدید')
+@section('Title', 'فاکتورها')
 
 @section('content')
 @include('vazhenegar.DashboardCurrentUser')
-
+@php
+    $Order= CustomerInvoices(DashboardCurrentUser::$CurrentUser->id,2);
+@endphp
     <div class="box box-primary">
     <div class="box-header">
         <i class="fa fa-clipboard"></i>

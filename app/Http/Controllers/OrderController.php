@@ -179,10 +179,9 @@ class OrderController extends Controller
         //
     }
 
-    //for invoices that customer should pay
-    public function invoice($CustomerId, $StatusId)
+    //save user invoice payment in db
+    public function payment($user_id, $order_id)
     {
-        $Order= CustomerInvoices($CustomerId, $StatusId);
-        return view('vazhenegar.DashboardCustomerOrderInvoiceList',compact('Order'));
+
     }
 }

@@ -1,25 +1,7 @@
 <?php $__env->startSection('Title', 'مشخصات سفارش جدید'); ?>
-<?php
-    $CurrentUser=Auth::user();
-    $Role=$CurrentUser->role()->value('RoleName');
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
-    $UserStatus=$CurrentUser->Status;
-    $UserMode=$CurrentUser->Mode;
-    $Menus=MenuPicker($CurrentUser);
-
-    // for admin badges
-$allNewRegisteredOrders = AllNewRegisteredOrders();
-$employmentRequest = NewEmployment();
-$OnlineUsers = OnlineUsers();
-$SiteVisitors = GetSiteVisitors(1);
-
-//  for customer badges
-$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
-$CustomerInvoices = CustomerInvoices($CurrentUser->id);
-?>
 
 <?php $__env->startSection('content'); ?>
+<?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
     <!-- Main row -->
     <div class="row">
@@ -115,12 +97,12 @@ $CustomerInvoices = CustomerInvoices($CurrentUser->id);
                     </table>
                     <hr>
 
-                    <?php if($Role=='مدیر'): ?>
+                    <?php if(DashboardCurrentUser::$Role=='مدیر'): ?>
                         <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                    <?php elseif($Role=='مترجم'): ?>
+                    <?php elseif(DashboardCurrentUser::$Role=='مترجم'): ?>
                         <?php echo e('این کاربر مترجم است'); ?>
 
-                    <?php elseif($Role=='مشتری' && $Order->user_id==$CurrentUser->id): ?>
+                    <?php elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id): ?>
                         <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php endif; ?>
 

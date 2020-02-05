@@ -26,7 +26,7 @@ class CreateOrdersTable extends Migration
             $table->longText('TranslationParts')->nullable();
             $table->integer('Amount')->nullable(); //number of words to be translated
             $table->decimal('TotalPrice',12,3)->nullable();
-            $table->decimal('PrePaidPrice',12,3)->nullable();
+            $table->decimal('PaidPrice',12,3)->default(0);
             $table->bigInteger('ResponsibleUserId')->unsigned()->nullable();
             $table->tinyInteger('status_id')->unsigned()->nullable();
             $table->longText('Description')->nullable();

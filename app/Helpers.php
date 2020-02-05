@@ -171,12 +171,10 @@ function CustomerRegisteredOrders($CustomerId)
 }
 
 //Get list of orders that are ready for customer payment. (status_id = 1-> prepayment orders, 2-> final payment
-function CustomerInvoices($CustomerId, $status_id)
+function CustomerInvoices($user_id, $status_id)
 {
-    return Order::where('user_id', $CustomerId)
+    return Order::where('user_id', $user_id)
         ->where('status_id', $status_id)
         ->get();
+
 }
-
-
-

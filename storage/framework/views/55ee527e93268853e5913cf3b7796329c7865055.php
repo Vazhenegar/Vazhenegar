@@ -25,28 +25,7 @@
 
     <div class="wrapper">
 
-        
-        <?php
-        class DashboardCurrentUser{
-            public static $CurrentUser;
-            public static $Role;
-            public static $UserFullName;
-            public static $UserStatus;
-            public static $UserMode;
-            public static $Menus;
 
-// for admin badges
-            public static $allNewRegisteredOrders;
-            public static $employmentRequest;
-            public static $OnlineUsers;
-            public static $SiteVisitors;
-
-//  for customer badges
-            public static $CustomerRegisteredOrders;
-            public static $CustomerInvoices;
-
-        }
-        ?>
 
         
 

@@ -1,25 +1,46 @@
 
 <?php
-    //this file is to save and reuse logged in user info's in dashboard pages.
-//  General
-use Illuminate\Support\Facades\Auth;
-
-$CurrentUser = Auth::user();
-$Role = $CurrentUser->role()->value('RoleName');
-$UserFullName = $CurrentUser->FirstName . ' ' . $CurrentUser->LastName;
-$UserStatus = $CurrentUser->Status;
-$UserMode = $CurrentUser->Mode;
-$Menus = MenuPicker($CurrentUser);
+if (!class_exists('DashboardCurrentUser')) {
+    class DashboardCurrentUser
+    {
+        public static $CurrentUser;
+        public static $Role;
+        public static $UserFullName;
+        public static $UserStatus;
+        public static $UserMode;
+        public static $Menus;
 
 // for admin badges
-$allNewRegisteredOrders = AllNewRegisteredOrders();
-$employmentRequest = NewEmployment();
-$OnlineUsers = OnlineUsers();
-$SiteVisitors = GetSiteVisitors(1);
+        public static $allNewRegisteredOrders;
+        public static $employmentRequest;
+        public static $OnlineUsers;
+        public static $SiteVisitors;
 
 //  for customer badges
-$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
-$CustomerInvoices = CustomerInvoices($CurrentUser->id);
+        public static $CustomerRegisteredOrders;
+        public static $CustomerInvoices;
+
+    }
+}
+
+//  General
+use Illuminate\Support\Facades\Auth;
+DashboardCurrentUser::$CurrentUser= Auth::user();
+DashboardCurrentUser::$Role = DashboardCurrentUser::$CurrentUser->role()->value('RoleName');
+DashboardCurrentUser::$UserFullName = DashboardCurrentUser::$CurrentUser->FirstName . ' ' . DashboardCurrentUser::$CurrentUser->LastName;
+DashboardCurrentUser::$UserStatus = DashboardCurrentUser::$CurrentUser->Status;
+DashboardCurrentUser::$UserMode = DashboardCurrentUser::$CurrentUser->Mode;
+DashboardCurrentUser::$Menus = MenuPicker(DashboardCurrentUser::$CurrentUser);
+
+// for admin badges
+DashboardCurrentUser::$allNewRegisteredOrders = AllNewRegisteredOrders();
+DashboardCurrentUser::$employmentRequest = NewEmployment();
+DashboardCurrentUser::$OnlineUsers = OnlineUsers();
+DashboardCurrentUser::$SiteVisitors = GetSiteVisitors(1);
+
+//  for customer badges
+DashboardCurrentUser::$CustomerRegisteredOrders = CustomerRegisteredOrders(DashboardCurrentUser::$CurrentUser->id);
+DashboardCurrentUser::$CustomerInvoices = CustomerInvoices(DashboardCurrentUser::$CurrentUser->id,2);
 
 ?>
 

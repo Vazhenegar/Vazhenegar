@@ -1,38 +1,17 @@
 
-<?php
-    //this file is to save and reuse logged in user info's in dashboard pages.
-//  General
-use Illuminate\Support\Facades\Auth;
-$CurrentUser = Auth::user();
-$Role = $CurrentUser->role()->value('RoleName');
-$UserFullName = $CurrentUser->FirstName . ' ' . $CurrentUser->LastName;
-$UserStatus = $CurrentUser->Status;
-$UserMode = $CurrentUser->Mode;
-$Menus = MenuPicker($CurrentUser);
-
-// for admin badges
-$allNewRegisteredOrders = AllNewRegisteredOrders();
-$employmentRequest = NewEmployment();
-$OnlineUsers = OnlineUsers();
-$SiteVisitors = GetSiteVisitors(1);
-
-//  for customer badges
-$CustomerRegisteredOrders = CustomerRegisteredOrders($CurrentUser->id);
-$CustomerInvoices = CustomerInvoices($CurrentUser->id);
-?>
 
 
 <script>
     //admin
-    let allNewRegisteredOrders = <?php echo json_encode(count($allNewRegisteredOrders['orders']), 15, 512) ?>;//Get from dashboard
-    let employmentRequest =<?php echo json_encode($employmentRequest, 15, 512) ?>;
-    let OnlineUsers =<?php echo json_encode($OnlineUsers, 15, 512) ?>;
-    let SiteVisitors =<?php echo json_encode($SiteVisitors, 15, 512) ?>;
+    let allNewRegisteredOrders = <?php echo json_encode(count(DashboardCurrentUser::$allNewRegisteredOrders['orders']), 15, 512) ?>;
+    let employmentRequest =<?php echo json_encode(DashboardCurrentUser::$employmentRequest, 15, 512) ?>;
+    let OnlineUsers =<?php echo json_encode(DashboardCurrentUser::$OnlineUsers, 15, 512) ?>;
+    let SiteVisitors =<?php echo json_encode(DashboardCurrentUser::$SiteVisitors, 15, 512) ?>;
 
     //customer
-    let CurrentCustomerId =<?php echo json_encode($CurrentUser->id, 15, 512) ?>;
-    let CustomerRegisteredOrders =<?php echo json_encode(count($CustomerRegisteredOrders), 15, 512) ?>;
-    let invoices =<?php echo json_encode(count($CustomerInvoices), 15, 512) ?>;
+    let CurrentCustomerId =<?php echo json_encode(DashboardCurrentUser::$CurrentUser->id, 15, 512) ?>;
+    let CustomerRegisteredOrders =<?php echo json_encode(count(DashboardCurrentUser::$CustomerRegisteredOrders), 15, 512) ?>;
+    let invoices =<?php echo json_encode(count(DashboardCurrentUser::$CustomerInvoices), 15, 512) ?>;
 
 
     function setBadgeMenuValues(element_id,value,color) {
@@ -139,10 +118,11 @@ $CustomerInvoices = CustomerInvoices($CurrentUser->id);
 
       // ====================  for customer invoices ===================
 
+        let status_id = 2;
         setInterval(function () {
             $.ajax({
                 type: "GET",
-                url: '/Invoices/' + CurrentCustomerId,
+                url: 'Invoices/' + CurrentCustomerId + '/'+ status_id,
                 success: function (data) {
                     invoices=data.length;
                     setdata();

@@ -1,19 +1,10 @@
-<?php $__env->startSection('Title', 'مشخصات سفارش جدید'); ?>
-<?php
-    $CurrentUser=Auth::user();
-    $Role=$CurrentUser->role()->value('RoleName');
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
-    $UserStatus=$CurrentUser->Status;
-    $UserMode=$CurrentUser->Mode;
-    $Menus=MenuPicker($CurrentUser);
-    $CustomerRegisteredOrders=CustomerRegisteredOrders($CurrentUser->id);
-    $CustomerInvoices=CustomerInvoices($CurrentUser->id);
-?>
+<?php $__env->startSection('Title', 'فاکتورها'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <?php echo $__env->make('vazhenegar.DashboardCustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php
+    $Order= CustomerInvoices(DashboardCurrentUser::$CurrentUser->id,2);
+?>
     <div class="box box-primary">
     <div class="box-header">
         <i class="fa fa-clipboard"></i>

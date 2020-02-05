@@ -1,0 +1,166 @@
+[2020-02-05 13:37:39] local.ERROR: Command "make" is not defined.
+
+Did you mean one of these?
+    ignition:make-solution
+    make:channel
+    make:command
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make\" is not defined.
+
+Did you mean one of these?
+    ignition:make-solution
+    make:channel
+    make:command
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test at E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php:660)
+[stacktrace]
+#0 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(237): Symfony\\Component\\Console\\Application->find('make')
+#1 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 E:\\Projects\\vazhenegar\\Main Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2020-02-05 13:37:54] local.ERROR: Command "make" is not defined.
+
+Did you mean one of these?
+    ignition:make-solution
+    make:channel
+    make:command
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make\" is not defined.
+
+Did you mean one of these?
+    ignition:make-solution
+    make:channel
+    make:command
+    make:controller
+    make:event
+    make:exception
+    make:factory
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:observer
+    make:policy
+    make:provider
+    make:request
+    make:resource
+    make:rule
+    make:seeder
+    make:test at E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php:660)
+[stacktrace]
+#0 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(237): Symfony\\Component\\Console\\Application->find('make')
+#1 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 E:\\Projects\\vazhenegar\\Main Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2020-02-05 13:51:00] local.ERROR: syntax error, unexpected ';', expecting ']' {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): syntax error, unexpected ';', expecting ']' at E:\\Projects\\vazhenegar\\Main Project\\database\\seeds\\OrderTimingPriceTableSeeder.php:16)
+[stacktrace]
+#0 E:\\Projects\\vazhenegar\\Main Project\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('E:\\\\Projects\\\\vaz...')
+#1 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('OrderTimingPric...')
+#2 [internal function]: spl_autoload_call('OrderTimingPric...')
+#3 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(804): ReflectionClass->__construct('OrderTimingPric...')
+#4 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(682): Illuminate\\Container\\Container->build('OrderTimingPric...')
+#5 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(630): Illuminate\\Container\\Container->resolve('OrderTimingPric...', Array)
+#6 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(768): Illuminate\\Container\\Container->make('OrderTimingPric...', Array)
+#7 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(80): Illuminate\\Foundation\\Application->make('OrderTimingPric...')
+#8 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(38): Illuminate\\Database\\Seeder->resolve('OrderTimingPric...')
+#9 E:\\Projects\\vazhenegar\\Main Project\\database\\seeds\\DatabaseSeeder.php(29): Illuminate\\Database\\Seeder->call('OrderTimingPric...')
+#10 [internal function]: DatabaseSeeder->run()
+#11 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#12 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(522): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): value(Object(Closure))
+#14 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#15 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(591): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#16 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(134): Illuminate\\Container\\Container->call(Array)
+#17 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(63): Illuminate\\Database\\Seeder->__invoke()
+#18 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(122): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#19 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(64): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#20 [internal function]: Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#21 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#22 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(522): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): value(Object(Closure))
+#24 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#25 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(591): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#26 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(202): Illuminate\\Container\\Container->call(Array)
+#27 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#28 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(189): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#29 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(242): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#30 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(214): Illuminate\\Console\\Command->runCommand('db:seed', Array, Object(Illuminate\\Console\\OutputStyle))
+#31 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\RefreshCommand.php(126): Illuminate\\Console\\Command->call('db:seed', Array)
+#32 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\RefreshCommand.php(67): Illuminate\\Database\\Console\\Migrations\\RefreshCommand->runSeeder(NULL)
+#33 [internal function]: Illuminate\\Database\\Console\\Migrations\\RefreshCommand->handle()
+#34 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#35 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(522): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#36 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): value(Object(Closure))
+#37 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#38 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(591): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#39 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(202): Illuminate\\Container\\Container->call(Array)
+#40 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Command\\Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#41 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(189): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#42 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(934): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#43 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(273): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\RefreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 E:\\Projects\\vazhenegar\\Main Project\\vendor\\symfony\\console\\Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#45 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(90): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#46 E:\\Projects\\vazhenegar\\Main Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#47 E:\\Projects\\vazhenegar\\Main Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#48 {main}
+"} 

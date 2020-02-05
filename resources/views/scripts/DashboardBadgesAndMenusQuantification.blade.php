@@ -118,10 +118,11 @@
 
       // ====================  for customer invoices ===================
 
+        let status_id = 2;
         setInterval(function () {
             $.ajax({
                 type: "GET",
-                url: '/Invoices/' + CurrentCustomerId + '/2',
+                url: 'Invoices/' + CurrentCustomerId + '/'+ status_id,
                 success: function (data) {
                     invoices=data.length;
                     setdata();

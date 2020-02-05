@@ -16,9 +16,7 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 //===================================== Orders
-Route::get('/dashboard/Invoices','OrderController@invoice');
-//Route::post('/dashboard/Order/invoice/{{$Order}}','OrderController@invoice');
-Route::resource('/dashboard/Order',OrderController::class);
+Route::resource('/dashboard/Order', OrderController::class);
 
 
 //================================== Helpers Routes
@@ -26,7 +24,7 @@ Route::resource('/dashboard/Order',OrderController::class);
 //============ Public
 
 //Set Online and Offline users mode in DB
-Route::get('/SetUsersMode',function (){
+Route::get('/SetUsersMode', function () {
     SetUsersMode();
 });
 
@@ -39,7 +37,7 @@ Route::post('/UserMenus/{user}', function ($user) {
 //============ Admin
 
 //Get count of orders that registered by all of users (to show in admin badges)
-Route::get('/AllNewRegisteredOrders',function (){
+Route::get('/AllNewRegisteredOrders', function () {
     return AllNewRegisteredOrders();
 });
 
@@ -49,7 +47,7 @@ Route::get('/GetOnlineUsers', function () {
 });
 
 //Get users that fill employment form for translation
-Route::get('/NewEmployments',function (){
+Route::get('/NewEmployments', function () {
     return NewEmployment();
 });
 
@@ -65,12 +63,17 @@ Route::post('/GetSiteVisitors/{day}', function ($day) {
 //============ Customers
 
 //Get count of orders that registered by a specific user (to show in that users badges)
-Route::get('/CustomersRegisteredOrders/{UserId}',function ($UserId){
-   return CustomerRegisteredOrders($UserId);
+Route::get('/CustomersRegisteredOrders/{UserId}', function ($UserId) {
+    return CustomerRegisteredOrders($UserId);
 });
+
+//Get invoices list page
+Route::view('/dashboard/Invoices','vazhenegar.DashboardCustomerOrderInvoiceList');
 
 //Get customers invoices
-Route::get('/Invoices/{$CustomerId}/{$status_id}', function ($CustomerId, $status_id){
-    return CustomerInvoices($CustomerId, $status_id);
+Route::get('Invoices/{user_id}/{status_id}', function ($user_id, $status_id) {
+    return CustomerInvoices($user_id, $status_id);
 });
 
+//confirm customer invoice payment
+Route::post('Invoices/{user_id}/{order_id)/','OrderController@payment');

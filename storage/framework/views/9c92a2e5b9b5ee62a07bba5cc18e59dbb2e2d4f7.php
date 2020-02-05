@@ -30,7 +30,7 @@
                                     زبان در
                                     <span>واژه نگار</span></h2>
                                 <h5 data-animation="fadeInUp" data-delay="400ms">کیفیت تعهد ماست</h5>
-                                <a href="#" class="btn uza-btn btn-2">ثبت سفارش</a>
+                                <a href="/dashboard/Order" class="btn uza-btn btn-2">ثبت سفارش</a>
                             </div>
 
                         </div>
@@ -66,7 +66,7 @@
                                 <h2 data-animation="fadeInUp" data-delay="100ms"><span>زمان شما </span><br> برای ما نیز
                                     <span>ارزشمند است</span></h2>
                                 <h5 data-animation="fadeInUp" data-delay="400ms">تحویل دقیق و بموقع </h5>
-                                <a href="#" class="btn uza-btn btn-2">ثبت سفارش</a>
+                                <a href="/dashboard/Order" class="btn uza-btn btn-2">ثبت سفارش</a>
                             </div>
 
                         </div>
@@ -100,7 +100,7 @@
                                     زمینه های تخصصی
                                     <span>مورد نیاز شما</span></h3>
                                 <h5 data-animation="fadeInUp" data-delay="400ms">مترجمین حرفه ای در همان رشته</h5>
-                                <div class="BtnPaddingFixer"> <a href="#" class="btn uza-btn btn-2">ثبت سفارش</a> </div>
+                                <div class="BtnPaddingFixer"> <a href="/dashboard/Order" class="btn uza-btn btn-2">ثبت سفارش</a> </div>
                             </div>
 
                         </div>

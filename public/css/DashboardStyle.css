@@ -11,9 +11,10 @@
 }
 
 /*new order specs table*/
-#NewOrderSpecs tbody tr td{
+#NewOrderSpecs tbody tr td {
     border: none;
 }
+
 /*========================================== New Order table*/
 .OrderSpecification .form-group {
     width: 80%;
@@ -60,18 +61,33 @@
     border: none;
 }
 
-#NewOrderSpecAdmin table tbody tr td input{
+#NewOrderSpecAdmin table tbody tr td input {
     width: 50%;
 }
 
-#NewOrderSpecAdmin table tbody tr.OrderPrice td.pull-right{
+#NewOrderSpecAdmin table tbody tr.OrderPrice td.pull-right {
     width: 40%;
 }
 
-#NewOrderSpecAdmin table tbody tr td.submit{
+#NewOrderSpecAdmin table tbody tr td.submit {
     width: 20%;
 }
 
-#NewOrderSpecAdmin table tbody tr td.Translators span{
+#NewOrderSpecAdmin table tbody tr td.Translators span {
+    width: 100%;
+}
+
+/*======================================== Customer new order spec*/
+#NewOrderSpecCustomer table tbody tr td {
+    border: none;
+}
+
+#NewOrderSpecCustomer table tbody tr td span{
+    width: 100%;
+}
+#NewOrderSpecCustomer table tbody tr td.BankPortal {
+    width: 15%;
+}
+#NewOrderSpecCustomer table tbody tr td.BankPortal img{
     width: 100%;
 }

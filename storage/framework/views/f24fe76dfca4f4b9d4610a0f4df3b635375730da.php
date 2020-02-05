@@ -9,8 +9,8 @@
                 <img src="<?php echo e(asset('images/site/user.png')); ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-right info">
-                <p><?php echo e($UserFullName); ?></p>
-                <a id="UserMode"><i class="fa fa-circle text-success"></i><?php echo e($CurrentUser->mode($UserMode)); ?>
+                <p><?php echo e(DashboardCurrentUser::$UserFullName); ?></p>
+                <a id="UserMode"><i class="fa fa-circle text-success"></i><?php echo e(DashboardCurrentUser::$CurrentUser->mode(DashboardCurrentUser::$UserMode)); ?>
 
                 </a>
             </div>
@@ -28,7 +28,7 @@
                 </a>
             </li>
 
-            <?php $__currentLoopData = $Menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = DashboardCurrentUser::$Menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 
                 <li class="treeview">
                     <a id="<?php echo e($item->MainMenu); ?>" href="<?php echo e($item->Url); ?>">

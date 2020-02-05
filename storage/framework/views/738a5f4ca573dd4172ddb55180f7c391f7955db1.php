@@ -30,7 +30,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php if(count($allNewRegisteredOrders['orders'])==0): ?>
+            <?php if(count(DashboardCurrentUser::$allNewRegisteredOrders['orders'])==0): ?>
                 <tr>
                     <td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>
 
@@ -38,7 +38,7 @@
             <?php else: ?>
                 <?php
                     $counter=1;
-                 foreach($allNewRegisteredOrders['orders'] as $order){ //get from dashboard
+                 foreach(DashboardCurrentUser::$allNewRegisteredOrders['orders'] as $order){ //get from dashboard
                     echo '<tr>';
                     echo '<td>'.$counter++.'</td>';
                     echo '<td>'.$order['OrderSubject'].'</td>';

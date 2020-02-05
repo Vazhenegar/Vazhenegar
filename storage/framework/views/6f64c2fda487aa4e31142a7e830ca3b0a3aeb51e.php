@@ -256,9 +256,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-right">
-                                <a class="btn btn-default btn-flat"
-                                   onclick="event.preventDefault();
-                                           document.getElementById('UserStatusChange').submit();">پروفایل</a>
+                                <a class="btn btn-default btn-flat">پروفایل</a>
                             </div>
 
                             <div class="pull-left">

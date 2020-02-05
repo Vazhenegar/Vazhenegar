@@ -3,7 +3,7 @@
 
 <script>
     //admin
-    let allNewRegisteredOrders = <?php echo json_encode(count(DashboardCurrentUser::$allNewRegisteredOrders['orders']), 15, 512) ?>;//Get from dashboard
+    let allNewRegisteredOrders = <?php echo json_encode(count(DashboardCurrentUser::$allNewRegisteredOrders['orders']), 15, 512) ?>;
     let employmentRequest =<?php echo json_encode(DashboardCurrentUser::$employmentRequest, 15, 512) ?>;
     let OnlineUsers =<?php echo json_encode(DashboardCurrentUser::$OnlineUsers, 15, 512) ?>;
     let SiteVisitors =<?php echo json_encode(DashboardCurrentUser::$SiteVisitors, 15, 512) ?>;
@@ -118,10 +118,11 @@
 
       // ====================  for customer invoices ===================
 
+        let status_id = 2;
         setInterval(function () {
             $.ajax({
                 type: "GET",
-                url: '/Invoices/' + CurrentCustomerId,
+                url: 'Invoices/' + CurrentCustomerId + '/'+ status_id,
                 success: function (data) {
                     invoices=data.length;
                     setdata();

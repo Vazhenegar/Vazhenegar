@@ -1,16 +1,7 @@
 <?php $__env->startSection('Title', 'ویرایش مشخصات سفارش'); ?>
 
-<?php
-    $CurrentUser=Auth::user();
-    $Role=$CurrentUser->role()->value('RoleName');
-    $CurrentUser->Mode='ON'; $CurrentUser->save();
-    $UserFullName=$CurrentUser->FirstName .' '. $CurrentUser->LastName;
-    $UserStatus=$CurrentUser->Status;
-    $UserMode=$CurrentUser->Mode;
-    $Menus=MenuPicker($CurrentUser);
-?>
-
 <?php $__env->startSection('content'); ?>
+<?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
     <!-- Main row -->
     <div class="row">
@@ -25,8 +16,7 @@
 
                 <div class="box-body">
                     <form action="/dashboard/Order/<?php echo e($Order->id); ?>" method="post">
-                        <?php echo e(csrf_field()); ?>
-
+                        <?php echo csrf_field(); ?>
                         <?php echo e(method_field('PATCH')); ?>
 
 
