@@ -14,7 +14,7 @@
             <div class="icon">
                 <i class="fa fa-pencil-square-o"></i>
             </div>
-            <a href="#" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="/dashboard/CustomerRegisteredOrders" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>

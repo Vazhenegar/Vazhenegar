@@ -14,6 +14,7 @@ Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 //===================================== Dashboard
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/dashboard/CustomerRegisteredOrders','OrderController@customerRegisteredOrders');
 
 //===================================== Orders
 Route::resource('/dashboard/Order', OrderController::class);

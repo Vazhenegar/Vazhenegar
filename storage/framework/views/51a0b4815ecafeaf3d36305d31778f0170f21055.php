@@ -20,6 +20,7 @@
             <thead>
             <tr>
                 <th scope="col">ردیف</th>
+                <th scope="col">شماره سفارش</th>
                 <th scope="col">موضوع</th>
                 <th scope="col">تاریخ ثبت</th>
                 <th scope="col">تاریخ تحویل</th>
@@ -41,6 +42,7 @@
                  foreach(DashboardCurrentUser::$allNewRegisteredOrders['orders'] as $order){ //get from dashboard
                     echo '<tr>';
                     echo '<td>'.$counter++.'</td>';
+                    echo '<td>'.$order['id'].'</td>';
                     echo '<td>'.$order['OrderSubject'].'</td>';
                     echo '<td class="NumberDirectionFixer">'.$order['RegisterDate'].'</td>';
                     echo '<td class="NumberDirectionFixer">'.$order['DeliveryDate'].'</td>';
@@ -94,6 +96,7 @@
                         let tr =
                             "<tr>" +
                             "<td>" + (i + 1) + "</td>" +
+                            "<td>" + OrderId + "</td>" +
                             "<td>" + OrderSubject + "</td>" +
                             "<td class='NumberDirectionFixer'>" + RDate + "</td>" +
                             "<td class='NumberDirectionFixer'>" + DDate + "</td>" +

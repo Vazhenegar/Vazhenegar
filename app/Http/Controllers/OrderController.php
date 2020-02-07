@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Department;
 use App\Language;
 use App\Order;
+use App\OrderStatus;
 use App\TranslationField;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Types\Integer;
 
 class OrderController extends Controller
 {
@@ -183,5 +185,20 @@ class OrderController extends Controller
     public function payment($user_id, $order_id)
     {
 
+    }
+
+    public function customerRegisteredOrders()
+    {
+
+        $CustomerId=Auth::user()->getAuthIdentifier();
+        $CustomerOrders=CustomerRegisteredOrders($CustomerId);
+        foreach ($CustomerOrders as $order)
+        {
+            $order->RegisterDate=DateTimeConversion($order->RegisterDate,'J');
+            $order->DeliveryDate=DateTimeConversion($order->DeliveryDate,'J');
+            $order->Status=OrderStatus::where('id',$order->status_id)->value('Status');
+
+        }
+        return view('vazhenegar.DashboardCustomerOrdersList',compact('CustomerOrders'));
     }
 }

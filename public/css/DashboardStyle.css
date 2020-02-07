@@ -91,3 +91,8 @@
 #NewOrderSpecCustomer table tbody tr td.BankPortal img{
     width: 100%;
 }
+
+#NewOrderSpecCustomer table tbody tr.BankPortals{
+    display: inline-block;
+    align-items: center;
+}
