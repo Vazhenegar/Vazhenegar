@@ -35,7 +35,7 @@
         {{-- =============== Confirm payment=============================================== --}}
         <tr>
             <td class="pull-left">
-                <a href="{{$Order->id}}/edit">
+                <a href="{{$Order->id}}/{{$Order->TotalPrice/2}}/InvoiceSubmit">
                     <button type="button" class="btn btn-block"><i class="fa fa-credit-card"></i>
                         ثبت فاکتور پرداخت شده در سیستم
                     </button>

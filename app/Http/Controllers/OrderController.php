@@ -187,9 +187,9 @@ class OrderController extends Controller
 
     }
 
+    // show list of orders that registered by specific user
     public function customerRegisteredOrders()
     {
-
         $CustomerId=Auth::user()->getAuthIdentifier();
         $CustomerOrders=CustomerRegisteredOrders($CustomerId);
         foreach ($CustomerOrders as $order)
@@ -197,8 +197,16 @@ class OrderController extends Controller
             $order->RegisterDate=DateTimeConversion($order->RegisterDate,'J');
             $order->DeliveryDate=DateTimeConversion($order->DeliveryDate,'J');
             $order->Status=OrderStatus::where('id',$order->status_id)->value('Status');
-
         }
         return view('vazhenegar.DashboardCustomerOrdersList',compact('CustomerOrders'));
+    }
+
+    public function InvoiceSubmit($order_id, $paid_price)
+    {
+        //here should save the price of invoice of an order to (paid price) field of that order in db.
+        $order=Order::where('id', $order_id)->update(['PaidPrice'=>$paid_price, 'status_id'=>3]);
+
+
+
     }
 }

@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/dashboard/CustomerRegisteredOrders','OrderController@customerRegisteredOrders');
 
+//===================================== Orders invoce submit
+Route::get('/dashboard/Order/{order_id}/{paid_price}/InvoiceSubmit', 'OrderController@InvoiceSubmit');
 //===================================== Orders
 Route::resource('/dashboard/Order', OrderController::class);
 
@@ -56,6 +58,12 @@ Route::get('/NewEmployments', function () {
 Route::post('/GetSiteVisitors/{day}', function ($day) {
     return GetSiteVisitors($day);
 });
+
+//get orders that invoices are paid by user
+Route::get('/dashboard/PaidInvoices', function (){
+    return PaidInvoices();
+});
+
 
 
 //============ Translators

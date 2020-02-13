@@ -131,6 +131,12 @@ function AllNewRegisteredOrders()
     return $AllNewOrders;
 }
 
+//============== get orders that invoices are paid by user
+function PaidInvoices()
+{
+    return Order::where('status_id', '=', 3)->get();
+}
+
 //============== extract list of Translators that match the field and languages of specific order
 function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLang)
 {
@@ -162,7 +168,7 @@ function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLan
 
 //============== Customers
 
-//for user dashboard badges in case of registering a new order
+//for user dashboard in case of registering a new order
 function CustomerRegisteredOrders($CustomerId)
 {
     return Order::where('user_id', $CustomerId)

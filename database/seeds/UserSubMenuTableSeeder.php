@@ -21,7 +21,7 @@ class UserSubMenuTableSeeder extends Seeder
                 ],
                 [
                     'SubMenu' => 'دریافتی',
-                    'Url' => '/received',
+                    'Url' => '/dashboard/PaidInvoices',
                     'Icon' => 'fa fa-bullseye',
                 ],
                 [
