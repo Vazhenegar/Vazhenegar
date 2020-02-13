@@ -7,6 +7,7 @@
     let employmentRequest =@json(DashboardCurrentUser::$employmentRequest);
     let OnlineUsers =@json(DashboardCurrentUser::$OnlineUsers);
     let SiteVisitors =@json(DashboardCurrentUser::$SiteVisitors);
+    let PaidInvoices=@json(count(DashboardCurrentUser::$PaidInvoices));
 
     //customer
     let CurrentCustomerId =@json(DashboardCurrentUser::$CurrentUser->id);
@@ -30,6 +31,8 @@
         setBadgeMenuValues("درخواست همکاری",employmentRequest,"yellow");
         setBadgeMenuValues("OnlineUsers",OnlineUsers);
         setBadgeMenuValues("SiteVisitors", SiteVisitors);
+        setBadgeMenuValues("دریافتی",PaidInvoices,"green");
+
         setBadgeMenuValues("CustomerNewOrders", CustomerRegisteredOrders);
         setBadgeMenuValues("CustomerInvoices", invoices);
         setBadgeMenuValues("فاکتور", invoices,"yellow");
@@ -96,6 +99,19 @@
             });
         }, 30000);
 
+
+    {{--  ====================  for orders that invoices already paid ================--}}
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/dashboard/PaidInvoices',
+            success: function (data) {
+                PaidInvoices=data.length;
+                setdata();
+            }
+        });
+    }, 30000);
 </script>
 {{--    End of admin badges and menus--}}
 {{--==============================================--}}

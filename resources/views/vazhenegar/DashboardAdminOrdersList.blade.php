@@ -33,7 +33,7 @@
             <tbody>
             @if(count(DashboardCurrentUser::$allNewRegisteredOrders['orders'])==0)
                 <tr>
-                    <td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>
+                    <td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>
 
                 </tr>
             @else

@@ -64,6 +64,9 @@ Route::get('/dashboard/PaidInvoices', function (){
     return PaidInvoices();
 });
 
+//show list of orders that invoices are paid by user
+Route::get('/dashboard/PaidInvoicesList', 'OrderController@PaidOrdersList');
+
 
 
 //============ Translators

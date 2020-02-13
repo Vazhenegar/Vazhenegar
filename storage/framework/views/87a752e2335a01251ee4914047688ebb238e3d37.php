@@ -7,6 +7,7 @@
     let employmentRequest =<?php echo json_encode(DashboardCurrentUser::$employmentRequest, 15, 512) ?>;
     let OnlineUsers =<?php echo json_encode(DashboardCurrentUser::$OnlineUsers, 15, 512) ?>;
     let SiteVisitors =<?php echo json_encode(DashboardCurrentUser::$SiteVisitors, 15, 512) ?>;
+    let PaidInvoices=<?php echo json_encode(count(DashboardCurrentUser::$PaidInvoices), 15, 512) ?>;
 
     //customer
     let CurrentCustomerId =<?php echo json_encode(DashboardCurrentUser::$CurrentUser->id, 15, 512) ?>;
@@ -30,6 +31,8 @@
         setBadgeMenuValues("درخواست همکاری",employmentRequest,"yellow");
         setBadgeMenuValues("OnlineUsers",OnlineUsers);
         setBadgeMenuValues("SiteVisitors", SiteVisitors);
+        setBadgeMenuValues("دریافتی",PaidInvoices,"green");
+
         setBadgeMenuValues("CustomerNewOrders", CustomerRegisteredOrders);
         setBadgeMenuValues("CustomerInvoices", invoices);
         setBadgeMenuValues("فاکتور", invoices,"yellow");
@@ -96,6 +99,19 @@
             });
         }, 30000);
 
+
+    
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '/dashboard/PaidInvoices',
+            success: function (data) {
+                PaidInvoices=data.length;
+                setdata();
+            }
+        });
+    }, 30000);
 </script>
 
 
