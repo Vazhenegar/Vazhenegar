@@ -34,7 +34,7 @@
             <tbody>
             <?php if(count($Order)==0): ?>
                 <tr>
-                    <td align='center' colspan='8'>فاکتور جدیدی وجود ندارد</td>
+                    <td align='center' colspan='5'>فاکتور جدیدی وجود ندارد</td>
 
                 </tr>
             <?php else: ?>

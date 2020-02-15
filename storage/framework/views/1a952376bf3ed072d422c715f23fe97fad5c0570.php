@@ -38,7 +38,7 @@
                                 <h3 class="panel-title">توضیحات</h3>
                             </div>
                             <textarea class="textarea" name="Description"
-                                      placeholder="مواردی مانند گرایش، صفحات، و توضیحاتی که فکر می کنید به ترجمه راحتتر و بهتر مترجم کمک می کند را اینجا بنویسید"><?php echo nl2br($Order->Description); ?></textarea>
+                                      placeholder="مواردی مانند گرایش، صفحات، و توضیحاتی که فکر می کنید به ترجمه راحتتر و بهتر مترجم کمک می کند را اینجا بنویسید"><?php echo e($Order->Description); ?></textarea>
                         </div>
                         
 

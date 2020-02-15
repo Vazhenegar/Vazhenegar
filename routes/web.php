@@ -44,6 +44,9 @@ Route::get('/AllNewRegisteredOrders', function () {
     return AllNewRegisteredOrders();
 });
 
+//show new orders that registered by all users
+Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar/DashboardAdminNewOrdersList');
+
 //Get users that have Online mode in DB
 Route::get('/GetOnlineUsers', function () {
     return OnlineUsers();
@@ -67,7 +70,7 @@ Route::get('/dashboard/PaidInvoices', function (){
 //show list of orders that invoices are paid by user
 Route::get('/dashboard/PaidInvoicesList', 'OrderController@PaidOrdersList');
 
-
+Route::post('/dashboard/InvoiceAcceptance/{order_id}','OrderController@InvoiceAcceptance')->name('InvoiceAcceptance');
 
 //============ Translators
 

@@ -1,16 +1,13 @@
-<?php $__env->startSection('Title', 'سفارشات ثبت شده'); ?>
-
+<?php $__env->startSection('Title', 'سفارشات دریافتی'); ?>
 
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php echo $__env->make('vazhenegar.DashboardCustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
+<?php echo $__env->make('vazhenegar.DashboardAdminBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="box box-primary">
     <div class="box-header">
         <i class="fa fa-star"></i>
 
-        <h3 class="box-title">لیست سفارشات جدید</h3>
+        <h3 class="box-title">لیست سفارشات دریافتی</h3>
         <!-- tools box -->
         <div class="pull-left box-tools">
             <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i
@@ -30,28 +27,31 @@
                 <th scope="col">موضوع</th>
                 <th scope="col">تاریخ ثبت</th>
                 <th scope="col">تاریخ تحویل</th>
-                <th scope="col">وضعیت</th>
+                <th scope="col">زمینه</th>
+                <th scope="col">زبان مبدا</th>
+                <th scope="col">زبان مقصد</th>
                 <th scope="col">عملیات</th>
             </tr>
             </thead>
             <tbody>
-
-            <?php if($CustomerOrders->isEmpty()): ?>
+            <?php if(count($PaidOrdersList)==0): ?>
                 <tr>
-                    <td align='center' colspan='8'>سفارشی وجود ندارد</td>
+                    <td align='center' colspan='9'>هیچ فاکتوری پرداخت نشده است</td>
 
                 </tr>
             <?php else: ?>
                 <?php
                     $counter=1;
-                 foreach($CustomerOrders as $order){
+                 foreach($PaidOrdersList as $order){ //get from dashboard
                     echo '<tr>';
                     echo '<td>'.$counter++.'</td>';
                     echo '<td>'.$order['id'].'</td>';
                     echo '<td>'.$order['OrderSubject'].'</td>';
                     echo '<td class="NumberDirectionFixer">'.$order['RegisterDate'].'</td>';
                     echo '<td class="NumberDirectionFixer">'.$order['DeliveryDate'].'</td>';
-                    echo '<td>'.$order['Status'].'</td>';
+                    echo '<td>'.$order['TranslationField'].'</td>';
+                    echo '<td>'.$order['SourceLanguage'].'</td>';
+                    echo '<td>'.$order['DestLanguage'].'</td>';
                     echo '<td>'.
                          '<a href="/dashboard/Order/'.$order['id'].'"><button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button></a>&nbsp'.
                          '<button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i></button>&nbsp'.
@@ -69,7 +69,6 @@
 </div>
 
 
-
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardCustomerOrdersList.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminPaidInvoicesOrdersList.blade.php ENDPATH**/ ?>

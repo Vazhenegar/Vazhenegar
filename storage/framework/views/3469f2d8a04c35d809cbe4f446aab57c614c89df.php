@@ -3,6 +3,7 @@
 
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('vazhenegar.DashboardCustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <div class="box box-primary">
@@ -29,14 +30,13 @@
                 <th scope="col">موضوع</th>
                 <th scope="col">تاریخ ثبت</th>
                 <th scope="col">تاریخ تحویل</th>
-                <th scope="col">زمینه</th>
-                <th scope="col">زبان مبدا</th>
-                <th scope="col">زبان مقصد</th>
+                <th scope="col">وضعیت</th>
                 <th scope="col">عملیات</th>
             </tr>
             </thead>
             <tbody>
-            <?php if(count($CustomerOrders==0)): ?>
+
+            <?php if($CustomerOrders->isEmpty()): ?>
                 <tr>
                     <td align='center' colspan='8'>سفارشی وجود ندارد</td>
 
@@ -44,16 +44,14 @@
             <?php else: ?>
                 <?php
                     $counter=1;
-                 foreach($CustomerOrders as $order){ //get from dashboard
+                 foreach($CustomerOrders as $order){
                     echo '<tr>';
                     echo '<td>'.$counter++.'</td>';
                     echo '<td>'.$order['id'].'</td>';
                     echo '<td>'.$order['OrderSubject'].'</td>';
                     echo '<td class="NumberDirectionFixer">'.$order['RegisterDate'].'</td>';
                     echo '<td class="NumberDirectionFixer">'.$order['DeliveryDate'].'</td>';
-                    echo '<td>'.$order['TranslationField'].'</td>';
-                    echo '<td>'.$order['SourceLanguage'].'</td>';
-                    echo '<td>'.$order['DestLanguage'].'</td>';
+                    echo '<td>'.$order['Status'].'</td>';
                     echo '<td>'.
                          '<a href="/dashboard/Order/'.$order['id'].'"><button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button></a>&nbsp'.
                          '<button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i></button>&nbsp'.

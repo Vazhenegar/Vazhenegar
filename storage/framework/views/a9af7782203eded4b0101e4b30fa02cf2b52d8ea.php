@@ -1,7 +1,11 @@
 
 
 <?php echo $__env->make('vazhenegar.DashboardAdminBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make('vazhenegar.DashboardAdminOrdersList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+<?php (session(['OrderList'=>'AdminAllOrders'])); ?>
+<?php echo $__env->make('vazhenegar.DashboardOrdersList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 <!-- Main row -->
 <div class="row">

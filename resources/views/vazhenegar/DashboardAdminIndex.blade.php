@@ -1,7 +1,11 @@
 {{--these contents will include in dashboard master layout --}}
 
 @include('vazhenegar.DashboardAdminBadges')
-@include('vazhenegar.DashboardAdminOrdersList')
+
+{{-- this session will determine the titles of list to show --}}
+@php(session(['OrderList'=>'AllOrders']))
+@include('vazhenegar.DashboardOrdersList')
+{{--@include('vazhenegar.DashboardAdminOrdersList')--}}
 
 <!-- Main row -->
 <div class="row">

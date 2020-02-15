@@ -102,7 +102,7 @@
                     <?php elseif(DashboardCurrentUser::$Role=='مترجم'): ?>
                         <?php echo e('این کاربر مترجم است'); ?>
 
-                    <?php elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id): ?>
+                    <?php elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice): ?>
                         <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php endif; ?>
 

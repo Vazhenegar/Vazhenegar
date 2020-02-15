@@ -1,4 +1,9 @@
-{{--=================== Orders List  =================================--}}
+@extends('auth.DashboardLayout.DashboardMasterLayout')
+@section('content')
+
+    @include('vazhenegar.DashboardCurrentUser')
+    @include('vazhenegar.DashboardAdminBadges')
+    {{--=================== Orders List  =================================--}}
 
 <div class="box box-primary">
     <div class="box-header">
@@ -114,7 +119,7 @@
 
                 } else {
                     let tr_str = "<tr>" +
-                        "<td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>" +
+                        "<td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>" +
                         "</tr>";
 
                     $("#NewOrdersTable tbody").append(tr_str);
@@ -125,3 +130,4 @@
     }, 30000);
 
 </script>
+@endsection

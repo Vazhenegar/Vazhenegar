@@ -10,13 +10,14 @@ if (!class_exists('DashboardCurrentUser')) {
         public static $UserMode;
         public static $Menus;
 
-// for admin badges
+// for admin
         public static $allNewRegisteredOrders;
         public static $employmentRequest;
         public static $OnlineUsers;
         public static $SiteVisitors;
+        public static $PaidInvoices;
 
-//  for customer badges
+//  for customer
         public static $CustomerRegisteredOrders;
         public static $CustomerInvoices;
 
@@ -37,6 +38,7 @@ DashboardCurrentUser::$allNewRegisteredOrders = AllNewRegisteredOrders();
 DashboardCurrentUser::$employmentRequest = NewEmployment();
 DashboardCurrentUser::$OnlineUsers = OnlineUsers();
 DashboardCurrentUser::$SiteVisitors = GetSiteVisitors(1);
+DashboardCurrentUser::$PaidInvoices=PaidInvoices();
 
 //  for customer badges
 DashboardCurrentUser::$CustomerRegisteredOrders = CustomerRegisteredOrders(DashboardCurrentUser::$CurrentUser->id);

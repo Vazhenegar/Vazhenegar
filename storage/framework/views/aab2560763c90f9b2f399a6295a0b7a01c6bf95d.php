@@ -1,5 +1,10 @@
 
 
+
+<?php
+dd(session('OrderList'),DashboardCurrentUser::$Role);
+
+?>
 <div class="box box-primary">
     <div class="box-header">
         <i class="fa fa-star"></i>
@@ -125,4 +130,4 @@
     }, 30000);
 
 </script>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminOrdersList.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardOrdersList.blade.php ENDPATH**/ ?>

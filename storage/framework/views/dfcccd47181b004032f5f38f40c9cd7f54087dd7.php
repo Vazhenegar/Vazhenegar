@@ -1,4 +1,8 @@
+<?php $__env->startSection('content'); ?>
 
+    <?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo $__env->make('vazhenegar.DashboardAdminBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
 
 <div class="box box-primary">
     <div class="box-header">
@@ -33,7 +37,7 @@
             <tbody>
             <?php if(count(DashboardCurrentUser::$allNewRegisteredOrders['orders'])==0): ?>
                 <tr>
-                    <td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>
+                    <td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>
 
                 </tr>
             <?php else: ?>
@@ -114,7 +118,7 @@
 
                 } else {
                     let tr_str = "<tr>" +
-                        "<td align='center' colspan='8'>سفارش جدیدی وجود ندارد</td>" +
+                        "<td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>" +
                         "</tr>";
 
                     $("#NewOrdersTable tbody").append(tr_str);
@@ -125,4 +129,6 @@
     }, 30000);
 
 </script>
-<?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/DashboardAdminOrdersList.blade.php ENDPATH**/ ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardAdminNewOrdersList.blade.php ENDPATH**/ ?>

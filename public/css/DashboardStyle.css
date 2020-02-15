@@ -77,6 +77,13 @@
     width: 100%;
 }
 
+.Translators{
+    width: 50%;
+}
+.Translators select.TranslatorsList {
+    width: 100%;
+}
+
 /*======================================== Customer new order spec*/
 #NewOrderSpecCustomer table tbody tr td {
     border: none;

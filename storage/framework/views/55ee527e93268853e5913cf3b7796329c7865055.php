@@ -25,8 +25,6 @@
 
     <div class="wrapper">
 
-
-
         
 
         <?php echo $__env->make('vazhenegar.DashboardTopBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

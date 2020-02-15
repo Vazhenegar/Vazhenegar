@@ -204,7 +204,7 @@ class OrderController extends Controller
     public function InvoiceSubmit($order_id, $paid_price)
     {
         //here should save the price of invoice of an order to (paid price) field of that order in db.
-        $order=Order::where('id', $order_id)->update(['PaidPrice'=>$paid_price, 'status_id'=>3]);
+        Order::where('id', $order_id)->update(['PaidPrice'=>$paid_price, 'status_id'=>3]);
 
     }
 
@@ -220,6 +220,13 @@ class OrderController extends Controller
             $order->DestLanguage=Language::where('id',$order->DestLanguage)->value('LanguageName');
         }
         return view('vazhenegar.DashboardAdminPaidInvoicesOrdersList',compact('PaidOrdersList'));
+
+    }
+
+    public function InvoiceAcceptance($order_id)
+    {
+        Order::where('id', $order_id)->update(['status_id'=>4]);
+        return back();
 
     }
 }
