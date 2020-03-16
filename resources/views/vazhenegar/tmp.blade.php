@@ -1,7 +1,6 @@
 <br>
 <!doctype html>
 <html lang="en">
-
 <head>
     <title>Persian Datepicker</title>
     <meta charset="UTF-8">
