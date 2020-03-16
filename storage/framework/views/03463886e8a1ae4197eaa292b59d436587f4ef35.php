@@ -4,6 +4,7 @@ if (!class_exists('DashboardCurrentUser')) {
     class DashboardCurrentUser
     {
         public static $CurrentUser;
+        public static $id;
         public static $Role;
         public static $UserFullName;
         public static $UserStatus;
@@ -11,6 +12,7 @@ if (!class_exists('DashboardCurrentUser')) {
         public static $Menus;
 
 // for admin
+        public static $ordersList;
         public static $allNewRegisteredOrders;
         public static $employmentRequest;
         public static $OnlineUsers;
@@ -27,6 +29,7 @@ if (!class_exists('DashboardCurrentUser')) {
 //  General
 use Illuminate\Support\Facades\Auth;
 DashboardCurrentUser::$CurrentUser= Auth::user();
+DashboardCurrentUser::$id = DashboardCurrentUser::$CurrentUser->id;
 DashboardCurrentUser::$Role = DashboardCurrentUser::$CurrentUser->role()->value('RoleName');
 DashboardCurrentUser::$UserFullName = DashboardCurrentUser::$CurrentUser->FirstName . ' ' . DashboardCurrentUser::$CurrentUser->LastName;
 DashboardCurrentUser::$UserStatus = DashboardCurrentUser::$CurrentUser->Status;

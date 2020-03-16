@@ -6,18 +6,18 @@
 @switch(DashboardCurrentUser::$CurrentUser->role()->value('id'))
         {{--=============================== ِ Admin =======================================--}}
         @case(1)
-@section('Title', ' پنل '.DashboardCurrentUser::$Role)
-@include('vazhenegar.DashboardAdminIndex')
-@break
+            @section('Title', ' پنل '.DashboardCurrentUser::$Role)
+            @include('vazhenegar.DashboardAdminIndex')
+        @break
 {{--=============================== ِ Translator =======================================--}}
-@case(5)
-@section('Title', ' پنل '.DashboardCurrentUser::$Role)
-@include('vazhenegar.DashboardTranslatorIndex')
-@break
+        @case(5)
+            @section('Title', ' پنل '.DashboardCurrentUser::$Role)
+            @include('vazhenegar.DashboardTranslatorIndex')
+        @break
 {{--=============================== ِ Customer =======================================--}}
-@case(11)
-@section('Title', ' پنل '.DashboardCurrentUser::$Role)
-@include('vazhenegar.DashboardCustomerIndex')
-@break
+        @case(11)
+            @section('Title', ' پنل '.DashboardCurrentUser::$Role)
+            @include('vazhenegar.DashboardCustomerIndex')
+        @break
 @endswitch
 @endsection

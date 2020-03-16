@@ -16,7 +16,7 @@ class CreateOrderTimingPricesTable extends Migration
         Schema::create('order_timing_prices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('daily_translatable_word');
-            $table->decimal('normal_delivery_price_per_page');
+            $table->decimal('normal_delivery_price_per_page',6,0);
             $table->timestamps();
         });
     }

@@ -36,6 +36,11 @@ Route::post('/UserMenus/{user}', function ($user) {
     return MenuPicker($user);
 });
 
+//fetch list of orders depending of user role and list type (new, in progress, finished, cancelled,...) from db
+Route::get('/dashboard/OrdersList', function () {
+    return GetOrders();
+});
+
 
 //============ Admin
 
@@ -45,7 +50,7 @@ Route::get('/AllNewRegisteredOrders', function () {
 });
 
 //show new orders that registered by all users
-Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar/DashboardAdminNewOrdersList');
+Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar/DashboardAdminNewOrders');
 
 //Get users that have Online mode in DB
 Route::get('/GetOnlineUsers', function () {

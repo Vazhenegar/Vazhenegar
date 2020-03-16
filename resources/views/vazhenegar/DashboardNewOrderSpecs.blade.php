@@ -88,8 +88,8 @@
                         </tr>
                         <tr>
                             <td class="pull-left">
-                                <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود
-                                </button>
+                                <a href="#"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود
+                                </button> </a>
                             </td>
                         </tr>
 

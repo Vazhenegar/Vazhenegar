@@ -2,10 +2,9 @@
 
 @include('vazhenegar.DashboardAdminBadges')
 
-{{-- this session will determine the titles of list to show --}}
-@php(session(['OrderList'=>'AllOrders']))
-@include('vazhenegar.DashboardOrdersList')
-{{--@include('vazhenegar.DashboardAdminOrdersList')--}}
+{{-- this session will show list of orders according to user role and order list type --}}
+@php(session(['OrderList'=>'AllOrders','UserRole'=>DashboardCurrentUser::$Role]))
+@include('vazhenegar.DashboardList')
 
 <!-- Main row -->
 <div class="row">

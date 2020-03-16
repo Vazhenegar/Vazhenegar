@@ -5,6 +5,7 @@ use App\User;
 use App\Order;
 use App\TranslationField;
 use App\Language;
+use App\OrderStatus;
 use Carbon\Carbon;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Str;
@@ -74,6 +75,52 @@ function DateTimeConversion($DateTime, $To)
         $GD = Verta::getGregorian($year, $month, $day);
         $GD = Verta::create($GD[0], $GD[1], $GD[2], $H, $M, $S);
         return $GD->DateTime()->format('Y-m-d H:i:s');
+
+    }
+}
+
+//this will get orders foreign key's values and extract it's name from related table to show to user
+function OrderPreparation($orders)
+{
+        foreach ($orders as $item)
+        {
+            $item->RegisterDate = DateTimeConversion($item->RegisterDate, 'J');
+            $item->DeliveryDate = DateTimeConversion($item->DeliveryDate, 'J');
+            $item->TranslationField = TranslationField::where('id', $item->TranslationField)->value('FieldName');
+            $item->SourceLanguage = Language::where('id', $item->SourceLanguage)->value('LanguageName');
+            $item->DestLanguage = Language::where('id', $item->DestLanguage)->value('LanguageName');
+            $item->Status = OrderStatus::where('id', $item->status_id)->value('Status');
+        }
+
+    return $orders;
+}
+
+
+//show orders list (new, finished, cancelled) depending of user role and OrderList session name
+function GetOrders()
+{
+    $OrderList=session('OrderList');
+    $role=session('UserRole');
+
+    switch ($role)
+    {
+        case 'مدیر':
+        {
+            switch ($OrderList)
+            {
+                case 'AllOrders':
+                {
+                    return OrderPreparation(Order::orderBy('id', 'DESC')->get());
+                }
+
+                case 'NewOrders':
+                {
+                    return OrderPreparation(Order::where('status_id', 1)->orderBy('id', 'DESC')->get());
+                }
+
+            }
+            break;
+        }
 
     }
 }

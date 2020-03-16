@@ -15,6 +15,13 @@
     border: none;
 }
 
+/*======================================== Orders Table */
+#OrdersTable thead tr th, #OrdersTable tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
 /*========================================== New Order table*/
 .OrderSpecification .form-group {
     width: 80%;
@@ -47,11 +54,7 @@
 
 /*======================================== End of new order specification table*/
 
-/*======================================== Admin new order list*/
-#NewOrdersTable thead tr th, #NewOrdersTable tbody tr td {
-    text-align: center;
-    vertical-align: middle;
-}
+
 
 /*======================================== Admin new order spec*/
 #NewOrderSpecAdmin table tbody tr td {

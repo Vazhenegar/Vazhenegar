@@ -88,8 +88,8 @@
                         </tr>
                         <tr>
                             <td class="pull-left">
-                                <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود
-                                </button>
+                                <a href="<?php echo e(Storage::download($Order->OrderFile)); ?>"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود
+                                </button> </a>
                             </td>
                         </tr>
 
