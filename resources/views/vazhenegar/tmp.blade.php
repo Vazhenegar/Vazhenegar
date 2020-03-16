@@ -29,7 +29,6 @@
             document.getElementById('datepickerTheme').setAttribute('href', sheet);
         }
     </script>
-
     <!-- Demo Style -->
     <!-- ------------------------------------------------------------------------------------ -->
     <style type="text/css">
