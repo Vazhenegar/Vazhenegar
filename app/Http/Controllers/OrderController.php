@@ -10,6 +10,7 @@ use App\TranslationField;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Types\Integer;
 
 class OrderController extends Controller
@@ -228,6 +229,11 @@ class OrderController extends Controller
         Order::where('id', $order_id)->update(['status_id'=>4]);
         return back();
 
+    }
+
+    public function download($user_id,$OrderFile)
+    {
+        return response()->download(storage_path("app/public/Orders/{$user_id}/{$OrderFile}"));
     }
 
 }

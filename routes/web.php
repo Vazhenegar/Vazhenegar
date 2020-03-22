@@ -21,6 +21,9 @@ Route::get('/dashboard/Order/{order_id}/{paid_price}/InvoiceSubmit', 'OrderContr
 //===================================== Orders
 Route::resource('/dashboard/Order', OrderController::class);
 
+//===================================== File Download
+Route::get('/download/{user_id}/{OrderFile}','OrderController@download')->name('Download');
+
 
 //================================== Helpers Routes
 

@@ -1,9 +1,8 @@
-@extends('auth.DashboardLayout.DashboardMasterLayout')
-@section('Title', 'مشخصات سفارش جدید')
+<?php $__env->startSection('Title', 'مشخصات سفارش جدید'); ?>
 
-@section('content')
-@include('vazhenegar.DashboardCurrentUser')
-    {{--=================== New order for customer  =================================--}}
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('vazhenegar.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
     <!-- Main row -->
     <div class="row">
         <!-- right col -->
@@ -19,23 +18,23 @@
                     <table class="table" id="NewOrderSpecs">
                         <tbody>
                         <tr>
-                            <td class="pull-right">شماره سفارش: {{$Order->id}}</td>
-                            <td class="pull-left"> تاریخ ثبت: <span dir="ltr">{{$Order->RegisterDate}}</span></td>
+                            <td class="pull-right">شماره سفارش: <?php echo e($Order->id); ?></td>
+                            <td class="pull-left"> تاریخ ثبت: <span dir="ltr"><?php echo e($Order->RegisterDate); ?></span></td>
                         </tr>
                         <tr>
-                            <td>موضوع سفارش: {{$Order->OrderSubject}}</td>
+                            <td>موضوع سفارش: <?php echo e($Order->OrderSubject); ?></td>
                         </tr>
                         <tr>
-                            <td class="pull-right">زمینه: {{$Order->TranslationField}}</td>
-                            <td class="pull-right">زبان مبدا: {{$Order->SourceLanguage}}</td>
-                            <td class="pull-right">زبان مقصد: {{$Order->DestLanguage}}</td>
+                            <td class="pull-right">زمینه: <?php echo e($Order->TranslationField); ?></td>
+                            <td class="pull-right">زبان مبدا: <?php echo e($Order->SourceLanguage); ?></td>
+                            <td class="pull-right">زبان مقصد: <?php echo e($Order->DestLanguage); ?></td>
                         </tr>
                         <tr>
                             <td>بخش های مورد نیاز برای ترجمه:</td>
                         </tr>
                         <tr>
                             <td>
-                                @php
+                                <?php
                                     $TP=$Order->TranslationParts;
                                     $TP=unserialize($TP);
                                     if ($TP){
@@ -47,19 +46,19 @@
                                     else{
                                         echo "<span style='color: red;'> موردی انتخاب نشده است، فقط متن اصلی ترجمه شود.</span>";
                                     }
-                                @endphp
+                                ?>
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="pull-right">تعداد کلمات:&nbsp; {{$Order->Amount}} &nbsp;&nbsp;&nbsp;</td>
-                            <td class="pull-right">مبلغ کل: &nbsp;{{$Order->TotalPrice}} &nbsp; تومان</td>
+                            <td class="pull-right">تعداد کلمات:&nbsp; <?php echo e($Order->Amount); ?> &nbsp;&nbsp;&nbsp;</td>
+                            <td class="pull-right">مبلغ کل: &nbsp;<?php echo e($Order->TotalPrice); ?> &nbsp; تومان</td>
                         </tr>
 
                         <tr>
-                            <td class="pull-right"> تاریخ تحویل: <span dir="ltr">{{$Order->DeliveryDate}}</span></td>
+                            <td class="pull-right"> تاریخ تحویل: <span dir="ltr"><?php echo e($Order->DeliveryDate); ?></span></td>
                             <td class="pull-left">زمان تا تحویل سفارش:
-                                @php
+                                <?php
                                     $Time=Verta::parse($Order->DeliveryDate);
                                      if($Time->gt(Verta::now())){
                                          $days=abs($Time->diffDays());
@@ -71,24 +70,25 @@
                                          $hours=0;
                                          $minutes=0;
                                      }
-                                @endphp
+                                ?>
 
-                                {{$days. ' روز و ' . $hours . ' ساعت و ' . $minutes . ' دقیقه'}}
+                                <?php echo e($days. ' روز و ' . $hours . ' ساعت و ' . $minutes . ' دقیقه'); ?>
+
                             </td>
                         </tr>
                         <tr>
                             <td class="pull-right">توضیحات مشتری:</td>
                         </tr>
                         <tr>
-                            @if($Order->Description)
-                                <td>{!!nl2br($Order->Description)!!}</td>
-                            @else
+                            <?php if($Order->Description): ?>
+                                <td><?php echo nl2br($Order->Description); ?></td>
+                            <?php else: ?>
                                 <td><span style='color: red;'> بدون توضیحات</span></td>
-                            @endif
+                            <?php endif; ?>
                         </tr>
                         <tr>
                             <td class="pull-left">
-                                <a href="{{route('Download',['user_id'=>$Order->user_id, 'OrderFile'=>$Order->OrderFile])}}"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود فایل
+                                <a href="<?php echo e(route('Download',['user_id'=>$Order->user_id, 'OrderFile'=>$Order->OrderFile])); ?>"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود فایل
                                 </button> </a>
                             </td>
                         </tr>
@@ -97,20 +97,21 @@
                     </table>
                     <hr>
 
-                    @if(DashboardCurrentUser::$Role=='مدیر')
-                        @include('vazhenegar.DashboardNewOrderSpecsAdmin')
-                    @elseif(DashboardCurrentUser::$Role=='مترجم')
-                        {{'این کاربر مترجم است'}}
-                    @elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice)
-                        @include('vazhenegar.DashboardNewOrderSpecsCustomer')
-                    @endif
+                    <?php if(DashboardCurrentUser::$Role=='مدیر'): ?>
+                        <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php elseif(DashboardCurrentUser::$Role=='مترجم'): ?>
+                        <?php echo e('این کاربر مترجم است'); ?>
 
-                    {{--if the order status updated successfully an alert box would be show to admin--}}
-                    @if(session('OrderStatus')=='Updated')
+                    <?php elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice): ?>
+                        <?php echo $__env->make('vazhenegar.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php endif; ?>
+
+                    
+                    <?php if(session('OrderStatus')=='Updated'): ?>
                         <script>alert("مشخصات سفارش با موفقیت بروز رسانی شد.")</script>
-                    @elseif(session('OrderStatus')=='PriceAdded')
+                    <?php elseif(session('OrderStatus')=='PriceAdded'): ?>
                         <script>alert("وضعیت سفارش با موفقیت بروز رسانی شد. در حال انتظار برای پرداخت مبلغ از سوی مشتری.")</script>
-                    @endif
+                    <?php endif; ?>
                 </div>
 
 
@@ -122,10 +123,12 @@
 
         <!-- left col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5">
-            @include('vazhenegar.DashboardCalendar')
+            <?php echo $__env->make('vazhenegar.DashboardCalendar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         </section>
         <!-- left col -->
 
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('auth.DashboardLayout.DashboardMasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardNewOrderSpecs.blade.php ENDPATH**/ ?>
