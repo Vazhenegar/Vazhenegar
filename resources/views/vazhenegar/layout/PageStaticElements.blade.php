@@ -47,7 +47,7 @@
                             <li><a href="#"> لیست خدمات </a>
 
                                 <ul class="dropdown">
-                                    <li><a href="#">- خدمات ترجمه</a></li>
+                                    <li><a href="/translation-services">- خدمات ترجمه</a></li>
                                 </ul>
 
                             </li>
@@ -101,9 +101,9 @@
 
                     <!-- Footer Content -->
                     <div class="footer-content mb-15">
-                        <h3>(+98) 41 3334 2084</h3>
+                        <h3>(+98) 41 3337 3592</h3>
                         <h3>(+98) 914 8495898</h3>
-                        <p>تبریز، خیابان رضانژاد، کوی دمشقیه، کوچه عیدی <br> vazhenegar@hotmail.com</p>
+                        <p>تبریز، خیابان رضانژاد، کوی دمشقیه، کوچه عیدی پلاک 39 کد پستی 5154793863 <br>vazhenegar@hotmail.com پست الکترونیکی</p>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                     <!-- Widget Title -->
                     <h4 class="widget-title">نمادهای سایت</h4>
                     <div class="SiteSymbols">
-                        <img src="{{asset('images/site/enamad.png') }}">
+                        <script src="https://cdn.zarinpal.com/trustlogo/v1/trustlogo.js" type="text/javascript"></script>
                         <img src="{{asset('images/site/shaparak.png') }}">
                         <br>
                         <img src="{{asset('images/site/ssl.png') }}">
@@ -167,7 +167,7 @@
         </div>
         <!-- Copywrite Text -->
         <div class="copywrite-text col-12" dir="rtl">
-            <p>تمام حقوق برای سایت واژه نگار محفوظ است. Copyright &copy; 2019</p>
+            <p>تمام حقوق برای سایت واژه نگار محفوظ است. Copyright &copy; 2019 - 2020</p>
         </div>
     </div>
 </footer>

@@ -271,7 +271,7 @@
                     <div class="cta-content push-down mb-80">
                         <div class="call-now-btn">
                             <span>تلفن ثابت: </span>
-                            <div class="NumberDirectionFixer"> (+98) 41 3334 2084</div>
+                            <div class="NumberDirectionFixer"> (+98) 41 3337 3592</div>
                         </div>
                         <div class="call-now-btn">
                             <span>همراه:</span>

@@ -1,6 +1,21 @@
 <?php
+//====================================== Managememt Routes
+Route::get('/ClearAllCaches', function () {
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+});
+//====================================== DB Migration Routes
+Route::get('/migrate', function() {
+
+    Artisan::call('migrate:refresh --seed');
+
+});
+
 //====================================== Main Routes
 Route::view('/', 'vazhenegar.index');
+Route::view('translation-services', 'vazhenegar.TranslationServices');
 Route::view('about-us', 'vazhenegar.about-us');
 Route::view('tmp', 'vazhenegar.tmp');
 Route::resource('tos', TermsOfServiceController::class);

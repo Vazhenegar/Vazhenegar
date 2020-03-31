@@ -60,4 +60,4 @@
         }
     });
 </script>
-<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\scripts\StateCity.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views/scripts/StateCity.blade.php ENDPATH**/ ?>

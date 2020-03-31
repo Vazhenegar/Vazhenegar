@@ -3383,6 +3383,41 @@ input:focus {
         font-size: 15px;
     }
 }
+/* :: translation services Area */
+.ts-area {
+    position: relative;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 767px) {
+    .ts-area h2 {
+        font-size: 15px;
+    }
+
+    .ts-area p {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .ts-area h2 {
+        font-size: 16px;
+    }
+
+    .ts-area p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .ts-area h2 {
+        font-size: 20px;
+    }
+
+    .ts-area p {
+        font-size: 15px;
+    }
+}
 
 /* :: 22.0 Employment Area */
 .employment-area {
@@ -3546,7 +3581,7 @@ input:focus {
 /* site symbols in footer */
 .SiteSymbols img {
     padding-top: 5px;
-    width: 90px;
+    width: 80px;
     height: auto;
 }
 

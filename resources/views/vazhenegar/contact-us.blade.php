@@ -29,7 +29,7 @@
             <div class="col-12 col-lg-8">
                 <div class="uza-contact-form mb-80">
                     <div class="contact-heading mb-50">
-                        <h4>فرم ارسال پیام <br>فرم زیر را تکمیل و پیام خود را ارسال نمایید.</h4>
+                        <h4>فرم ارسال پیام <br>فرم زیر را تکمیل و پیامها، نظرات، انتقادات و پیشنهادات خود را ارسال نمایید.</h4>
                     </div>
                     <form action="#" method="post">
                         <div class="row">
@@ -79,6 +79,7 @@
                     <div class="single-contact-card mb-50">
                         <h4>واحد مدیریت</h4>
                         <div class="NumberDirectionFixer">
+                            <h3>(+98) 41 3337 3592</h3>
                             <h3>(+98) 914 849 5898</h3>
                         </div>
 
