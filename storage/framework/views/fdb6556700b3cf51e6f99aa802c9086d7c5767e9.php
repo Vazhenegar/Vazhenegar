@@ -62,7 +62,6 @@
                 <?php if(count($Orders)==0): ?>
                     <tr>
                         <td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>
-                        <td data-toggle="tooltip" data-placement="bottom" title="<?php echo e($order['StatusDescription']); ?>"></td>
                     </tr>
                 <?php else: ?>
                     <?php
@@ -74,7 +73,7 @@
                         echo '<td>'.$order['OrderSubject'].'</td>';
                         echo '<td class="NumberDirectionFixer">'.$order['RegisterDate'].'</td>';
                         echo '<td class="NumberDirectionFixer">'.$order['DeliveryDate'].'</td>';
-                        echo '<td data-toggle="tooltip" data-placement="bottom" title="'.$order['StatusDescription'].'">'.$order['Status'].'</td>';
+                        echo '<td><a data-toggle="tooltip" data-placement="bottom" title="'.$order['StatusDescription'].'">'.$order['Status'].'</a></td>';
                         echo '<td>'.
                              '<a href="/dashboard/Order/'.$order['id'].'"><button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button></a>&nbsp'.
                              '<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>&nbsp'.
@@ -114,6 +113,7 @@
                         let RDate = response[i].RegisterDate;
                         let DDate = response[i].DeliveryDate;
                         let Status = response[i].Status;
+                        let StatusDescription = response[i].StatusDescription;
 
                         let tr =
                             "<tr>" +
@@ -122,7 +122,7 @@
                             "<td>" + OrderSubject + "</td>" +
                             "<td class='NumberDirectionFixer'>" + RDate + "</td>" +
                             "<td class='NumberDirectionFixer'>" + DDate + "</td>" +
-                            "<td>" + Status + "</td>" +
+                            "<td><a data-toggle='tooltip' data-placement='bottom' title='"+StatusDescription+"'>" + Status + "</a></td>" +
                             "<td>" +
                             "<a href='dashboard/Order/" + OrderId + "'><button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button></a>" + "&nbsp;" +
                             "<button type='button' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>" + "&nbsp;" +
@@ -143,8 +143,6 @@
         });
     }, 30000);
 
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
+
 </script>
 <?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardList.blade.php ENDPATH**/ ?>

@@ -30,7 +30,7 @@
 
             <?php $__currentLoopData = DashboardCurrentUser::$Menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 
-                <li class="treeview">
+                <li class="treeview active">
                     <a id="<?php echo e($item->MainMenu); ?>" href="<?php echo e($item->Url); ?>">
                         <i class="<?php echo e($item->Icon?$item->Icon :'fa fa-circle-o'); ?>"></i>
                         <span><?php echo e($item->MainMenu); ?></span>

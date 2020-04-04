@@ -29,7 +29,7 @@
 
             @foreach(DashboardCurrentUser::$Menus as $item)
                 {{--========================================================================--}}
-                <li class="treeview">
+                <li class="treeview active">
                     <a id="{{$item->MainMenu}}" href="{{$item->Url}}">
                         <i class="{{$item->Icon?$item->Icon :'fa fa-circle-o'}}"></i>
                         <span>{{$item->MainMenu}}</span>
