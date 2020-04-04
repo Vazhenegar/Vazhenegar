@@ -90,6 +90,7 @@ function OrderPreparation($orders)
             $item->SourceLanguage = Language::where('id', $item->SourceLanguage)->value('LanguageName');
             $item->DestLanguage = Language::where('id', $item->DestLanguage)->value('LanguageName');
             $item->Status = OrderStatus::where('id', $item->status_id)->value('Status');
+            $item->StatusDescription = OrderStatus::where('id', $item->status_id)->value('Description');
         }
 
     return $orders;
