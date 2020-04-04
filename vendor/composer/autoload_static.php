@@ -436,6 +436,7 @@ class ComposerStaticInit3bee899b2915a36c92a614a3bf772efc
     public static $classMap = array (
         'AdminMainMenuTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminMainMenuTableSeeder.php',
         'AdminSubMenuTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminSubMenuTableSeeder.php',
+        'App\\AdminMainMenus' => __DIR__ . '/../..' . '/app/AdminMainMenus.php',
         'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',

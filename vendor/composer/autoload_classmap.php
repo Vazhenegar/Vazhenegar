@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AdminMainMenuTableSeeder' => $baseDir . '/database/seeds/AdminMainMenuTableSeeder.php',
     'AdminSubMenuTableSeeder' => $baseDir . '/database/seeds/AdminSubMenuTableSeeder.php',
+    'App\\AdminMainMenus' => $baseDir . '/app/AdminMainMenus.php',
     'App\\City' => $baseDir . '/app/City.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Department' => $baseDir . '/app/Department.php',
