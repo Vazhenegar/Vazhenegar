@@ -21,15 +21,12 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(UserStatusesTableSeeder::class);
         $this->call(UserModesTableSeeder::class);
-//        $this->call(UserMainMenuTableSeeder::class);
-//        $this->call(UserSubMenuTableSeeder::class);
-
         $this->call(AdminMainMenuTableSeeder::class);
-        $this->call(AdminSubMenuTableSeeSeeder::class);
-        $this->call(TranslatorMainMenuTableSeeder::class);
-        $this->call(TranslatorSubMenuTableSeeder::class);
-        $this->call(CustomerMainMenuTableSeeder::class);
-        $this->call(CustomerSubMenuTableSeeder::class);
+        $this->call(AdminSubMenuTableSeeder::class);
+//        $this->call(TranslatorMainMenuTableSeeder::class);
+//        $this->call(TranslatorSubMenuTableSeeder::class);
+//        $this->call(CustomerMainMenuTableSeeder::class);
+//        $this->call(CustomerSubMenuTableSeeder::class);
         $this->call(QuizzesTableSeeder::class);
         $this->call(QuizAnswersTableSeeder::class);
         $this->call(OrderStatusesTableSeeder::class);

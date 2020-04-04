@@ -16,7 +16,7 @@ class CreateAdminSubMenusTable extends Migration
         Schema::create('admin_sub_menus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('admin_main_menu_id')->unsigned();
-            $table->string('SubMenu');
+            $table->string('AdminSubMenu');
             $table->string('Url');
             $table->string('admin_sub_menu_Icon')->nullable();
             $table->timestamps();
