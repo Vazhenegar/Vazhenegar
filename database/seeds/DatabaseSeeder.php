@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserModesTableSeeder::class);
         $this->call(AdminMainMenuTableSeeder::class);
         $this->call(AdminSubMenuTableSeeder::class);
-//        $this->call(TranslatorMainMenuTableSeeder::class);
-//        $this->call(TranslatorSubMenuTableSeeder::class);
+        $this->call(TranslatorMainMenuTableSeeder::class);
+        $this->call(TranslatorSubMenuTableSeeder::class);
 //        $this->call(CustomerMainMenuTableSeeder::class);
 //        $this->call(CustomerSubMenuTableSeeder::class);
         $this->call(QuizzesTableSeeder::class);
