@@ -18,7 +18,7 @@ class CreateCustomerSubMenusTable extends Migration
             $table->bigInteger('customer_main_menu_id')->unsigned();
             $table->string('CustomerSubMenu');
             $table->string('Url');
-            $table->string('translator_sub_menu_Icon')->nullable();
+            $table->string('customer_sub_menu_Icon')->nullable();
             $table->timestamps();
 
             $table->foreign('customer_main_menu_id')
