@@ -12,6 +12,8 @@ return array(
     'App\\AdminSubMenus' => $baseDir . '/app/AdminSubMenus.php',
     'App\\City' => $baseDir . '/app/City.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\CustomerMainMenus' => $baseDir . '/app/CustomerMainMenus.php',
+    'App\\CustomerSubMenus' => $baseDir . '/app/CustomerSubMenus.php',
     'App\\Department' => $baseDir . '/app/Department.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',

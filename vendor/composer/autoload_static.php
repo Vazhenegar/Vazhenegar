@@ -440,6 +440,8 @@ class ComposerStaticInit3bee899b2915a36c92a614a3bf772efc
         'App\\AdminSubMenus' => __DIR__ . '/../..' . '/app/AdminSubMenus.php',
         'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\CustomerMainMenus' => __DIR__ . '/../..' . '/app/CustomerMainMenus.php',
+        'App\\CustomerSubMenus' => __DIR__ . '/../..' . '/app/CustomerSubMenus.php',
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
