@@ -21,8 +21,8 @@ class CreateCustomerSubMenusTable extends Migration
             $table->string('translator_sub_menu_Icon')->nullable();
             $table->timestamps();
 
-            $table->foreign('translator_main_menu_id')
-                ->references('id')->on('translator_main_menus')
+            $table->foreign('customer_main_menu_id')
+                ->references('id')->on('customer_main_menus')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }

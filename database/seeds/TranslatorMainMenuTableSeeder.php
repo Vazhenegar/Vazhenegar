@@ -12,26 +12,27 @@ class TranslatorMainMenuTableSeeder extends Seeder
     public function run()
     {
         $MainMenu = [
-        [
-            'MainMenu' => 'سفارشات',
-            'Icon'=>'fa fa-file-text',
-        ],
-            //8
+            //1
+            [
+                'MainMenu' => 'سفارشات',
+                'Icon'=>'fa fa-file-text',
+            ],
+            //2
             [
                 'MainMenu' => 'پیام ها',
                 'Icon'=>'fa fa-comments',
             ],
-            //9
+            //3
             [
                 'MainMenu' => 'امور مالی و حسابداری',
                 'Icon'=>'fa fa-dollar',
             ],
-            //10
+            //4
             [
                 'MainMenu' => 'تنظیمات',
                 'Icon'=>'fa fa-cogs',
             ],
-            //11
+            //5
             [
                 'MainMenu' => 'راهنما',
                 'Icon'=>'fa fa-question-circle',
