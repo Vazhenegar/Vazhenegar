@@ -23,4 +23,10 @@ class Role extends Model
         return $this->hasMany(UserMainMenu::class);
     }
 
+    public function sub_menus()
+    {
+        return $this->hasMany(UserSubMenu::class);
+    }
+
+
 }

@@ -6,10 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserSubMenu extends Model
 {
-    protected $fillable = ['user_main_menu_id', 'SubMenu', 'Url', 'Icon'];
+    protected $fillable = ['role_id', 'user_main_menu', 'SubMenu', 'Url', 'Icon'];
 
     public function main_menu()
     {
         return $this->belongsTo(UserMainMenu::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 }

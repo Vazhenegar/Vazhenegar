@@ -3817,3 +3817,10 @@ input[type="number"] {
     -moz-text-align-last: left;
     text-align-last: left;
 }
+
+/*Page Not Found Error*/
+img .page_not_found {
+    background-color: #0b58a2;
+    max-width: 100%;
+    height: auto;
+}

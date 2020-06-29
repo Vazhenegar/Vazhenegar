@@ -12,4 +12,4 @@
     <img class="page_not_found" src="<?php echo e(asset('images/site/4041.jpg')); ?>" alt="">
 </body>
 </html>
-<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\errors\404.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views/errors/404.blade.php ENDPATH**/ ?>

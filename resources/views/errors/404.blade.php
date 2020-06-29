@@ -9,6 +9,6 @@
 </head>
 
 <body>
-<img src="{{asset('images/site/404.jpg')}}" alt="">
+    <img class="page_not_found" src="{{asset('images/site/4041.jpg')}}" alt="">
 </body>
 </html>

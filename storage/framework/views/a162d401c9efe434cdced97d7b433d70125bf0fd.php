@@ -1,4 +1,4 @@
-<?php $__env->startSection('PageTitle', 'ورود کاربران'); ?>
+<?php $__env->startSection('PageTitle', 'ثبت نام'); ?>
 <?php $__env->startSection('content'); ?>
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">

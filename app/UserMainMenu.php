@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class UserMainMenu extends Model
 {
@@ -16,7 +17,7 @@ class UserMainMenu extends Model
 
     public function sub_menus()
     {
-        return $this->hasMany(UserSubMenu::class);
+        return $this->hasMany(UserSubMenu::class,'user_main_menu', 'MainMenu')->where('role_id','=',Auth::user()->role_id);
     }
 
 }

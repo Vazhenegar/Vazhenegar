@@ -50,8 +50,9 @@ function MenuPicker(User $user)
 {
     //get role of logged in user
     $role = $user->role()->first();
+
     //get menus of user related to role
-    dd($role->main_menus()->with('sub_menus')->get());
+    return $role->main_menus()->with('sub_menus')->get();
 
 }
 

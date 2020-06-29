@@ -17,6 +17,16 @@ class UserSubMenuTableSeeder extends Seeder
             1 => [
                 'سفارشات' => [
                     [
+                        'SubMenu' => 'تست 1',
+                        'Url' => 'AON', //Admin->Orders->New (/dashboard/NewRegisteredOrders)
+                        'Icon' => 'fa fa-star',
+                    ],
+                    [
+                        'SubMenu' => 'تست 2',
+                        'Url' => 'AON', //Admin->Orders->New (/dashboard/NewRegisteredOrders)
+                        'Icon' => 'fa fa-star',
+                    ],
+                    [
                         'SubMenu' => 'جدید',
                         'Url' => 'AON', //Admin->Orders->New (/dashboard/NewRegisteredOrders)
                         'Icon' => 'fa fa-star',
