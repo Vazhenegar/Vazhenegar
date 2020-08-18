@@ -1,6 +1,7 @@
 
 
 
+
 <?php $__env->startSection('preloader'); ?>
 <div id="preloader">
     <div class="wrapper">
@@ -77,7 +78,6 @@
     </div>
 </header>
 <?php $__env->stopSection(); ?>
-
 
 
 
@@ -172,6 +172,5 @@
     </div>
 </footer>
 <?php $__env->stopSection(); ?>
-
 
 <?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\PageStaticElements.blade.php ENDPATH**/ ?>

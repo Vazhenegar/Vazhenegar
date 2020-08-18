@@ -13,8 +13,8 @@
 </head>
 
 <body>
-<?php echo $__env->make('vazhenegar.layout.PageStaticElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<?php echo $__env->make('vazhenegar.layout.PageStaticElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <!-- Preloader goes here -->
@@ -25,6 +25,7 @@
 <?php $__env->startSection('HeaderAndNav'); ?>
 <?php echo $__env->yieldSection(); ?>
 
+<!-- ***** ›Content Area, will vary depends on the page that user visits ***** -->
 <?php $__env->startSection('content'); ?>
 <?php echo $__env->yieldSection(); ?>
 
