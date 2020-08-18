@@ -43,6 +43,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Index' => $baseDir . '/app/Index.php',
     'App\\Language' => $baseDir . '/app/Language.php',
     'App\\NewsLetterMembers' => $baseDir . '/app/NewsLetterMembers.php',
     'App\\Order' => $baseDir . '/app/Order.php',
