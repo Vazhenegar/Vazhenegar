@@ -282,6 +282,73 @@
         ]
     },
     {
+        "name": "econea/nusoap",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pwnlabs/nusoap.git",
+            "reference": "d3cc031a8c147a3a5737c63ab29c6f1e51847ca7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pwnlabs/nusoap/zipball/d3cc031a8c147a3a5737c63ab29c6f1e51847ca7",
+            "reference": "d3cc031a8c147a3a5737c63ab29c6f1e51847ca7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "jakub-onderka/php-parallel-lint": "~1.0.0"
+        },
+        "time": "2020-07-27T09:42:23+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.10.x-dev",
+                "dev-develop": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.0-only"
+        ],
+        "authors": [
+            {
+                "name": "Milan Felix Šulc",
+                "homepage": "https://f3l1x.io"
+            }
+        ],
+        "description": "Fixed NuSOAP for PHP 5.4 - 7.4",
+        "homepage": "https://github.com/pwnlabs/nusoap",
+        "keywords": [
+            "client",
+            "http",
+            "nusoap",
+            "php",
+            "soap",
+            "transport",
+            "xml"
+        ],
+        "funding": [
+            {
+                "url": "https://contributte.org/partners.html",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/f3l1x",
+                "type": "github"
+            }
+        ]
+    },
+    {
         "name": "egulias/email-validator",
         "version": "2.1.11",
         "version_normalized": "2.1.11.0",
@@ -941,7 +1008,8 @@
                 "name": "Jakub Onderka",
                 "email": "jakub.onderka@gmail.com"
             }
-        ]
+        ],
+        "abandoned": "php-parallel-lint/php-console-color"
     },
     {
         "name": "jakub-onderka/php-console-highlighter",
@@ -989,7 +1057,8 @@
                 "homepage": "http://www.acci.cz/"
             }
         ],
-        "description": "Highlight PHP code in terminal"
+        "description": "Highlight PHP code in terminal",
+        "abandoned": "php-parallel-lint/php-console-highlighter"
     },
     {
         "name": "laravel/framework",
@@ -2486,7 +2555,8 @@
         "homepage": "https://github.com/sebastianbergmann/php-token-stream/",
         "keywords": [
             "tokenizer"
-        ]
+        ],
+        "abandoned": true
     },
     {
         "name": "phpunit/phpunit",

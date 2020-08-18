@@ -13,8 +13,8 @@
 </head>
 
 <body>
-@include('vazhenegar.layout.PageStaticElements')
 {{--  INSERT FIXED ELEMENTS TO THIS LAYOUT --}}
+@include('vazhenegar.layout.PageStaticElements')
 
 
 <!-- Preloader goes here -->
@@ -25,6 +25,7 @@
 @section('HeaderAndNav')
 @show
 
+<!-- ***** ›Content Area, will vary depends on the page that user visits ***** -->
 @section('content')
 @show
 

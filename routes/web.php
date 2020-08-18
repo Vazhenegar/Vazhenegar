@@ -32,7 +32,7 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/dashboard/CustomerRegisteredOrders','OrderController@customerRegisteredOrders');
 
 //===================================== Orders invoce submit
-Route::get('/dashboard/Order/{order_id}/{paid_price}/InvoiceSubmit', 'OrderController@InvoiceSubmit');
+//Route::get('/dashboard/Order/{order_id}/{paid_price}/InvoiceSubmit', 'OrderController@InvoiceSubmit');
 //===================================== Orders
 Route::resource('/dashboard/Order', OrderController::class);
 

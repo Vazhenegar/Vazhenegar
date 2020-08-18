@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Types\Integer;
+use nusoap_client; //web service for invoice payment
 
 class OrderController extends Controller
 {
@@ -202,12 +203,12 @@ class OrderController extends Controller
         return view('vazhenegar.DashboardCustomerOrdersList',compact('CustomerOrders'));
     }
 
-    public function InvoiceSubmit($order_id, $paid_price)
-    {
-        //here should save the price of invoice of an order to (paid price) field of that order in db.
-        Order::where('id', $order_id)->update(['PaidPrice'=>$paid_price, 'status_id'=>3]);
-
-    }
+//    public function InvoiceSubmit($order_id, $paid_price)
+//    {
+//        //here should save the price of invoice of an order to (paid price) field of that order in db.
+//        Order::where('id', $order_id)->update(['PaidPrice'=>$paid_price, 'status_id'=>3]);
+//        and here should save tracking code for that order in db
+//    }
 
     public function PaidOrdersList()
     {
