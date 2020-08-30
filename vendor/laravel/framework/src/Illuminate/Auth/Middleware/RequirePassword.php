@@ -3,26 +3,45 @@
 namespace Illuminate\Auth\Middleware;
 
 use Closure;
-use Illuminate\Routing\Redirector;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Contracts\Routing\UrlGenerator;
 
 class RequirePassword
 {
     /**
-     * The Redirector instance.
+     * The response factory instance.
      *
-     * @var \Illuminate\Routing\Redirector
+     * @var \Illuminate\Contracts\Routing\ResponseFactory
      */
-    protected $redirector;
+    protected $responseFactory;
+
+    /**
+     * The URL generator instance.
+     *
+     * @var \Illuminate\Contracts\Routing\UrlGenerator
+     */
+    protected $urlGenerator;
+
+    /**
+     * The password timeout.
+     *
+     * @var int
+     */
+    protected $passwordTimeout;
 
     /**
      * Create a new middleware instance.
      *
-     * @param  \Illuminate\Routing\Redirector  $redirector
+     * @param  \Illuminate\Contracts\Routing\ResponseFactory  $responseFactory
+     * @param  \Illuminate\Contracts\Routing\UrlGenerator  $urlGenerator
+     * @param  int|null  $passwordTimeout
      * @return void
      */
-    public function __construct(Redirector $redirector)
+    public function __construct(ResponseFactory $responseFactory, UrlGenerator $urlGenerator, $passwordTimeout = null)
     {
-        $this->redirector = $redirector;
+        $this->responseFactory = $responseFactory;
+        $this->urlGenerator = $urlGenerator;
+        $this->passwordTimeout = $passwordTimeout ?: 10800;
     }
 
     /**
@@ -30,14 +49,20 @@ class RequirePassword
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string  $redirectToRoute
+     * @param  string|null  $redirectToRoute
      * @return mixed
      */
     public function handle($request, Closure $next, $redirectToRoute = null)
     {
         if ($this->shouldConfirmPassword($request)) {
-            return $this->redirector->guest(
-                $this->redirector->getUrlGenerator()->route($redirectToRoute ?? 'password.confirm')
+            if ($request->expectsJson()) {
+                return $this->responseFactory->json([
+                    'message' => 'Password confirmation required.',
+                ], 423);
+            }
+
+            return $this->responseFactory->redirectGuest(
+                $this->urlGenerator->route($redirectToRoute ?? 'password.confirm')
             );
         }
 
@@ -54,6 +79,6 @@ class RequirePassword
     {
         $confirmedAt = time() - $request->session()->get('auth.password_confirmed_at', 0);
 
-        return $confirmedAt > config('auth.password_timeout', 10800);
+        return $confirmedAt > $this->passwordTimeout;
     }
 }

@@ -1,12 +1,14 @@
 <?php
-//====================================== Managememt Routes
+//====================================== Management Routes
+//---------- clear app cache
 Route::get('/ClearAllCaches', function () {
     Artisan::call('config:clear');
     Artisan::call('route:clear');
     Artisan::call('cache:clear');
     Artisan::call('config:cache');
 });
-//====================================== DB Migration Routes
+
+//---------- DB Migration Routes
 Route::get('/migrate', function() {
 
     Artisan::call('migrate:refresh --seed');

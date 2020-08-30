@@ -99,30 +99,30 @@
                                     <div class="FormRadioBox">
                                         <?php if($errors->has('Gender')): ?>
                                             <fieldset class="r-pill wrong-field">
-                                                <?php else: ?>
-                                                    <fieldset class="r-pill">
-                                                        <?php endif; ?>
-                                                        <label class="mb-30" dir="rtl">جنسیت:</label>
-                                                        <div class="r-pill__group">
+                                        <?php else: ?>
+                                            <fieldset class="r-pill">
+                                        <?php endif; ?>
+                                                <label class="mb-30" dir="rtl">جنسیت:</label>
+                                        <div class="r-pill__group">
                                                 <span class="r-pill__item">
-                                                    <?php if(($errors->any()) && (old('Gender')==1)): ?>
-                                                        <input type="radio" name="Gender" value="1" id=r1 checked>
-                                                    <?php else: ?>
-                                                        <input type="radio" name="Gender" value="1" id=r1>
-                                                    <?php endif; ?>
+                                            <?php if(($errors->any()) && (old('Gender')==1)): ?>
+                                                    <input type="radio" name="Gender" value="1" id=r1 checked>
+                                            <?php else: ?>
+                                                    <input type="radio" name="Gender" value="1" id=r1>
+                                            <?php endif; ?>
                                                     <label for="r1">مرد</label>
-                                                </span>
-                                                            <span class="r-pill__item">
-                                                    <?php if(($errors->any()) && (old('Gender')==0) && (old('Gender')!=null)): ?>
-                                                                    <input type="radio" name="Gender" value="0" id="r2"
-                                                                           checked>
-                                                                <?php else: ?>
-                                                                    <input type="radio" name="Gender" value="0" id="r2">
-                                                                <?php endif; ?>
-                                                    <label for="r2">زن</label>
-                                                </span>
-                                                        </div>
-                                                    </fieldset>
+                                                    </span>
+
+                                                    <span class="r-pill__item">
+                                            <?php if(($errors->any()) && (old('Gender')==0) && (old('Gender')!=null)): ?>
+                                                    <input type="radio" name="Gender" value="0" id="r2" checked>
+                                            <?php else: ?>
+                                                <input type="radio" name="Gender" value="0" id="r2">
+                                            <?php endif; ?>
+                                                <label for="r2">زن</label>
+                                                    </span>
+                                        </div>
+                                            </fieldset>
                                             </fieldset>
                                     </div>
                                 </div>
@@ -310,8 +310,7 @@
                                                             onchange="SL(this)" required>
                                                         <option value="<?php echo e(old('source_lang')); ?>"></option>
                                                         <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option
-                                                                value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
+                                                            <option value="<?php echo e($language->id); ?>"><?php echo e($language->LanguageName); ?></option>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                     <label class="form-placeholder-label" for="source_lang">زبان
@@ -411,11 +410,11 @@
                                     <div class="col-12">
                                         <?php if($errors->has('UserDocuments')): ?>
                                             <div class="wrong-field col-4 form-group">
-                                                <?php else: ?>
-                                                    <div class="col-4 form-group">
-                                                        <?php endif; ?>
-                                                        <input type="file" name="UserDocuments">
-                                                    </div>
+                                        <?php else: ?>
+                                            <div class="col-4 form-group">
+                                        <?php endif; ?>
+                                        <input type="file" name="UserDocuments">
+                                            </div>
                                             </div>
                                     </div>
 

@@ -100,30 +100,30 @@
                                     <div class="FormRadioBox">
                                         @if ($errors->has('Gender'))
                                             <fieldset class="r-pill wrong-field">
-                                                @else
-                                                    <fieldset class="r-pill">
-                                                        @endif
-                                                        <label class="mb-30" dir="rtl">جنسیت:</label>
-                                                        <div class="r-pill__group">
+                                        @else
+                                            <fieldset class="r-pill">
+                                        @endif
+                                                <label class="mb-30" dir="rtl">جنسیت:</label>
+                                        <div class="r-pill__group">
                                                 <span class="r-pill__item">
-                                                    @if (($errors->any()) && (old('Gender')==1))
-                                                        <input type="radio" name="Gender" value="1" id=r1 checked>
-                                                    @else
-                                                        <input type="radio" name="Gender" value="1" id=r1>
-                                                    @endif
+                                            @if (($errors->any()) && (old('Gender')==1))
+                                                    <input type="radio" name="Gender" value="1" id=r1 checked>
+                                            @else
+                                                    <input type="radio" name="Gender" value="1" id=r1>
+                                            @endif
                                                     <label for="r1">مرد</label>
-                                                </span>
-                                                            <span class="r-pill__item">
-                                                    @if (($errors->any()) && (old('Gender')==0) && (old('Gender')!=null))
-                                                                    <input type="radio" name="Gender" value="0" id="r2"
-                                                                           checked>
-                                                                @else
-                                                                    <input type="radio" name="Gender" value="0" id="r2">
-                                                                @endif
-                                                    <label for="r2">زن</label>
-                                                </span>
-                                                        </div>
-                                                    </fieldset>
+                                                    </span>
+
+                                                    <span class="r-pill__item">
+                                            @if (($errors->any()) && (old('Gender')==0) && (old('Gender')!=null))
+                                                    <input type="radio" name="Gender" value="0" id="r2" checked>
+                                            @else
+                                                <input type="radio" name="Gender" value="0" id="r2">
+                                            @endif
+                                                <label for="r2">زن</label>
+                                                    </span>
+                                        </div>
+                                            </fieldset>
                                             </fieldset>
                                     </div>
                                 </div>
@@ -311,8 +311,7 @@
                                                             onchange="SL(this)" required>
                                                         <option value="{{old('source_lang')}}"></option>
                                                         @foreach ($languages as $language)
-                                                            <option
-                                                                value="{{$language->id}}">{{$language->LanguageName}}</option>
+                                                            <option value="{{$language->id}}">{{$language->LanguageName}}</option>
                                                         @endforeach
                                                     </select>
                                                     <label class="form-placeholder-label" for="source_lang">زبان
@@ -412,11 +411,11 @@
                                     <div class="col-12">
                                         @if($errors->has('UserDocuments'))
                                             <div class="wrong-field col-4 form-group">
-                                                @else
-                                                    <div class="col-4 form-group">
-                                                        @endif
-                                                        <input type="file" name="UserDocuments">
-                                                    </div>
+                                        @else
+                                            <div class="col-4 form-group">
+                                        @endif
+                                        <input type="file" name="UserDocuments">
+                                            </div>
                                             </div>
                                     </div>
 

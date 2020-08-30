@@ -12,17 +12,22 @@ use Illuminate\Support\Str;
 
 //============== General
 
-//set Online and Offline users mode in users table depending on id's received from session table.
+/**
+ * set Online and Offline users mode in users table depending on id's received from session table.
+ */
 function SetUsersMode()
 {
     $OnlineIds = GetOnlineUsersSession();
-    User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
     User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
+    User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
     return back();
 }
 
-//function for replace persian digits with english to save in db
-//         because persian digits cannot validate in laravel
+
+/**
+ * function for replace persian digits with english to save in db
+ * because persian digits cannot validate in laravel
+ */
 function per_digit_conv(string $per_digits)
 {
     $result = "";
@@ -138,7 +143,7 @@ function GetSiteVisitors($day)
 function GetOnlineUsersSession()
 {
     $ids = Session::whereNotNull('user_id')
-        ->where('last_activity', '>=', date_timestamp_get(Carbon::now()->subMinutes(1)))
+        ->where('last_activity', '>', date_timestamp_get(Carbon::now()->subMinutes(1)))
         ->pluck('user_id');
     $ids->unique()->values()->all();
     return $ids;

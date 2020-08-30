@@ -2,8 +2,8 @@
 
 namespace Laravel\Ui;
 
-use InvalidArgumentException;
 use Illuminate\Console\Command;
+use InvalidArgumentException;
 
 class AuthCommand extends Command
 {
@@ -36,14 +36,16 @@ class AuthCommand extends Command
         'auth/passwords/reset.stub' => 'auth/passwords/reset.blade.php',
         'auth/register.stub' => 'auth/register.blade.php',
         'auth/verify.stub' => 'auth/verify.blade.php',
-        'dashboard.stub' => 'vazhenegar/dashboard.blade.php',
-        'DashboardLayout/app.stub' => 'DashboardLayout/DashboardMasterLayout.blade.php',
+        'home.stub' => 'home.blade.php',
+        'layouts/app.stub' => 'layouts/app.blade.php',
     ];
 
     /**
      * Execute the console command.
      *
      * @return void
+     *
+     * @throws \InvalidArgumentException
      */
     public function handle()
     {
@@ -73,7 +75,7 @@ class AuthCommand extends Command
      */
     protected function ensureDirectoriesExist()
     {
-        if (! is_dir($directory = $this->getViewPath('DashboardLayout'))) {
+        if (! is_dir($directory = $this->getViewPath('layouts'))) {
             mkdir($directory, 0755, true);
         }
 
