@@ -16,7 +16,7 @@ $(function () {
 
   var $pushMenu       = $('[data-toggle="push-menu"]').data('lte.pushmenu')
   var $controlSidebar = $('[data-toggle="control-sidebar"]').data('lte.controlsidebar')
-  var $layout         = $('body').data('lte.layout')
+  var $layout         = $('body').data('lte.MainLayout')
 
   /**
    * List of all the available skins
@@ -68,9 +68,9 @@ $(function () {
   }
 
   /**
-   * Toggles layout classes
+   * Toggles MainLayout classes
    *
-   * @param String cls the layout class to toggle
+   * @param String cls the MainLayout class to toggle
    * @returns void
    */
   function changeLayout(cls) {
@@ -116,8 +116,8 @@ $(function () {
       changeSkin($(this).data('skin'))
     })
 
-    // Add the layout manager
-    $('[data-layout]').on('click', function () {
+    // Add the MainLayout manager
+    $('[data-MainLayout]').on('click', function () {
       changeLayout($(this).data('layout'))
     })
 
@@ -145,18 +145,18 @@ $(function () {
       $(this).attr('disabled', true)
       $pushMenu.expandOnHover()
       if (!$('body').hasClass('sidebar-collapse'))
-        $('[data-layout="sidebar-collapse"]').click()
+        $('[data-MainLayout="sidebar-collapse"]').click()
     })
 
     //  Reset options
     if ($('body').hasClass('fixed')) {
-      $('[data-layout="fixed"]').attr('checked', 'checked')
+      $('[data-MainLayout="fixed"]').attr('checked', 'checked')
     }
     if ($('body').hasClass('layout-boxed')) {
-      $('[data-layout="layout-boxed"]').attr('checked', 'checked')
+      $('[data-MainLayout="MainLayout-boxed"]').attr('checked', 'checked')
     }
     if ($('body').hasClass('sidebar-collapse')) {
-      $('[data-layout="sidebar-collapse"]').attr('checked', 'checked')
+      $('[data-MainLayout="sidebar-collapse"]').attr('checked', 'checked')
     }
 
   }
@@ -186,18 +186,18 @@ $(function () {
     '<h4 class="control-sidebar-heading">'
     + 'تنظیمات قالب'
     + '</h4>'
-    // Fixed layout
+    // Fixed MainLayout
     + '<div class="form-group">'
     + '<label class="control-sidebar-subheading">'
-    + '<input type="checkbox"data-layout="fixed"class="pull-right"/> '
+    + '<input type="checkbox"data-MainLayout="fixed"class="pull-right"/> '
     + 'قالب فیکس'
     + '</label>'
     + '<p>فیکس شدن قالب. نمیتوانید قالب فیکس و باکس را همزمان انتخاب کنید</p>'
     + '</div>'
-    // Boxed layout
+    // Boxed MainLayout
     + '<div class="form-group">'
     + '<label class="control-sidebar-subheading">'
-    + '<input type="checkbox"data-layout="layout-boxed" class="pull-right"/> '
+    + '<input type="checkbox"data-MainLayout="MainLayout-boxed" class="pull-right"/> '
     + 'قالب باکس'
     + '</label>'
     + '<p>فعال کردن قالب باکسی</p>'
@@ -205,7 +205,7 @@ $(function () {
     // Sidebar Toggle
     + '<div class="form-group">'
     + '<label class="control-sidebar-subheading">'
-    + '<input type="checkbox"data-layout="sidebar-collapse"class="pull-right"/> '
+    + '<input type="checkbox"data-MainLayout="sidebar-collapse"class="pull-right"/> '
     + 'سایدبار'
     + '</label>'
     + '<p>باز و بسته کردن سایدبار</p>'

@@ -22,7 +22,7 @@
     bg     : '.control-sidebar-bg',
     wrapper: '.wrapper',
     content: '.content-wrapper',
-    boxed  : '.layout-boxed'
+    boxed  : '.MainLayout-boxed'
   }
 
   var ClassName = {

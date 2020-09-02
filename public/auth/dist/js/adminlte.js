@@ -1,7 +1,7 @@
 /*! AdminLTE app.js
 * ================
 * Main JS application file for AdminLTE v2. This file
-* should be included in all pages. It controls some layout
+* should be included in all pages. It controls some MainLayout
 * options and implements exclusive AdminLTE plugins.
 *
 * @Author  Almsaeed Studio
@@ -327,7 +327,7 @@ throw new Error('AdminLTE requires jQuery')
     bg     : '.control-sidebar-bg',
     wrapper: '.wrapper',
     content: '.content-wrapper',
-    boxed  : '.layout-boxed'
+    boxed  : '.MainLayout-boxed'
   }
 
   var ClassName = {
@@ -513,8 +513,8 @@ throw new Error('AdminLTE requires jQuery')
 
 /* Layout()
  * ========
- * Implements AdminLTE layout.
- * Fixes the layout height in case min-height fails.
+ * Implements AdminLTE MainLayout.
+ * Fixes the MainLayout height in case min-height fails.
  *
  * @usage activated automatically upon window load.
  *        Configure any options by passing data-option="value"
@@ -523,7 +523,7 @@ throw new Error('AdminLTE requires jQuery')
 +function ($) {
   'use strict'
 
-  var DataKey = 'lte.layout'
+  var DataKey = 'lte.MainLayout'
 
   var Default = {
     slimscroll : true,
@@ -533,7 +533,7 @@ throw new Error('AdminLTE requires jQuery')
   var Selector = {
     wrapper       : '.wrapper',
     contentWrapper: '.content-wrapper',
-    layoutBoxed   : '.layout-boxed',
+    layoutBoxed   : '.MainLayout-boxed',
     mainFooter    : '.main-footer',
     mainHeader    : '.main-header',
     sidebar       : '.sidebar',
@@ -593,7 +593,7 @@ throw new Error('AdminLTE requires jQuery')
   }
 
   Layout.prototype.fix = function () {
-    // Remove overflow from .wrapper if layout-boxed exists
+    // Remove overflow from .wrapper if MainLayout-boxed exists
     $(Selector.layoutBoxed + ' > ' + Selector.wrapper).css('overflow', 'hidden')
 
     // Get window height and the wrapper height
@@ -635,7 +635,7 @@ throw new Error('AdminLTE requires jQuery')
       return
     }
 
-    // Enable slimscroll for fixed layout
+    // Enable slimscroll for fixed MainLayout
     if (this.options.slimscroll) {
       if (typeof $.fn.slimScroll !== 'undefined') {
         // Destroy if it exists

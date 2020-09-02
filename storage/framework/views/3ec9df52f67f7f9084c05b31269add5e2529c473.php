@@ -23,7 +23,7 @@
 
             <nav class="classy-navbar justify-content-between" id="uzaNav">
 
-                
+
                 <a class="nav-brand" href="/"><img class="logoimagesize" src="<?php echo e(asset('images/site/logo.png')); ?>"
                         alt=""></a>
 
@@ -62,10 +62,10 @@
                         <!-- Login / Register -->
                         <div class="login-register-btn mx-3">
                             <?php if(auth()->guard()->guest()): ?>
-                                
+
                                 <a href="/login">ورود <span>/ </span> ثبت نام</a>
                             <?php else: ?>
-                                
+
                                 <a href="/dashboard"> <?php echo e(Auth::user()->FirstName .' '. Auth::user()->LastName); ?></a>
                             <?php endif; ?>
 
@@ -173,4 +173,4 @@
 </footer>
 <?php $__env->stopSection(); ?>
 
-<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\PageStaticElements.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\MainLayout\PageStaticElements.blade.php ENDPATH**/ ?>

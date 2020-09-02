@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    
+
     <!-- ***** Breadcrumb Area Start ***** -->
     <div class="breadcrumb-area">
         <div class="container h-100">
@@ -45,7 +45,7 @@
                         <div class="row">
                             <?php echo e(csrf_field()); ?>
 
-                            
+
                             <div class="col-12">
                                 <p class="mb-30">
                                     اطلاعات فردی
@@ -63,7 +63,7 @@
                                     <label class="form-placeholder-label" for="FirstName"> نام</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('LastName')): ?>
@@ -76,7 +76,7 @@
                                     <label class="form-placeholder-label" for="LastName">نام خانوادگی</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('BirthDate')): ?>
@@ -93,7 +93,7 @@
                                            readonly/>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <div class="FormRadioBox">
@@ -127,7 +127,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Email')): ?>
@@ -140,7 +140,7 @@
                                     <label class="form-placeholder-label" for="Email">ایمیل</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Password')): ?>
@@ -153,7 +153,7 @@
                                     <label class="form-placeholder-label" for="Password">رمز عبور</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Password')): ?>
@@ -168,7 +168,7 @@
                                         عبور</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('FixNumber')): ?>
@@ -182,7 +182,7 @@
                                         شهرستان</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('MobileNumber')): ?>
@@ -195,7 +195,7 @@
                                     <label class="form-placeholder-label" for="MobileNumber">تلفن همراه</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <select class="form-control mb-30" name="State" id="State" required>
@@ -207,7 +207,7 @@
                                     <label class="form-placeholder-label" for="State">استان محل سکونت</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <select class="form-control mb-30" name="City" id="City" required>
@@ -216,7 +216,7 @@
                                     <label class="form-placeholder-label" for="City">شهر محل سکونت</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('Address')): ?>
@@ -229,7 +229,7 @@
                                     <label class="form-placeholder-label" for="Address">آدرس</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <p class="mb-30">
                                     اطلاعات تحصیلی
@@ -248,7 +248,7 @@
                                     <label class="form-placeholder-label" for="Degree">آخرین مدرک تحصیلی</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('GraduationDate')): ?>
@@ -267,7 +267,7 @@
                                            readonly/>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <div class="col-4 form-group">
                                     <?php if($errors->has('GraduationField')): ?>
@@ -280,7 +280,7 @@
                                     <label class="form-placeholder-label" for="GraduationField">رشته / گرایش</label>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <p class="mb-30">
                                     سوابق کاری
@@ -293,7 +293,7 @@
                                               cols="80"><?php echo e(old('Resume')); ?></textarea>
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <p class="mb-30">
                                     زبان ها
@@ -338,16 +338,16 @@
                                 <div class="col-12">
                                     <div class="col-7">
                                         <div class="form-group" id="selected_lang">
-                                            
+
                                             <script>
                                                 let UserSelectedLangs = <?php echo json_encode(old('UserSelectedLangs'), 15, 512) ?>;//for language pairs that may user selected before
                                             </script>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
 
-                                
+
 
                                 <?php if($errors->has('TranslationFields')): ?>
                                     <div class="col-12 wrong-field">
@@ -365,7 +365,7 @@
 
                                             <div class="col-4">
                                                 <div class="form-group" id="translation_fields1">
-                                                    
+
                                                     <?php for($i=0; $i<14; $i++): ?>
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
@@ -378,7 +378,7 @@
 
                                             <div class="col-4">
                                                 <div class="form-group" id="translation_fields2">
-                                                    
+
                                                     <?php for($i=14; $i<count($translation_fields); $i++): ?>
                                                         <label class="pure-material-checkbox"><input
                                                                 name="TranslationFields[]"
@@ -397,7 +397,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <div class="col-12">
                                         <p class="mb-30">
@@ -418,9 +418,9 @@
                                             </div>
                                     </div>
 
-                                    
 
-                                    
+
+
 
                                     <div class="col-12">
                                         <div class="col-4 form-group">
@@ -437,13 +437,13 @@
                                             </label>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-12 mb-30">
                                         <button type="submit" class="btn uza-btn btn-2 mt-15">مرحله
                                             بعد
                                         </button>
                                     </div>
-                                    
+
                                     <div class="col-12">
                                         <?php if($errors->any()): ?>
                                             <div class="alert alert-danger">
@@ -455,14 +455,14 @@
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    
+
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-    
+
 
     <!-- Form Background Pattern -->
         <div class="employment-area-bg-pattern">
@@ -471,7 +471,7 @@
     </section>
     <!-- ***** employment Area End ***** -->
 
-    
+
     <?php echo $__env->make('scripts.CoreScripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('scripts.DatePicker', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo $__env->make('scripts.StateCity', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -481,4 +481,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslatorEmployment.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('vazhenegar.MainLayout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslatorEmployment.blade.php ENDPATH**/ ?>

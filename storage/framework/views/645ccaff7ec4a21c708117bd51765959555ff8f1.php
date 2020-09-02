@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-    <?php echo $__env->make('vazhenegar.layout.CoreCss', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <?php echo $__env->make('vazhenegar.MainLayout.CoreCss', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 </head>
 
 <body>
 
-<?php echo $__env->make('vazhenegar.layout.PageStaticElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('vazhenegar.MainLayout.PageStaticElements', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <!-- Preloader goes here -->
@@ -39,4 +39,4 @@
 </body>
 
 </html>
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/layout/MasterLayout.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/MainLayout/MasterLayout.blade.php ENDPATH**/ ?>

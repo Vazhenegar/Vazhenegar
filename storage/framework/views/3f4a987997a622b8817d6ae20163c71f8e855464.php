@@ -21,4 +21,4 @@
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?php echo e(asset('auth/bower_components/font-awesome/css/font-awesome.min.css')); ?>">
-<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\layout\CoreCss.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\MainLayout\CoreCss.blade.php ENDPATH**/ ?>

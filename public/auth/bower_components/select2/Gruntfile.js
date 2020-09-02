@@ -216,7 +216,7 @@ module.exports = function (grunt) {
         files: {
           'dist/css/select2.min.css': [
             'src/scss/core.scss',
-            'src/scss/theme/default/layout.css'
+            'src/scss/theme/default/MainLayout.css'
           ]
         }
       },
@@ -227,7 +227,7 @@ module.exports = function (grunt) {
         files: {
           'dist/css/select2.css': [
             'src/scss/core.scss',
-            'src/scss/theme/default/layout.css'
+            'src/scss/theme/default/MainLayout.css'
           ]
         }
       }

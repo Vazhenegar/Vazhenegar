@@ -25,7 +25,7 @@
         <div class="row justify-content-between">
             <!-- Contact Form -->
             <div class="col-12 col-lg-8">
-                
+
 
                 <h2 class="static-text-title">هزینه خدمات ترجمه سایت واژه نگار</h2>
                 <p class="static-text-content">
@@ -38,7 +38,7 @@
                 </p>
                 <br>
 
-                
+
             </div>
         </div>
     </div>
@@ -47,4 +47,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslationServices.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('vazhenegar.MainLayout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/TranslationServices.blade.php ENDPATH**/ ?>

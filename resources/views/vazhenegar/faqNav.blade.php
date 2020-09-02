@@ -1,6 +1,6 @@
-@extends(file_exists(resource_path('views.vazhenegar.layout.StaticPagesLayout.blade.php'))
-                    ? resource_path('views.vazhenegar.layout.StaticPagesLayout.blade.php')
-                    : 'faq::layout.StaticPagesLayout'
+@extends(file_exists(resource_path('views.vazhenegar.MainLayout.StaticPagesLayout.blade.php'))
+                    ? resource_path('views.vazhenegar.MainLayout.StaticPagesLayout.blade.php')
+                    : 'faq::MainLayout.StaticPagesLayout'
         )
 
 @section('nav')

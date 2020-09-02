@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {{-- insert css files in master layout --}}
-    @include('vazhenegar.layout.CoreCss')
+    {{-- insert css files in master MainLayout --}}
+    @include('vazhenegar.MainLayout.CoreCss')
 
 </head>
 
 <body>
 {{--  INSERT FIXED ELEMENTS TO THIS LAYOUT --}}
-@include('vazhenegar.layout.PageStaticElements')
+@include('vazhenegar.MainLayout.PageStaticElements')
 
 
 <!-- Preloader goes here -->

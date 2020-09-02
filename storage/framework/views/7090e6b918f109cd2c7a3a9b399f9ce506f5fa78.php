@@ -25,7 +25,7 @@
         <div class="row justify-content-between">
             <!-- Contact Form -->
             <div class="col-12 col-lg-8">
-                
+
                 <?php $__currentLoopData = $faqs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $faq): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <!-- Border Bottom -->
                 <div class="border-line"></div>
@@ -35,7 +35,7 @@
 
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                
+
             </div>
         </div>
     </div>
@@ -44,4 +44,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('vazhenegar.layout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\faq.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('vazhenegar.MainLayout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views\vazhenegar\faq.blade.php ENDPATH**/ ?>

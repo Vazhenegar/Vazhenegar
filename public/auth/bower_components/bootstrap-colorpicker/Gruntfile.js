@@ -137,7 +137,7 @@ module.exports = function (grunt) {
         assets: 'docs/assets',
         helpers: ['docs/helpers/code'],
         partials: ['docs/includes/**/*.hbs'],
-        layout: ['docs/layout.hbs'],
+        layout: ['docs/MainLayout.hbs'],
         data: ['package.json'],
         flatten: true
       },

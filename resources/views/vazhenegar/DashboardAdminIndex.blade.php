@@ -1,4 +1,4 @@
-{{--these contents will include in dashboard master layout --}}
+{{--these contents will include in dashboard master MainLayout --}}
 
 @include('vazhenegar.DashboardAdminBadges')
 

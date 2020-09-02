@@ -91,7 +91,7 @@ body {
   color: #444;
   border-top: 1px solid #d2d6de;
 }
-/* Fixed layout */
+/* Fixed MainLayout */
 .fixed .main-header,
 .fixed .main-sidebar,
 .fixed .right-side {

@@ -14,7 +14,7 @@ gulp.task('js', function() {
       'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
       'node_modules/wowjs/dist/wow.min.js',
       'node_modules/imagesloaded/imagesloaded.pkgd.min.js',
-      'node_modules/isotope-layout/dist/isotope.pkgd.min.js',
+      'node_modules/isotope-MainLayout/dist/isotope.pkgd.min.js',
       'node_modules/jarallax/dist/jarallax.min.js',
       'node_modules/jarallax/dist/jarallax-video.min.js',
       'node_modules/jquery-waypoints/waypoints.min.js',
@@ -38,7 +38,7 @@ gulp.task('scripts', function() {
     'node_modules/jquery-waypoints/waypoints.min.js',
     'node_modules/counterup/jquery.counterup.min.js',
     'node_modules/imagesloaded/imagesloaded.pkgd.min.js',
-    'node_modules/isotope-layout/dist/isotope.pkgd.min.js',
+    'node_modules/isotope-MainLayout/dist/isotope.pkgd.min.js',
     'node_modules/jarallax/dist/jarallax.min.js',
     'node_modules/jarallax/dist/jarallax-video.min.js',
     './src/js/default-assets/jquery.scrollup.min.js'
