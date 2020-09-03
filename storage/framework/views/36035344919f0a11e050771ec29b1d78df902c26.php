@@ -1,41 +1,41 @@
-{{--=================== Orders List based on usertype and page===================--}}
-{{--this page will get user role  and list type session and show to user--}}
-{{--all users will use this file for viewing any kind of list (orders, employ--}}
+
+
+
 
 <div class="box box-primary">
     <div class="box-header">
         <i class="fa fa-star"></i>
 
-        @switch(session('OrderList'))
-            @case('AllOrders')
+        <?php switch(session('OrderList')):
+            case ('AllOrders'): ?>
             <h3 class="box-title">لیست تمام سفارشات</h3>
-            @break
+            <?php break; ?>
 
-            @case('NewOrders')
+            <?php case ('NewOrders'): ?>
             <h3 class="box-title">لیست سفارشات جدید</h3>
-            @break
+            <?php break; ?>
 
-            @case('ReceivedOrders')
+            <?php case ('ReceivedOrders'): ?>
             <h3 class="box-title">لیست سفارشات دریافتی</h3>
-            @break
+            <?php break; ?>
 
-            @case('InProgressOrders')
+            <?php case ('InProgressOrders'): ?>
             <h3 class="box-title">لیست سفارشات در حال انجام</h3>
-            @break
+            <?php break; ?>
 
-            @case('CancelledOrders')
+            <?php case ('CancelledOrders'): ?>
             <h3 class="box-title">لیست سفارشات لغو شده</h3>
-            @break
+            <?php break; ?>
 
-            @case('FinishedOrders')
+            <?php case ('FinishedOrders'): ?>
             <h3 class="box-title">لیست سفارشات تکمیل شده</h3>
-            @break
+            <?php break; ?>
 
-            @case('DeliveredOrders')
+            <?php case ('DeliveredOrders'): ?>
             <h3 class="box-title">لیست سفارشات تحویل شده</h3>
-            @break
+            <?php break; ?>
 
-        @endswitch
+        <?php endswitch; ?>
     </div>
     <!-- /.box-header -->
 
@@ -55,16 +55,16 @@
             </thead>
             <tbody>
 
-            {{--    this will show new, finished, cancelled and all type of orders depending on user role--}}
-                @php
+            
+                <?php
                     $Orders=GetOrders();
-                @endphp
-                @if(count($Orders)==0)
+                ?>
+                <?php if(count($Orders)==0): ?>
                     <tr>
                         <td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>
                     </tr>
-                @else
-                    @php
+                <?php else: ?>
+                    <?php
                         $counter=1;
                      foreach($Orders as $order){
                         echo '<tr>';
@@ -80,18 +80,18 @@
                          '</td>';
                          echo '</tr>';
                      }
-                    @endphp
-                @endif
+                    ?>
+                <?php endif; ?>
             </tbody>
         </table>
 
-        {{--=================== End Of Orders List  =================================--}}
+        
     </div>
     <!-- /.box-body -->
 </div>
 
 
-{{--        // ====================  Refresh Orders List every 30 seconds ===================--}}
+
 <script>
 
     setInterval(function () {
@@ -145,3 +145,4 @@
 
 
 </script>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardList.blade.php ENDPATH**/ ?>

@@ -27,15 +27,15 @@
 
         {{--=========================================================--}}
 
-        @include('vazhenegar.DashboardTopBar')
+        @include('vazhenegar.DashboardElements.SharedParts.DashboardTopBar')
 
         {{--=========================================================--}}
 
-        @include('vazhenegar.DashboardRightSideBar')
+        @include('vazhenegar.DashboardElements.SharedParts.DashboardRightSideBar')
 
         {{--=========================================================--}}
 
-        @include('vazhenegar.DashboardLeftSideBar')
+        @include('vazhenegar.DashboardElements.SharedParts.DashboardLeftSideBar')
 
 
         {{--   main content of dashboard      --}}
