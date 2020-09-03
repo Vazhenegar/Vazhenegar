@@ -1,7 +1,7 @@
 
 {{-- these contents will include to dashboard index--}}
 @include('vazhenegar.DashboardElements.Customer.DashboardCustomerBadges')
-@include('vazhenegar.DashboardGuideBox')
+@include('vazhenegar.DashboardElements.Customer.DashboardGuideBox')
 {{--if user is redirected from employment page this alert would be show to user--}}
 @if(session('status')=='Order Stored')
     <script>alert("کاربر گرامی سفارش شما با موفقیت ثبت شد. پس از بررسی سفارش با شما تماس گرفته خواهد شد.")</script>
