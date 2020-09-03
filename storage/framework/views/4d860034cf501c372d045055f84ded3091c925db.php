@@ -41,4 +41,4 @@
     </div>
 </section>
 <!-- CTA Area End -->
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/IndexPageElements/IndexPageEmployment.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexElements\IndexPageEmployment.blade.php ENDPATH**/ ?>

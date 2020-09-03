@@ -5,20 +5,20 @@
 
 
 <!-- ***** Breadcrumb Area Start ***** -->
-@include('vazhenegar.AboutUsPageElements.HeadSection')
+@include('vazhenegar.AboutUsElements.HeadSection')
 <!-- ***** Breadcrumb Area End ***** -->
 
 <!-- ***** About Us Area Start ***** -->
 
-@include('vazhenegar.AboutUsPageElements.IntroductionTabs')
+@include('vazhenegar.AboutUsElements.IntroductionTabs')
 <!-- ***** About Us Area End ***** -->
 
 <!-- ***** Why Choose Us Area Start ***** -->
-@include('vazhenegar.AboutUsPageElements.WhyChooseUsArea')
+@include('vazhenegar.AboutUsElements.WhyChooseUsArea')
 <!-- ***** Why Choose Us Area End ***** -->
 
 <br>
-@include('vazhenegar.AboutUsPageElements.ClientFeedback')
+@include('vazhenegar.AboutUsElements.ClientFeedback')
 <!-- ***** Client Feedback Area End ***** -->
 
 @endsection

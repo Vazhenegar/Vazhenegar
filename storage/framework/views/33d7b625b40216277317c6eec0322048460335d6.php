@@ -63,4 +63,4 @@
     </div>
 </section>
 
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/IndexPageElements/IndexPageOurServices.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexElements\IndexPageOurServices.blade.php ENDPATH**/ ?>

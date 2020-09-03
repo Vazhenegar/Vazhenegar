@@ -45,4 +45,4 @@
 
 </section>
 
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/IndexPageElements/IndexPageAboutUs.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexElements\IndexPageAboutUs.blade.php ENDPATH**/ ?>

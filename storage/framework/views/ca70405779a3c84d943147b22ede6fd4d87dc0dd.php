@@ -11,25 +11,25 @@
         
 
         
-        <?php echo $__env->make('vazhenegar.IndexPageElements.IndexPageSlides', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('vazhenegar.IndexElements.IndexPageSlides', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         
 
         
-        <?php echo $__env->make('vazhenegar.IndexPageElements.IndexPageAboutUs', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('vazhenegar.IndexElements.IndexPageAboutUs', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         
 
         
-        <?php echo $__env->make('vazhenegar.IndexPageElements.IndexPageOurServices', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('vazhenegar.IndexElements.IndexPageOurServices', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         
 
         
-        <?php echo $__env->make('vazhenegar.IndexPageElements.IndexPageEmployment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('vazhenegar.IndexElements.IndexPageEmployment', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         
 
         
-        <?php echo $__env->make('vazhenegar.IndexPageElements.IndexPageNewsLetter', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('vazhenegar.IndexElements.IndexPageNewsLetter', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         
 
 <?php $__env->stopSection(); ?> 

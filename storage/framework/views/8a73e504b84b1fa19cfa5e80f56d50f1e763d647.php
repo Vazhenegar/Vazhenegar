@@ -115,4 +115,4 @@
     </div>
 </section>
 
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexPageElements\IndexPageSlides.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexElements\IndexPageSlides.blade.php ENDPATH**/ ?>

@@ -101,4 +101,4 @@
         <img src="<?php echo e(asset('images/core-img/curve-2.png')); ?>" alt="">
     </div>
 </section>
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/AboutUsPageElements/IntroductionTabs.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\AboutUsElements\IntroductionTabs.blade.php ENDPATH**/ ?>

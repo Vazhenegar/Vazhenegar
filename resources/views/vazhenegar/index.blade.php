@@ -13,25 +13,25 @@
         {{-- ================================================================ --}}
 
         {{-- INDEX WELCOME SLIDES--}}
-        @include('vazhenegar.IndexPageElements.IndexPageSlides')
+        @include('vazhenegar.IndexElements.IndexPageSlides')
 
         {{-- ================================================================ --}}
 
         {{-- INDEX ABOUT US AREA--}}
-        @include('vazhenegar.IndexPageElements.IndexPageAboutUs')
+        @include('vazhenegar.IndexElements.IndexPageAboutUs')
 
         {{-- ======================================================== --}}
 
         {{-- INDEX OUR SERVICE AREA --}}
-        @include('vazhenegar.IndexPageElements.IndexPageOurServices')
+        @include('vazhenegar.IndexElements.IndexPageOurServices')
         {{-- ======================================================== --}}
 
         {{-- INDEX EMPLOYMENT AREA --}}
-        @include('vazhenegar.IndexPageElements.IndexPageEmployment')
+        @include('vazhenegar.IndexElements.IndexPageEmployment')
         {{-- ======================================================== --}}
 
         {{-- INDEX NEWSLETTER AREA --}}
-        @include('vazhenegar.IndexPageElements.IndexPageNewsLetter')
+        @include('vazhenegar.IndexElements.IndexPageNewsLetter')
         {{-- ======================================================== --}}
 
 @endsection {{-- END OF CONTENT SECTION --}}

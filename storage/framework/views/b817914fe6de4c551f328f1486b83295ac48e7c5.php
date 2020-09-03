@@ -30,4 +30,4 @@
         <div class="border-line mt-80"></div>
     </div>
 </section>
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/AboutUsPageElements/WhyChooseUsArea.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\AboutUsElements\WhyChooseUsArea.blade.php ENDPATH**/ ?>

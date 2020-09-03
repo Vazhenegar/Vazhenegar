@@ -35,4 +35,4 @@
 
 </section>
 
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexPageElements\IndexPageNewsLetter.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\IndexElements\IndexPageNewsLetter.blade.php ENDPATH**/ ?>

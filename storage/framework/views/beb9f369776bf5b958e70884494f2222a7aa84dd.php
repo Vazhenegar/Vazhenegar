@@ -11,4 +11,4 @@
         <img src="<?php echo e(asset('images/core-img/curve-5.png')); ?>" alt="">
     </div>
 </div>
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\AboutUsPageElements\HeadSection.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\AboutUsElements\HeadSection.blade.php ENDPATH**/ ?>
