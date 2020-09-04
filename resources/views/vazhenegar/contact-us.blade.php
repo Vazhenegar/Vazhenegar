@@ -6,7 +6,8 @@
 
 {{-- Contact Us Area --}}
 <!-- ***** Breadcrumb Area Start ***** -->
-@include('vazhenegar.ContactUsElements.HeadSection')
+@php(session(['PageTitle'=>'ContactUs']))
+@include('vazhenegar.SharedParts.PageHeadSection')
 <!-- ***** Breadcrumb Area End ***** -->
 
 @include('vazhenegar.ContactUsElements.ContactForm')

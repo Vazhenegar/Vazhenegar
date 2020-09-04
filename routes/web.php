@@ -1,6 +1,8 @@
 <?php
 //====================================== Management Routes
 //---------- clear app cache
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/ClearAllCaches', function () {
     Artisan::call('config:clear');
     Artisan::call('route:clear');

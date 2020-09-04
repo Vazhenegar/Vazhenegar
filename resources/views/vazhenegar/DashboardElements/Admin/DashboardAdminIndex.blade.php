@@ -4,7 +4,7 @@
 
 {{-- this session will show list of orders according to user role and order list type --}}
 @php(session(['OrderList'=>'AllOrders','UserRole'=>DashboardCurrentUser::$Role]))
-@include('vazhenegar.DashboardList')
+@include('vazhenegar.DashboardElements.SharedParts.DashboardList')
 
 <!-- Main row -->
 <div class="row">

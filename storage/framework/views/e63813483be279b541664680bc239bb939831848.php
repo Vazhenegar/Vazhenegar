@@ -68,4 +68,4 @@
 </div>
 
 
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardGuideBox.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardElements\Customer\DashboardGuideBox.blade.php ENDPATH**/ ?>

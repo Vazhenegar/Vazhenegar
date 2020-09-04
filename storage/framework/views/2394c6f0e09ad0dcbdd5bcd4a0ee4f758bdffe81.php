@@ -13,4 +13,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('vazhenegar.MainLayout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\faq.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('vazhenegar.MainLayout.MasterLayout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\projects\vazhenegar\Main Project\resources\/views/vazhenegar/faq.blade.php ENDPATH**/ ?>

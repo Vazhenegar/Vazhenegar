@@ -5,10 +5,11 @@
 
 {{-- Faq Area --}}
 <!-- ***** Breadcrumb Area Start ***** -->
-@include('vazhenegar.FaqElements.HeadSection')
+@php(session(['PageTitle'=>'Faq']))
+@include('vazhenegar.SharedParts.PageHeadSection')
 <!-- ***** Breadcrumb Area End ***** -->
 
-@include('vazhenegar.FaqElements.FaqSection')
+@include('vazhenegar.FaqElements.BodySection')
 <!-- ***** Faq Area End ***** -->
 
 @endsection

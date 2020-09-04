@@ -5,7 +5,8 @@
 
 
 <!-- ***** Breadcrumb Area Start ***** -->
-@include('vazhenegar.AboutUsElements.HeadSection')
+@php(session(['PageTitle'=>'AboutUs']))
+@include('vazhenegar.SharedParts.PageHeadSection')
 <!-- ***** Breadcrumb Area End ***** -->
 
 <!-- ***** About Us Area Start ***** -->

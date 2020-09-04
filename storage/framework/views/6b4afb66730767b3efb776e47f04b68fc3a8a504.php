@@ -4,7 +4,7 @@
 
 
 <?php (session(['OrderList'=>'AllOrders','UserRole'=>DashboardCurrentUser::$Role])); ?>
-<?php echo $__env->make('vazhenegar.DashboardList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('vazhenegar.DashboardElements.SharedParts.DashboardList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- Main row -->
 <div class="row">

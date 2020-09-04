@@ -145,4 +145,4 @@
 
 
 </script>
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardList.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardElements\SharedParts\DashboardList.blade.php ENDPATH**/ ?>
