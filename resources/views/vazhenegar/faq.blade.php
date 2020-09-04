@@ -5,8 +5,8 @@
 
 {{-- Faq Area --}}
 <!-- ***** Breadcrumb Area Start ***** -->
-@php(session(['PageTitle'=>'Faq']))
 @include('vazhenegar.SharedParts.PageHeadSection')
+
 <!-- ***** Breadcrumb Area End ***** -->
 
 @include('vazhenegar.FaqElements.BodySection')

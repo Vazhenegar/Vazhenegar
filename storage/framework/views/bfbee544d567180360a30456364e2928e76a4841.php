@@ -4,8 +4,8 @@
 
 
 <!-- ***** Breadcrumb Area Start ***** -->
-<?php (session(['PageTitle'=>'Faq'])); ?>
 <?php echo $__env->make('vazhenegar.SharedParts.PageHeadSection', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <!-- ***** Breadcrumb Area End ***** -->
 
 <?php echo $__env->make('vazhenegar.FaqElements.BodySection', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

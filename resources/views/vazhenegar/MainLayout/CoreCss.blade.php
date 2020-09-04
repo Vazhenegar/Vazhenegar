@@ -1,5 +1,3 @@
-<!-- Title -->
-<title>{{config('app.name')}} - @yield('PageTitle')</title>
 
 <!-- Favicon -->
 <link rel="icon" href="{{asset('favicon.ico')}}">
