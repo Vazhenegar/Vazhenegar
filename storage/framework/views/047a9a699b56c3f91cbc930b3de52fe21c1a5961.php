@@ -4,33 +4,7 @@
     <div class="container h-100">
         <div class="row h-100 align-items-end">
             <div class="col-12">
-                <?php switch(session('PageTitle')):
-                    case ('TranslationServices'): ?>
-                    <h1 class="title">خدمات ترجمه</h1>
-                    <?php break; ?>
-
-                    <?php case ('TranslatorEmployment'): ?>
-                    <h1 class="title">استخدام مترجم</h1>
-                    <?php break; ?>
-
-                    <?php case ('ContactUs'): ?>
-                    <h1 class="title">تماس با ما</h1>
-                    <?php break; ?>
-
-                    <?php case ('Faq'): ?>
-                    <h1 class="title">سوالات متداول</h1>
-                    <?php break; ?>
-
-                    <?php case ('AboutUs'): ?>
-                    <h1 class="title">درباره ما</h1>
-                    <?php break; ?>
-
-                    <?php case ('TOS'): ?>
-                    <h1 class="title">قوانین و مقررات همکاری با مجموعه واژه نگار</h1>
-                    <?php break; ?>
-
-                <?php endswitch; ?>
-
+                <h1 class="title"><?php echo $__env->yieldContent('PageTitle'); ?></h1>
             </div>
         </div>
     </div>
