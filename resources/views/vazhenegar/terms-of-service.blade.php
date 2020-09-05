@@ -1,4 +1,4 @@
-@extends('vazhenegar.MainLayout.MasterLayout')
+@extends('vazhenegar.SharedParts.MainLayout.MasterLayout')
 @section('PageTitle', 'قوانین و مقررات')
 
 @section('content')
