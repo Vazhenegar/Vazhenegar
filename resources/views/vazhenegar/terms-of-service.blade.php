@@ -5,7 +5,6 @@
 
 
 <!-- ***** Breadcrumb Area Start ***** -->
-@php(session(['PageTitle'=>'TOS']))
 @include('vazhenegar.SharedParts.PageHeadSection')
 <!-- ***** Breadcrumb Area End ***** -->
 <div class="mb-60"></div>

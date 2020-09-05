@@ -6,7 +6,6 @@
 
     {{-- employment Area --}}
     <!-- ***** Breadcrumb Area Start ***** -->
-    @php(session(['PageTitle'=>'TranslatorEmployment']))
     @include('vazhenegar.SharedParts.PageHeadSection')
     <!-- ***** Breadcrumb Area End ***** -->
 

@@ -40,4 +40,4 @@
 </body>
 
 </html>
-<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\MainLayout\MasterLayout.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Projects\vazhenegar\Main Project\resources\views/vazhenegar/MainLayout/MasterLayout.blade.php ENDPATH**/ ?>

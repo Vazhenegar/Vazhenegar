@@ -4,7 +4,6 @@
 
 
 <!-- ***** Breadcrumb Area Start ***** -->
-<?php (session(['PageTitle'=>'TranslationServices'])); ?>
 <?php echo $__env->make('vazhenegar.SharedParts.PageHeadSection', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- ***** Breadcrumb Area End ***** -->
 <?php echo $__env->make('vazhenegar.TranslationServices.BodySection', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

@@ -5,7 +5,6 @@
 
 {{-- translation services Area --}}
 <!-- ***** Breadcrumb Area Start ***** -->
-@php(session(['PageTitle'=>'TranslationServices']))
 @include('vazhenegar.SharedParts.PageHeadSection')
 <!-- ***** Breadcrumb Area End ***** -->
 @include('vazhenegar.TranslationServices.BodySection')
