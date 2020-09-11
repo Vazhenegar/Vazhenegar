@@ -16,6 +16,9 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                <?php
+                /* messages and notifications on top left part of the page
+
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -30,7 +33,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="<?php echo e(asset('images/site/user.png')); ?>" class="img-circle"
+                                            <img src="{{asset('images/site/user.png')}}" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -44,7 +47,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" class="img-circle"
+                                            <img src="{{asset('auth/dist/img/user3-128x128.jpg')}}" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -57,7 +60,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" class="img-circle"
+                                            <img src="{{asset('auth/dist/img/user4-128x128.jpg')}}" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -70,7 +73,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" class="img-circle"
+                                            <img src="{{asset('auth/dist/img/user3-128x128.jpg')}}" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -83,7 +86,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" class="img-circle"
+                                            <img src="{{asset('auth/dist/img/user4-128x128.jpg')}}" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -221,6 +224,9 @@
                         </li>
                     </ul>
                 </li>
+                */
+                ?>
+
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -238,26 +244,9 @@
                                 <small>کد کاربری <?php echo e(DashboardCurrentUser::$CurrentUser->id); ?></small>
                             </p>
                         </li>
-                        <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="row">
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">صفحه من</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">فروش</a>
-                                </div>
-                                <div class="col-xs-4 text-center">
-                                    <a href="#">دوستان</a>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-                        </li>
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-right">
-                                <a class="btn btn-default btn-flat">پروفایل</a>
-                            </div>
 
                             <div class="pull-left">
                                 <a class="btn btn-default btn-flat"
@@ -272,9 +261,12 @@
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
+                    <?php
+                    /* gear button on top left for panel setting
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li>*/
+                    ?>
             </ul>
         </div>
     </nav>

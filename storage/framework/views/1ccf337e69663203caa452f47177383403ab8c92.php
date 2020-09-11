@@ -1,11 +1,11 @@
-{{--Top Bar--}}
+
 <header class="main-header">
     <!-- Logo -->
     <a class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">پنل</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>کنترل پنل {{DashboardCurrentUser::$Role}}</b></span>
+        <span class="logo-lg"><b>کنترل پنل <?php echo e(DashboardCurrentUser::$Role); ?></b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -16,9 +16,6 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                @php
-                /* messages and notifications on top left part of the page
-
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -33,7 +30,7 @@
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="{{asset('images/site/user.png')}}" class="img-circle"
+                                            <img src="<?php echo e(asset('images/site/user.png')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -47,7 +44,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="{{asset('auth/dist/img/user3-128x128.jpg')}}" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -60,7 +57,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="{{asset('auth/dist/img/user4-128x128.jpg')}}" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -73,7 +70,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="{{asset('auth/dist/img/user3-128x128.jpg')}}" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user3-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -86,7 +83,7 @@
                                 <li>
                                     <a href="#">
                                         <div class="pull-right">
-                                            <img src="{{asset('auth/dist/img/user4-128x128.jpg')}}" class="img-circle"
+                                            <img src="<?php echo e(asset('auth/dist/img/user4-128x128.jpg')); ?>" class="img-circle"
                                                  alt="User Image">
                                         </div>
                                         <h4>
@@ -224,50 +221,63 @@
                         </li>
                     </ul>
                 </li>
-                */
-                @endphp
-
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{asset('images/site/user.png')}}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">{{DashboardCurrentUser::$UserFullName}}</span>
+                        <img src="<?php echo e(asset('images/site/user.png')); ?>" class="user-image" alt="User Image">
+                        <span class="hidden-xs"><?php echo e(DashboardCurrentUser::$UserFullName); ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{asset('images/site/user.png')}}" class="img-circle" alt="User Image">
+                            <img src="<?php echo e(asset('images/site/user.png')); ?>" class="img-circle" alt="User Image">
 
                             <p>
-                                {{DashboardCurrentUser::$UserFullName}}
-                                <small>کد کاربری {{DashboardCurrentUser::$CurrentUser->id}}</small>
+                                <?php echo e(DashboardCurrentUser::$UserFullName); ?>
+
+                                <small>کد کاربری <?php echo e(DashboardCurrentUser::$CurrentUser->id); ?></small>
                             </p>
                         </li>
-
+                        <!-- Menu Body -->
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">صفحه من</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">فروش</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">دوستان</a>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
+                            <div class="pull-right">
+                                <a class="btn btn-default btn-flat">پروفایل</a>
+                            </div>
 
                             <div class="pull-left">
                                 <a class="btn btn-default btn-flat"
                                    onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">خروج</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST"
                                       style="display: none;">
-                                    @csrf
+                                    <?php echo csrf_field(); ?>
                                 </form>
                             </div>
                         </li>
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
-                    @php
-                    /* gear button on top left for panel setting
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>*/
-                    @endphp
+                </li>
             </ul>
         </div>
     </nav>
 </header>
-{{--====================================================--}}
+
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardElements\SharedParts\DashboardTopBar.blade.php ENDPATH**/ ?>
