@@ -59,29 +59,29 @@ class UserMainMenuTableSeeder extends Seeder
                 'Icon'=>'fa fa-file-text',
             ],
             //8
-            [
-                'role_id' => 5,
-                'MainMenu' => 'پیام ها',
-                'Icon'=>'fa fa-comments',
-            ],
+//            [
+//                'role_id' => 5,
+//                'MainMenu' => 'پیام ها',
+//                'Icon'=>'fa fa-comments',
+//            ],
             //9
-            [
-                'role_id' => 5,
-                'MainMenu' => 'امور مالی و حسابداری',
-                'Icon'=>'fa fa-dollar',
-            ],
+//            [
+//                'role_id' => 5,
+//                'MainMenu' => 'امور مالی و حسابداری',
+//                'Icon'=>'fa fa-dollar',
+//            ],
             //10
-            [
-                'role_id' => 5,
-                'MainMenu' => 'تنظیمات',
-                'Icon'=>'fa fa-cogs',
-            ],
+//            [
+//                'role_id' => 5,
+//                'MainMenu' => 'تنظیمات',
+//                'Icon'=>'fa fa-cogs',
+//            ],
             //11
-            [
-                'role_id' => 5,
-                'MainMenu' => 'راهنما',
-                'Icon'=>'fa fa-question-circle',
-            ],
+//            [
+//                'role_id' => 5,
+//                'MainMenu' => 'راهنما',
+//                'Icon'=>'fa fa-question-circle',
+//            ],
 
 
 
@@ -93,11 +93,11 @@ class UserMainMenuTableSeeder extends Seeder
                 'Icon'=>'fa fa-file-text',
             ],
             //13
-            [
-                'role_id' => 11,
-                'MainMenu' => 'پیام ها',
-                'Icon'=>'fa fa-comments',
-            ],
+//            [
+//                'role_id' => 11,
+//                'MainMenu' => 'پیام ها',
+//                'Icon'=>'fa fa-comments',
+//            ],
             //14
             [
                 'role_id' => 11,
@@ -105,17 +105,17 @@ class UserMainMenuTableSeeder extends Seeder
                 'Icon'=>'fa fa-dollar',
             ],
             //15
-            [
-                'role_id' => 11,
-                'MainMenu' => 'تنظیمات',
-                'Icon'=>'fa fa-cogs',
-            ],
+//            [
+//                'role_id' => 11,
+//                'MainMenu' => 'تنظیمات',
+//                'Icon'=>'fa fa-cogs',
+//            ],
             //16
-            [
-                'role_id' => 11,
-                'MainMenu' => 'راهنما',
-                'Icon'=>'fa fa-question-circle',
-            ],
+//            [
+//                'role_id' => 11,
+//                'MainMenu' => 'راهنما',
+//                'Icon'=>'fa fa-question-circle',
+//            ],
 
         ];
 

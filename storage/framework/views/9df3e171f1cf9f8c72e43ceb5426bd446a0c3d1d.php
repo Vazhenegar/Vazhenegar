@@ -4,6 +4,7 @@
     <p>
         مشخصات کاربر:<br>
         نام مشتری:
+
         <?php echo e($RelatedCustomer->FirstName . ' ' . $RelatedCustomer->LastName); ?>
 
         &nbsp; &nbsp;
@@ -18,7 +19,7 @@
 
 <div>
     <p>وضعیت
-        سفارش:&nbsp; <?php echo e(\App\OrderStatus::where('id',$Order->status_id)->value('Status')); ?>
+        سفارش:&nbsp; <?php echo e($OrderStatus); ?>
 
         &nbsp;&nbsp;&nbsp;
     </p>
@@ -77,6 +78,10 @@
         مبلغ پرداخت شده: <?php echo e($Order->PaidPrice); ?> تومان
     </div>
     <div>
+        شماره تراکنش: <?php echo e($Order->TrackingCode); ?>
+
+    </div>
+    <div>
 
         <a onclick="event.preventDefault();
             document.getElementById('invoice-acceptance').submit();">
@@ -85,7 +90,7 @@
                 تایید دریافت مبلغ
             </button>
         </a>
-        <form id="invoice-acceptance" action="/dashboard/InvoiceAcceptance/<?php echo e($Order->id); ?>" method="POST"
+        <form id="invoice-acceptance" action="<?php echo e(route('InvoiceAcceptance',['order_id'=>$Order->id])); ?>" method="POST"
               style="display: none;">
             <?php echo csrf_field(); ?>
         </form>

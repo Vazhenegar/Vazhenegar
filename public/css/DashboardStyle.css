@@ -102,7 +102,28 @@
     width: 100%;
 }
 
+#NewOrderSpecCustomer table tbody tr td.BankPortal input[type="image"] {
+    width: 100%;
+}
+
 #NewOrderSpecCustomer table tbody tr.BankPortals{
     display: inline-block;
     align-items: center;
+}
+
+#NewOrderSpecCustomer table tbody tr.BankResponse td.FailedBankResponse{
+
+    font-size: medium;
+    background-color: #F287B5;
+    color: #3D0101;
+}
+
+div.SBankResponse{
+    background-color: #88EF22;
+}
+div.SBankResponse p{
+    font-size: medium;
+    color: #224815;
+
+
 }

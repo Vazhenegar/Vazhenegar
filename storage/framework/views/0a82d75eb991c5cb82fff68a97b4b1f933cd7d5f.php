@@ -6,8 +6,20 @@
     <div class="box-header">
         <i class="fa fa-star"></i>
 
-        <?php switch(session('OrderList')):
-            case ('AllOrders'): ?>
+        <?php switch(session('List')):
+            
+            
+            
+            case ('BankList'): ?>
+            <h3 class="box-title">لیست بانک ها</h3>
+            <button  type="button" class="btn btn-success" onclick="ShowNewBankRow()"><i class="fa fa-plus"></i> افزودن بانک جدید</button>
+            <?php break; ?>
+
+            
+            
+
+
+            <?php case ('AllOrders'): ?>
             <h3 class="box-title">لیست تمام سفارشات</h3>
             <?php break; ?>
 
@@ -40,22 +52,92 @@
     <!-- /.box-header -->
 
     <div class="box-body">
-        <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-        <table class="table table-bordered" id="OrdersTable">
-            <thead>
-            <tr>
-                <th scope="col">ردیف</th>
-                <th scope="col">شماره سفارش</th>
-                <th scope="col">موضوع</th>
-                <th scope="col">تاریخ ثبت</th>
-                <th scope="col">تاریخ تحویل</th>
-                <th scope="col">وضعیت</th>
-                <th scope="col">عملیات</th>
-            </tr>
-            </thead>
-            <tbody>
+        
+        
+        
+        <?php switch(session('List')):
+            case ('BankList'): ?>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">ردیف</th>
+                    <th scope="col">نام بانک</th>
+                    <th scope="col">لوگوی بانک</th>
+                    <th scope="col">کد مرچنت</th>
+                    <th scope="col">عملیات</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                
+                <tr style="display:none;" id="AddNewBank">
+                    <form action="/dashboard/Bank" method="post" enctype="multipart/form-data">
+                        <?php echo csrf_field(); ?>
+                    <td></td>
+                    <td><input type="text" name="BankName" maxlength="20" placeholder="نام بانک را وارد کنید" required/></td>
+                    <td><input type="file" name="Logo"/></td>
+                    <td><input type="text" name="MerchantCode" placeholder="کد مرچنت بانک را وارد کنید" required/></td>
+                    <td>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> تایید</button>
+                    </td>
+                    </form>
+                </tr>
+
+                
+                <?php if(count($BankList)==0): ?>
+                    <tr>
+                        <td align='center' colspan='9'>مشخصات بانکی ثبت نشده است</td>
+
+                    </tr>
+
+                <?php else: ?>
+
+                    <?php
+                        $counter=1;
+                     foreach($BankList as $list){
+
+                        echo '<tr>';
+                            echo '<td>'.$counter++.'</td>';
+                            echo '<td>'.$list['BankName'].'</td>';
+                            echo '<td><img src="{{asset(\'images/site/'.$list['Logo'].')}}"></td>';
+                            echo '<td>'.$list['MerchantCode'].'</td>';
+                            echo '<td>'.
+                                 '<a href="/dashboard/Order/'.$list['id'].'"><button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button></a>&nbsp'.
+                                 '<button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>&nbsp'.
+                             '</td>';
+                         echo '</tr>';
+                     }
+
+                    ?>
+                <?php endif; ?>
+                </tbody>
+
+            </table>
+            <?php break; ?>
+            
 
             
+
+
+            
+            
+            <?php case ('AllOrders'): ?>
+        <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+            <table class="table table-bordered" id="OrdersTable">
+                <thead>
+                <tr>
+                    <th scope="col">ردیف</th>
+                    <th scope="col">شماره سفارش</th>
+                    <th scope="col">موضوع</th>
+                    <th scope="col">تاریخ ثبت</th>
+                    <th scope="col">تاریخ تحویل</th>
+                    <th scope="col">وضعیت</th>
+                    <th scope="col">عملیات</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                
                 <?php
                     $Orders=GetOrders();
                 ?>
@@ -82,10 +164,16 @@
                      }
                     ?>
                 <?php endif; ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            <?php break; ?>
+            
 
-        
+
+
+        <?php endswitch; ?>
+
+
     </div>
     <!-- /.box-body -->
 </div>
@@ -122,7 +210,7 @@
                             "<td>" + OrderSubject + "</td>" +
                             "<td class='NumberDirectionFixer'>" + RDate + "</td>" +
                             "<td class='NumberDirectionFixer'>" + DDate + "</td>" +
-                            "<td><a data-toggle='tooltip' data-placement='bottom' title='"+StatusDescription+"'>" + Status + "</a></td>" +
+                            "<td><a data-toggle='tooltip' data-placement='bottom' title='" + StatusDescription + "'>" + Status + "</a></td>" +
                             "<td>" +
                             "<a href='dashboard/Order/" + OrderId + "'><button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button></a>" + "&nbsp;" +
                             "<button type='button' class='btn btn-danger'><i class='fa fa-trash-o'></i></button>" + "&nbsp;" +
@@ -144,5 +232,12 @@
     }, 30000);
 
 
+</script>
+
+
+<script>
+    function ShowNewBankRow(){
+    document.getElementById('AddNewBank').style.display = 'contents';
+    }
 </script>
 <?php /**PATH D:\projects\vazhenegar\Main Project\resources\views\vazhenegar\DashboardElements\SharedParts\DashboardList.blade.php ENDPATH**/ ?>

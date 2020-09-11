@@ -1,8 +1,7 @@
 <?php
+
 //====================================== Management Routes
 //---------- clear app cache
-use Illuminate\Support\Facades\Artisan;
-
 Route::get('/ClearAllCaches', function () {
     Artisan::call('config:clear');
     Artisan::call('route:clear');
@@ -12,16 +11,13 @@ Route::get('/ClearAllCaches', function () {
 
 //---------- DB Migration Routes
 Route::get('/migrate', function() {
-
     Artisan::call('migrate:refresh --seed');
-
 });
 
 //====================================== Main Routes
 Route::view('/', 'vazhenegar.index');
 Route::view('translation-services', 'vazhenegar.TranslationServices');
 Route::view('about-us', 'vazhenegar.about-us');
-Route::view('tmp', 'vazhenegar.tmp');
 Route::resource('tos', TermsOfServiceController::class);
 Route::resource('NewsLetterMembers', NewsLetterMembersController::class);
 
@@ -34,11 +30,18 @@ Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/dashboard/CustomerRegisteredOrders','OrderController@customerRegisteredOrders');
+Route::get('/dashboard/Order/bank_response','OrderController@response')->name('BankResponse');
+Route::post('/dashboard/Order/pay','OrderController@pay')->name('Pay');
 
-//===================================== Orders invoce submit
-//Route::get('/dashboard/Order/{order_id}/{paid_price}/InvoiceSubmit', 'OrderController@InvoiceSubmit');
+//======================== Admin
 //===================================== Orders
 Route::resource('/dashboard/Order', OrderController::class);
+
+
+//================= Setting
+//---- Banks Setting
+Route::resource('/dashboard/Bank',BankController::class);
+
 
 //===================================== File Download
 Route::get('/download/{user_id}/{OrderFile}','OrderController@download')->name('Download');
@@ -72,7 +75,7 @@ Route::get('/AllNewRegisteredOrders', function () {
 });
 
 //show new orders that registered by all users
-Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar/DashboardAdminNewOrders');
+Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar.DashboardElements.Admin.DashboardAdminNewOrders');
 
 //Get users that have Online mode in DB
 Route::get('/GetOnlineUsers', function () {
@@ -110,7 +113,7 @@ Route::get('/CustomersRegisteredOrders/{UserId}', function ($UserId) {
 });
 
 //Get invoices list page
-Route::view('/dashboard/Invoices','vazhenegar.DashboardCustomerOrderInvoiceList');
+Route::view('/dashboard/Invoices','vazhenegar.DashboardElements.Customer.DashboardCustomerOrderInvoiceList');
 
 //Get customers invoices
 Route::get('Invoices/{user_id}/{status_id}', function ($user_id, $status_id) {

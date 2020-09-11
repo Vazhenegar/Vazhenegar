@@ -95,6 +95,7 @@
 
                         </tbody>
                     </table>
+
                     <hr>
 
                     @if(DashboardCurrentUser::$Role=='مدیر')
@@ -103,6 +104,7 @@
                         {{'این کاربر مترجم است'}}
                     @elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice)
                         @include('vazhenegar.DashboardElements.Customer.DashboardNewOrderSpecsCustomer')
+
                     @endif
 
                     {{--if the order status updated successfully an alert box would be show to admin--}}

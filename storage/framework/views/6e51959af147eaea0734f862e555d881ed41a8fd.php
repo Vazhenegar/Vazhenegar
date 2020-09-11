@@ -4,23 +4,8 @@
 
     <?php echo $__env->make('scripts.QuizTimer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area Start ***** -->
-    <div class="breadcrumb-area">
-        <div class="container h-100">
-            <div class="row h-100 align-items-end">
-                <div class="col-12 mb-15" dir="rtl">
-                    <h1 class="title">آزمون آنلاین</h1>
-                    <h3 class="description">متن زیر را تا قبل از اتمام زمان، با دقت ترجمه کنید و در کادر پایین
-                        بنویسید.</h3>
-                </div>
-            </div>
-        </div>
-        <!-- Background Curve -->
-        <div class="breadcrumb-bg-curve">
-            <img src="<?php echo e(asset('images/core-img/curve-5.png')); ?>" alt="">
-        </div>
-    </div>
+    <?php echo $__env->make('vazhenegar.SharedParts.PageHeadSection', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area End ***** -->
-
     <!-- ***** ‏Timer Goes Here ***** -->
     <div class="container col-12 mb-15" dir="ltr">
         <div class="row">
@@ -34,6 +19,10 @@
     </div>
     <!-- ***** Timer Area End ***** -->
     <!-- ***** Quiz Area Start ***** -->
+
+
+
+
     <section class="uza-why-choose-us-area">
         <div class="container">
             <div class="row align-items-center">

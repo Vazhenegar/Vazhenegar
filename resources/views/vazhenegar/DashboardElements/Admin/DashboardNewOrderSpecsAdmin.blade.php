@@ -4,6 +4,7 @@
     <p>
         مشخصات کاربر:<br>
         نام مشتری:
+{{--        get from order controller--}}
         {{$RelatedCustomer->FirstName . ' ' . $RelatedCustomer->LastName}}
         &nbsp; &nbsp;
         تلفن همراه: {{$RelatedCustomer->MobileNumber}}
@@ -15,7 +16,7 @@
 {{-- =============== Order Status =================================================== --}}
 <div>
     <p>وضعیت
-        سفارش:&nbsp; {{\App\OrderStatus::where('id',$Order->status_id)->value('Status')}}
+        سفارش:&nbsp; {{$OrderStatus}}
         &nbsp;&nbsp;&nbsp;
     </p>
 </div>
@@ -72,6 +73,9 @@
         مبلغ پرداخت شده: {{$Order->PaidPrice}} تومان
     </div>
     <div>
+        شماره تراکنش: {{$Order->TrackingCode}}
+    </div>
+    <div>
 
         <a onclick="event.preventDefault();
             document.getElementById('invoice-acceptance').submit();">
@@ -80,7 +84,7 @@
                 تایید دریافت مبلغ
             </button>
         </a>
-        <form id="invoice-acceptance" action="/dashboard/InvoiceAcceptance/{{$Order->id}}" method="POST"
+        <form id="invoice-acceptance" action="{{route('InvoiceAcceptance',['order_id'=>$Order->id])}}" method="POST"
               style="display: none;">
             @csrf
         </form>

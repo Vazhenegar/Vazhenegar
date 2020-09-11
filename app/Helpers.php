@@ -105,7 +105,7 @@ function OrderPreparation($orders)
 //show orders list (new, finished, cancelled) depending of user role and OrderList session name
 function GetOrders()
 {
-    $OrderList=session('OrderList');
+    $OrderList=session('List');
     $role=session('UserRole');
 
     switch ($role)

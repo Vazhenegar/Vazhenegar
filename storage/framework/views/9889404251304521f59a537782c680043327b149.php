@@ -95,6 +95,7 @@
 
                         </tbody>
                     </table>
+
                     <hr>
 
                     <?php if(DashboardCurrentUser::$Role=='مدیر'): ?>
@@ -104,6 +105,7 @@
 
                     <?php elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice): ?>
                         <?php echo $__env->make('vazhenegar.DashboardElements.Customer.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
                     <?php endif; ?>
 
                     

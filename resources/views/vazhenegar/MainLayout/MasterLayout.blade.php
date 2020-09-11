@@ -6,7 +6,6 @@
     <meta name="description" content="ترجمه تخصصی متون و مقالات">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Title -->
     <title>{{config('app.name')}} - @yield('PageTitle')</title>
 
     {{-- insert css files in master MainLayout --}}

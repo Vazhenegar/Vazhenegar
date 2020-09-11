@@ -1,5 +1,3 @@
-<!-- Title -->
-<title><?php echo e(config('app.name')); ?> - <?php echo $__env->yieldContent('PageTitle'); ?></title>
 
 <!-- Favicon -->
 <link rel="icon" href="<?php echo e(asset('favicon.ico')); ?>">

@@ -17,18 +17,8 @@ class UserSubMenuTableSeeder extends Seeder
             1 => [
                 'سفارشات' => [
                     [
-                        'SubMenu' => 'تست 1',
-                        'Url' => 'AON', //Admin->Orders->New (/dashboard/NewRegisteredOrders)
-                        'Icon' => 'fa fa-star',
-                    ],
-                    [
-                        'SubMenu' => 'تست 2',
-                        'Url' => 'AON', //Admin->Orders->New (/dashboard/NewRegisteredOrders)
-                        'Icon' => 'fa fa-star',
-                    ],
-                    [
                         'SubMenu' => 'جدید',
-                        'Url' => 'AON', //Admin->Orders->New (/dashboard/NewRegisteredOrders)
+                        'Url' => '/dashboard/NewRegisteredOrders',
                         'Icon' => 'fa fa-star',
                     ],
                     [
@@ -114,6 +104,11 @@ class UserSubMenuTableSeeder extends Seeder
 
                 'تنظیمات' => [
                     [
+                        'SubMenu' => 'بانک ها',
+                        'Url' => '/dashboard/Bank',
+                        'Icon' => 'fa fa-bank',
+                    ],
+                    [
                         'SubMenu' => 'سفارشات',
                         'Url' => 'ASO', //Admin->Setting->Orders Setting (/orders setting)
                         'Icon' => 'fa fa-shopping-basket',
@@ -174,69 +169,70 @@ class UserSubMenuTableSeeder extends Seeder
                     ],
                 ],
 
-                'پیام ها' => [
-                    [
-                        'SubMenu' => 'نوشتن پیام',
-                        'Url' => '/compose',
-                        'Icon' => 'fa fa-commenting',
-                    ],
-                    [
-                        'SubMenu' => 'دریافتی',
-                        'Url' => '/inbox',
-                        'Icon' => 'fa fa-envelope',
-                    ],
-                    [
-                        'SubMenu' => 'ارسالی',
-                        'Url' => '/sent',
-                        'Icon' => 'fa fa-paper-plane',
-                    ],
-                    [
-                        'SubMenu' => 'پیش نویس ها',
-                        'Url' => '/draft',
-                        'Icon' => 'fa fa-wpforms',
-                    ],
-                ],
-
-                'امور مالی و حسابداری' => [
-                    [
-                        'SubMenu' => 'جزئیات درآمد',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-usd',
-                    ],
-                    [
-                        'SubMenu' => 'تسویه شده',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-credit-card',
-                    ],
-                ],
-
-                'تنظیمات' => [
-                    [
-                        'SubMenu' => 'پروفایل',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-address-card-o',
-                    ],
-                    [
-                        'SubMenu' => 'امنیت',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-lock',
-                    ],
-                    [
-                        'SubMenu' => 'مالی و حسابداری',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-usd',
-                    ],
-                ],
-
-                'راهنما' => [
-                    [
-                        'SubMenu' => 'راهنمای مترجم',
-                        'Url' => '/trans guide',
-                        'Icon' => 'fa fa-info-circle',
-                    ],
-                ],
+//                'پیام ها' => [
+//                    [
+//                        'SubMenu' => 'نوشتن پیام',
+//                        'Url' => '/compose',
+//                        'Icon' => 'fa fa-commenting',
+//                    ],
+//                    [
+//                        'SubMenu' => 'دریافتی',
+//                        'Url' => '/inbox',
+//                        'Icon' => 'fa fa-envelope',
+//                    ],
+//                    [
+//                        'SubMenu' => 'ارسالی',
+//                        'Url' => '/sent',
+//                        'Icon' => 'fa fa-paper-plane',
+//                    ],
+//                    [
+//                        'SubMenu' => 'پیش نویس ها',
+//                        'Url' => '/draft',
+//                        'Icon' => 'fa fa-wpforms',
+//                    ],
+//                ],
+//
+//                'امور مالی و حسابداری' => [
+//                    [
+//                        'SubMenu' => 'جزئیات درآمد',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-usd',
+//                    ],
+//                    [
+//                        'SubMenu' => 'تسویه شده',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-credit-card',
+//                    ],
+//                ],
+//
+//                'تنظیمات' => [
+//                    [
+//                        'SubMenu' => 'پروفایل',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-address-card-o',
+//                    ],
+//                    [
+//                        'SubMenu' => 'امنیت',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-lock',
+//                    ],
+//                    [
+//                        'SubMenu' => 'مالی و حسابداری',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-usd',
+//                    ],
+//                ],
+//
+//                'راهنما' => [
+//                    [
+//                        'SubMenu' => 'راهنمای مترجم',
+//                        'Url' => '/trans guide',
+//                        'Icon' => 'fa fa-info-circle',
+//                    ],
+//                ],
             ], //end of translator role id
 
+//            مشتری
             11 => [
                 'سفارشات' => [
                     [
@@ -261,33 +257,33 @@ class UserSubMenuTableSeeder extends Seeder
                     ],
                 ],
 
-                'پیام ها' => [
-                    [
-                        'SubMenu' => 'نوشتن پیام',
-                        'Url' => '/compose',
-                        'Icon' => 'fa fa-commenting',
-                    ],
-                    [
-                        'SubMenu' => 'دریافتی',
-                        'Url' => '/inbox',
-                        'Icon' => 'fa fa-envelope',
-                    ],
-                    [
-                        'SubMenu' => 'ارسالی',
-                        'Url' => '/sent',
-                        'Icon' => 'fa fa-paper-plane',
-                    ],
-                    [
-                        'SubMenu' => 'پیش نویس ها',
-                        'Url' => '/draft',
-                        'Icon' => 'fa fa-wpforms',
-                    ],
-                    [
-                        'SubMenu' => 'حذف شده',
-                        'Url' => '/trash',
-                        'Icon' => 'fa fa-trash',
-                    ],
-                ],
+//                'پیام ها' => [
+//                    [
+//                        'SubMenu' => 'نوشتن پیام',
+//                        'Url' => '/compose',
+//                        'Icon' => 'fa fa-commenting',
+//                    ],
+//                    [
+//                        'SubMenu' => 'دریافتی',
+//                        'Url' => '/inbox',
+//                        'Icon' => 'fa fa-envelope',
+//                    ],
+//                    [
+//                        'SubMenu' => 'ارسالی',
+//                        'Url' => '/sent',
+//                        'Icon' => 'fa fa-paper-plane',
+//                    ],
+//                    [
+//                        'SubMenu' => 'پیش نویس ها',
+//                        'Url' => '/draft',
+//                        'Icon' => 'fa fa-wpforms',
+//                    ],
+//                    [
+//                        'SubMenu' => 'حذف شده',
+//                        'Url' => '/trash',
+//                        'Icon' => 'fa fa-trash',
+//                    ],
+//                ],
 
                 'امور مالی و حسابداری' => [
                     [
@@ -295,34 +291,34 @@ class UserSubMenuTableSeeder extends Seeder
                         'Url' => '/dashboard/Invoices',
                         'Icon' => 'fa fa-clipboard',
                     ],
-                    [
-                        'SubMenu' => 'سوابق پرداخت',
-                        'Url' => '/sent',
-                        'Icon' => 'fa fa-money',
-                    ],
+//                    [
+//                        'SubMenu' => 'سوابق پرداخت',
+//                        'Url' => '/sent',
+//                        'Icon' => 'fa fa-money',
+//                    ],
                 ],
 
-                'تنظیمات' => [
-                    [
-                        'SubMenu' => 'پروفایل',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-address-card-o',
-                    ],
-                    [
-                        'SubMenu' => 'امنیت',
-                        'Url' => '/transaction',
-                        'Icon' => 'fa fa-lock',
-                    ],
-                ],
-
-                'راهنما' => [
-                    [
-                        'SubMenu' => 'راهنمای مشتری',
-                        'Url' => '/customer guide',
-                        'Icon' => 'fa fa-info-circle',
-                    ],
-                ],
-            ],
+//                'تنظیمات' => [
+//                    [
+//                        'SubMenu' => 'پروفایل',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-address-card-o',
+//                    ],
+//                    [
+//                        'SubMenu' => 'امنیت',
+//                        'Url' => '/transaction',
+//                        'Icon' => 'fa fa-lock',
+//                    ],
+//                ],
+//
+//                'راهنما' => [
+//                    [
+//                        'SubMenu' => 'راهنمای مشتری',
+//                        'Url' => '/customer guide',
+//                        'Icon' => 'fa fa-info-circle',
+//                    ],
+//                ],
+            ], // end of customer
 
         ];
 

@@ -462,6 +462,7 @@ class ComposerStaticInit3bee899b2915a36c92a614a3bf772efc
     );
 
     public static $classMap = array (
+        'App\\Bank' => __DIR__ . '/../..' . '/app/Bank.php',
         'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',
@@ -472,7 +473,7 @@ class ComposerStaticInit3bee899b2915a36c92a614a3bf772efc
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
-        'App\\Http\\Controllers\\BankPortalController' => __DIR__ . '/../..' . '/app/Http/Controllers/BankPortalController.php',
+        'App\\Http\\Controllers\\BankController' => __DIR__ . '/../..' . '/app/Http/Controllers/BankController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DepartmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/DepartmentController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
@@ -4655,6 +4656,7 @@ class ComposerStaticInit3bee899b2915a36c92a614a3bf772efc
         'UserModesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserModesTableSeeder.php',
         'UserStatusesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserStatusesTableSeeder.php',
         'UserSubMenuTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserSubMenuTableSeeder.php',
+        'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Webmozart\\Assert\\Mixin' => __DIR__ . '/..' . '/webmozart/assert/src/Mixin.php',

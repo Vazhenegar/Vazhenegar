@@ -6,6 +6,7 @@
     <meta name="description" content="ترجمه تخصصی متون و مقالات">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?php echo e(config('app.name')); ?> - <?php echo $__env->yieldContent('PageTitle'); ?></title>
 
     
     <?php echo $__env->make('vazhenegar.MainLayout.CoreCss', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

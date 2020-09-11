@@ -4,7 +4,6 @@
 
     
     <!-- ***** Breadcrumb Area Start ***** -->
-    <?php (session(['PageTitle'=>'TranslatorEmployment'])); ?>
     <?php echo $__env->make('vazhenegar.SharedParts.PageHeadSection', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- ***** Breadcrumb Area End ***** -->
 

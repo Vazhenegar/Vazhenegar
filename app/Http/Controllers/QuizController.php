@@ -34,7 +34,7 @@ class QuizController extends Controller
             $UserLangs = unserialize($User->UserSelectedLangs);
 
 
-            //extract source languages id from user selected array
+            //extract source and dest languages id from user selected array
             foreach ($UserLangs as $UserLang) {
                 $Split = explode(' به ', $UserLang, 2);
                 $UserLangsId[] = [
@@ -69,10 +69,26 @@ class QuizController extends Controller
                         $QuizQuestionsId[] = $Questions;
                     }
 
-                    do {
-                        $RandomTextId = $QuizQuestionsId[array_rand($QuizQuestionsId)];
-                        $RQ = (new \App\Quiz)->GetQuiz($UserSourceLang, $UserFieldsId[$i], $RandomTextId);
-                    } while (in_array($RQ, $RandomQuestionCollection));
+                    //if one field has no quiz in DB, this will move to next selected field
+                        if($QuizQuestionsId) {
+                            do {
+                                $RandomTextId = $QuizQuestionsId[array_rand($QuizQuestionsId)];
+
+                                $RQ = (new \App\Quiz)->GetQuiz($UserSourceLang, $UserFieldsId[$i], $RandomTextId);
+
+                            } while (in_array($RQ, $RandomQuestionCollection));
+                        }
+
+//                        if no quiz found in DB, translator redirects to home page without pass the quiz
+                    if(!isset($RQ)){
+                        session()->forget(['TranslatorId', 'QuizIds', 'AnswerIds','timer']);
+
+                        //return to home page with success message
+                        session()->flash('status', 'Quiz Stored');
+                        return redirect('/');
+                    }
+
+//                    if quiz found in DB, translator will redirect to quiz page.
                     $RandomQuestionCollection[] = $RQ;
 
                     //this is for extracting question id and find answer related to this question form db

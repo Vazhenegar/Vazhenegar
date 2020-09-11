@@ -176,7 +176,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\framework/cache/data',
+        'path' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -315,12 +315,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\app',
+        'root' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\app/public',
+        'root' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -366,13 +366,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\logs/laravel.log',
+        'path' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\logs/laravel.log',
+        'path' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -441,7 +441,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\Projects\\vazhenegar\\Main Project\\resources\\views/vendor/mail',
+        0 => 'D:\\projects\\vazhenegar\\Main Project\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -520,7 +520,7 @@
     'lifetime' => '15',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\framework/sessions',
+    'files' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -540,9 +540,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\Projects\\vazhenegar\\Main Project\\resources\\views',
+      0 => 'D:\\projects\\vazhenegar\\Main Project\\resources\\views',
     ),
-    'compiled' => 'D:\\Projects\\vazhenegar\\Main Project\\storage\\framework\\views',
+    'compiled' => 'D:\\projects\\vazhenegar\\Main Project\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -555,6 +555,7 @@
       'maximum_number_of_collected_queries' => 200,
       'report_query_bindings' => true,
       'report_view_data' => true,
+      'grouping_type' => NULL,
     ),
     'send_logs_as_events' => true,
   ),
@@ -563,8 +564,10 @@
     'editor' => 'phpstorm',
     'theme' => 'light',
     'enable_share_button' => true,
+    'register_commands' => false,
     'ignored_solution_providers' => 
     array (
+      0 => 'Facade\\Ignition\\SolutionProviders\\MissingPackageSolutionProvider',
     ),
     'enable_runnable_solutions' => NULL,
     'remote_sites_path' => '',
