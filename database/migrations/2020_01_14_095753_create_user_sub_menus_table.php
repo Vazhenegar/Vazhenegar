@@ -19,6 +19,7 @@ class CreateUserSubMenusTable extends Migration
             $table->string('user_main_menu');
             $table->string('SubMenu');
             $table->string('Url');
+            $table->string('StatusId')->nullable();
             $table->string('Icon')->nullable();
             $table->timestamps();
 

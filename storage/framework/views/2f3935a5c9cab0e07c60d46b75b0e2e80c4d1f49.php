@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="box-body">
-                    <form action="/dashboard/Order" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo e(route('Order.store')); ?>" method="post" enctype="multipart/form-data">
                         <?php echo csrf_field(); ?>
 
                         

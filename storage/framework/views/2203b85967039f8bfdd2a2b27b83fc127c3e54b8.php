@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="box-body">
-                    <form action="/dashboard/Order/<?php echo e($Order->id); ?>" method="post">
+                    <form action="<?php echo e(route('Order.update',[$Order->id])); ?>" method="post">
                         <?php echo csrf_field(); ?>
                         <?php echo e(method_field('PATCH')); ?>
 

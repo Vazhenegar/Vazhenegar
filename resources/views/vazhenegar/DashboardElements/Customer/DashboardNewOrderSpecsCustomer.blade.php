@@ -83,7 +83,7 @@
 
         <p >
             وضعیت سفارش:
-            {{{{$OrderStatus}}}}
+            {{$OrderStatus}}
         </p>
 
     </div>

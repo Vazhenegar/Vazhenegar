@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserSubMenu extends Model
 {
-    protected $fillable = ['role_id', 'user_main_menu', 'SubMenu', 'Url', 'Icon'];
+    protected $fillable = ['role_id', 'user_main_menu', 'SubMenu', 'Url', 'StatusId' ,'Icon'];
 
     public function main_menu()
     {

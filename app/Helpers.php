@@ -13,6 +13,18 @@ use Illuminate\Support\Str;
 //============== General
 
 /**
+ * look for users with user_id in sessions table to set their mode to ON in users table
+ */
+function GetOnlineUsersSession()
+{
+    $ids = Session::whereNotNull('user_id')
+        ->where('last_activity', '<=', date_timestamp_get(Carbon::now()))
+        ->pluck('user_id');
+    $ids->unique()->values()->all();
+    return $ids;
+}
+
+/**
  * set Online and Offline users mode in users table depending on id's received from session table.
  */
 function SetUsersMode()
@@ -48,20 +60,11 @@ function per_digit_conv(string $per_digits)
     return $result;
 }
 
-//===================================================== Dashboard
-//============== Public
 
-function MenuPicker(User $user)
-{
-    //get role of logged in user
-    $role = $user->role()->first();
 
-    //get menus of user related to role
-    return $role->main_menus()->with('sub_menus')->get();
-
-}
-
-//Convert Gregorian and Jalali to each other
+/**
+ * Convert Gregorian and Jalali to each other
+ */
 function DateTimeConversion($DateTime, $To)
 {
     $DateTime = per_digit_conv($DateTime);
@@ -74,64 +77,74 @@ function DateTimeConversion($DateTime, $To)
     if ($To == 'J') {
         $JD = Verta::getJalali($year, $month, $day);
         $JD = Verta::create($JD[0], $JD[1], $JD[2], $H, $M, $S);
-        return $JD->DateTime()->format('Y-m-d H:i:s');
+        $ConvertedDT= $JD->DateTime()->format('Y-m-d H:i:s');
 
     } elseif ($To == "G") {
         $GD = Verta::getGregorian($year, $month, $day);
         $GD = Verta::create($GD[0], $GD[1], $GD[2], $H, $M, $S);
-        return $GD->DateTime()->format('Y-m-d H:i:s');
+        $ConvertedDT= $GD->DateTime()->format('Y-m-d H:i:s');
 
     }
+    return $ConvertedDT;
 }
 
-//this will get orders foreign key's values and extract it's name from related table to show to user
+
+//===================================================== Dashboard Start
+//=============================== Public Start
+
+function MenuPicker(User $user)
+{
+    //get role of logged in user
+    $role = $user->role()->first();
+
+    //get menus of user related to role
+    return $role->main_menus()->with('sub_menus')->get();
+
+}
+
+
+
+/**
+ * prepare order to show properly to user; change date to Jalali, fetch name of fields from related tables
+ * @param $orders
+ * @return mixed
+ */
 function OrderPreparation($orders)
 {
-        foreach ($orders as $item)
-        {
-            $item->RegisterDate = DateTimeConversion($item->RegisterDate, 'J');
-            $item->DeliveryDate = DateTimeConversion($item->DeliveryDate, 'J');
-            $item->TranslationField = TranslationField::where('id', $item->TranslationField)->value('FieldName');
-            $item->SourceLanguage = Language::where('id', $item->SourceLanguage)->value('LanguageName');
-            $item->DestLanguage = Language::where('id', $item->DestLanguage)->value('LanguageName');
-            $item->Status = OrderStatus::where('id', $item->status_id)->value('Status');
-            $item->StatusDescription = OrderStatus::where('id', $item->status_id)->value('Description');
-        }
+    foreach ($orders as $item) {
+        $item->RegisterDate = DateTimeConversion($item->RegisterDate, 'J');
+        $item->DeliveryDate = DateTimeConversion($item->DeliveryDate, 'J');
+        $item->TranslationField = TranslationField::where('id', $item->TranslationField)->value('FieldName');
+        $item->SourceLanguage = Language::where('id', $item->SourceLanguage)->value('LanguageName');
+        $item->DestLanguage = Language::where('id', $item->DestLanguage)->value('LanguageName');
+        $item->Status = OrderStatus::where('id', $item->status_id)->value('Status');
+        $item->StatusDescription = OrderStatus::where('id', $item->status_id)->value('Description');
+    }
 
     return $orders;
 }
 
 
-//show orders list (new, finished, cancelled) depending of user role and OrderList session name
-function GetOrders()
+/**
+ * show orders list (new, finished, cancelled,etc.)
+ * if status id is set, orders with that id will be returned
+ * otherwise all orders will be returned.
+ * @param string $UserId
+ * @param string $StatusId
+ * @return mixed
+ */
+function OrdersList(string $StatusId = '', string $UserId = '')
 {
-    $OrderList=session('List');
-    $role=session('UserRole');
-
-    switch ($role)
-    {
-        case 'مدیر':
-        {
-            switch ($OrderList)
-            {
-                case 'AllOrders':
-                {
-                    return OrderPreparation(Order::orderBy('id', 'DESC')->get());
-                }
-
-                case 'NewOrders':
-                {
-                    return OrderPreparation(Order::where('status_id', 1)->orderBy('id', 'DESC')->get());
-                }
-
-            }
-            break;
-        }
-
-    }
+    return
+    $StatusId ?
+        $UserId ? OrderPreparation(Order::where(['status_id' => $StatusId, 'user_id' => $UserId])->orderBy('id', 'DESC')->get())
+            : OrderPreparation(Order::where('status_id' , $StatusId )->orderBy('id', 'DESC')->get())
+        : OrderPreparation(Order::orderBy('id', 'DESC')->get());
 }
 
-//============== Admin
+//=============================== Public End
+
+//=============================== Admin Start
 //Give Number of visitors that see website in last X day(s)
 function GetSiteVisitors($day)
 {
@@ -139,15 +152,6 @@ function GetSiteVisitors($day)
         ->count();
 }
 
-//look for users with user_id is sessions table to set their mode to ON in users table
-function GetOnlineUsersSession()
-{
-    $ids = Session::whereNotNull('user_id')
-        ->where('last_activity', '>', date_timestamp_get(Carbon::now()->subMinutes(1)))
-        ->pluck('user_id');
-    $ids->unique()->values()->all();
-    return $ids;
-}
 
 function OnlineUsers()
 {
@@ -164,33 +168,15 @@ function NewEmployment()
         ->count();
 }
 
-//for admin dashboard badges in case of registering a new order by any user
-function AllNewRegisteredOrders()
-{
-    $AllNewOrders['orders'] = Order::where('status_id', 1)->orderBy('id', 'DESC')->get();
-    foreach ($AllNewOrders['orders'] as $key => $order) {
-        $TF = TranslationField::where('id', $order['TranslationField'])->value('FieldName');
-        $SL = Language::where('id', $order['SourceLanguage'])->value('LanguageName');
-        $DL = Language::where('id', $order['DestLanguage'])->value('LanguageName');
-        $RD = DateTimeConversion($order['RegisterDate'], 'J');
-        $DD = DateTimeConversion($order['DeliveryDate'], 'J');
-
-        $AllNewOrders['orders'][$key]['TranslationField'] = $TF;
-        $AllNewOrders['orders'][$key]['SourceLanguage'] = $SL;
-        $AllNewOrders['orders'][$key]['DestLanguage'] = $DL;
-        $AllNewOrders['orders'][$key]['RegisterDate'] = $RD;
-        $AllNewOrders['orders'][$key]['DeliveryDate'] = $DD;
-    }
-    return $AllNewOrders;
-}
-
-//============== get orders that invoices are paid by user
-function PaidInvoices()
-{
-    return Order::where('status_id', '=', 3)->get();
-}
 
 //============== extract list of Translators that match the field and languages of specific order
+/**
+ * extract list of Translators that match the field and languages of specific order
+ * @param $OrderTranslationField
+ * @param $OrderSourceLang
+ * @param $OrderDestLang
+ * @return array
+ */
 function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLang)
 {
     $LangPair = $OrderSourceLang . ' به ' . $OrderDestLang;
@@ -216,24 +202,15 @@ function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLan
 
 }
 
+
 //============== Translators
+
+
+
 
 
 //============== Customers
 
-//for user dashboard in case of registering a new order
-function CustomerRegisteredOrders($CustomerId)
-{
-    return Order::where('user_id', $CustomerId)
-        ->where('status_id', '<', 10)
-        ->get();
-}
 
-//Get list of orders that are ready for customer payment. (status_id = 1-> prepayment orders, 2-> final payment
-function CustomerInvoices($user_id, $status_id)
-{
-    return Order::where('user_id', $user_id)
-        ->where('status_id', $status_id)
-        ->get();
 
-}
+//======================================== Dashboard End

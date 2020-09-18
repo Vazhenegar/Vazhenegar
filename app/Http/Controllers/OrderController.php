@@ -8,6 +8,7 @@ use App\Language;
 use App\Order;
 use App\OrderStatus;
 use App\Payment;
+use App\Role;
 use nusoap_client;
 use App\TranslationField;
 use App\User;
@@ -147,7 +148,7 @@ class OrderController extends Controller
      */
     public function edit(Order $Order)
     {
-        return view('vazhenegar.DashboardAdminOrderEdit', compact('Order'));
+        return view('vazhenegar.DashboardElements.Admin.DashboardAdminOrderEdit', compact('Order'));
     }
 
     /**
@@ -155,7 +156,7 @@ class OrderController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Order $Order
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Order $Order)
     {
@@ -170,7 +171,7 @@ class OrderController extends Controller
             session()->flash('OrderStatus', 'PriceAdded');
         }
         $Order->save();
-        return redirect('/dashboard/Order/' . $Order->id);
+        return redirect(route('Order.show',[$Order->id]));
 
     }
 
@@ -185,45 +186,31 @@ class OrderController extends Controller
         //
     }
 
-    //save user invoice payment in db
-    public function payment($user_id, $order_id)
+
+    /**
+     * show orders depending on user role and list type (all orders, newly registered orders, etc)
+     * run get orders function in helpers file
+     * @param string $UserId
+     * @param string $StatusId
+     * @return mixed
+     */
+    public function Orders(string $StatusId='', string $UserId='')
     {
+        return OrdersList($StatusId, $UserId);
 
     }
 
-    // show list of orders that registered by specific user
-    public function customerRegisteredOrders()
+
+    /**
+     * get list of orders and show in a table
+     * @param string $UserId
+     * @param string $StatusId
+     * @return mixed
+     */
+    public function ShowOrdersList(string $StatusId='', string $UserId='')
     {
-        $CustomerId = Auth::user()->getAuthIdentifier();
-        $CustomerOrders = CustomerRegisteredOrders($CustomerId);
-        foreach ($CustomerOrders as $order) {
-            $order->RegisterDate = DateTimeConversion($order->RegisterDate, 'J');
-            $order->DeliveryDate = DateTimeConversion($order->DeliveryDate, 'J');
-            $order->Status = OrderStatus::where('id', $order->status_id)->value('Status');
-        }
-
-        return view('vazhenegar.DashboardElements.Customer.DashboardCustomerOrdersList', compact('CustomerOrders'));
-    }
-
-//    public function InvoiceSubmit($order_id, $paid_price)
-//    {
-//        //here should save the price of invoice of an order to (paid price) field of that order in db.
-//        Order::where('id', $order_id)->update(['PaidPrice'=>$paid_price, 'status_id'=>3]);
-//        and here should save tracking code for that order in db
-//    }
-
-    public function PaidOrdersList()
-    {
-        $PaidOrdersList = PaidInvoices();
-        foreach ($PaidOrdersList as $order) {
-            $order->RegisterDate = DateTimeConversion($order->RegisterDate, 'J');
-            $order->DeliveryDate = DateTimeConversion($order->DeliveryDate, 'J');
-            $order->TranslationField = TranslationField::where('id', $order->TranslationField)->value('FieldName');
-            $order->SourceLanguage = Language::where('id', $order->SourceLanguage)->value('LanguageName');
-            $order->DestLanguage = Language::where('id', $order->DestLanguage)->value('LanguageName');
-        }
-        return view('vazhenegar.DashboardAdminPaidInvoicesOrdersList', compact('PaidOrdersList'));
-
+        $List=$this->Orders($StatusId,$UserId);
+       return view('vazhenegar.DashboardElements.SharedParts.List',compact('List','UserId','StatusId'));
     }
 
     public function InvoiceAcceptance($order_id)
@@ -257,15 +244,14 @@ class OrderController extends Controller
 
             $client->soap_defencoding = 'UTF-8';
 
-            //در خط زیر یک درخواست به زرین پال ارسال می کنیم تا از صحت پرداخت کاربر مطمئن شویم
             $result = $client->call('PaymentVerification', [
                 [
-                    //این مقادیر را به سایت زرین پال برای دریافت تاییدیه نهایی ارسال می کنیم
                     'MerchantID' => $MerchantID,
                     'Authority' => $Authority,
                     'Amount' => $Amount,
                 ],
             ]);
+dd($result);
 
             if ($result['Status'] == 100) {
 
@@ -283,7 +269,7 @@ class OrderController extends Controller
         }
 
 //        run show method in this controller
-        return redirect('/dashboard/Order/' . session('OrderId'));
+        return redirect(route('Order.show',[session('OrderId')]));
     }
 
     /**

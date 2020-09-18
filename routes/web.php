@@ -1,6 +1,6 @@
 <?php
 
-//====================================== Management Routes
+//====================================== Management Routes Start
 //---------- clear app cache
 Route::get('/ClearAllCaches', function () {
     Artisan::call('config:clear');
@@ -14,7 +14,12 @@ Route::get('/migrate', function() {
     Artisan::call('migrate:refresh --seed');
 });
 
-//====================================== Main Routes
+//====================================== Management Routes End
+
+
+
+
+//====================================== Main Routes Start
 Route::view('/', 'vazhenegar.index');
 Route::view('translation-services', 'vazhenegar.TranslationServices');
 Route::view('about-us', 'vazhenegar.about-us');
@@ -26,29 +31,131 @@ Route::resource('quiz', QuizController::class);
 Route::get('employment/city/{state_id}', 'TranslatorEmploymentController@cities');
 Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 
-//===================================== Dashboard
+//====================================== Main Routes End
+
+
+
+//===================================== Dashboard Start
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/dashboard/CustomerRegisteredOrders','OrderController@customerRegisteredOrders');
+
+
+
+//======================== Orders Start
+Route::get('/dashboard/OrdersList/{StatusId?}/{UserId?}','OrderController@Orders')->name('GetOrders');
 Route::get('/dashboard/Order/bank_response','OrderController@response')->name('BankResponse');
 Route::post('/dashboard/Order/pay','OrderController@pay')->name('Pay');
+Route::resource('Order', OrderController::class);
+//======================== Orders Start
 
-//======================== Admin
-//===================================== Orders
-Route::resource('/dashboard/Order', OrderController::class);
-
-
-//================= Setting
-//---- Banks Setting
-Route::resource('/dashboard/Bank',BankController::class);
 
 
 //===================================== File Download
 Route::get('/download/{user_id}/{OrderFile}','OrderController@download')->name('Download');
 
 
-//================================== Helpers Routes
 
+
+//=================================== Dashboard Menus Start
+//====================== Public Start
+//================ Orders
+Route::get('/dashboard/List/{StatusId?}/{UserId?}','OrderController@ShowOrdersList')->name('OL');
+
+
+//====================== Public End
+
+
+//======================= Admin Start
+
+
+
+
+
+//========== Users Start
+
+//========== Users End
+
+
+
+
+//========== Messages Start
+
+//========== Messages End
+
+
+
+
+//========== Accounting Start
+
+//========== Accounting End
+
+
+
+//========== Settings Start
+//--- Bank Setting
+Route::resource('/dashboard/Bank',BankController::class);
+
+
+
+//========== Settings End
+
+//======================= Admin End
+
+
+
+
+
+
+//======================= Customer Start
+
+//========== Orders Start
+
+//========== Orders End
+
+
+
+//========== Messages Start
+
+//========== Messages End
+
+
+
+//========== Accounting Start
+
+//========== Accounting End
+
+
+
+//========== Settings Start
+
+//========== Settings End
+
+
+
+
+//========== Guide Start
+
+//========== Guide End
+
+//======================= Customer End
+
+
+
+//======================= Translator Start
+
+
+//======================= Translator End
+//=================================== Dashboard Menus End
+
+
+
+//===================================== Dashboard End
+
+
+
+
+
+//================================== Helpers Routes
 //============ Public
 
 //Set Online and Offline users mode in DB
@@ -61,18 +168,8 @@ Route::post('/UserMenus/{user}', function ($user) {
     return MenuPicker($user);
 });
 
-//fetch list of orders depending of user role and list type (new, in progress, finished, cancelled,...) from db
-Route::get('/dashboard/OrdersList', function () {
-    return GetOrders();
-});
-
 
 //============ Admin
-
-//Get count of orders that registered by all of users (to show in admin badges)
-Route::get('/AllNewRegisteredOrders', function () {
-    return AllNewRegisteredOrders();
-});
 
 //show new orders that registered by all users
 Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar.DashboardElements.Admin.DashboardAdminNewOrders');
@@ -92,10 +189,6 @@ Route::post('/GetSiteVisitors/{day}', function ($day) {
     return GetSiteVisitors($day);
 });
 
-//get orders that invoices are paid by user
-Route::get('/dashboard/PaidInvoices', function (){
-    return PaidInvoices();
-});
 
 //show list of orders that invoices are paid by user
 Route::get('/dashboard/PaidInvoicesList', 'OrderController@PaidOrdersList');
@@ -105,20 +198,10 @@ Route::post('/dashboard/InvoiceAcceptance/{order_id}','OrderController@InvoiceAc
 //============ Translators
 
 
+
 //============ Customers
-
-//Get count of orders that registered by a specific user (to show in that users badges)
-Route::get('/CustomersRegisteredOrders/{UserId}', function ($UserId) {
-    return CustomerRegisteredOrders($UserId);
-});
-
 //Get invoices list page
 Route::view('/dashboard/Invoices','vazhenegar.DashboardElements.Customer.DashboardCustomerOrderInvoiceList');
-
-//Get customers invoices
-Route::get('Invoices/{user_id}/{status_id}', function ($user_id, $status_id) {
-    return CustomerInvoices($user_id, $status_id);
-});
 
 //confirm customer invoice payment
 Route::post('Invoices/{user_id}/{order_id)/','OrderController@payment');

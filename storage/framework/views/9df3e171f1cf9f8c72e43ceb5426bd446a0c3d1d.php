@@ -29,7 +29,7 @@
 <?php switch($Order->status_id):
     
     case (1): ?>
-    <form action="/dashboard/Order/<?php echo e($Order->id); ?>" method="post" id="NewOrderSpecAdmin">
+    <form action="<?php echo e(route('Order.update',[$Order->id])); ?>" method="post" id="NewOrderSpecAdmin">
         <?php echo csrf_field(); ?>
         <?php echo e(method_field('PATCH')); ?>
 
@@ -39,7 +39,7 @@
             
             <tr>
                 <td class="pull-left">
-                    <a href="<?php echo e($Order->id); ?>/edit">
+                    <a href="<?php echo e(route('Order.edit',[$Order->id])); ?>">
                         <button type="button" class="btn btn-block"><i class="fa fa-pencil"></i>
                             ویرایش مشخصات فایل
                         </button>

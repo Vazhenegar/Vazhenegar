@@ -508,6 +508,7 @@ class ComposerStaticInit3bee899b2915a36c92a614a3bf772efc
         'App\\OrderStatus' => __DIR__ . '/../..' . '/app/OrderStatus.php',
         'App\\OrderTimingPrice' => __DIR__ . '/../..' . '/app/OrderTimingPrice.php',
         'App\\PageElements' => __DIR__ . '/../..' . '/app/PageElements.php',
+        'App\\Payment' => __DIR__ . '/../..' . '/app/Payment.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

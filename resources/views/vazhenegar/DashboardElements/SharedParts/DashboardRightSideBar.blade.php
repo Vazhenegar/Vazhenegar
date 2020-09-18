@@ -42,7 +42,7 @@
                     @if ($item->sub_menus->count())
                         <ul class="treeview-menu">
                             @foreach ($item->sub_menus as $subitem)
-                                <li><a id="{{$subitem->SubMenu}}" href="{{$subitem->Url}}">
+                                <li><a id="{{$subitem->SubMenu}}" href="{{route($subitem->Url,[$subitem->StatusId])}}">
                                         <i class="{{$subitem->Icon?$subitem->Icon :'fa fa-circle-o'}}"></i>
                                         <span>{{$subitem->SubMenu}}</span>
                                         <span class="pull-left-container">

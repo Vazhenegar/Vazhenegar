@@ -52,6 +52,7 @@ return array(
     'App\\OrderStatus' => $baseDir . '/app/OrderStatus.php',
     'App\\OrderTimingPrice' => $baseDir . '/app/OrderTimingPrice.php',
     'App\\PageElements' => $baseDir . '/app/PageElements.php',
+    'App\\Payment' => $baseDir . '/app/Payment.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

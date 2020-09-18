@@ -85,7 +85,8 @@
 
         <p >
             وضعیت سفارش:
-            <?php echo e({$OrderStatus); ?>}
+            <?php echo e($OrderStatus); ?>
+
         </p>
 
     </div>

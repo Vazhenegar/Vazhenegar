@@ -13,7 +13,7 @@
             <div class="icon">
                 <i class="fa fa-file-text"></i>
             </div>
-            <a href="/dashboard" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="<?php echo e(route('OL',['1',''])); ?>" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>

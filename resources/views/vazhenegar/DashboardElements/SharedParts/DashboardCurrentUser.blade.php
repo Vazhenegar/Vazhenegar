@@ -6,46 +6,50 @@ if (!class_exists('DashboardCurrentUser')) {
         public static $CurrentUser;
         public static $id;
         public static $Role;
+        public static $RoleId;
         public static $UserFullName;
         public static $UserStatus;
         public static $UserMode;
         public static $Menus;
 
 // for admin
-        public static $ordersList;
-        public static $allNewRegisteredOrders;
+        public static $AdminNewRegisteredOrders;
+        public static $AdminRejectedOrders;
         public static $employmentRequest;
         public static $OnlineUsers;
         public static $SiteVisitors;
         public static $PaidInvoices;
 
 //  for customer
-        public static $CustomerRegisteredOrders;
+        public static $CustomerCurrentOrders;
+        public static $CustomerFinishedOrders;
         public static $CustomerInvoices;
 
     }
 }
 
 //  General
-use Illuminate\Support\Facades\Auth;
 DashboardCurrentUser::$CurrentUser= Auth::user();
 DashboardCurrentUser::$id = DashboardCurrentUser::$CurrentUser->id;
 DashboardCurrentUser::$Role = DashboardCurrentUser::$CurrentUser->role()->value('RoleName');
+DashboardCurrentUser::$RoleId = DashboardCurrentUser::$CurrentUser->role()->value('id');
 DashboardCurrentUser::$UserFullName = DashboardCurrentUser::$CurrentUser->FirstName . ' ' . DashboardCurrentUser::$CurrentUser->LastName;
 DashboardCurrentUser::$UserStatus = DashboardCurrentUser::$CurrentUser->Status;
 DashboardCurrentUser::$UserMode = DashboardCurrentUser::$CurrentUser->Mode;
 DashboardCurrentUser::$Menus = MenuPicker(DashboardCurrentUser::$CurrentUser);
 
 // for admin badges
-DashboardCurrentUser::$allNewRegisteredOrders = AllNewRegisteredOrders();
+DashboardCurrentUser::$AdminNewRegisteredOrders = OrdersList('1','');
+DashboardCurrentUser::$AdminRejectedOrders= OrdersList('10','');
 DashboardCurrentUser::$employmentRequest = NewEmployment();
 DashboardCurrentUser::$OnlineUsers = OnlineUsers();
 DashboardCurrentUser::$SiteVisitors = GetSiteVisitors(1);
-DashboardCurrentUser::$PaidInvoices=PaidInvoices();
+DashboardCurrentUser::$PaidInvoices=OrdersList('3','');
 
 //  for customer badges
-DashboardCurrentUser::$CustomerRegisteredOrders = CustomerRegisteredOrders(DashboardCurrentUser::$CurrentUser->id);
-DashboardCurrentUser::$CustomerInvoices = CustomerInvoices(DashboardCurrentUser::$CurrentUser->id,2);
+DashboardCurrentUser::$CustomerCurrentOrders = OrdersList('1',DashboardCurrentUser::$id);
+DashboardCurrentUser::$CustomerInvoices = OrdersList('2',DashboardCurrentUser::$id);
+DashboardCurrentUser::$CustomerFinishedOrders = OrdersList('8',DashboardCurrentUser::$id);
 
 @endphp
 

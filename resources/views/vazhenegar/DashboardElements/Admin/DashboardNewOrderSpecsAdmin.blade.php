@@ -25,7 +25,7 @@
 @switch($Order->status_id)
     {{--word count and price insertion form --}}
     @case(1)
-    <form action="/dashboard/Order/{{$Order->id}}" method="post" id="NewOrderSpecAdmin">
+    <form action="{{route('Order.update',[$Order->id])}}" method="post" id="NewOrderSpecAdmin">
         @csrf
         {{method_field('PATCH')}}
         <table class="table">
@@ -34,7 +34,7 @@
             {{-- =============== order editing button =================================================== --}}
             <tr>
                 <td class="pull-left">
-                    <a href="{{$Order->id}}/edit">
+                    <a href="{{route('Order.edit',[$Order->id])}}">
                         <button type="button" class="btn btn-block"><i class="fa fa-pencil"></i>
                             ویرایش مشخصات فایل
                         </button>

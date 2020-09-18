@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="box-body">
-                    <form action="/dashboard/Order/{{$Order->id}}" method="post">
+                    <form action="{{route('Order.update',[$Order->id])}}" method="post">
                         @csrf
                         {{method_field('PATCH')}}
 

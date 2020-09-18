@@ -43,7 +43,7 @@
                     <?php if($item->sub_menus->count()): ?>
                         <ul class="treeview-menu">
                             <?php $__currentLoopData = $item->sub_menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subitem): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><a id="<?php echo e($subitem->SubMenu); ?>" href="<?php echo e($subitem->Url); ?>">
+                                <li><a id="<?php echo e($subitem->SubMenu); ?>" href="<?php echo e(route($subitem->Url,[$subitem->StatusId])); ?>">
                                         <i class="<?php echo e($subitem->Icon?$subitem->Icon :'fa fa-circle-o'); ?>"></i>
                                         <span><?php echo e($subitem->SubMenu); ?></span>
                                         <span class="pull-left-container">

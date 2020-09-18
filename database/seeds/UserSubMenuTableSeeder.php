@@ -18,134 +18,157 @@ class UserSubMenuTableSeeder extends Seeder
                 'سفارشات' => [
                     [
                         'SubMenu' => 'جدید',
-                        'Url' => '/dashboard/NewRegisteredOrders',
+                        'Url' => 'OL',
+                        'StatusId'=>'1',
                         'Icon' => 'fa fa-star',
                     ],
                     [
                         'SubMenu' => 'دریافتی',
-                        'Url' => 'AOPI', //Admin->Orders->Paid Invoices (/dashboard/PaidInvoicesList)
+                        'Url' => 'OL', //Admin->Orders->Paid Invoices
+                        'StatusId'=>'2',
                         'Icon' => 'fa fa-bullseye',
                     ],
                     [
                         'SubMenu' => 'در حال انجام',
-                        'Url' => 'AOIP', //Admin->Orders->In Progress (/in progress)
+                        'Url' => 'OL', //Admin->Orders->In Progress
+                        'StatusId'=>'5',
                         'Icon' => 'fa fa-clock-o',
                     ],
                     [
                         'SubMenu' => 'لغو شده',
-                        'Url' => 'AOR', //Admin->Orders->Rejected (/rejected)
+                        'Url' => 'OL', //Admin->Orders->Rejected
+                        'StatusId'=>'10',
                         'Icon' => 'fa fa-exclamation-triangle',
                     ],
                     [
                         'SubMenu' => 'تکمیل شده',
-                        'Url' => 'AOF', //Admin->Orders->Finished (/done)
+                        'Url' => 'OL', //Admin->Orders->Finished
+                        'StatusId'=>'8',
                         'Icon' => 'fa fa-certificate',
                     ],
                     [
-                        'SubMenu' => 'تحویل شده',
-                        'Url' => 'AOD', //Admin->Orders->Delivered (/delivered')
-                        'Icon' => 'fa fa-check-square-o',
-                    ],
-                ],
-
-                'کاربران' => [
-                    [
-                        'SubMenu' => 'لیست کاربران',
-                        'Url' => 'AUL', //Admin Users List (/users')
+                        'SubMenu' => 'تمام سفارشات',
+                        'Url' => 'OL', //Admin->All Orders
+                        'StatusId'=>'',
                         'Icon' => 'fa fa-list',
                     ],
-                    [
-                        'SubMenu' => 'درخواست همکاری',
-                        'Url' => 'AUE', //Admin->Users->Employment Request (/employment request)
-                        'Icon' => 'fa fa-user-plus',
-                    ],
                 ],
-
-                'پیام ها' => [
-                    [
-                        'SubMenu' => 'نوشتن پیام',
-                        'Url' => 'AMC', //Admin->Messages->Compose (/compose)
-                        'Icon' => 'fa fa-commenting',
-                    ],
-                    [
-                        'SubMenu' => 'دریافتی',
-                        'Url' => 'AMI', //Admin->Messages->Inbox (/inbox)
-                        'Icon' => 'fa fa-envelope',
-                    ],
-                    [
-                        'SubMenu' => 'ارسالی',
-                        'Url' => 'AMS', //Admin->Messages->Sent (/sent)
-                        'Icon' => 'fa fa-paper-plane',
-                    ],
-                    [
-                        'SubMenu' => 'پیش نویس ها',
-                        'Url' => 'AMD', //Admin->Messages->Draft (/draft)
-                        'Icon' => 'fa fa-wpforms',
-                    ],
-                    [
-                        'SubMenu' => 'حذف شده',
-                        'Url' => 'AMT', //Admin->Messages->Trash (/trash)
-                        'Icon' => 'fa fa-trash',
-                    ],
-                ],
-
-                'امور مالی و حسابداری' => [
-                    [
-                        'SubMenu' => 'گردش مالی',
-                        'Url' => 'AAF', //Admin->Accounting->Finance (/finance)
-                        'Icon' => 'fa fa-money',
-                    ],
-                    [
-                        'SubMenu' => 'دریافت و پرداخت',
-                        'Url' => 'AAT', //Admin->Accounting->Transaction (/transaction)
-                        'Icon' => 'fa fa-usd',
-                    ],
-                ],
-
-                'تنظیمات' => [
-                    [
-                        'SubMenu' => 'بانک ها',
-                        'Url' => '/dashboard/Bank',
-                        'Icon' => 'fa fa-bank',
-                    ],
-                    [
-                        'SubMenu' => 'سفارشات',
-                        'Url' => 'ASO', //Admin->Setting->Orders Setting (/orders setting)
-                        'Icon' => 'fa fa-shopping-basket',
-                    ],
-                    [
-                        'SubMenu' => 'کاربران',
-                        'Url' => 'ASU', //Admin->Setting->Users Setting (/users setting)
-                        'Icon' => 'fa fa-user-circle-o',
-                    ],
-                    [
-                        'SubMenu' => 'پیام ها',
-                        'Url' => 'ASM', //Admin->Setting->Messages Setting (/emails setting)
-                        'Icon' => 'fa fa-envelope-o',
-                    ],
-                    [
-                        'SubMenu' => 'مالی و حسابداری',
-                        'Url' => 'ASF', //Admin->Setting->Finance Setting (/finance setting)
-                        'Icon' => 'fa fa-area-chart',
-                    ],
-                    [
-                        'SubMenu' => 'زبان ها',
-                        'Url' => 'ASL', //Admin->Setting->Languages Setting (/languages setting)
-                        'Icon' => 'fa fa-language',
-                    ],
-                    [
-                        'SubMenu' => 'زمینه ها',
-                        'Url' => 'ASTF', //Admin->Setting->Translation Fields Setting (/fields setting)
-                        'Icon' => 'fa fa-tasks',
-                    ],
-                ],
-                'راهنما' => [
-                    [
-                        'SubMenu' => 'راهنمای مدیر',
-                        'Url' => 'AG', //Admin->Guidline (/admin guide)
-                        'Icon' => 'fa fa-info-circle',
-                    ],
-                ],
+//
+//                'کاربران' => [
+//                    [
+//                        'SubMenu' => 'لیست کاربران',
+//                        'Url' => 'AUL', //Admin Users List (/users')
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-list',
+//                    ],
+//                    [
+//                        'SubMenu' => 'درخواست همکاری',
+//                        'Url' => 'AUE', //Admin->Users->Employment Request (/employment request)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-user-plus',
+//                    ],
+//                ],
+//
+//                'پیام ها' => [
+//                    [
+//                        'SubMenu' => 'نوشتن پیام',
+//                        'Url' => 'AMC', //Admin->Messages->Compose (/compose)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-commenting',
+//                    ],
+//                    [
+//                        'SubMenu' => 'دریافتی',
+//                        'Url' => 'AMI', //Admin->Messages->Inbox (/inbox)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-envelope',
+//                    ],
+//                    [
+//                        'SubMenu' => 'ارسالی',
+//                        'Url' => 'AMS', //Admin->Messages->Sent (/sent)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-paper-plane',
+//                    ],
+//                    [
+//                        'SubMenu' => 'پیش نویس ها',
+//                        'Url' => 'AMD', //Admin->Messages->Draft (/draft)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-wpforms',
+//                    ],
+//                    [
+//                        'SubMenu' => 'حذف شده',
+//                        'Url' => 'AMT', //Admin->Messages->Trash (/trash)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-trash',
+//                    ],
+//                ],
+//
+//                'امور مالی و حسابداری' => [
+//                    [
+//                        'SubMenu' => 'گردش مالی',
+//                        'Url' => 'AAF', //Admin->Accounting->Finance (/finance)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-money',
+//                    ],
+//                    [
+//                        'SubMenu' => 'دریافت و پرداخت',
+//                        'Url' => 'AAT', //Admin->Accounting->Transaction (/transaction)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-usd',
+//                    ],
+//                ],
+//
+//                'تنظیمات' => [
+//                    [
+//                        'SubMenu' => 'بانک ها',
+//                        'Url' => '/dashboard/Bank',
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-bank',
+//                    ],
+//                    [
+//                        'SubMenu' => 'سفارشات',
+//                        'Url' => 'ASO', //Admin->Setting->Orders Setting (/orders setting)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-shopping-basket',
+//                    ],
+//                    [
+//                        'SubMenu' => 'کاربران',
+//                        'Url' => 'ASU', //Admin->Setting->Users Setting (/users setting)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-user-circle-o',
+//                    ],
+//                    [
+//                        'SubMenu' => 'پیام ها',
+//                        'Url' => 'ASM', //Admin->Setting->Messages Setting (/emails setting)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-envelope-o',
+//                    ],
+//                    [
+//                        'SubMenu' => 'مالی و حسابداری',
+//                        'Url' => 'ASF', //Admin->Setting->Finance Setting (/finance setting)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-area-chart',
+//                    ],
+//                    [
+//                        'SubMenu' => 'زبان ها',
+//                        'Url' => 'ASL', //Admin->Setting->Languages Setting (/languages setting)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-language',
+//                    ],
+//                    [
+//                        'SubMenu' => 'زمینه ها',
+//                        'Url' => 'ASTF', //Admin->Setting->Translation Fields Setting (/fields setting)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-tasks',
+//                    ],
+//                ],
+//                'راهنما' => [
+//                    [
+//                        'SubMenu' => 'راهنمای مدیر',
+//                        'Url' => 'AG', //Admin->Guidline (/admin guide)
+//                        'Parameters'=>'',
+//                        'Icon' => 'fa fa-info-circle',
+//                    ],
+//                ],
             ],//end of admin role id
 
 
@@ -154,17 +177,20 @@ class UserSubMenuTableSeeder extends Seeder
                 'سفارشات' => [
                     [
                         'SubMenu' => 'جدید',
-                        'Url' => '/new',
+                        'Url' => 'OL',
+                        'StatusId'=>'',
                         'Icon' => 'fa fa-star',
                     ],
                     [
                         'SubMenu' => 'در حال انجام',
-                        'Url' => '/in progress',
+                        'Url' => 'OL',
+                        'StatusId'=>'',
                         'Icon' => 'fa fa-clock-o',
                     ],
                     [
                         'SubMenu' => 'تحویل شده',
-                        'Url' => '/delivered',
+                        'Url' => 'OL',
+                        'StatusId'=>'',
                         'Icon' => 'fa fa-check-square-o',
                     ],
                 ],
@@ -237,24 +263,28 @@ class UserSubMenuTableSeeder extends Seeder
                 'سفارشات' => [
                     [
                         'SubMenu' => 'ثبت سفارش جدید',
-                        'Url' => '/dashboard/Order',
+                        'Url' => 'Order.index',
+                        'StatusId'=>'',
                         'Icon' => 'fa fa-star',
                     ],
-                    [
-                        'SubMenu' => 'در حال انجام',
-                        'Url' => '/in progress',
-                        'Icon' => 'fa fa-clock-o',
-                    ],
-                    [
-                        'SubMenu' => 'لغو شده',
-                        'Url' => '/rejected',
-                        'Icon' => 'fa fa-exclamation-triangle',
-                    ],
-                    [
-                        'SubMenu' => 'تکمیل شده',
-                        'Url' => '/done',
-                        'Icon' => 'fa fa-certificate',
-                    ],
+//                    [
+//                        'SubMenu' => 'در حال انجام',
+//                        'Url' => '/in progress',
+//                        'StatusId'=>'',
+//                        'Icon' => 'fa fa-clock-o',
+//                    ],
+//                    [
+//                        'SubMenu' => 'لغو شده',
+//                        'Url' => '/rejected',
+//                        'StatusId'=>'',
+//                        'Icon' => 'fa fa-exclamation-triangle',
+//                    ],
+//                    [
+//                        'SubMenu' => 'تکمیل شده',
+//                        'Url' => '/dashboard/CustomerFinishedOrders',
+//                        'StatusId'=>'',
+//                        'Icon' => 'fa fa-certificate',
+//                    ],
                 ],
 
 //                'پیام ها' => [
@@ -289,6 +319,7 @@ class UserSubMenuTableSeeder extends Seeder
                     [
                         'SubMenu' => 'فاکتور',
                         'Url' => '/dashboard/Invoices',
+                        'StatusId'=>'2',
                         'Icon' => 'fa fa-clipboard',
                     ],
 //                    [
@@ -331,6 +362,7 @@ class UserSubMenuTableSeeder extends Seeder
                         'user_main_menu' => $Main,
                         'SubMenu' => $item['SubMenu'],
                         'Url' => $item['Url'],
+                        'StatusId'=>$item['StatusId'],
                         'Icon' => $item['Icon'],
                     ]);
                 }

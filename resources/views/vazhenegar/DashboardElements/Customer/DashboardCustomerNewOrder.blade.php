@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="box-body">
-                    <form action="/dashboard/Order" method="post" enctype="multipart/form-data">
+                    <form action="{{route('Order.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
 
                         {{-- =============== Subject =================================================== --}}
