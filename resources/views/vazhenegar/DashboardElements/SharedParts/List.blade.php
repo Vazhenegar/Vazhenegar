@@ -27,6 +27,7 @@
                 if ($UserId && DashboardCurrentUser::$Role=='مشتری')
                     echo '<h3 class="box-title">لیست سفارشات جاری</h3>';
                 else
+                    //For both admin and translator, title would be this
                     echo '<h3 class="box-title">لیست سفارشات جدید</h3>';
 
                 ?>

@@ -15,7 +15,7 @@
             <div class="icon">
                 <i class="fa fa-pencil-square-o"></i>
             </div>
-            <a href="<?php echo e(route('OL',['1',DashboardCurrentUser::$id])); ?>" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="<?php echo e(route('OL',[DashboardCurrentUser::$RoleId, '1',DashboardCurrentUser::$id])); ?>" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
             </div>
-            <a href="<?php echo e(route('OL',['8',DashboardCurrentUser::$id])); ?>" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="<?php echo e(route('OL',[DashboardCurrentUser::$RoleId, '8',DashboardCurrentUser::$id])); ?>" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -66,12 +66,12 @@
             <div class="inner">
                 <h3 id="CustomerInvoices"></h3>
 
-                <p>فاکتور ها</p>
+                <p>فاکتورها</p>
             </div>
             <div class="icon">
                 <i class="fa fa-money"></i>
             </div>
-            <a href="<?php echo e(route('OL',['2',DashboardCurrentUser::$id])); ?>" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="<?php echo e(route('OL',[DashboardCurrentUser::$RoleId, '2',DashboardCurrentUser::$id])); ?>" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>

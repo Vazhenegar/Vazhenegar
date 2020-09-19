@@ -15,26 +15,10 @@ class Payment
     public function __construct()
     {
         $this->zarinpal = [
-            'MerchantID' => 'b51a23c8-e045-11ea-bcca-000c295eb8fc',
-            'client_address'=>'https://www.zarinpal.com/pg/services/WebGate/wsdl',
-            'error' => [
-                "-1" => "اطلاعات ارسال شده ناقص است.",
-                "-2" => "IP و يا مرچنت كد پذيرنده صحيح نيست",
-                "-3" => "با توجه به محدوديت هاي شاپرك امكان پرداخت با رقم درخواست شده ميسر نمي باشد",
-                "-4" => "سطح تاييد پذيرنده پايين تر از سطح نقره اي است.",
-                "-11" => "درخواست مورد نظر يافت نشد.",
-                "-12" => "امكان ويرايش درخواست ميسر نمي باشد.",
-                "-21" => "هيچ نوع عمليات مالي براي اين تراكنش يافت نشد",
-                "-22" => "تراكنش نا موفق ميباشد",
-                "-33" => "رقم تراكنش با رقم پرداخت شده مطابقت ندارد",
-                "-34" => "سقف تقسيم تراكنش از لحاظ تعداد يا رقم عبور نموده است",
-                "-40" => "اجازه دسترسي به متد مربوطه وجود ندارد.",
-                "-41" => "اطلاعات ارسال شده مربوط به AdditionalData غيرمعتبر ميباشد.",
-                "-42" => "مدت زمان معتبر طول عمر شناسه پرداخت بايد بين 30 دقيه تا 45 روز مي باشد.",
-                "-54" => "درخواست مورد نظر آرشيو شده است",
-                "100" => "عمليات با موفقيت انجام گرديده است.",
-                "101" => "عمليات پرداخت موفق بوده و قبلا PaymentVerification تراكنش انجام شده است.",
-            ],
+            'MerchantID' => 'r43a23c8-5435-h65-bcca-0987295eb087',
+//            'MerchantID' => 'b51a23c8-e045-11ea-bcca-000c295eb8fc',
+            'client_address'=>'https://sandbox.zarinpal.com/pg/v4/payment/request.json',
+//            'client_address'=>'https://www.zarinpal.com/pg/services/WebGate/wsdl',
         ];
 
 
@@ -43,30 +27,51 @@ class Payment
 
     public function pay($Client, $Amount, $Email, $Mobile, $OrderId)
     {
-        $Description = 'پرداخت وجه سفارش ترجمه شماره '.$OrderId;  // Required
+        $Description = 'پرداخت وجه سفارش ترجمه شماره '.$OrderId;
         $CallbackURL =route('BankResponse');
 
 
-        $client = new nusoap_client($this->$Client['client_address'], 'wsdl');
-        $client->soap_defencoding = 'UTF-8';
-        $result = $client->call('PaymentRequest', [
-            [
-                'MerchantID' => $this->$Client['MerchantID'],
-                'Amount' => $Amount,
-                'Description' => $Description,
-                'Email' => $Email,
-                'Mobile' => $Mobile,
-                'CallbackURL' => $CallbackURL,
-            ],
-        ]);
+        $data = [
+            "merchant_id" => $this->$Client['MerchantID'],
+            "amount" => $Amount,
+            "callback_url" => $CallbackURL,
+            'description' => $Description,
+            'metadata' => ['mobile' => $Mobile,'email' => $Email],
+        ];
+        $jsonData = json_encode($data);
 
-        //Redirect to URL You can do it also by creating a form
-        if ($result['Status'] == 100) {
-            return $result['Authority'];
+        $ch = curl_init($Client['client_address']);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($jsonData)
+        ));
+
+        $result = curl_exec($ch);
+        $err = curl_error($ch);
+
+        $result = json_decode($result, true, JSON_PRETTY_PRINT);
+        curl_close($ch);
+
+
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
         } else {
-            return false;
+            if (empty($result['errors'])) {
+                if ($result['data']['code'] == 100) {
+                    header('Location: https://sandbox.zarinpal.com/pg/StartPay/' . $result['data']["authority"]);
+                }
+            } else {
+                echo '<p>' .
+                    $result['errors']['code'] . '<br>' .
+                    $result['errors']['message'] . '<br>';
+                echo '</p>';
+            }
         }
-
 
     }
 

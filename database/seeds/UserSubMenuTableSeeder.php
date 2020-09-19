@@ -182,13 +182,19 @@ class UserSubMenuTableSeeder extends Seeder
                         'Icon' => 'fa fa-star',
                     ],
                     [
-                        'SubMenu' => 'در حال انجام',
+                        'SubMenu' => 'جاری',
                         'Url' => 'OL',
                         'StatusId'=>'',
                         'Icon' => 'fa fa-clock-o',
                     ],
                     [
                         'SubMenu' => 'تحویل شده',
+                        'Url' => 'OL',
+                        'StatusId'=>'',
+                        'Icon' => 'fa fa-check-square-o',
+                    ],
+                    [
+                        'SubMenu' => 'لغو شده',
                         'Url' => 'OL',
                         'StatusId'=>'',
                         'Icon' => 'fa fa-check-square-o',

@@ -61,7 +61,6 @@ function per_digit_conv(string $per_digits)
 }
 
 
-
 /**
  * Convert Gregorian and Jalali to each other
  */
@@ -77,12 +76,12 @@ function DateTimeConversion($DateTime, $To)
     if ($To == 'J') {
         $JD = Verta::getJalali($year, $month, $day);
         $JD = Verta::create($JD[0], $JD[1], $JD[2], $H, $M, $S);
-        $ConvertedDT= $JD->DateTime()->format('Y-m-d H:i:s');
+        $ConvertedDT = $JD->DateTime()->format('Y-m-d H:i:s');
 
     } elseif ($To == "G") {
         $GD = Verta::getGregorian($year, $month, $day);
         $GD = Verta::create($GD[0], $GD[1], $GD[2], $H, $M, $S);
-        $ConvertedDT= $GD->DateTime()->format('Y-m-d H:i:s');
+        $ConvertedDT = $GD->DateTime()->format('Y-m-d H:i:s');
 
     }
     return $ConvertedDT;
@@ -101,7 +100,6 @@ function MenuPicker(User $user)
     return $role->main_menus()->with('sub_menus')->get();
 
 }
-
 
 
 /**
@@ -129,17 +127,41 @@ function OrderPreparation($orders)
  * show orders list (new, finished, cancelled,etc.)
  * if status id is set, orders with that id will be returned
  * otherwise all orders will be returned.
- * @param string $UserId
+ * @param int $UserRole_id
  * @param string $StatusId
+ * @param string $UserId
  * @return mixed
  */
-function OrdersList(string $StatusId = '', string $UserId = '')
+function OrdersList(int $UserRole_id, string $StatusId = '', string $UserId = '')
 {
-    return
-    $StatusId ?
-        $UserId ? OrderPreparation(Order::where(['status_id' => $StatusId, 'user_id' => $UserId])->orderBy('id', 'DESC')->get())
-            : OrderPreparation(Order::where('status_id' , $StatusId )->orderBy('id', 'DESC')->get())
-        : OrderPreparation(Order::orderBy('id', 'DESC')->get());
+    switch ($UserRole_id) {
+        //customer
+        case 11:
+        {
+            return
+                $StatusId ? OrderPreparation(Order::where(['status_id' => $StatusId, 'user_id' => $UserId])->orderBy('id', 'DESC')->get())
+                    : OrderPreparation(Order::where('user_id', $UserId)->orderBy('id', 'DESC')->get());
+
+        }
+        //translator
+        case 5:
+        {
+            return
+                $StatusId ? OrderPreparation(Order::where(['status_id' => $StatusId, 'ResponsibleUserId' => $UserId])->orderBy('id', 'DESC')->get())
+                    : OrderPreparation(Order::where('ResponsibleUserId', $UserId)->orderBy('id', 'DESC')->get());
+
+        }
+        //admin
+        case 1:
+        {
+            return
+                $StatusId ? OrderPreparation(Order::where('status_id' , $StatusId)->orderBy('id', 'DESC')->get())
+            : OrderPreparation(Order::orderBy('id', 'DESC')->get());
+
+        }
+
+    }
+
 }
 
 //=============================== Public End
@@ -206,11 +228,7 @@ function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLan
 //============== Translators
 
 
-
-
-
 //============== Customers
-
 
 
 //======================================== Dashboard End

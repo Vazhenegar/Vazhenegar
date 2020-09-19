@@ -1,7 +1,7 @@
 
 {{-- these contents will include to dashboard index--}}
 
-@include('vazhenegar.DashboardAdminOrdersList')
+@include('vazhenegar.DashboardElements.Translator.DashboardTranslatorBadges')
 
 <!-- Main row -->
 <div class="row">

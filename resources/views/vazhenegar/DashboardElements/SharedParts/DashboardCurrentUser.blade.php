@@ -39,17 +39,17 @@ DashboardCurrentUser::$UserMode = DashboardCurrentUser::$CurrentUser->Mode;
 DashboardCurrentUser::$Menus = MenuPicker(DashboardCurrentUser::$CurrentUser);
 
 // for admin badges
-DashboardCurrentUser::$AdminNewRegisteredOrders = OrdersList('1','');
-DashboardCurrentUser::$AdminRejectedOrders= OrdersList('10','');
+DashboardCurrentUser::$AdminNewRegisteredOrders = OrdersList(DashboardCurrentUser::$RoleId, '1','');
+DashboardCurrentUser::$AdminRejectedOrders= OrdersList(DashboardCurrentUser::$RoleId, '10','');
 DashboardCurrentUser::$employmentRequest = NewEmployment();
 DashboardCurrentUser::$OnlineUsers = OnlineUsers();
 DashboardCurrentUser::$SiteVisitors = GetSiteVisitors(1);
-DashboardCurrentUser::$PaidInvoices=OrdersList('3','');
+DashboardCurrentUser::$PaidInvoices=OrdersList(DashboardCurrentUser::$RoleId, '3','');
 
 //  for customer badges
-DashboardCurrentUser::$CustomerCurrentOrders = OrdersList('1',DashboardCurrentUser::$id);
-DashboardCurrentUser::$CustomerInvoices = OrdersList('2',DashboardCurrentUser::$id);
-DashboardCurrentUser::$CustomerFinishedOrders = OrdersList('8',DashboardCurrentUser::$id);
+DashboardCurrentUser::$CustomerCurrentOrders = OrdersList(DashboardCurrentUser::$RoleId, '1',DashboardCurrentUser::$id);
+DashboardCurrentUser::$CustomerInvoices = OrdersList(DashboardCurrentUser::$RoleId, '2',DashboardCurrentUser::$id);
+DashboardCurrentUser::$CustomerFinishedOrders = OrdersList(DashboardCurrentUser::$RoleId, '8',DashboardCurrentUser::$id);
 
 @endphp
 

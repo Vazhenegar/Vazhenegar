@@ -8,7 +8,6 @@ use App\Language;
 use App\Order;
 use App\OrderStatus;
 use App\Payment;
-use App\Role;
 use nusoap_client;
 use App\TranslationField;
 use App\User;
@@ -190,26 +189,30 @@ class OrderController extends Controller
     /**
      * show orders depending on user role and list type (all orders, newly registered orders, etc)
      * run get orders function in helpers file
-     * @param string $UserId
+     * @param string $UserRole_id
      * @param string $StatusId
+     * @param string $UserId
      * @return mixed
      */
-    public function Orders(string $StatusId='', string $UserId='')
+    public function Orders(int $UserRole_id, string $StatusId='', string $UserId='')
     {
-        return OrdersList($StatusId, $UserId);
+
+        return OrdersList($UserRole_id, $StatusId, $UserId);
 
     }
 
 
     /**
      * get list of orders and show in a table
-     * @param string $UserId
+     * @param int $UserRole_id
      * @param string $StatusId
+     * @param string $UserId
      * @return mixed
      */
-    public function ShowOrdersList(string $StatusId='', string $UserId='')
+    public function ShowOrdersList(int $UserRole_id, string $StatusId='', string $UserId='')
     {
-        $List=$this->Orders($StatusId,$UserId);
+        $List=$this->Orders($UserRole_id ,$StatusId,$UserId);
+
        return view('vazhenegar.DashboardElements.SharedParts.List',compact('List','UserId','StatusId'));
     }
 
@@ -281,8 +284,8 @@ dd($result);
     public function pay(Request $request)
     {
         $payment = new Payment();
-        $invoice = $payment->pay(session('Client'),$request->Amount,$request->Email,$request->Mobile,$request->OrderId);
-        return redirect('https://www.zarinpal.com/pg/StartPay/' . $invoice);
+        $payment->pay(session('Client'),$request->Amount,$request->Email,$request->Mobile,$request->OrderId);
+//        return redirect('https://www.zarinpal.com/pg/StartPay/' . $invoice);
     }
 
 }

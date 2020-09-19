@@ -42,7 +42,7 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 
 //======================== Orders Start
-Route::get('/dashboard/OrdersList/{StatusId?}/{UserId?}','OrderController@Orders')->name('GetOrders');
+Route::get('/dashboard/OrdersList/{UserRole_id}/{StatusId?}/{UserId?}','OrderController@Orders')->name('GetOrders');
 Route::get('/dashboard/Order/bank_response','OrderController@response')->name('BankResponse');
 Route::post('/dashboard/Order/pay','OrderController@pay')->name('Pay');
 Route::resource('Order', OrderController::class);
@@ -59,7 +59,7 @@ Route::get('/download/{user_id}/{OrderFile}','OrderController@download')->name('
 //=================================== Dashboard Menus Start
 //====================== Public Start
 //================ Orders
-Route::get('/dashboard/List/{StatusId?}/{UserId?}','OrderController@ShowOrdersList')->name('OL');
+Route::get('/dashboard/List/{UserRole_id}/{StatusId?}/{UserId?}','OrderController@ShowOrdersList')->name('OL');
 
 
 //====================== Public End

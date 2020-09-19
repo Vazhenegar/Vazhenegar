@@ -1,7 +1,7 @@
 
 
 
-<?php echo $__env->make('vazhenegar.DashboardAdminOrdersList', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('vazhenegar.DashboardElements.Translator.DashboardTranslatorBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- Main row -->
 <div class="row">

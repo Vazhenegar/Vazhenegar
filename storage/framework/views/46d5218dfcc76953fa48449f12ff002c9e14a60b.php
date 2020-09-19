@@ -60,7 +60,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url:'<?php echo e(route('GetOrders',['1',''])); ?>',
+            url:'<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '1',''])); ?>',
             success: function (response) {
                 AdminNewRegisteredOrders = response.length;
                 setdata();
@@ -74,7 +74,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url:'<?php echo e(route('GetOrders',['10',''])); ?>',
+            url:'<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '10',''])); ?>',
             success: function (response) {
                 AdminRejectedOrders = response.length;
                 setdata();
@@ -132,7 +132,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: '<?php echo e(route('GetOrders',['3',''])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '3',''])); ?>',
             success: function (data) {
                 PaidInvoices = data.length;
                 setdata();
@@ -152,7 +152,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: '<?php echo e(route('GetOrders',['1',DashboardCurrentUser::$id])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '1',DashboardCurrentUser::$id])); ?>',
             success: function (data) {
                 $CustomerCurrentOrders = data.length;
                 setdata();
@@ -167,7 +167,7 @@
 
         $.ajax({
             type: "GET",
-            url:'<?php echo e(route('GetOrders',['8',DashboardCurrentUser::$id])); ?>',
+            url:'<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '8',DashboardCurrentUser::$id])); ?>',
             success: function (data) {
                 CustomerFinishedOrders = data.length;
                 setdata();
@@ -180,7 +180,7 @@
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: '<?php echo e(route('GetOrders',['2',DashboardCurrentUser::$id])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '2',DashboardCurrentUser::$id])); ?>',
             success: function (data) {
                 invoices = data.length;
                 setdata();
