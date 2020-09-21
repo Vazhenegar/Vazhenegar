@@ -13,7 +13,7 @@
             <div class="icon">
                 <i class="fa fa-file-text"></i>
             </div>
-            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, '1',''])}}" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id,'1'])}}" class="small-box-footer" onclick="{{session(['StatusId'=>'1'])}}">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>

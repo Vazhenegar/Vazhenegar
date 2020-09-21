@@ -17,7 +17,7 @@ class Payment
         $this->zarinpal = [
             'MerchantID' => 'r43a23c8-5435-h65-bcca-0987295eb087',
 //            'MerchantID' => 'b51a23c8-e045-11ea-bcca-000c295eb8fc',
-            'client_address'=>'https://sandbox.zarinpal.com/pg/v4/payment/request.json',
+            'client_address'=>'https://api.zarinpal.com/pg/v4/payment/request.json',
 //            'client_address'=>'https://www.zarinpal.com/pg/services/WebGate/wsdl',
         ];
 
@@ -40,7 +40,7 @@ class Payment
         ];
         $jsonData = json_encode($data);
 
-        $ch = curl_init($Client['client_address']);
+        $ch=curl_init($this->$Client['client_address']);
         curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
@@ -63,7 +63,7 @@ class Payment
         } else {
             if (empty($result['errors'])) {
                 if ($result['data']['code'] == 100) {
-                    header('Location: https://sandbox.zarinpal.com/pg/StartPay/' . $result['data']["authority"]);
+                    header('Location: https://api.zarinpal.com/pg/StartPay/' . $result['data']["authority"]);
                 }
             } else {
                 echo '<p>' .

@@ -17,39 +17,55 @@ class UserSubMenuTableSeeder extends Seeder
             1 => [
                 'سفارشات' => [
                     [
-                        'SubMenu' => 'جدید',
+                        'SubMenu' => 'سفارشات جدید',
                         'Url' => 'OL',
-                        'StatusId'=>'1',
+                        'StatusId' => '1', //new registered orders
                         'Icon' => 'fa fa-star',
                     ],
                     [
                         'SubMenu' => 'دریافتی',
-                        'Url' => 'OL', //Admin->Orders->Paid Invoices
-                        'StatusId'=>'2',
+                        'Url' => 'OL',
+                        'StatusId' => '3',//Paid Invoices
+                        'Icon' => 'fa fa-bullseye',
+                    ], [
+                        'SubMenu' => 'اختصاص به مترجم',
+                        'Url' => 'OL',
+                        'StatusId' => '4',//Assign to translator
                         'Icon' => 'fa fa-bullseye',
                     ],
                     [
-                        'SubMenu' => 'در حال انجام',
-                        'Url' => 'OL', //Admin->Orders->In Progress
-                        'StatusId'=>'5',
+                        'SubMenu' => 'سفارشات در حال انجام',
+                        'Url' => 'OL',
+                        'StatusId' => '5',//In Progress
                         'Icon' => 'fa fa-clock-o',
                     ],
                     [
-                        'SubMenu' => 'لغو شده',
-                        'Url' => 'OL', //Admin->Orders->Rejected
-                        'StatusId'=>'10',
+                        'SubMenu' => 'بررسی نهایی',
+                        'Url' => 'OL',
+                        'StatusId' => '7', //final check
+                        'Icon' => 'fa fa-clock-o',
+                    ],
+                    [
+                        'SubMenu' => 'لغو شده توسط مشتری',
+                        'Url' => 'OL',
+                        'StatusId' => '9',//CRejected orders
+                        'Icon' => 'fa fa-exclamation-triangle',
+                    ],[
+                        'SubMenu' => 'لغو شده توسط مترجم',
+                        'Url' => 'OL',
+                        'StatusId' => '10', //TRejected orders
                         'Icon' => 'fa fa-exclamation-triangle',
                     ],
                     [
-                        'SubMenu' => 'تکمیل شده',
-                        'Url' => 'OL', //Admin->Orders->Finished
-                        'StatusId'=>'8',
+                        'SubMenu' => 'لیست سفارشات تکمیل شده',
+                        'Url' => 'OL',
+                        'StatusId' => '8', //Finished orders
                         'Icon' => 'fa fa-certificate',
                     ],
                     [
-                        'SubMenu' => 'تمام سفارشات',
-                        'Url' => 'OL', //Admin->All Orders
-                        'StatusId'=>'',
+                        'SubMenu' => 'لیست تمام سفارشات',
+                        'Url' => 'OL', //All Orders
+                        'StatusId' => '',
                         'Icon' => 'fa fa-list',
                     ],
                 ],
@@ -178,25 +194,37 @@ class UserSubMenuTableSeeder extends Seeder
                     [
                         'SubMenu' => 'جدید',
                         'Url' => 'OL',
-                        'StatusId'=>'',
+                        'StatusId' => '4', //orders that pending to accept by translator
                         'Icon' => 'fa fa-star',
                     ],
                     [
-                        'SubMenu' => 'جاری',
+                        'SubMenu' => 'دریافت شده',
                         'Url' => 'OL',
-                        'StatusId'=>'',
+                        'StatusId' => '5', //in progress orders
                         'Icon' => 'fa fa-clock-o',
                     ],
                     [
                         'SubMenu' => 'تحویل شده',
                         'Url' => 'OL',
-                        'StatusId'=>'',
+                        'StatusId' => '6', //delivered orders
                         'Icon' => 'fa fa-check-square-o',
                     ],
                     [
-                        'SubMenu' => 'لغو شده',
+                        'SubMenu' => 'تکمیل شده',
                         'Url' => 'OL',
-                        'StatusId'=>'',
+                        'StatusId' => '8', //finished orders
+                        'Icon' => 'fa fa-check-square-o',
+                    ],
+                    [
+                        'SubMenu' => 'سفارشات لغو شده',
+                        'Url' => 'OL',
+                        'StatusId' => '10',
+                        'Icon' => 'fa fa-check-square-o',
+                    ],
+                    [
+                        'SubMenu' => 'تمام سفارشات',
+                        'Url' => 'OL',
+                        'StatusId' => '',
                         'Icon' => 'fa fa-check-square-o',
                     ],
                 ],
@@ -264,33 +292,46 @@ class UserSubMenuTableSeeder extends Seeder
 //                ],
             ], //end of translator role id
 
-//            مشتری
+              // مشتری
             11 => [
                 'سفارشات' => [
                     [
                         'SubMenu' => 'ثبت سفارش جدید',
                         'Url' => 'Order.index',
-                        'StatusId'=>'',
+                        'StatusId' => '',
                         'Icon' => 'fa fa-star',
                     ],
-//                    [
-//                        'SubMenu' => 'در حال انجام',
-//                        'Url' => '/in progress',
-//                        'StatusId'=>'',
-//                        'Icon' => 'fa fa-clock-o',
-//                    ],
-//                    [
-//                        'SubMenu' => 'لغو شده',
-//                        'Url' => '/rejected',
-//                        'StatusId'=>'',
-//                        'Icon' => 'fa fa-exclamation-triangle',
-//                    ],
-//                    [
-//                        'SubMenu' => 'تکمیل شده',
-//                        'Url' => '/dashboard/CustomerFinishedOrders',
-//                        'StatusId'=>'',
-//                        'Icon' => 'fa fa-certificate',
-//                    ],
+                    [
+                        'SubMenu' => 'ثبت شده',
+                        'Url' => 'OL',
+                        'StatusId'=>'1', //new registered orders
+                        'Icon' => 'fa fa-clock-o',
+                    ],
+                    [
+                        'SubMenu' => 'در حال انجام',
+                        'Url' => 'OL',
+                        'StatusId'=>'5', //in progress orders
+                        'Icon' => 'fa fa-clock-o',
+                    ],
+                    [
+                        'SubMenu' => 'لغو شده',
+                        'Url' => 'OL',
+                        'StatusId'=>'9',
+                        'Icon' => 'fa fa-exclamation-triangle',
+                    ],
+                    [
+                        'SubMenu' => 'سفارشات تکمیل شده',
+                        'Url' => 'OL',
+                        'StatusId' => '8',
+                        'Icon' => 'fa fa-certificate',
+                    ],
+                    [
+                        'SubMenu' => 'لیست سفارشات',
+                        'Url' => 'OL',
+                        'StatusId' => '',
+                        'Icon' => 'fa fa-list',
+
+                    ]
                 ],
 
 //                'پیام ها' => [
@@ -324,8 +365,8 @@ class UserSubMenuTableSeeder extends Seeder
                 'امور مالی و حسابداری' => [
                     [
                         'SubMenu' => 'فاکتور',
-                        'Url' => '/dashboard/Invoices',
-                        'StatusId'=>'2',
+                        'Url' => 'OL',
+                        'StatusId' => '2',
                         'Icon' => 'fa fa-clipboard',
                     ],
 //                    [
@@ -360,15 +401,15 @@ class UserSubMenuTableSeeder extends Seeder
         ];
 
         foreach ($SubMenus as $role => $Menus) {
-            foreach ($Menus as $Main=>$sub) {
+            foreach ($Menus as $Main => $sub) {
                 foreach ($sub as $item) {
 
                     DB::table('user_sub_menus')->insert([
-                        'role_id'=>$role,
+                        'role_id' => $role,
                         'user_main_menu' => $Main,
                         'SubMenu' => $item['SubMenu'],
                         'Url' => $item['Url'],
-                        'StatusId'=>$item['StatusId'],
+                        'StatusId' => $item['StatusId'],
                         'Icon' => $item['Icon'],
                     ]);
                 }

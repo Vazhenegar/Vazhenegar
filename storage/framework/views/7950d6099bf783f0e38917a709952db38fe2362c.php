@@ -43,13 +43,15 @@
                     <?php if($item->sub_menus->count()): ?>
                         <ul class="treeview-menu">
                             <?php $__currentLoopData = $item->sub_menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subitem): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <li><a id="<?php echo e($subitem->SubMenu); ?>" href="<?php echo e(route($subitem->Url,[$subitem->StatusId])); ?>">
+                                <li><a id="<?php echo e($subitem->SubMenu); ?>" href="<?php echo e(route($subitem->Url,[$subitem->role_id, DashboardCurrentUser::$id, $subitem->StatusId])); ?>" onclick="<?php echo e(session(['StatusId'=>$subitem->StatusId])); ?>">
                                         <i class="<?php echo e($subitem->Icon?$subitem->Icon :'fa fa-circle-o'); ?>"></i>
                                         <span><?php echo e($subitem->SubMenu); ?></span>
                                         <span class="pull-left-container">
                                           <small id="yellow" class="label pull-left bg-yellow"></small>
                                           <small id="green" class="label pull-left bg-green"></small>
                                           <small id="red" class="label pull-left bg-red"></small>
+                                          <small id="blue" class="label pull-left bg-blue"></small>
+                                          <small id="white" class="label pull-left bg-white"></small>
                                         </span>
                                     </a>
                                 </li>

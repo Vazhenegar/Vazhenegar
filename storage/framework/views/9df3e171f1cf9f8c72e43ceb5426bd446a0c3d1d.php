@@ -17,6 +17,7 @@
 </div>
 
 
+<hr>
 <div>
     <p>وضعیت
         سفارش:&nbsp; <?php echo e($OrderStatus); ?>
@@ -90,7 +91,7 @@
                 تایید دریافت مبلغ
             </button>
         </a>
-        <form id="invoice-acceptance" action="<?php echo e(route('InvoiceAcceptance',['order_id'=>$Order->id])); ?>" method="POST"
+        <form id="invoice-acceptance" action="<?php echo e(route('InvoiceAcceptance',[$Order->id])); ?>" method="POST"
               style="display: none;">
             <?php echo csrf_field(); ?>
         </form>
@@ -102,19 +103,43 @@
     
     <div class="Translators">
             <span>ارسال به مترجم: &nbsp;</span>
-
-            <select class="form-control TranslatorsList" name="TranslatorsList" required>
+        <form action="<?php echo e(route('AssignToTranslator',[$Order->id])); ?>" method="post">
+            <?php echo csrf_field(); ?>
+            <div class="pull-right">
+            <select class="form-control TranslatorsList" name="MatchedTranslator" required>
                 <option value="0">تمام مترجمان در زمینه و زبان یکسان</option>
                 <?php $__currentLoopData = $TranslatorsList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option
                         value=" <?php echo e($value['id']); ?>"><?php echo e($value['FirstName']. ' '. $value['LastName']); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
+
+                <input type="hidden" name="TF" value="<?php echo e($Order->TranslationField); ?>">
+                <input type="hidden" name="SL" value="<?php echo e($Order->SourceLanguage); ?>">
+                <input type="hidden" name="DL" value="<?php echo e($Order->DestLanguage); ?>">
+                <?php (session(['TranslatorsList'=>$TranslatorsList])); ?>
+                <button type="submit" class="btn btn-default">بروز رسانی
+                    <i class="fa fa-check-circle"></i></button>
+            </div>
+
+
+
+
+
+        </form>
+    </div>
+    <?php break; ?>
+
+    <?php case (5): ?>
+
+    <div>
+        مشخصات مترجم:
         <br>
-        <a>
-            <button type="button" class="btn btn-default">تایید
-                <i class="fa fa-check"></i></button>
-        </a>
+نام مترجم:  <?php echo e($ResponsibleTranslator->FirstName . ' '. $ResponsibleTranslator->LastName); ?> &nbsp;
+        تلفن همراه: <?php echo e($ResponsibleTranslator->MobileNumber); ?> &nbsp;
+        تلفن ثابت: <?php echo e($ResponsibleTranslator->FixNumber); ?>
+
+
     </div>
     <?php break; ?>
 

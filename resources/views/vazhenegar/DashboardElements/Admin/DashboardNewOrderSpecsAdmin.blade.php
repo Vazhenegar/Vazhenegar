@@ -14,6 +14,7 @@
 </div>
 
 {{-- =============== Order Status =================================================== --}}
+<hr>
 <div>
     <p>وضعیت
         سفارش:&nbsp; {{$OrderStatus}}
@@ -84,7 +85,7 @@
                 تایید دریافت مبلغ
             </button>
         </a>
-        <form id="invoice-acceptance" action="{{route('InvoiceAcceptance',['order_id'=>$Order->id])}}" method="POST"
+        <form id="invoice-acceptance" action="{{route('InvoiceAcceptance',[$Order->id])}}" method="POST"
               style="display: none;">
             @csrf
         </form>
@@ -96,19 +97,42 @@
     {{-- =============== send to translators =================================================== --}}
     <div class="Translators">
             <span>ارسال به مترجم: &nbsp;</span>
-
-            <select class="form-control TranslatorsList" name="TranslatorsList" required>
+        <form action="{{route('AssignToTranslator',[$Order->id])}}" method="post">
+            @csrf
+            <div class="pull-right">
+            <select class="form-control TranslatorsList" name="MatchedTranslator" required>
                 <option value="0">تمام مترجمان در زمینه و زبان یکسان</option>
                 @foreach ($TranslatorsList as $key=>$value)
                     <option
                         value=" {{$value['id']}}">{{$value['FirstName']. ' '. $value['LastName']}}</option>
                 @endforeach
             </select>
+
+                <input type="hidden" name="TF" value="{{$Order->TranslationField}}">
+                <input type="hidden" name="SL" value="{{$Order->SourceLanguage}}">
+                <input type="hidden" name="DL" value="{{$Order->DestLanguage}}">
+                @php(session(['TranslatorsList'=>$TranslatorsList]))
+                <button type="submit" class="btn btn-default">بروز رسانی
+                    <i class="fa fa-check-circle"></i></button>
+            </div>
+
+
+
+
+
+        </form>
+    </div>
+    @break
+
+    @case(5)
+
+    <div>
+        مشخصات مترجم:
         <br>
-        <a>
-            <button type="button" class="btn btn-default">تایید
-                <i class="fa fa-check"></i></button>
-        </a>
+نام مترجم:  {{$ResponsibleTranslator->FirstName . ' '. $ResponsibleTranslator->LastName}} &nbsp;
+        تلفن همراه: {{$ResponsibleTranslator->MobileNumber}} &nbsp;
+        تلفن ثابت: {{$ResponsibleTranslator->FixNumber}}
+
     </div>
     @break
 

@@ -8,7 +8,7 @@
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
             <?php/*count of orders that added by user and not complete yet will show here - fill from badges quantification in shared folder*/?>
-                <h3 id="CustomerCurrentOrders"></h3>
+                <h3 id="TranslatorNewOrders"></h3>
 
                 <p>سفارشات جدید</p>
             </div>
@@ -28,9 +28,9 @@
             <div class="inner">
 
                 <?php/*count of orders that added by user and not complete yet will show here - fill from badges quantification in shared folder*/?>
-                <h3 id="CustomerFinishedOrders"></h3>
+                <h3 id="TranslatorFinishedOrders"></h3>
 
-                <p>سفارشات جاری</p>
+                <p>سفارشات تکمیل شده</p>
             </div>
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
@@ -46,7 +46,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow-gradient">
             <div class="inner">
-                <h3 id="CustomerMessages">0</h3>
+                <h3 id="TranslatorMessages">0</h3>
 
                 <p>پیام ها</p>
             </div>
@@ -64,7 +64,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="CustomerInvoices"></h3>
+                <h3 id="TranslatorPayableInvoices"></h3>
 
                 <p>جزئیات درآمد</p>
             </div>

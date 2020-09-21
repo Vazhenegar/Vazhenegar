@@ -38,8 +38,6 @@
 
         {{--=========================================================--}}
 
-        @include('vazhenegar.DashboardElements.SharedParts.DashboardLeftSideBar')
-
 
         {{--   main content of dashboard      --}}
         <div class="content-wrapper">

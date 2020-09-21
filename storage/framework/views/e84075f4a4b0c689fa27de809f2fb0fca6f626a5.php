@@ -47,6 +47,8 @@
 
             </tr>
 
+
+
             
             <?php if(session('bank_response')): ?>
                 <tr class="BankResponse">
@@ -60,10 +62,30 @@
                     </td>
                 </tr>
             <?php endif; ?>
-
             </tbody>
         </table>
     </form>
+
+
+    
+    <div>
+
+        <a onclick="event.preventDefault();
+            document.getElementById('tst').submit();">
+
+            <button type="button" class="btn btn-block"><i class="fa fa-dollar"></i>
+                پرداخت تست
+            </button>
+        </a>
+        <form id="tst" action="<?php echo e(route('tstPay',[$Order->id, $Order->TotalPrice])); ?>" method="POST"
+              style="display: none;">
+            <?php echo csrf_field(); ?>
+        </form>
+
+    </div>
+
+
+
     <?php break; ?>
 
     <?php case (3): ?>
@@ -81,9 +103,9 @@
     <?php break; ?>
 
     <?php case (4): ?>
-    <div >
+    <div>
 
-        <p >
+        <p>
             وضعیت سفارش:
             <?php echo e($OrderStatus); ?>
 

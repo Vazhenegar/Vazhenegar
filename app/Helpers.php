@@ -15,25 +15,25 @@ use Illuminate\Support\Str;
 /**
  * look for users with user_id in sessions table to set their mode to ON in users table
  */
-function GetOnlineUsersSession()
-{
-    $ids = Session::whereNotNull('user_id')
-        ->where('last_activity', '<=', date_timestamp_get(Carbon::now()))
-        ->pluck('user_id');
-    $ids->unique()->values()->all();
-    return $ids;
-}
+//function GetOnlineUsersSession()
+//{
+//    $ids = Session::whereNotNull('user_id')
+//        ->where('last_activity', '<=', date_timestamp_get(Carbon::now()))
+//        ->pluck('user_id');
+//    $ids->unique()->values()->all();
+//    return $ids;
+//}
 
 /**
  * set Online and Offline users mode in users table depending on id's received from session table.
  */
-function SetUsersMode()
-{
-    $OnlineIds = GetOnlineUsersSession();
-    User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
-    User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
-    return back();
-}
+//function SetUsersMode()
+//{
+//    $OnlineIds = GetOnlineUsersSession();
+//    User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
+//    User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
+//    return back();
+//}
 
 
 /**
@@ -132,7 +132,7 @@ function OrderPreparation($orders)
  * @param string $UserId
  * @return mixed
  */
-function OrdersList(int $UserRole_id, string $StatusId = '', string $UserId = '')
+function OrdersList(int $UserRole_id, string $UserId = '', string $StatusId = '')
 {
     switch ($UserRole_id) {
         //customer
@@ -177,8 +177,8 @@ function GetSiteVisitors($day)
 
 function OnlineUsers()
 {
-    SetUsersMode();
     return User::Where('Mode', 'ON')->count();
+
 }
 
 //Get all employment requests except management and customers id's and departments
@@ -205,7 +205,6 @@ function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLan
 
     //get all active translators
     $Translators = User::where('Department', 4)->where('role_id', 5)->where('Status', 'A')->get();
-
     $TranslatorID = [];
     foreach ($Translators as $translator) {
         $TL = unserialize($translator->UserSelectedLangs);

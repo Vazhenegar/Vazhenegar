@@ -42,13 +42,15 @@
                     @if ($item->sub_menus->count())
                         <ul class="treeview-menu">
                             @foreach ($item->sub_menus as $subitem)
-                                <li><a id="{{$subitem->SubMenu}}" href="{{route($subitem->Url,[$subitem->StatusId])}}">
+                                <li><a id="{{$subitem->SubMenu}}" href="{{route($subitem->Url,[$subitem->role_id, DashboardCurrentUser::$id, $subitem->StatusId])}}" onclick="{{session(['StatusId'=>$subitem->StatusId])}}">
                                         <i class="{{$subitem->Icon?$subitem->Icon :'fa fa-circle-o'}}"></i>
                                         <span>{{$subitem->SubMenu}}</span>
                                         <span class="pull-left-container">
                                           <small id="yellow" class="label pull-left bg-yellow"></small>
                                           <small id="green" class="label pull-left bg-green"></small>
                                           <small id="red" class="label pull-left bg-red"></small>
+                                          <small id="blue" class="label pull-left bg-blue"></small>
+                                          <small id="white" class="label pull-left bg-white"></small>
                                         </span>
                                     </a>
                                 </li>

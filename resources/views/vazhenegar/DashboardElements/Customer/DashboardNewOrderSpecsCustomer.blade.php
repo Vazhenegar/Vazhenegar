@@ -47,6 +47,8 @@
 
             </tr>
 
+
+
             {{--            when return back from bank portal--}}
             @if (session('bank_response'))
                 <tr class="BankResponse">
@@ -59,10 +61,30 @@
                     </td>
                 </tr>
             @endif
-
             </tbody>
         </table>
     </form>
+
+
+    {{--            test pay for customer invoice --}}
+    <div>
+
+        <a onclick="event.preventDefault();
+            document.getElementById('tst').submit();">
+
+            <button type="button" class="btn btn-block"><i class="fa fa-dollar"></i>
+                پرداخت تست
+            </button>
+        </a>
+        <form id="tst" action="{{route('tstPay',[$Order->id, $Order->TotalPrice])}}" method="POST"
+              style="display: none;">
+            @csrf
+        </form>
+
+    </div>
+
+
+
     @break
 
     @case(3)
@@ -79,9 +101,9 @@
     @break
 
     @case(4)
-    <div >
+    <div>
 
-        <p >
+        <p>
             وضعیت سفارش:
             {{$OrderStatus}}
         </p>

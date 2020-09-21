@@ -8,6 +8,7 @@ use App\Language;
 use App\Order;
 use App\OrderStatus;
 use App\Payment;
+use Illuminate\Http\RedirectResponse;
 use nusoap_client;
 use App\TranslationField;
 use App\User;
@@ -136,7 +137,13 @@ class OrderController extends Controller
 
         $OrderStatus=OrderStatus::where('id',$Order->status_id)->value('Status');
 
-        return view('vazhenegar.DashboardElements.SharedParts.DashboardNewOrderSpecs', compact('Order', 'RelatedCustomer', 'TranslatorsList', 'OrderStatus'));
+//        if translator is determined for an order, this will extract that translator's specifications and show in new order's page
+//        if($Order->ResponsibleUserId)
+                $ResponsibleTranslator=User::where('id',Order::where('id',$Order->id)->value('ResponsibleUserId'))->first();
+
+
+        return view('vazhenegar.DashboardElements.SharedParts.DashboardNewOrderSpecs',
+            compact('Order', 'RelatedCustomer', 'TranslatorsList', 'OrderStatus', 'ResponsibleTranslator'));
     }
 
     /**
@@ -155,7 +162,7 @@ class OrderController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Order $Order
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Contracts\Foundation\Application|RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Order $Order)
     {
@@ -194,11 +201,9 @@ class OrderController extends Controller
      * @param string $UserId
      * @return mixed
      */
-    public function Orders(int $UserRole_id, string $StatusId='', string $UserId='')
+    public function Orders(int $UserRole_id, string $UserId='', string $StatusId='')
     {
-
-        return OrdersList($UserRole_id, $StatusId, $UserId);
-
+        return OrdersList($UserRole_id, $UserId, $StatusId );
     }
 
 
@@ -209,16 +214,53 @@ class OrderController extends Controller
      * @param string $UserId
      * @return mixed
      */
-    public function ShowOrdersList(int $UserRole_id, string $StatusId='', string $UserId='')
+    public function ShowOrdersList(int $UserRole_id, string $UserId='', string $StatusId='')
     {
-        $List=$this->Orders($UserRole_id ,$StatusId,$UserId);
-
+        $List=$this->Orders($UserRole_id ,$UserId ,$StatusId);
        return view('vazhenegar.DashboardElements.SharedParts.List',compact('List','UserId','StatusId'));
     }
 
     public function InvoiceAcceptance($order_id)
     {
         Order::where('id', $order_id)->update(['status_id' => 4]);
+        return back();
+
+    }
+
+
+    /**
+     * get translator id from new order admin specs and set responsible user id of specific order to that user id
+     * if value of translator id is 0, then this order will be shown to all translators, that match the orders
+     * field and languages
+     * @param Request $request
+     * @param $order_id
+     */
+    public function AssignToTranslator(Request $request, $order_id)
+    {
+
+        if($request->MatchedTranslator){
+            //one of translators is selected from list
+            Order::where('id', $order_id)->update(['status_id' => 5, 'ResponsibleUserId'=>$request->MatchedTranslator]);
+
+        }
+        else{
+            //this order will send to all translators matched to it.
+
+            $TranslatorsList=session('TranslatorsList');
+
+        }
+        return back();
+
+    }
+    /**
+     * test payment for customer page of invoice
+     * @param $order_id
+     * @param $TotalPrice
+     * @return RedirectResponse
+     */
+    public function tstpay($order_id, $TotalPrice)
+    {
+        Order::where('id', $order_id)->update(['status_id' => 3, 'PaidPrice'=>$TotalPrice, 'TrackingCode'=> $order_id]);
         return back();
 
     }
@@ -254,7 +296,7 @@ class OrderController extends Controller
                     'Amount' => $Amount,
                 ],
             ]);
-dd($result);
+
 
             if ($result['Status'] == 100) {
 
