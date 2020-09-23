@@ -1,10 +1,6 @@
 
 <?php echo $__env->make('vazhenegar.DashboardElements.Admin.DashboardAdminBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-
-
-
-
 <!-- Main row -->
 <div class="row">
     <!-- right col -->

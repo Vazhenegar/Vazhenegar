@@ -39,19 +39,24 @@ Route::resource('TranslatorEmployment', TranslatorEmploymentController::class);
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
-
-
 //======================== Orders Start
-Route::get('/dashboard/OrdersList/{UserRole_id}/{StatusId?}/{UserId?}','OrderController@Orders')->name('GetOrders');
+Route::get('/dashboard/OrdersList/{UserRole_id}/{UserId?}/{StatusId?}','OrderController@Orders')->name('GetOrders');
 Route::get('/dashboard/Order/bank_response','OrderController@response')->name('BankResponse');
 Route::post('/dashboard/Order/pay','OrderController@pay')->name('Pay');
+Route::post('/dashboard/Order/tstpay/{order_id}/{TotalPrice}','OrderController@tstpay')->name('tstPay');
+Route::post('/dashboard/InvoiceAcceptance/{order_id}','OrderController@InvoiceAcceptance')->name('InvoiceAcceptance');
+Route::post('/dashboard/Order/AssignToTranslator/{order_id}', 'OrderController@AssignToTranslator')->name('AssignToTranslator');
+Route::post('/dashboard/Order/AcceptOrderByTranslator/{order_id}', 'OrderController@AcceptOrderByTranslator')->name('AcceptOrderByTranslator');
+Route::put('/dashboard/Order/UploadTranslation/{order_id}', 'OrderController@UploadTranslation')->name('UploadTranslation');
+Route::post('/dashboard/Order/StatusUpdate/{order_id}/{StatusId}', 'OrderController@StatusUpdate')->name('StatusUpdate');
+
 Route::resource('Order', OrderController::class);
-//======================== Orders Start
+//======================== Orders End
 
 
 
 //===================================== File Download
-Route::get('/download/{user_id}/{OrderFile}','OrderController@download')->name('Download');
+Route::get('/download/{user_id}/{File}','OrderController@download')->name('Download');
 
 
 
@@ -59,7 +64,7 @@ Route::get('/download/{user_id}/{OrderFile}','OrderController@download')->name('
 //=================================== Dashboard Menus Start
 //====================== Public Start
 //================ Orders
-Route::get('/dashboard/List/{UserRole_id}/{StatusId?}/{UserId?}','OrderController@ShowOrdersList')->name('OL');
+Route::get('/dashboard/List/{UserRole_id}/{UserId?}/{StatusId?}','OrderController@ShowOrdersList')->name('OL');
 
 
 //====================== Public End
@@ -158,11 +163,6 @@ Route::resource('/dashboard/Bank',BankController::class);
 //================================== Helpers Routes
 //============ Public
 
-//Set Online and Offline users mode in DB
-Route::get('/SetUsersMode', function () {
-    SetUsersMode();
-});
-
 //Give number of visitors that see the website for last X day(s)
 Route::post('/UserMenus/{user}', function ($user) {
     return MenuPicker($user);
@@ -170,9 +170,6 @@ Route::post('/UserMenus/{user}', function ($user) {
 
 
 //============ Admin
-
-//show new orders that registered by all users
-Route::view('/dashboard/NewRegisteredOrders', 'vazhenegar.DashboardElements.Admin.DashboardAdminNewOrders');
 
 //Get users that have Online mode in DB
 Route::get('/GetOnlineUsers', function () {
@@ -189,11 +186,6 @@ Route::post('/GetSiteVisitors/{day}', function ($day) {
     return GetSiteVisitors($day);
 });
 
-
-//show list of orders that invoices are paid by user
-Route::get('/dashboard/PaidInvoicesList', 'OrderController@PaidOrdersList');
-
-Route::post('/dashboard/InvoiceAcceptance/{order_id}','OrderController@InvoiceAcceptance')->name('InvoiceAcceptance');
 
 //============ Translators
 

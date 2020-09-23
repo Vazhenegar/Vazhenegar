@@ -18,6 +18,7 @@ class CreateBanksTable extends Migration
             $table->string('BankName');
             $table->string('Logo')->nullable();
             $table->string('MerchantCode');
+            $table->string('ClientAddress');
             $table->timestamps();
         });
     }

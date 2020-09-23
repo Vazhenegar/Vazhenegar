@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $this->call(QuizAnswersTableSeeder::class);
         $this->call(OrderStatusesTableSeeder::class);
         $this->call(OrderTimingPriceTableSeeder::class);
+        $this->call(BanksTableseeder::class);
 
     }
 }

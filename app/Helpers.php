@@ -13,30 +13,6 @@ use Illuminate\Support\Str;
 //============== General
 
 /**
- * look for users with user_id in sessions table to set their mode to ON in users table
- */
-function GetOnlineUsersSession()
-{
-    $ids = Session::whereNotNull('user_id')
-        ->where('last_activity', '<=', date_timestamp_get(Carbon::now()))
-        ->pluck('user_id');
-    $ids->unique()->values()->all();
-    return $ids;
-}
-
-/**
- * set Online and Offline users mode in users table depending on id's received from session table.
- */
-function SetUsersMode()
-{
-    $OnlineIds = GetOnlineUsersSession();
-    User::whereIn('id', $OnlineIds)->update(['Mode' => 'ON']);
-    User::whereNotIn('id', $OnlineIds)->update(['Mode' => 'OFF']);
-    return back();
-}
-
-
-/**
  * function for replace persian digits with english to save in db
  * because persian digits cannot validate in laravel
  */
@@ -66,19 +42,21 @@ function per_digit_conv(string $per_digits)
  */
 function DateTimeConversion($DateTime, $To)
 {
+
     $DateTime = per_digit_conv($DateTime);
+
     $year = Str::substr($DateTime, 0, 4);
     $month = Str::substr($DateTime, 5, 2);
     $day = Str::substr($DateTime, 8, 2);
     $H = Str::substr($DateTime, 11, 2);
     $M = Str::substr($DateTime, 14, 2);
     $S = Str::substr($DateTime, 17, 2);
-    if ($To == 'J') {
-        $JD = Verta::getJalali($year, $month, $day);
-        $JD = Verta::create($JD[0], $JD[1], $JD[2], $H, $M, $S);
-        $ConvertedDT = $JD->DateTime()->format('Y-m-d H:i:s');
 
-    } elseif ($To == "G") {
+    if ($To == 'J') {
+        $JD = Verta::createGregorian($year, $month, $day, $H, $M, $S);
+        $ConvertedDT = $JD->formatDatetime();
+
+    } elseif ($To == 'G') {
         $GD = Verta::getGregorian($year, $month, $day);
         $GD = Verta::create($GD[0], $GD[1], $GD[2], $H, $M, $S);
         $ConvertedDT = $GD->DateTime()->format('Y-m-d H:i:s');
@@ -109,8 +87,11 @@ function MenuPicker(User $user)
  */
 function OrderPreparation($orders)
 {
+
     foreach ($orders as $item) {
+
         $item->RegisterDate = DateTimeConversion($item->RegisterDate, 'J');
+
         $item->DeliveryDate = DateTimeConversion($item->DeliveryDate, 'J');
         $item->TranslationField = TranslationField::where('id', $item->TranslationField)->value('FieldName');
         $item->SourceLanguage = Language::where('id', $item->SourceLanguage)->value('LanguageName');
@@ -132,7 +113,7 @@ function OrderPreparation($orders)
  * @param string $UserId
  * @return mixed
  */
-function OrdersList(int $UserRole_id, string $StatusId = '', string $UserId = '')
+function OrdersList(int $UserRole_id, string $UserId = '', string $StatusId = '')
 {
     switch ($UserRole_id) {
         //customer
@@ -155,8 +136,8 @@ function OrdersList(int $UserRole_id, string $StatusId = '', string $UserId = ''
         case 1:
         {
             return
-                $StatusId ? OrderPreparation(Order::where('status_id' , $StatusId)->orderBy('id', 'DESC')->get())
-            : OrderPreparation(Order::orderBy('id', 'DESC')->get());
+                $StatusId ? OrderPreparation(Order::where('status_id', $StatusId)->orderBy('id', 'DESC')->get())
+                    : OrderPreparation(Order::orderBy('id', 'DESC')->get());
 
         }
 
@@ -177,8 +158,8 @@ function GetSiteVisitors($day)
 
 function OnlineUsers()
 {
-    SetUsersMode();
     return User::Where('Mode', 'ON')->count();
+
 }
 
 //Get all employment requests except management and customers id's and departments
@@ -205,7 +186,6 @@ function TranslatorsList($OrderTranslationField, $OrderSourceLang, $OrderDestLan
 
     //get all active translators
     $Translators = User::where('Department', 4)->where('role_id', 5)->where('Status', 'A')->get();
-
     $TranslatorID = [];
     foreach ($Translators as $translator) {
         $TL = unserialize($translator->UserSelectedLangs);

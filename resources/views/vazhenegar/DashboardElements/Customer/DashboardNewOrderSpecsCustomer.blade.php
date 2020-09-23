@@ -19,7 +19,7 @@
                 <td class="pull-right"><span>مبلغ قابل پرداخت:</span></td>
 
                 <td class="pull-right">
-                    {{$PayablePrice=$Order->TotalPrice}} تومان
+                    {{$PayablePrice=$Order->TotalPrice}} ریال
                     <input type="hidden" name="Amount" value="{{$PayablePrice}}">
                 </td>
             </tr>
@@ -47,6 +47,8 @@
 
             </tr>
 
+
+
             {{--            when return back from bank portal--}}
             @if (session('bank_response'))
                 <tr class="BankResponse">
@@ -59,34 +61,51 @@
                     </td>
                 </tr>
             @endif
-
             </tbody>
         </table>
     </form>
+
+
+    {{--            test pay for customer invoice --}}
+{{--    <div>--}}
+
+{{--        <a onclick="event.preventDefault();--}}
+{{--            document.getElementById('tst').submit();">--}}
+
+{{--            <button type="button" class="btn btn-block"><i class="fa fa-dollar"></i>--}}
+{{--                پرداخت تست--}}
+{{--            </button>--}}
+{{--        </a>--}}
+{{--        <form id="tst" action="{{route('tstPay',[$Order->id, $Order->TotalPrice])}}" method="POST"--}}
+{{--              style="display: none;">--}}
+{{--            @csrf--}}
+{{--        </form>--}}
+
+{{--    </div>--}}
+
+
+
     @break
 
     @case(3)
-    <div class="SBankResponse">
+    <div class="SuccessBackground">
 
         <p class="SuccessBankResponse">
-            وضعیت سفارش:
-            {{\App\OrderStatus::where('id', $Order->status_id)->value('Status')}}
-            <br>
             پس از تایید واریز از طرف امور مالی، فایل شما برای مترجمین مرتبط ارسال خواهد شد.
         </p>
 
     </div>
     @break
 
-    @case(4)
-    <div >
-
-        <p >
-            وضعیت سفارش:
-            {{$OrderStatus}}
-        </p>
-
+    @case(8)
+    <p class="pull-right">
+        ترجمه سفارش خود را می توانید از طریق لینک مقابل دریافت نمایید.
+    </p>
+    <div class="pull-left">
+        <a href="{{route('Download',[$Order->user_id, $Order->TranslatedOrderFile])}}"> <button type="button" class="btn btn-primary"><i class="fa fa-arrow-down"></i> دانلود فایل
+            </button> </a>
     </div>
+
     @break
 
 @endswitch

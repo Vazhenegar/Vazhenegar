@@ -1,10 +1,6 @@
 {{--these contents will include in dashboard master MainLayout --}}
 @include('vazhenegar.DashboardElements.Admin.DashboardAdminBadges')
 
-{{-- this session will show list of orders according to user role and order list type --}}
-{{--@php(session(['List'=>'AllOrders','UserRole'=>DashboardCurrentUser::$Role]))--}}
-
-
 <!-- Main row -->
 <div class="row">
     <!-- right col -->

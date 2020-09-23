@@ -3,6 +3,11 @@
 
 <?php echo $__env->make('vazhenegar.DashboardElements.Translator.DashboardTranslatorBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<?php if(session('status')=='Translation Stored'): ?>
+    <script>alert("مترجم گرامی فایل ترجمه با موفقیت آپلود شد.")</script>
+<?php endif; ?>
+
+
 <!-- Main row -->
 <div class="row">
     <!-- right col -->

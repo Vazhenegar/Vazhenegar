@@ -38,7 +38,7 @@
 
         
 
-        <?php echo $__env->make('vazhenegar.DashboardElements.SharedParts.DashboardLeftSideBar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 
         

@@ -19,7 +19,7 @@
                 <td class="pull-right"><span>مبلغ قابل پرداخت:</span></td>
 
                 <td class="pull-right">
-                    <?php echo e($PayablePrice=$Order->TotalPrice); ?> تومان
+                    <?php echo e($PayablePrice=$Order->TotalPrice); ?> ریال
                     <input type="hidden" name="Amount" value="<?php echo e($PayablePrice); ?>">
                 </td>
             </tr>
@@ -47,6 +47,8 @@
 
             </tr>
 
+
+
             
             <?php if(session('bank_response')): ?>
                 <tr class="BankResponse">
@@ -60,36 +62,51 @@
                     </td>
                 </tr>
             <?php endif; ?>
-
             </tbody>
         </table>
     </form>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <?php break; ?>
 
     <?php case (3): ?>
-    <div class="SBankResponse">
+    <div class="SuccessBackground">
 
         <p class="SuccessBankResponse">
-            وضعیت سفارش:
-            <?php echo e(\App\OrderStatus::where('id', $Order->status_id)->value('Status')); ?>
-
-            <br>
             پس از تایید واریز از طرف امور مالی، فایل شما برای مترجمین مرتبط ارسال خواهد شد.
         </p>
 
     </div>
     <?php break; ?>
 
-    <?php case (4): ?>
-    <div >
-
-        <p >
-            وضعیت سفارش:
-            <?php echo e($OrderStatus); ?>
-
-        </p>
-
+    <?php case (8): ?>
+    <p class="pull-right">
+        ترجمه سفارش خود را می توانید از طریق لینک مقابل دریافت نمایید.
+    </p>
+    <div class="pull-left">
+        <a href="<?php echo e(route('Download',[$Order->user_id, $Order->TranslatedOrderFile])); ?>"> <button type="button" class="btn btn-primary"><i class="fa fa-arrow-down"></i> دانلود فایل
+            </button> </a>
     </div>
+
     <?php break; ?>
 
 <?php endswitch; ?>

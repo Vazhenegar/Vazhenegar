@@ -1,21 +1,21 @@
 {{--================ Badges For Customer ====================================--}}
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    {{--==================== Current Orders ================================--}}
+    {{--==================== New Orders ================================--}}
 
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
             @php/*count of orders that added by user and not complete yet will show here - fill from badges quantification in shared folder*/@endphp
-                <h3 id="CustomerCurrentOrders"></h3>
+                <h3 id="TranslatorNewOrders"></h3>
 
                 <p>سفارشات جدید</p>
             </div>
             <div class="icon">
                 <i class="fa fa-pencil-square-o"></i>
             </div>
-            <a href="{{route('OL',['1',DashboardCurrentUser::$id])}}" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '4'])}}" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -28,14 +28,14 @@
             <div class="inner">
 
                 @php/*count of orders that added by user and not complete yet will show here - fill from badges quantification in shared folder*/@endphp
-                <h3 id="CustomerFinishedOrders"></h3>
+                <h3 id="TranslatorFinishedOrders"></h3>
 
-                <p>سفارشات جاری</p>
+                <p>سفارشات تکمیل شده</p>
             </div>
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
             </div>
-            <a href="{{route('OL',['8',DashboardCurrentUser::$id])}}" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '8'])}}" class="small-box-footer">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -46,7 +46,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow-gradient">
             <div class="inner">
-                <h3 id="CustomerMessages">0</h3>
+                <h3 id="TranslatorMessages">0</h3>
 
                 <p>پیام ها</p>
             </div>
@@ -64,7 +64,7 @@
         <!-- small box -->
         <div class="small-box bg-light-blue-gradient">
             <div class="inner">
-                <h3 id="CustomerInvoices"></h3>
+                <h3 id="TranslatorPayableInvoices"></h3>
 
                 <p>جزئیات درآمد</p>
             </div>

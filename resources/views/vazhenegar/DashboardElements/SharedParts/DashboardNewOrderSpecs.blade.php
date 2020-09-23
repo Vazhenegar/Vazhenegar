@@ -53,7 +53,11 @@
 
                         <tr>
                             <td class="pull-right">تعداد کلمات:&nbsp; {{$Order->Amount}} &nbsp;&nbsp;&nbsp;</td>
-                            <td class="pull-right">مبلغ کل: &nbsp;{{$Order->TotalPrice}} &nbsp; تومان</td>
+                            @if(DashboardCurrentUser::$RoleId==5)
+                            <td class="pull-right">مبلغ کل: &nbsp;{{$Order->TotalPrice/2}} &nbsp; ریال</td>
+                            @else
+                            <td class="pull-right">مبلغ کل: &nbsp;{{$Order->TotalPrice}} &nbsp; ریال</td>
+                            @endif
                         </tr>
 
                         <tr>
@@ -88,7 +92,7 @@
                         </tr>
                         <tr>
                             <td class="pull-left">
-                                <a href="{{route('Download',['user_id'=>$Order->user_id, 'OrderFile'=>$Order->OrderFile])}}"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود فایل
+                                <a href="{{route('Download',['user_id'=>$Order->user_id, 'File'=>$Order->OrderFile])}}"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود فایل
                                 </button> </a>
                             </td>
                         </tr>
@@ -98,10 +102,17 @@
 
                     <hr>
 
+                    <div>
+                        <p>وضعیت
+                            سفارش:&nbsp; {{$OrderStatus}}
+                            &nbsp;&nbsp;&nbsp;
+                        </p>
+                    </div>
+
                     @if(DashboardCurrentUser::$Role=='مدیر')
                         @include('vazhenegar.DashboardElements.Admin.DashboardNewOrderSpecsAdmin')
                     @elseif(DashboardCurrentUser::$Role=='مترجم')
-                        {{'این کاربر مترجم است'}}
+                        @include('vazhenegar.DashboardElements.Translator.DashboardNewOrderSpecsTranslator')
                     @elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice)
                         @include('vazhenegar.DashboardElements.Customer.DashboardNewOrderSpecsCustomer')
 

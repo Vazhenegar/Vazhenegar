@@ -3,6 +3,11 @@
 
 @include('vazhenegar.DashboardElements.Translator.DashboardTranslatorBadges')
 
+@if(session('status')=='Translation Stored')
+    <script>alert("مترجم گرامی فایل ترجمه با موفقیت آپلود شد.")</script>
+@endif
+
+
 <!-- Main row -->
 <div class="row">
     <!-- right col -->

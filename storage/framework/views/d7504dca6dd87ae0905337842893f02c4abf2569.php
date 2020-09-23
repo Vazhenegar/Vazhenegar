@@ -1,20 +1,33 @@
 
 
 
+
 <script>
+
+    //general
+    let NewRegisteredOrders = <?php echo json_encode(count(DashboardCurrentUser::$NewRegisteredOrders), 15, 512) ?>;
+    let InProgressOrders = <?php echo json_encode(count(DashboardCurrentUser::$InProgressOrders), 15, 512) ?>;
+    let FinishedOrders = <?php echo json_encode(count(DashboardCurrentUser::$FinishedOrders), 15, 512) ?>;
+    let AllOrders =<?php echo json_encode(count(DashboardCurrentUser::$AllOrders), 15, 512) ?>;
+
+
     //admin
-    let AdminNewRegisteredOrders = <?php echo json_encode(count(DashboardCurrentUser::$AdminNewRegisteredOrders), 15, 512) ?>;
-    let AdminRejectedOrders = <?php echo json_encode(count(DashboardCurrentUser::$AdminRejectedOrders), 15, 512) ?>;
     let employmentRequest =<?php echo json_encode(DashboardCurrentUser::$employmentRequest, 15, 512) ?>;
     let OnlineUsers =<?php echo json_encode(DashboardCurrentUser::$OnlineUsers, 15, 512) ?>;
     let SiteVisitors =<?php echo json_encode(DashboardCurrentUser::$SiteVisitors, 15, 512) ?>;
+    let IssuedInvoices =<?php echo json_encode(count(DashboardCurrentUser::$IssuedInvoices), 15, 512) ?>;
     let PaidInvoices =<?php echo json_encode(count(DashboardCurrentUser::$PaidInvoices), 15, 512) ?>;
+    let AssignToTranslator =<?php echo json_encode(count(DashboardCurrentUser::$AssignToTranslator), 15, 512) ?>;
+    let OrderFinalCheck =<?php echo json_encode(count(DashboardCurrentUser::$OrderFinalCheck), 15, 512) ?>;
 
     //customer
+    let CRejectedOrders =<?php echo json_encode(count(DashboardCurrentUser::$CRejectedOrders), 15, 512) ?>;
     let CurrentCustomerId =<?php echo json_encode(DashboardCurrentUser::$CurrentUser->id, 15, 512) ?>;
-    let $CustomerCurrentOrders =<?php echo json_encode(count(DashboardCurrentUser::$CustomerCurrentOrders), 15, 512) ?>;
-    let CustomerFinishedOrders=<?php echo json_encode(count(DashboardCurrentUser::$CustomerFinishedOrders), 15, 512) ?>;
-    let invoices =<?php echo json_encode(count(DashboardCurrentUser::$CustomerInvoices), 15, 512) ?>;
+    let CustomerInvoices =<?php echo json_encode(count(DashboardCurrentUser::$CustomerInvoices), 15, 512) ?>;
+
+    //translator
+    let TRejectedOrders =<?php echo json_encode(count(DashboardCurrentUser::$TRejectedOrders), 15, 512) ?>;
+    let DeliveredOrders =<?php echo json_encode(count(DashboardCurrentUser::$DeliveredOrders), 15, 512) ?>;
 
 
     function setBadgeMenuValues(element_id, value, color) {
@@ -28,61 +41,87 @@
     }
 
     function setdata() {
-        // admin
-        setBadgeMenuValues("NewOrders", AdminNewRegisteredOrders);
-        setBadgeMenuValues("جدید", AdminNewRegisteredOrders, "yellow");
-        setBadgeMenuValues("لغو شده", AdminRejectedOrders, "red");
 
+
+        // admin
+        setBadgeMenuValues("NewOrders", NewRegisteredOrders);
+        setBadgeMenuValues("سفارشات جدید", NewRegisteredOrders, "yellow");
+        setBadgeMenuValues("لغو شده توسط مترجم", TRejectedOrders, "red");
+        setBadgeMenuValues("فاکتورهای صادر شده", IssuedInvoices, "blue");
+        setBadgeMenuValues("لغو شده توسط مشتری", CRejectedOrders, "red");
+        setBadgeMenuValues("دریافتی", PaidInvoices, "green");
+        setBadgeMenuValues("اختصاص به مترجم", AssignToTranslator, "yellow");
+        setBadgeMenuValues("سفارشات در حال انجام", InProgressOrders, "green");
+        setBadgeMenuValues("بررسی نهایی", OrderFinalCheck, "blue");
+        setBadgeMenuValues("لیست سفارشات تکمیل شده", FinishedOrders, "green");
+        setBadgeMenuValues("لیست تمام سفارشات", AllOrders, "white");
         setBadgeMenuValues("NewEmployment", employmentRequest);
         setBadgeMenuValues("درخواست همکاری", employmentRequest, "yellow");
         setBadgeMenuValues("OnlineUsers", OnlineUsers);
         setBadgeMenuValues("SiteVisitors", SiteVisitors);
-        setBadgeMenuValues("دریافتی", PaidInvoices, "green");
 
         // customer
-        setBadgeMenuValues("CustomerCurrentOrders", $CustomerCurrentOrders);
-        setBadgeMenuValues("CustomerFinishedOrders", CustomerFinishedOrders);
-        setBadgeMenuValues("تکمیل شده", CustomerFinishedOrders, "green");
+        setBadgeMenuValues("CustomerNewOrders", NewRegisteredOrders);
+        setBadgeMenuValues("ثبت شده", NewRegisteredOrders, "green");
+        setBadgeMenuValues("در حال انجام", InProgressOrders, "green");
+        setBadgeMenuValues("لغو شده", CRejectedOrders, "red");
+        setBadgeMenuValues("CustomerFinishedOrders", FinishedOrders);
+        setBadgeMenuValues("سفارشات تکمیل شده", FinishedOrders, "green");
+        setBadgeMenuValues("لیست سفارشات", AllOrders, "white");
+        setBadgeMenuValues("CustomerInvoices", CustomerInvoices);
+        setBadgeMenuValues("فاکتور", CustomerInvoices, "blue");
 
-        setBadgeMenuValues("CustomerInvoices", invoices);
-        setBadgeMenuValues("فاکتور", invoices, "yellow");
+        // translator
+        setBadgeMenuValues("TranslatorNewOrders", AssignToTranslator);
+        setBadgeMenuValues("جدید", AssignToTranslator, "green");
+        setBadgeMenuValues("دریافت شده", InProgressOrders, "green");
+        setBadgeMenuValues("تحویل شده", DeliveredOrders, "blue");
+        setBadgeMenuValues("TranslatorFinishedOrders", FinishedOrders);
+        setBadgeMenuValues("تکمیل شده", FinishedOrders, "green");
+        setBadgeMenuValues("سفارشات لغو شده", TRejectedOrders, "red");
+        setBadgeMenuValues("تمام سفارشات", AllOrders, "white");
+
+
     }
 
     setdata();
 
+    //  ====================  Refresh dashboard data every 30 seconds ===================
 
-    
-
-
-    
-    
+    // ========================General
+    // ==========for new orders
 
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url:'<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '1',''])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '1'])); ?>',
             success: function (response) {
-                AdminNewRegisteredOrders = response.length;
+                NewRegisteredOrders = response.length;
+                setdata();
+            }
+        });
+    }, 30000);
+
+    // ====================  for customer invoices ===================
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '2'])); ?>',
+            success: function (data) {
+                CustomerInvoices = data.length;
+                IssuedInvoices = data.length;
                 setdata();
             }
         });
     }, 30000);
 
 
-    
 
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url:'<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '10',''])); ?>',
-            success: function (response) {
-                AdminRejectedOrders = response.length;
-                setdata();
-            }
-        });
-    }, 30000);
+    // ========================General End
 
-    
+    // ========================Admin
+    // =========== online users
 
     setInterval(function () {
         $.ajax({
@@ -97,7 +136,7 @@
     }, 30000);
 
 
-    
+    // =========== new employment
 
     setInterval(function () {
         $.ajax({
@@ -110,9 +149,10 @@
         });
     }, 30000);
 
-    
 
-    let day = 2;
+    // =========== daily visitors
+
+    let day = 1;
     let token = "<?php echo e(csrf_token()); ?>";
     setInterval(function () {
         $.ajax({
@@ -127,47 +167,94 @@
     }, 30000);
 
 
-    
+    // =========== orders that invoices already paid
 
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '3',''])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '3'])); ?>',
             success: function (data) {
                 PaidInvoices = data.length;
                 setdata();
             }
         });
     }, 30000);
-</script>
 
 
-
-
-
-<script>
-
-    //     ====================  for customer New Orders ===================
+    //  ====================  for orders that waiting to assign to translator ================
 
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '1',DashboardCurrentUser::$id])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '4'])); ?>',
             success: function (data) {
-                $CustomerCurrentOrders = data.length;
+                AssignToTranslator = data.length;
                 setdata();
             }
         });
     }, 30000);
 
 
-   //     ====================  for customer Finished Orders ===================
+
+    //  ====================  for orders that waiting to assign to translator ================
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '5'])); ?>',
+            success: function (data) {
+                InProgressOrders = data.length;
+                setdata();
+            }
+        });
+    }, 30000);
+
+
+
+    //  ====================  order final check ================
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '6'])); ?>',
+            success: function (data) {
+                OrderFinalCheck = data.length;
+                DeliveredOrders = data.length;
+                setdata();
+            }
+        });
+    }, 30000);
+
+
+
+    //  ====================  for rejected orders ===================
+
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id,'10'])); ?>',
+            success: function (response) {
+                AdminRejectedOrders = response.length;
+                setdata();
+            }
+        });
+    }, 30000);
+
+
+
+    //    End of admin badges and menus
+    //==============================================
+
+
+    //For customer badges and menus
+
+    //     ====================  for customer Finished Orders ===================
 
     setInterval(function () {
 
         $.ajax({
             type: "GET",
-            url:'<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '8',DashboardCurrentUser::$id])); ?>',
+            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '8'])); ?>',
             success: function (data) {
                 CustomerFinishedOrders = data.length;
                 setdata();
@@ -175,18 +262,6 @@
         });
     }, 30000);
 
-    // ====================  for customer invoices ===================
-
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: '<?php echo e(route('GetOrders',[DashboardCurrentUser::$RoleId, '2',DashboardCurrentUser::$id])); ?>',
-            success: function (data) {
-                invoices = data.length;
-                setdata();
-            }
-        });
-    }, 30000);
 
     //     End of customer badges and menus
     // ==============================================

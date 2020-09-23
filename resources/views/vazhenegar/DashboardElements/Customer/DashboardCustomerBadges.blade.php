@@ -8,14 +8,14 @@
         <div class="small-box bg-aqua-gradient">
             <div class="inner">
             @php/*count of orders that added by user and not complete yet will show here - fill from badges quantification in shared folder*/@endphp
-                <h3 id="CustomerCurrentOrders"></h3>
+                <h3 id="CustomerNewOrders"></h3>
 
-                <p>سفارشات جاری</p>
+                <p>سفارشات جدید</p>
             </div>
             <div class="icon">
                 <i class="fa fa-pencil-square-o"></i>
             </div>
-            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, '1',DashboardCurrentUser::$id])}}" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '1'])}}" class="small-box-footer" onclick="{{session(['StatusId'=>'1'])}}">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <div class="icon">
                 <i class="fa fa-check-square-o"></i>
             </div>
-            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, '8',DashboardCurrentUser::$id])}}" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '8'])}}" class="small-box-footer" onclick="{{session(['StatusId'=>'8'])}}">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>
@@ -71,7 +71,7 @@
             <div class="icon">
                 <i class="fa fa-money"></i>
             </div>
-            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, '2',DashboardCurrentUser::$id])}}" class="small-box-footer">اطلاعات بیشتر <i
+            <a href="{{route('OL',[DashboardCurrentUser::$RoleId, DashboardCurrentUser::$id, '2'])}}" class="small-box-footer" onclick="{{session(['StatusId'=>'2'])}}">اطلاعات بیشتر <i
                     class="fa fa-arrow-circle-left"></i></a>
         </div>
     </div>

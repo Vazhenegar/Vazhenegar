@@ -52,7 +52,11 @@
 
                         <tr>
                             <td class="pull-right">تعداد کلمات:&nbsp; <?php echo e($Order->Amount); ?> &nbsp;&nbsp;&nbsp;</td>
-                            <td class="pull-right">مبلغ کل: &nbsp;<?php echo e($Order->TotalPrice); ?> &nbsp; تومان</td>
+                            <?php if(DashboardCurrentUser::$RoleId==5): ?>
+                            <td class="pull-right">مبلغ کل: &nbsp;<?php echo e($Order->TotalPrice/2); ?> &nbsp; ریال</td>
+                            <?php else: ?>
+                            <td class="pull-right">مبلغ کل: &nbsp;<?php echo e($Order->TotalPrice); ?> &nbsp; ریال</td>
+                            <?php endif; ?>
                         </tr>
 
                         <tr>
@@ -88,7 +92,7 @@
                         </tr>
                         <tr>
                             <td class="pull-left">
-                                <a href="<?php echo e(route('Download',['user_id'=>$Order->user_id, 'OrderFile'=>$Order->OrderFile])); ?>"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود فایل
+                                <a href="<?php echo e(route('Download',['user_id'=>$Order->user_id, 'File'=>$Order->OrderFile])); ?>"> <button type="button" class="btn btn-success"><i class="fa fa-arrow-down"></i> دانلود فایل
                                 </button> </a>
                             </td>
                         </tr>
@@ -98,11 +102,18 @@
 
                     <hr>
 
+                    <div>
+                        <p>وضعیت
+                            سفارش:&nbsp; <?php echo e($OrderStatus); ?>
+
+                            &nbsp;&nbsp;&nbsp;
+                        </p>
+                    </div>
+
                     <?php if(DashboardCurrentUser::$Role=='مدیر'): ?>
                         <?php echo $__env->make('vazhenegar.DashboardElements.Admin.DashboardNewOrderSpecsAdmin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php elseif(DashboardCurrentUser::$Role=='مترجم'): ?>
-                        <?php echo e('این کاربر مترجم است'); ?>
-
+                        <?php echo $__env->make('vazhenegar.DashboardElements.Translator.DashboardNewOrderSpecsTranslator', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     <?php elseif(DashboardCurrentUser::$Role=='مشتری' && $Order->user_id==DashboardCurrentUser::$CurrentUser->id && $Order->TotalPrice): ?>
                         <?php echo $__env->make('vazhenegar.DashboardElements.Customer.DashboardNewOrderSpecsCustomer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

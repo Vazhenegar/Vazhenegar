@@ -2,7 +2,7 @@
 
     <?php echo $__env->make('vazhenegar.DashboardElements.SharedParts.DashboardCurrentUser', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-    <?php switch(DashboardCurrentUser::$CurrentUser->role()->value('id')):
+    <?php switch(DashboardCurrentUser::$RoleId):
             
             case (1): ?>
                 <?php $__env->startSection('Title', ' پنل '.DashboardCurrentUser::$Role); ?>

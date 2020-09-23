@@ -3,7 +3,7 @@
 
     @include('vazhenegar.DashboardElements.SharedParts.DashboardCurrentUser')
 
-    @switch(DashboardCurrentUser::$CurrentUser->role()->value('id'))
+    @switch(DashboardCurrentUser::$RoleId)
             {{--=============================== ِ Admin =======================================--}}
             @case(1)
                 @section('Title', ' پنل '.DashboardCurrentUser::$Role)

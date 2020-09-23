@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Redirect;
 use nusoap_client;
 
 class Payment
 {
+    protected $fillable=['BankName', 'Logo', 'MerchantCode','ClientAddress'];
+
     public $MerchantID;
     /**
      * @var array
@@ -15,10 +18,8 @@ class Payment
     public function __construct()
     {
         $this->zarinpal = [
-            'MerchantID' => 'r43a23c8-5435-h65-bcca-0987295eb087',
-//            'MerchantID' => 'b51a23c8-e045-11ea-bcca-000c295eb8fc',
-            'client_address'=>'https://sandbox.zarinpal.com/pg/v4/payment/request.json',
-//            'client_address'=>'https://www.zarinpal.com/pg/services/WebGate/wsdl',
+            'merchant_id' =>Bank::where('BankName', 'zarinpal')->value('MerchantCode'),  // 'b51a23c8-e045-11ea-bcca-000c295eb8fc',
+            'client_address'=>Bank::where('BankName', 'zarinpal')->value('ClientAddress'),
         ];
 
 
@@ -30,17 +31,16 @@ class Payment
         $Description = 'پرداخت وجه سفارش ترجمه شماره '.$OrderId;
         $CallbackURL =route('BankResponse');
 
-
-        $data = [
-            "merchant_id" => $this->$Client['MerchantID'],
+        $data = array("merchant_id" => $this->$Client['merchant_id'],
             "amount" => $Amount,
             "callback_url" => $CallbackURL,
             'description' => $Description,
-            'metadata' => ['mobile' => $Mobile,'email' => $Email],
-        ];
+            'metadata' => ['mobile' => $Mobile,'email' => $Email,],
+        );
+
         $jsonData = json_encode($data);
 
-        $ch = curl_init($Client['client_address']);
+        $ch=curl_init($this->$Client['client_address']);
         curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
@@ -52,10 +52,8 @@ class Payment
 
         $result = curl_exec($ch);
         $err = curl_error($ch);
-
         $result = json_decode($result, true, JSON_PRETTY_PRINT);
         curl_close($ch);
-
 
 
         if ($err) {
@@ -63,7 +61,7 @@ class Payment
         } else {
             if (empty($result['errors'])) {
                 if ($result['data']['code'] == 100) {
-                    header('Location: https://sandbox.zarinpal.com/pg/StartPay/' . $result['data']["authority"]);
+                    return $result;
                 }
             } else {
                 echo '<p>' .

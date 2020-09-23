@@ -9,6 +9,10 @@
         <?php echo $__env->make('vazhenegar.DashboardElements.Admin.DashboardAdminBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php break; ?>
 
+        <?php case ('مترجم'): ?>
+        <?php echo $__env->make('vazhenegar.DashboardElements.Translator.DashboardTranslatorBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php break; ?>
+
         <?php case ('مشتری'): ?>
         <?php echo $__env->make('vazhenegar.DashboardElements.Customer.DashboardCustomerBadges', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php break; ?>
@@ -23,8 +27,8 @@
                 
                 case ('1'): ?>
                 <?php
-                if ($UserId && DashboardCurrentUser::$Role=='مشتری')
-                    echo '<h3 class="box-title">لیست سفارشات جاری</h3>';
+                if (DashboardCurrentUser::$Role=='مشتری')
+                    echo '<h3 class="box-title">لیست سفارشات ثبت شده</h3>';
                 else
                     //For both admin and translator, title would be this
                     echo '<h3 class="box-title">لیست سفارشات جدید</h3>';
@@ -34,13 +38,30 @@
 
                 
                 <?php case ('2'): ?>
-                <?php
-                if ($UserId && DashboardCurrentUser::$Role=='مشتری')
-                    echo '<h3 class="box-title">فاکتورهای صادر شده</h3>';
-                else
-                    echo '<h3 class="box-title">لیست سفارشات دریافتی</h3>';
-                ?>
+                    <h3 class="box-title">فاکتورهای صادر شده</h3>
+
                 <?php break; ?>
+
+ 
+                <?php case ('3'): ?>
+
+                    <h3 class="box-title">لیست سفارشات دریافتی</h3>
+
+                <?php break; ?>
+
+
+                
+                <?php case ('4'): ?>
+                <?php
+                if (DashboardCurrentUser::$Role=='مترجم')
+                    echo '<h3 class="box-title">لیست سفارشات جدید</h3>';
+                else
+                    echo '<h3 class="box-title">لیست سفارشات آماده ارائه به مترجم</h3>';
+
+                ?>
+
+                <?php break; ?>
+
 
 
                 
@@ -49,10 +70,27 @@
                 <?php break; ?>
 
 
+
                 
-                <?php case ('10'): ?>
-                <h3 class="box-title">لیست سفارشات لغو شده</h3>
+                <?php case ('6'): ?>
+                <?php
+                if (DashboardCurrentUser::$Role=='مترجم')
+                    echo '<h3 class="box-title">لیست سفارشات تحویل شده</h3>';
+                else
+                    echo '<h3 class="box-title"></h3>';
+
+                ?>
                 <?php break; ?>
+
+
+
+
+
+                
+                <?php case ('7'): ?>
+                <h3 class="box-title">لیست سفارشات جهت بررسی نهایی</h3>
+                <?php break; ?>
+
 
 
                 
@@ -60,6 +98,18 @@
                 <h3 class="box-title">لیست سفارشات تکمیل شده</h3>
                 <?php break; ?>
 
+
+
+                
+                <?php case ('9'): ?>
+                <h3 class="box-title">لیست سفارشات لغو شده</h3>
+                <?php break; ?>
+
+
+                
+                <?php case ('10'): ?>
+                <h3 class="box-title">لیست سفارشات لغو شده</h3>
+                <?php break; ?>
 
                 
                 <?php case (''): ?>
@@ -100,12 +150,9 @@
                 </tr>
                 </thead>
                 <tbody>
-
-                <?php if($List==null): ?>
+                <?php if(count($List)==0): ?>
                     <tr>
-                        <td align='center' colspan='8'>سفارشی وجود ندارد</td>
-
-
+                        <td align='center' colspan='8'>موردی وجود ندارد</td>
                     </tr>
                 <?php else: ?>
                     <?php
@@ -134,73 +181,8 @@
     </div>
 
 
-    
-    <script>
-
-        let Role =<?php echo json_encode(DashboardCurrentUser::$Role, 15, 512) ?>;
-        let userId = '';
-        if (Role != 'مدیر') {
-            userId =<?php echo json_encode(DashboardCurrentUser::$id, 15, 512) ?>;
-        }
-        let statusId = "<?php echo e(session('StatusId')); ?>";
-
-        setInterval(function () {
-
-            $.ajax({
-                type: "GET",
-                url: '/dashboard/OrdersList/' + statusId + '/' + userId,
-                dataType: 'json',
-                success: function (response) {
-                    let len = 0;
-                    $('#OrdersTable tbody').empty(); // Empty <tbody>
-                    if (response != null) {
-                        len = response.length;
-                    }
-                    if (len > 0) {
-                        for (let i = 0; i < len; i++) {
-                            let OrderId = response[i].id;
-                            let OrderSubject = response[i].OrderSubject;
-                            let RDate = response[i].RegisterDate;
-                            let DDate = response[i].DeliveryDate;
-                            let Status = response[i].Status;
-                            let StatusDescription = response[i].StatusDescription;
-
-                            let tr =
-                                "<tr>" +
-                                "<td>" + (i + 1) + "</td>" +
-                                "<td>" + OrderId + "</td>" +
-                                "<td>" + OrderSubject + "</td>" +
-                                "<td class='NumberDirectionFixer'>" + RDate + "</td>" +
-                                "<td class='NumberDirectionFixer'>" + DDate + "</td>" +
-                                "<td><a data-toggle='tooltip' data-placement='bottom' title=' + StatusDescription + '>" + Status + "</a></td>" +
-                                "<td>" +
-                                "<a href='/Order/" + OrderId + "'><button type='button' class='btn btn-primary'><i class='fa fa-eye'></i></button></a>" + "&nbsp;" +
-                                "</td>" +
-                                "</tr>";
-                            $("#OrdersTable tbody").append(tr);
-                        }
-
-                    } else {
-                        let tr_str = "<tr>" +
-                            "<td align='center' colspan='9'>سفارش جدیدی وجود ندارد</td>" +
-                            "</tr>";
-
-                        $("#OrdersTable tbody").append(tr_str);
-                    }
-
-                }
-            });
-        }, 30000);
 
 
-    </script>
-
-    
-    <script>
-        function ShowNewBankRow() {
-            document.getElementById('AddNewBank').style.display = 'contents';
-        }
-    </script>
 
 
 

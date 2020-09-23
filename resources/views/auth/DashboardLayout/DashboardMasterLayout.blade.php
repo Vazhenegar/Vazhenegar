@@ -38,7 +38,7 @@
 
         {{--=========================================================--}}
 
-        @include('vazhenegar.DashboardElements.SharedParts.DashboardLeftSideBar')
+{{--        @include('vazhenegar.DashboardElements.SharedParts.DashboardLeftSideBar')--}}
 
 
         {{--   main content of dashboard      --}}
