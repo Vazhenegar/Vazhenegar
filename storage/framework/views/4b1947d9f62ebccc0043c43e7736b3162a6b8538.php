@@ -1,5 +1,5 @@
 
-{{-- Index Welcome Area --}}
+
 
 <section class="welcome-area">
     <div class="welcome-slides owl-carousel">
@@ -8,7 +8,7 @@
         <div class="single-welcome-slide" dir="rtl">
             <!-- Background Curve -->
             <div class="background-curve">
-                <img src="{{asset('images/core-img/curve-1.png')}}" alt="">
+                <img src="<?php echo e(asset('images/core-img/curve-1.png')); ?>" alt="">
             </div>
 
             <!-- Welcome Content -->
@@ -22,7 +22,7 @@
                                     زبان در
                                     <span>واژه نگار</span></h2>
                                 <h5 data-animation="fadeInUp" data-delay="400ms">کیفیت تعهد ماست</h5>
-                                <a href="{{route('Order.index')}}" class="btn uza-btn btn-2">ثبت سفارش</a>
+                                <a href="/dashboard/Order" class="btn uza-btn btn-2">ثبت سفارش</a>
                             </div>
 
                         </div>
@@ -30,7 +30,7 @@
                         <!-- Welcome Thumbnail -->
                         <div class="col-12 col-md-6">
                             <div class="welcome-thumbnail">
-                                <img class="ImageSmoothEdge" src="{{asset('images/site/index slider1.png')}}" alt=""
+                                <img class="ImageSmoothEdge" src="<?php echo e(asset('images/site/index slider1.png')); ?>" alt=""
                                      data-animation="slideInLeft" data-delay="400ms">
                             </div>
                         </div>
@@ -45,7 +45,7 @@
         <div class="single-welcome-slide" dir="rtl">
             <!-- Background Curve -->
             <div class="background-curve">
-                <img src="{{asset('images/core-img/curve-1.png')}}" alt="">
+                <img src="<?php echo e(asset('images/core-img/curve-1.png')); ?>" alt="">
             </div>
 
             <!-- Welcome Content -->
@@ -58,14 +58,14 @@
                                 <h2 data-animation="fadeInUp" data-delay="100ms"><span>زمان شما </span><br> برای ما نیز
                                     <span>ارزشمند است</span></h2>
                                 <h5 data-animation="fadeInUp" data-delay="400ms">تحویل دقیق و بموقع </h5>
-                                <a href="{{route('Order.index')}}" class="btn uza-btn btn-2">ثبت سفارش</a>
+                                <a href="/dashboard/Order" class="btn uza-btn btn-2">ثبت سفارش</a>
                             </div>
 
                         </div>
                         <!-- Welcome Thumbnail -->
                         <div class="col-12 col-md-6">
                             <div class="welcome-thumbnail">
-                                <img class="ImageSmoothEdge" src="{{asset('images/site/index slider2.jpg')}}" alt=""
+                                <img class="ImageSmoothEdge" src="<?php echo e(asset('images/site/index slider2.jpg')); ?>" alt=""
                                      data-animation="slideInLeft" data-delay="400ms">
                             </div>
                         </div>
@@ -78,7 +78,7 @@
         <div class="single-welcome-slide" dir="rtl">
             <!-- Background Curve -->
             <div class="background-curve">
-                <img src="{{asset('images/core-img/curve-1.png')}}" alt="">
+                <img src="<?php echo e(asset('images/core-img/curve-1.png')); ?>" alt="">
             </div>
 
             <!-- Welcome Content -->
@@ -92,7 +92,7 @@
                                     زمینه های تخصصی
                                     <span>مورد نیاز شما</span></h3>
                                 <h5 data-animation="fadeInUp" data-delay="400ms">مترجمین حرفه ای در همان رشته</h5>
-                                <div class="BtnPaddingFixer"> <a href="{{route('Order.index')}}" class="btn uza-btn btn-2">ثبت سفارش</a> </div>
+                                <div class="BtnPaddingFixer"> <a href="/dashboard/Order" class="btn uza-btn btn-2">ثبت سفارش</a> </div>
                             </div>
 
                         </div>
@@ -100,7 +100,7 @@
                         <!-- Welcome Thumbnail -->
                         <div class="col-12 col-md-6">
                             <div class="welcome-thumbnail">
-                                <img class="ImageSmoothEdge" src="{{asset('images/site/index slider3.jpg')}}" alt=""
+                                <img class="ImageSmoothEdge" src="<?php echo e(asset('images/site/index slider3.jpg')); ?>" alt=""
                                      data-animation="slideInLeft" data-delay="400ms">
                             </div>
                         </div>
@@ -114,4 +114,5 @@
 
     </div>
 </section>
-{{-- INDEX WELCOME AREA --}}
+
+<?php /**PATH D:\projects\vazhenegar\Main Project\resources\views/vazhenegar/IndexElements/IndexPageSlides.blade.php ENDPATH**/ ?>

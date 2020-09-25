@@ -7,8 +7,6 @@ Route::get('/ClearAllCaches', function () {
     Artisan::call('route:clear');
     Artisan::call('cache:clear');
     Artisan::call('config:cache');
-    Artisan::call('route:cache');
-    Artisan::call('view:cache');
 });
 
 //---------- DB Migration Routes

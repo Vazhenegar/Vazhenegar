@@ -67,7 +67,7 @@ class OrderController extends Controller
             'source_lang' => ['required'],
             'dest_lang' => ['required'],
             'TranslationField' => ['required'],
-            'OrderFile' => ['required', 'max:19999', 'mimes:rar,zip'],
+            'OrderFile' => ['required', 'max:49999', 'mimes:rar,zip'],
             'NewOrderDeliveryDate' => ['required'],
             'NewOrderDeliveryDateAlt' => ['required'],
             'TranslationParts' => ['nullable', 'array'],
@@ -285,7 +285,7 @@ class OrderController extends Controller
         $OrderFileName=explode('.',$Order->OrderFile)[0]; //extract order file name of that order and pick just the filename without extension
 
         $rules = [
-            'TranslatedOrder' => ['required', 'max:19999', 'mimes:rar,zip'],
+            'TranslatedOrder' => ['required', 'max:49999', 'mimes:rar,zip'],
         ];
         $this->validate($request, $rules);
 
